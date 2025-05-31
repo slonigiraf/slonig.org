@@ -24,7 +24,7 @@ const Video = () => {
                                             <Modal isOpen={modal} toggle={toggle} centered={true} size="lg">
                                                 <ModalHeader toggle={toggle} className="modal-no-header close-up"></ModalHeader>
                                                 <ModalBody className="iframe-modal">
-                                                    <iframe className="mfp-iframe" frameBorder="0" allowFullScreen="" src="//www.youtube.com/embed/NMAvv98uXHE?autoplay=1"></iframe>
+                                                    <iframe className="mfp-iframe" frameBorder="0" allowFullScreen="" src="//www.youtube.com/embed/J9MrSp465b8?autoplay=1"></iframe>
                                                 </ModalBody>
                                             </Modal>
                                         </div>
