@@ -14,7 +14,7 @@ const Service = () => (
                                 <h2 className="about-font-header">Research-proven pedagogy</h2>
                             </div>
                             <div className="format-sub-text">
-                                <p className="about-para">Slonig was developed by teachers, psychologists, and students, grounded in research and refined through multiple rounds of testing and improvement.</p>
+                                <p className="about-para">For decades, peer tutoring has been recognized as one of the most effective ways to teach. Slonig makes it effortless for teachers to implement.</p>
                             </div>
                             <a className=" btn btn-default btn-gradient" href="https://bit.ly/denslon_talk">Discover</a>
                         </div>

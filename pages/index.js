@@ -18,8 +18,8 @@ const Home = () => {
   return (
     <div className="theme-color" >
         <Head>
-            <title>Slonig | Effortless Teaching Through Peer Exchange</title>
-            <meta name='Slonig | Effortless Teaching Through Peer Exchange' content='' />
+            <title>Slonig | Peer Tutoring App for Classrooms</title>
+            <meta name='Slonig | Peer Tutoring App for Classrooms' content='' />
         </Head>
         <CookieManagerClient />
 

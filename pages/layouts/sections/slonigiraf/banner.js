@@ -21,7 +21,7 @@ const Banner = () => (
                                 </div>
                                 <div className="header-sub-text">
                                     <p>Slonig turns a classroom full of students into a space full of young tutors.
-                                        Using game theory, we ensure that every student actively participates in both learning and tutoring—while the teacher can finally rest and observe.</p>
+                                        Using game theory, we ensure that every student actively participates in both learning and peer tutoring—while the teacher can finally rest and observe.</p>
                                 </div>
                                 <div className="link-horizontal">
                                     <ul>
