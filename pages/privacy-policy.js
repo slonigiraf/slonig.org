@@ -82,7 +82,7 @@ const Policy = () => {
             <p>We retain your personal data only as long as necessary to fulfill the purposes for which it was collected or to comply with legal obligations.</p>
 
             <h4>8. Cookies</h4>
-            <p>We use cookies and similar tracking technologies to enhance your experience. These cookies may include analytics cookies set by third parties. You can manage your cookie preferences through your browser settings. For more information, see our <a href="/cookie-policy" target="_blank">Cookie Policy</a>.</p>
+            <p>We use cookies and similar tracking technologies to enhance your experience. These cookies may include analytics cookies set by third parties. You can manage your cookie preferences through your browser settings.</p>
 
             <h4>9. Children’s Privacy</h4>
             <p>Our services are not directed to children under the age of 13 (or the equivalent age in your jurisdiction). We do not knowingly collect personal data from children without parental consent.</p>
