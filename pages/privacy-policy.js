@@ -61,7 +61,7 @@ const Policy = () => {
             <p>
               Under GDPR, the legal basis for processing this limited technical data is our
               legitimate interest in understanding website usage and ensuring service
-              functionality. We configure Matomo to avoid collecting personal data or
+              functionality. We configure analytics to avoid collecting personal data or
               persistent identifiers, which means tracking is anonymous and cannot be linked
               to individual users.
             </p>
