@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, { useEffect } from 'react'
 import Head from 'next/head'
 // import Custom Components
 import Header from './layouts/sections/slonigiraf/header'
@@ -11,37 +11,53 @@ import ExpertSection from './layouts/sections/slonigiraf/expert'
 import TestimonialSection from './layouts/sections/slonigiraf/testimonial'
 import BlogSection from './layouts/sections/slonigiraf/blog'
 import FooterSection from './layouts/sections/slonigiraf/footer'
-import CookieManagerClient from './layouts/sections/slonigiraf/cookieManagerClient'
+import Script from "next/script";
 
 const Home = () => {
 
   return (
     <div className="theme-color" >
-        <Head>
-            <title>Slonig | Peer Tutoring App for Classrooms</title>
-            <meta name='Slonig | Peer Tutoring App for Classrooms' content='' />
-        </Head>
-        <CookieManagerClient />
+      <Head>
+        <title>Slonig | Peer Tutoring App for Classrooms</title>
+        <meta name='Slonig | Peer Tutoring App for Classrooms' content='' />
+      </Head>
 
-        <Header className="agency" />
+      {/* Matomo Tracking */}
+      <Script id="matomo" strategy="afterInteractive">
+        {`
+            var _paq = window._paq = window._paq || [];
+            /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+            _paq.push(['trackPageView']);
+            _paq.push(['enableLinkTracking']);
+            (function() {
+              var u="//matomo.slonig.org/";
+              _paq.push(['setTrackerUrl', u+'matomo.php']);
+              _paq.push(['setSiteId', '2']);
+              var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+              g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+            })();
+        `}
+      </Script>
 
-        <BannerSection />
+      <Header className="agency" />
 
-        <VideoSection />
+      <BannerSection />
 
-        <AboutSection />
+      <VideoSection />
 
-        <ServiceSection />
+      <AboutSection />
 
-        <TestimonialSection />
+      <ServiceSection />
 
-        <ExpertSection />
+      <TestimonialSection />
 
-        <WorkSection />
+      <ExpertSection />
 
-        <BlogSection />
+      <WorkSection />
 
-        <FooterSection />
+      <BlogSection />
+
+      <FooterSection />
 
     </div>
   )
