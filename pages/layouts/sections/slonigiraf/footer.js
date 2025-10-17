@@ -61,7 +61,7 @@ const Footer = () => (
                                         <a href="/assets/pdf/site.Slonig-paper.pdf">Whitepaper</a>
                                     </li>
                                     <li>
-                                        <a href="https://github.com/slonigiraf/">Our Github</a>
+                                        <a href="https://github.com/slonigiraf/slonig">Our Github</a>
                                     </li>
                                     <li>
                                         <a href="/privacy-policy">Privacy policy</a>

@@ -12,7 +12,7 @@ export const MENUITEMS = [
          { path: 'https://bit.ly/denslon_talk', title: 'Learn how to use', type: 'link' },
          { path: 'https://app.slonig.org', title: 'Slonig App', type: 'link' },
          { path: 'https://www.patreon.com/denslon_eng', title: 'Donate', type: 'link' },
-         { path: 'https://github.com/slonigiraf', title: 'Github', type: 'link' },
+         { path: 'https://github.com/slonigiraf/slonig', title: 'Github', type: 'link' },
          { path: '/assets/pdf/site.Slonig-paper.pdf', title: 'Read the whitepaper', type: 'link' },
          { path: '#contact', title: 'Contact', type: 'link' },
       ]
