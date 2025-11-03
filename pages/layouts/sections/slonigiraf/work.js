@@ -5,7 +5,7 @@ const Work = () => (
         <Container>
             <Row>
                 <Col md="3" xs="6" className="counter-container">
-                    <div className="counters hover-counter">
+                    <div className="counters hover-counter active">
                         <img alt="" className="img-fluid counter-img" src="/assets/images/agency/counter/1.png" />
                         <div className="counter-text">
                             <div className="count-number">
@@ -31,7 +31,7 @@ const Work = () => (
                     </div>
                 </Col>
                 <Col md="3" xs="6" className="counter-container">
-                    <div className="counters hover-counter">
+                    <div className="counters hover-counter active">
                         <img alt="" className="img-fluid counter-img" src="/assets/images/agency/counter/2.png" />
                         <div className="counter-text">
                             <div className="count-number">
@@ -44,7 +44,7 @@ const Work = () => (
                     </div>
                 </Col>
                 <Col md="3" xs="6" className="counter-container">
-                    <div className="counters hover-counter">
+                    <div className="counters hover-counter active">
                         <img alt="" className="img-fluid counter-img" src="/assets/images/agency/service/1.png" />
                         <div className="counter-text">
                             <div className="count-number">
