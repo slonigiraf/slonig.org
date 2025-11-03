@@ -21,7 +21,7 @@ const Banner = () => {
                                     <div className="m-b-20">
                                         <a className="button" href="#javascript" onClick={toggleMobileVideo}>
                                             <img alt="" className="img-fluid video-img"
-                                                src="/assets/images/agency/videos/icon-slon.png" style={{ width: "80%" }} />
+                                                src="/assets/images/agency/videos/video_preview.jpg" style={{ width: "80%" }} />
                                         </a>
                                         <Modal isOpen={mobileModal} toggle={toggleMobileVideo} centered={true} size="lg">
                                             <ModalHeader toggle={toggleMobileVideo} className="modal-no-header close-up"></ModalHeader>
@@ -67,12 +67,12 @@ const Banner = () => {
                         <div className="m-b-20">
                             <a className="button" href="#javascript" onClick={toggleDesktopVideo}>
                                 <img alt="" className="img-fluid video-img"
-                                    src="/assets/images/agency/videos/icon-slon.png" />
+                                    src="/assets/images/agency/videos/video_preview.jpg" />
                             </a>
                             <Modal isOpen={desktopModal} toggle={toggleDesktopVideo} centered={true} size="lg">
                                 <ModalHeader toggle={toggleDesktopVideo} className="modal-no-header close-up"></ModalHeader>
                                 <ModalBody className="iframe-modal">
-                                    <iframe className="mfp-iframe" frameBorder="0" allowFullScreen="" src="//www.youtube.com/embed/NfIkgpYl83s?autoplay=1"></iframe>
+                                    <iframe className="mfp-iframe" frameBorder="0" allowFullScreen="" src="//www.youtube.com/embed/NfIkgpYl83s?autoplay=0"></iframe>
                                 </ModalBody>
                             </Modal>
                         </div>
