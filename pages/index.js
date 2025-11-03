@@ -5,7 +5,6 @@ import Header from './layouts/sections/slonigiraf/header'
 import BannerSection from './layouts/sections/slonigiraf/banner'
 import AboutSection from './layouts/sections/slonigiraf/about'
 import ServiceSection from './layouts/sections/slonigiraf/service'
-import VideoSection from './layouts/sections/slonigiraf/video'
 import WorkSection from './layouts/sections/slonigiraf/work'
 import ExpertSection from './layouts/sections/slonigiraf/expert'
 import TestimonialSection from './layouts/sections/slonigiraf/testimonial'
@@ -42,8 +41,6 @@ const Home = () => {
       <Header className="agency" />
 
       <BannerSection />
-
-      <VideoSection />
 
       <AboutSection />
 
