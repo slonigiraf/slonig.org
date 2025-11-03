@@ -11,6 +11,7 @@ import TestimonialSection from './layouts/sections/slonigiraf/testimonial'
 import BlogSection from './layouts/sections/slonigiraf/blog'
 import FooterSection from './layouts/sections/slonigiraf/footer'
 import Steps from './layouts/sections/slonigiraf/steps'
+import Collaborators from './layouts/sections/slonigiraf/collaborators'
 import Script from "next/script";
 
 const Home = () => {
@@ -50,6 +51,8 @@ const Home = () => {
       <TestimonialSection />
 
       <Steps />
+
+      <Collaborators />
 
       <ExpertSection />
 
