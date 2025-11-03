@@ -42,8 +42,8 @@ const Banner = () => {
                                         <h1><b>Let’s be honest: <br />30 kids is just too much <br />for a single teacher</b></h1>
                                     </div>
                                     <div className="header-sub-text">
-                                        <p>Slonig turns a classroom full of students into a space full of young tutors.
-                                            Using game theory, we ensure that every student actively participates in both learning and peer tutoring—while the teacher can finally rest and observe.</p>
+                                        <p>Slonig gets every student talking in pairs to learn by teaching each other.
+                                            Game theory ensures everyone takes turns as tutor and tutee—while the teacher can simply observe.</p>
                                     </div>
                                     <div className="link-horizontal">
                                         <ul>
