@@ -43,9 +43,9 @@ const Home = () => {
 
       <BannerSection />
 
-      <Steps />
-
       <AboutSection />
+
+      <Steps />
 
       <ServiceSection />
 

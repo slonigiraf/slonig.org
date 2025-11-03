@@ -1,7 +1,4 @@
-import React from 'react'
-import Slider from "react-slick";
 import { Container, Row, Col } from 'reactstrap'
-import { TestimonialData } from '../../../../database/layouts/agency/database';
 
 var settings = {
     dots: false,
@@ -33,7 +30,7 @@ const Steps = () => (
     <section className="agency testimonial format testimonial-bg">
         <Container>
             <Row>
-                <Col md="5">
+                <Col md="12">
                     <div className="format-container m-b-50">
                         <h6 className="borders-before">
                             <span>Easy to Start</span>
@@ -43,13 +40,17 @@ const Steps = () => (
                                 Simple <span className="block-span">as 1, 2, 3</span>
                             </h2>
                         </div>
-                         <img alt="" className="img-fluid" src="/assets/images/agency/steps.png" />
+
+                        <div className="steps-image">
+    <img alt="" className="img-fluid" src="/assets/images/agency/steps.png" />
+</div>
                     </div>
                 </Col>
+
             </Row>
             <Row>
                 <Col xs="12">
-                    
+
                 </Col>
             </Row>
         </Container>

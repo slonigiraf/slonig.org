@@ -17489,3 +17489,13 @@ footer {
   text-align: center;
   box-shadow: 0 0 15px rgba(0,0,0,0.3);
 }
+
+.steps-image {
+    width: 100%;
+    margin: 0 auto;
+}
+@media (min-width: 768px) {
+    .steps-image {
+        width: 60%;
+    }
+}
