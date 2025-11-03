@@ -2,9 +2,13 @@ import React, { useState } from 'react'
 import { Modal, ModalHeader, ModalBody } from 'reactstrap';
 import { Container, Row, Col } from 'reactstrap'
 const Banner = () => {
-    const [modal, setModal] = useState();
-    const toggle = () => {
-        setModal(!modal)
+    const [desktopModal, setDesktopModal] = useState();
+    const toggleDesktopVideo = () => {
+        setDesktopModal(!desktopModal)
+    }
+    const [mobileModal, setMobileModal] = useState();
+    const toggleMobileVideo = () => {
+        setMobileModal(!mobileModal)
     }
     return (
         <section className="agency header" id="header">
@@ -15,12 +19,12 @@ const Banner = () => {
                             <div style={{ marginTop: "150px", textAlign: "center" }}>
                                 <div>
                                     <div className="m-b-20">
-                                        <a className="button" href="#javascript" onClick={toggle}>
+                                        <a className="button" href="#javascript" onClick={toggleMobileVideo}>
                                             <img alt="" className="img-fluid video-img"
                                                 src="/assets/images/agency/videos/icon-slon.png" style={{ width: "80%" }} />
                                         </a>
-                                        <Modal isOpen={modal} toggle={toggle} centered={true} size="lg">
-                                            <ModalHeader toggle={toggle} className="modal-no-header close-up"></ModalHeader>
+                                        <Modal isOpen={mobileModal} toggle={toggleMobileVideo} centered={true} size="lg">
+                                            <ModalHeader toggle={toggleMobileVideo} className="modal-no-header close-up"></ModalHeader>
                                             <ModalBody className="iframe-modal">
                                                 <iframe className="mfp-iframe" frameBorder="0" allowFullScreen="" src="//www.youtube.com/embed/NfIkgpYl83s?autoplay=1"></iframe>
                                             </ModalBody>
@@ -58,17 +62,20 @@ const Banner = () => {
                 </Container>
             </div>
             <div className="set-abs abs-horizon-center girl-boy">
-                <img alt="" className="img-fluid" src="/assets/images/agency/slider/img.png" />
-                <div className="plus-container plus-container6">
-                    <div className="plus white">
-                    </div>
-                </div>
-                <div className="plus-container plus-container7">
-                    <div className="plus white">
-                    </div>
-                </div>
-                <div className="plus-container plus-container8">
-                    <div className="plus white">
+                <div style={{ textAlign: "center" }}>
+                    <div>
+                        <div className="m-b-20">
+                            <a className="button" href="#javascript" onClick={toggleDesktopVideo}>
+                                <img alt="" className="img-fluid video-img"
+                                    src="/assets/images/agency/videos/icon-slon.png" />
+                            </a>
+                            <Modal isOpen={desktopModal} toggle={toggleDesktopVideo} centered={true} size="lg">
+                                <ModalHeader toggle={toggleDesktopVideo} className="modal-no-header close-up"></ModalHeader>
+                                <ModalBody className="iframe-modal">
+                                    <iframe className="mfp-iframe" frameBorder="0" allowFullScreen="" src="//www.youtube.com/embed/NfIkgpYl83s?autoplay=1"></iframe>
+                                </ModalBody>
+                            </Modal>
+                        </div>
                     </div>
                 </div>
             </div>
