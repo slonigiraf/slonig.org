@@ -23,7 +23,7 @@ const About = () => {
                         <p className="agency-para">Kids go to school to talk to their friends, so we turned those conversations into a powerful learning tool.</p>
                         <p className="agency-para">We provide students with a simple web app that guides them on how to talk in a way that helps their friends learn—but the talking happens live, face to face, in the classroom.</p>
                         <p className="agency-para">Throughout the whole lesson, students chat, smile, joke, and explain things to each other.</p>
-                        <a className=" btn btn-default btn-gradient" href="https://bit.ly/denslon_talk">know more</a>
+                        <a className=" btn btn-default btn-gradient" href="/assets/pdf/site.Slonig-paper.pdf">know more</a>
                     </Col>
                 </Row>
             </Container>

@@ -27,21 +27,22 @@ var settings = {
 };
 
 const Steps = () => (
-    <section className="agency testimonial format testimonial-bg">
+    <section className="agency format speaker expert-bg">
         <Container>
             <Row>
                 <Col md="12">
                     <div className="format-container m-b-50">
-                        <h6 className="borders-before">
-                            <span>Easy to Start</span>
-                        </h6>
-                        <div className="format-head-text">
-                            <h2 className="text-white" style={{ textTransform: 'none' }}>
-                                Simple <span className="block-span">as 1, 2, 3</span>
-                            </h2>
+                        <div className="format-container" style={{
+                            display: "flex",
+                            justifyContent: "center",
+                            width: "100%",
+                            marginTop: "20px",
+                        }}>
+
+                            <div className="format-head-text">
+                                <h2 className="about-font-header" style={{ textTransform: 'none' }}>Simple as 1, 2, 3</h2>
+                            </div>
                         </div>
-                        
-                        <br/>
 
                         <div className="steps-image">
                             <img alt="" className="img-fluid" src="/assets/images/agency/steps.png" />
@@ -57,14 +58,9 @@ const Steps = () => (
                             }}
                         >
                             <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", justifyContent: "center" }}>
-                                <li>
-                                    <a
-                                        className="btn btn-default"
-                                        href="https://app.slonig.org/#/knowledge?id=0xc93cafd0d50625e1e203d20c596e87b9f01c93798ea8c358370d286903c260b3&lesson"
-                                    >
-                                        start using
-                                    </a>
-                                </li>
+                                 <li>
+                                                <a className=" btn btn-default btn-gradient" href='https://app.slonig.org/#/knowledge?id=0xc93cafd0d50625e1e203d20c596e87b9f01c93798ea8c358370d286903c260b3&lesson'>start using</a>
+                                            </li>
                             </ul>
                         </div>
 

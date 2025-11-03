@@ -45,11 +45,11 @@ const Home = () => {
 
       <AboutSection />
 
-      <Steps />
-
       <ServiceSection />
 
       <TestimonialSection />
+
+      <Steps />
 
       <ExpertSection />
 

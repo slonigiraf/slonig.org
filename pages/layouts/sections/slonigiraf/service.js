@@ -16,7 +16,7 @@ const Service = () => (
                             <div className="format-sub-text">
                                 <p className="about-para">For decades, peer tutoring has been recognized as one of the most effective ways to teach. Slonig makes it effortless for teachers to implement.</p>
                             </div>
-                            <a className=" btn btn-default btn-gradient" href="https://bit.ly/denslon_talk">Discover</a>
+                            <a className=" btn btn-default btn-gradient" href="/assets/pdf/site.Slonig-paper.pdf">Discover</a>
                         </div>
                     </div>
                 </Col>
