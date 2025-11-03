@@ -2,7 +2,8 @@ import React from 'react'
 import { Container, Row, Col } from 'reactstrap'
 
 const organizations = [
-    { country: 'Türkiye', name: 'Antalya Kepez İlçe Milli Eğitim Müdürlüğü' },
+    { country: 'United States', name: 'Sam Houston State University' },
+
     { country: 'Türkiye', name: 'Istanbul STEAM Bilim Teknoloji Eğitim Kültür Sanat Derneği' },
     { country: 'Spain', name: 'Fundación AI Granada Research & Innovation' },
     { country: 'Estonia', name: 'Project Factory Social Innovation OÜ' },
@@ -25,10 +26,10 @@ const organizations = [
     { country: 'Nigeria', name: 'Obafemi Awolowo University' },
     { country: 'Ethiopia', name: 'Addis Ababa University' },
     { country: 'Nigeria', name: 'Kwara State College of Education (Technical)' },
-    { country: 'United States', name: 'Sam Houston State University' },
+
     { country: 'Argentina', name: 'Biblionet' },
     { country: 'Egypt', name: 'Minia University' },
-
+    { country: 'Türkiye', name: 'Antalya Kepez İlçe Milli Eğitim Müdürlüğü' },
     { country: 'Nigeria', name: 'Osun State University' },
     { country: 'Nigeria', name: 'Nnamdi Azikiwe University' },
     { country: 'Spain', name: 'University of the Basque Country' },
@@ -55,16 +56,17 @@ const Collaborators = () => {
                     <h2 className="about-font-header" style={{ textTransform: 'none' }}>Our Collaborators</h2>
                 </div>
                 <br />
+                <br />
 
                 <Row>
                     {columns.map((group, idx) => (
-                        <Col md="3" xs="6" className="counter-container" key={idx}>
+                        <Col md="3" xs="6" key={idx}>
                             <div className="counters hover-counter active">
                                 <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
                                     {group.map((org, i) => (
                                         <li key={i} style={{ marginBottom: '10px', lineHeight: '1.3em' }}>
-                                            <span style={{ display: 'block', fontWeight: 'bold', color: '#fff' }}>{org.country}</span>
-                                            <span style={{ color: '#ddd' }}>{org.name}</span>
+                                            <span style={{ display: 'block', fontWeight: 'bold', color: '#0069b4' }}>{org.country}</span>
+                                            <span style={{ color: '#8e8c8cff' }}>{org.name}</span>
                                         </li>
                                     ))}
                                 </ul>
