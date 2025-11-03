@@ -45,7 +45,17 @@ const Steps = () => (
                         </div>
 
                         <div className="steps-image">
-                            <img alt="" className="img-fluid" src="/assets/images/agency/steps.png" />
+                            <Row className="justify-content-center text-center">
+                                {[1, 2, 3].map((num) => (
+                                    <Col key={num} md="4" sm="12" className="mb-3 mb-md-0">
+                                        <img
+                                            alt={`Step ${num}`}
+                                            className="img-fluid"
+                                            src={`/assets/images/agency/step-${num}.png`}
+                                        />
+                                    </Col>
+                                ))}
+                            </Row>
                         </div>
 
                         <div
@@ -58,9 +68,9 @@ const Steps = () => (
                             }}
                         >
                             <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", justifyContent: "center" }}>
-                                 <li>
-                                                <a className=" btn btn-default btn-gradient" href='https://app.slonig.org/#/knowledge?id=0xc93cafd0d50625e1e203d20c596e87b9f01c93798ea8c358370d286903c260b3&lesson'>start using</a>
-                                            </li>
+                                <li>
+                                    <a className=" btn btn-default btn-gradient" href='https://app.slonig.org/#/knowledge?id=0xc93cafd0d50625e1e203d20c596e87b9f01c93798ea8c358370d286903c260b3&lesson'>start using</a>
+                                </li>
                             </ul>
                         </div>
 
