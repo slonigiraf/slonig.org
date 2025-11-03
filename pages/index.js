@@ -10,6 +10,7 @@ import ExpertSection from './layouts/sections/slonigiraf/expert'
 import TestimonialSection from './layouts/sections/slonigiraf/testimonial'
 import BlogSection from './layouts/sections/slonigiraf/blog'
 import FooterSection from './layouts/sections/slonigiraf/footer'
+import Steps from './layouts/sections/slonigiraf/steps'
 import Script from "next/script";
 
 const Home = () => {
@@ -41,6 +42,8 @@ const Home = () => {
       <Header className="agency" />
 
       <BannerSection />
+
+      <Steps />
 
       <AboutSection />
 

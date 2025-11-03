@@ -48,7 +48,7 @@ const Banner = () => {
                                     <div className="link-horizontal">
                                         <ul>
                                             <li>
-                                                <a className=" btn btn-default btn-gradient" href='https://bit.ly/denslon_talk'>start using</a>
+                                                <a className=" btn btn-default btn-gradient" href='https://app.slonig.org/#/knowledge?id=0xc93cafd0d50625e1e203d20c596e87b9f01c93798ea8c358370d286903c260b3&lesson'>start using</a>
                                             </li>
                                             <li>
                                                 <a className="btn btn-default btn-gradient text-white active" href='https://www.patreon.com/denslon_eng'>donate</a>
