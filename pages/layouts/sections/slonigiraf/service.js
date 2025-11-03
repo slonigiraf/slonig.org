@@ -25,7 +25,7 @@ const Service = () => (
                         <Col sm="4"  className="center-content unset-height">
                             <ul className="icon-collection" data-aos="fade-left" data-aos-duration="500">
                                 <li className="about-icon">
-                                    <a className="center-content" href="#">
+                                    <a className="center-content">
                                         <img alt="" src="/assets/images/agency/service/6.png" />
                                         <h5>Internal motivation</h5>
                                     </a>
@@ -35,13 +35,13 @@ const Service = () => (
                         <Col sm="4"  className="center-content unset-height">
                             <ul className="icon-collection" data-aos="fade-left" data-aos-duration="2000">
                                 <li className="about-icon">
-                                    <a className="center-content" href="#">
+                                    <a className="center-content">
                                         <img alt="" src="/assets/images/agency/service/1.png" />
                                         <h5>Aha! moments</h5>
                                     </a>
                                 </li>
                                 <li className="about-icon">
-                                    <a className="center-content" href="#">
+                                    <a className="center-content">
                                         <img alt="" src="/assets/images/agency/service/3.png" />
                                         <h5>Collaboration</h5>
                                     </a>
@@ -51,13 +51,13 @@ const Service = () => (
                         <Col sm="4"  className="center-content unset-height">
                             <ul className="icon-collection" data-aos="fade-left" data-aos-duration="3000">
                                 <li className="about-icon">
-                                    <a className="center-content" href="#">
+                                    <a className="center-content">
                                         <img alt="" src="/assets/images/agency/service/4.png" />
                                         <h5>Parental involvement</h5>
                                     </a>
                                 </li>
                                 <li className="about-icon">
-                                    <a className="center-content" href="#">
+                                    <a className="center-content">
                                         <img alt="" src="/assets/images/agency/service/5.png" />
                                         <h5>Digital badges</h5>
                                     </a>
