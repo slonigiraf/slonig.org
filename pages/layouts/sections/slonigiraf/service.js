@@ -88,7 +88,7 @@ const Service = () => (
                                     Hidayat, R., & Saad, M. R. M. (2025). A Meta-analysis of the effect of peer tutoring in Science, Technology, Engineering and Mathematics (STEM) subjects. International Journal of Educational Research Open, 8, 100446. DOI:10.1016/j.ijedro.2025.100446</p>
 
                             </div>
-                            <a className=" btn btn-default btn-gradient" href="/assets/pdf/site.Slonig-paper.pdf">Discover</a>
+                            <a className=" btn btn-default btn-gradient" href="/assets/pdf/site.Slonig-paper.pdf">Read Our Research Paper</a>
                         </div>
                     </div>
                 </Col>
