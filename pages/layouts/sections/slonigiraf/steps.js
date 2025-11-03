@@ -40,10 +40,34 @@ const Steps = () => (
                                 Simple <span className="block-span">as 1, 2, 3</span>
                             </h2>
                         </div>
+                        
+                        <br/>
 
                         <div className="steps-image">
-    <img alt="" className="img-fluid" src="/assets/images/agency/steps.png" />
-</div>
+                            <img alt="" className="img-fluid" src="/assets/images/agency/steps.png" />
+                        </div>
+
+                        <div
+                            className="link-horizontal"
+                            style={{
+                                display: "flex",
+                                justifyContent: "center",
+                                width: "100%",
+                                marginTop: "20px",
+                            }}
+                        >
+                            <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", justifyContent: "center" }}>
+                                <li>
+                                    <a
+                                        className="btn btn-default"
+                                        href="https://app.slonig.org/#/knowledge?id=0xc93cafd0d50625e1e203d20c596e87b9f01c93798ea8c358370d286903c260b3&lesson"
+                                    >
+                                        start using
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
                     </div>
                 </Col>
 
