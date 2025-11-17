@@ -6,6 +6,19 @@ const Work = () => (
             <Row>
                 <Col md="3" xs="6" className="counter-container">
                     <div className="counters hover-counter active">
+                        <img alt="" className="img-fluid counter-img" src="/assets/images/agency/counter/2.png" />
+                        <div className="counter-text">
+                            <div className="count-number">
+                                <h2 className="counts text-center">Privacy first</h2>
+                            </div>
+                            <div className="count-desc">
+                                <h5 className="text-center">Aligned with COPPA&nbsp;and&nbsp;GDPR</h5>
+                            </div>
+                        </div>
+                    </div>
+                </Col>
+                <Col md="3" xs="6" className="counter-container">
+                    <div className="counters hover-counter active">
                         <img alt="" className="img-fluid counter-img" src="/assets/images/agency/counter/1.png" />
                         <div className="counter-text">
                             <div className="count-number">
@@ -26,19 +39,6 @@ const Work = () => (
                             </div>
                             <div className="count-desc">
                                 <h5 className="text-center">Happy students</h5>
-                            </div>
-                        </div>
-                    </div>
-                </Col>
-                <Col md="3" xs="6" className="counter-container">
-                    <div className="counters hover-counter active">
-                        <img alt="" className="img-fluid counter-img" src="/assets/images/agency/counter/2.png" />
-                        <div className="counter-text">
-                            <div className="count-number">
-                                <h2 className="counts text-center">19</h2>
-                            </div>
-                            <div className="count-desc">
-                                <h5 className="text-center">Schools in touch</h5>
                             </div>
                         </div>
                     </div>
