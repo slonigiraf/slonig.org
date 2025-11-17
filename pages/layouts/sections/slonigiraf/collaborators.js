@@ -3,7 +3,6 @@ import { Container, Row, Col } from 'reactstrap'
 
 const organizations = [
     { country: 'United States', name: 'Sam Houston State University' },
-
     { country: 'Türkiye', name: 'Istanbul STEAM Bilim Teknoloji Eğitim Kültür Sanat Derneği' },
     { country: 'Spain', name: 'Fundación AI Granada Research & Innovation' },
     { country: 'Estonia', name: 'Project Factory Social Innovation OÜ' },
@@ -26,6 +25,7 @@ const organizations = [
     { country: 'Nigeria', name: 'Obafemi Awolowo University' },
     { country: 'Ethiopia', name: 'Addis Ababa University' },
     { country: 'Nigeria', name: 'Kwara State College of Education (Technical)' },
+    { country: 'Nigeria', name: 'Federal College of Education (Technical), Umunze' },
 
     { country: 'Argentina', name: 'Biblionet' },
     { country: 'Egypt', name: 'Minia University' },
