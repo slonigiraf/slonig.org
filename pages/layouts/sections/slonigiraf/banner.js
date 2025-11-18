@@ -26,7 +26,7 @@ const Banner = () => {
                                         <Modal isOpen={mobileModal} toggle={toggleMobileVideo} centered={true} size="lg">
                                             <ModalHeader toggle={toggleMobileVideo} className="modal-no-header close-up"></ModalHeader>
                                             <ModalBody className="iframe-modal">
-                                                <iframe className="mfp-iframe" frameBorder="0" allowFullScreen="" src="//www.youtube.com/embed/NfIkgpYl83s?autoplay=1"></iframe>
+                                                <iframe className="mfp-iframe" frameBorder="0" allowFullScreen="" src="//www.youtube.com/embed/0P6M5LswCt8?autoplay=1"></iframe>
                                             </ModalBody>
                                         </Modal>
                                     </div>
@@ -72,7 +72,7 @@ const Banner = () => {
                             <Modal isOpen={desktopModal} toggle={toggleDesktopVideo} centered={true} size="lg">
                                 <ModalHeader toggle={toggleDesktopVideo} className="modal-no-header close-up"></ModalHeader>
                                 <ModalBody className="iframe-modal">
-                                    <iframe className="mfp-iframe" frameBorder="0" allowFullScreen="" src="//www.youtube.com/embed/NfIkgpYl83s?autoplay=0"></iframe>
+                                    <iframe className="mfp-iframe" frameBorder="0" allowFullScreen="" src="//www.youtube.com/embed/0P6M5LswCt8?autoplay=0"></iframe>
                                 </ModalBody>
                             </Modal>
                         </div>
