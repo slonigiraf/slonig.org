@@ -41,10 +41,7 @@ const Footer = () => (
                                     <li>
                                         <a href="mailto:reshetovdenis@gmail.com" style={{ textTransform: "none" }}>reshetovdenis@gmail.com</a>
                                     </li>
-                                    <li>
-                                        <a href="https://api.whatsapp.com/send?phone=38267887600">+38267887600, WhatsApp</a>
-                                    </li>
-                                   
+                                    <span>+1 302-310-4501</span>
                                 </ul>
                             </div>
                         </div>
@@ -70,7 +67,7 @@ const Footer = () => (
                             </div>
                         </div>
                     </Col>
-                   
+
                     <Col lg="3" md="3" sm="12">
                         <div className="footer-title mobile-title">
                             <h3 className="text-white">Community</h3>
@@ -85,15 +82,15 @@ const Footer = () => (
                                     <li>
                                         <a href="https://www.patreon.com/denslon_eng">Support</a>
                                     </li>
-                                    
-                                
+
+
                                 </ul>
                             </div>
                         </div>
                     </Col>
-                    
+
                 </Row>
-                
+
             </Container>
         </footer>
         <div className="agency copyright">
@@ -105,11 +102,11 @@ const Footer = () => (
                                 <li>
                                     <a className="copyright-text" href="#">Copyright © 2025 Denis Reshetov</a>
                                 </li>
-                                
+
                             </ul>
                         </div>
                     </Col>
-                    
+
                 </Row>
             </Container>
         </div>
