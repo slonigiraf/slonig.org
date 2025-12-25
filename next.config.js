@@ -1,28 +1,20 @@
 module.exports = {
   entry: "./src/js/main.js",
-  output: {
-    path: __dirname + "/dist",
-    filename: "bundle.js",
-  },
-
+  output: 'standalone',
   devServer: {
-    static: {
-      directory: "./dist",
-    },
+      inline: false,
+      contentBase: "./dist",
   },
-
   module: {
-    rules: [
-      {
-        test: /\.jsx?$/,
-        exclude: /(node_modules|bower_components)/,
-        use: {
-          loader: "babel-loader",
-          options: {
-            presets: ["@babel/preset-env", "@babel/preset-react"],
-          },
-        },
-      },
-    ],
-  },
+      loaders: [
+          {
+              test: /\.jsx?$/,
+              exclude:/(node_modules|bower_components)/,
+              loader: 'babel-loader',
+              query: {
+                  presets: ['es2015', 'react']
+              }
+          }
+      ]
+  }
 };
