@@ -113,7 +113,7 @@ const LidCollector = ({ id, caption }) => {
                                 <input
                                     className="lidcollector__input"
                                     name="cf-tel"
-                                    placeholder="Mobile"
+                                    placeholder="Mobile (e.g. +1...)"
                                     value={form.tel}
                                     onChange={onChange}
                                     required

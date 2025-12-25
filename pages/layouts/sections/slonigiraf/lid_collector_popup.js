@@ -155,7 +155,7 @@ const LidCollectorPopup = ({ id, caption = "Send", triggerText = "Send request" 
               <input
                 className="lidpopup__input"
                 name="cf-tel"
-                placeholder="Mobile (e.g. +7...)"
+                placeholder="Mobile (e.g. +1...)"
                 value={form.tel}
                 onChange={onChange}
                 required
