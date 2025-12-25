@@ -146,8 +146,7 @@ const BookDemo = () => {
                             <Col md="12">
                                 <div className="bookdemo__hint">
                                     *By submitting, I agree to the{" "}
-                                    <a href="https://denslon.com/app/personalDataAgreeIP/">agreement</a> and{" "}
-                                    <a href="https://denslon.com/app/personalDataPoliticsIP/">privacy policy</a>
+                                    <a href="https://slonig.org/privacy-policy">privacy policy</a>
                                 </div>
                             </Col>
                         </Row>
