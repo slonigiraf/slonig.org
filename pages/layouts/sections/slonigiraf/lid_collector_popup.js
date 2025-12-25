@@ -1,17 +1,8 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { Container, Row, Col, Modal, ModalBody } from "reactstrap";
+import { Modal, ModalBody } from "reactstrap";
 
 const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
 
-/**
- * Popup version of LidCollector
- * Opens when URL hash matches "#<id>" (e.g. "/#book-demo" or "/#lid-collector-5")
- *
- * Usage:
- *  <LidCollectorPopup id="lid-collector-5" caption="Send" triggerText="Send request" />
- *  // link anywhere:
- *  <a href="/#lid-collector-5">Send request</a>
- */
 const LidCollectorPopup = ({ id, caption = "Send", triggerText = "Send request" }) => {
   const openHash = useMemo(() => `#${id}`, [id]);
 
@@ -22,6 +13,13 @@ const LidCollectorPopup = ({ id, caption = "Send", triggerText = "Send request" 
   const [errorText, setErrorText] = useState("");
   const [success, setSuccess] = useState(false);
 
+  const resetState = () => {
+    setForm({ name: "", tel: "", email: "" });
+    setErrorText("");
+    setSuccess(false);
+    setSubmitting(false);
+  };
+
   // ✅ Client-only: detect page + open by hash
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -30,21 +28,26 @@ const LidCollectorPopup = ({ id, caption = "Send", triggerText = "Send request" 
 
     const syncFromHash = () => {
       const h = window.location.hash || "";
-      setIsOpen(h === openHash);
-      // reset success/errors when opening fresh
-      if (h === openHash) {
-        setErrorText("");
-        setSuccess(false);
-      }
+      const shouldOpen = h === openHash;
+      setIsOpen(shouldOpen);
+
+      // When opening from hash, start fresh
+      if (shouldOpen) resetState();
     };
 
     syncFromHash();
     window.addEventListener("hashchange", syncFromHash);
     return () => window.removeEventListener("hashchange", syncFromHash);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [openHash]);
+
+  const preventEnterSubmit = (e) => {
+    if (e.key === "Enter") e.preventDefault();
+  };
 
   const close = () => {
     setIsOpen(false);
+    resetState(); // ✅ Clear after closing
 
     // remove hash so reopening works and back-button behaves sanely
     if (typeof window !== "undefined" && window.location.hash === openHash) {
@@ -63,7 +66,6 @@ const LidCollectorPopup = ({ id, caption = "Send", triggerText = "Send request" 
   const onSubmit = async (event) => {
     event.preventDefault();
     setErrorText("");
-
     if (submitting) return;
 
     try {
@@ -74,7 +76,6 @@ const LidCollectorPopup = ({ id, caption = "Send", triggerText = "Send request" 
         return;
       }
 
-      // ✅ Client-only reCAPTCHA
       if (typeof window === "undefined" || !window.grecaptcha) {
         setErrorText("reCAPTCHA not ready. Please refresh the page.");
         return;
@@ -82,10 +83,7 @@ const LidCollectorPopup = ({ id, caption = "Send", triggerText = "Send request" 
 
       const token = await new Promise((resolve, reject) => {
         window.grecaptcha.ready(() => {
-          window.grecaptcha
-            .execute(RECAPTCHA_SITE_KEY, { action: id })
-            .then(resolve)
-            .catch(reject);
+          window.grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: id }).then(resolve).catch(reject);
         });
       });
 
@@ -121,7 +119,6 @@ const LidCollectorPopup = ({ id, caption = "Send", triggerText = "Send request" 
 
   return (
     <>
-      {/* Optional trigger (you can remove it and use your own <a href="/#id">) */}
       <a className="lidpopup__trigger" href={`/#${id}`}>
         {triggerText}
       </a>
@@ -142,7 +139,7 @@ const LidCollectorPopup = ({ id, caption = "Send", triggerText = "Send request" 
           <h2 className="lidpopup__title">{caption}</h2>
 
           {!success ? (
-            <form id={id} onSubmit={onSubmit} className="lidpopup__form">
+            <form id={id} onSubmit={onSubmit} onKeyDown={preventEnterSubmit} className="lidpopup__form">
               <input
                 className="lidpopup__input"
                 name="cf-name"

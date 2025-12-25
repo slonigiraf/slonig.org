@@ -24,6 +24,12 @@ const LidCollector = ({ id, caption }) => {
         if (name === "cf-email") setForm((s) => ({ ...s, email: value }));
     };
 
+    const preventEnterSubmit = (e) => {
+        if (e.key === "Enter") {
+            e.preventDefault();
+        }
+    };
+
     const onSubmit = async (event) => {
         event.preventDefault();
         setErrorText("");
@@ -96,7 +102,7 @@ const LidCollector = ({ id, caption }) => {
                 <h2 className="lidcollector__title">{caption}</h2>
 
                 {!success && (
-                    <form id={id} onSubmit={onSubmit}>
+                    <form id={id} onSubmit={onSubmit} onKeyDown={preventEnterSubmit}>
                         <Row className="lidcollector__row g-3 align-items-center">
                             <Col md="3" sm="6" xs="12">
                                 <input

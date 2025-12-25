@@ -2009,7 +2009,8 @@ html {
 .lidcollector__error {
   margin-top: 6px;
   text-align: center;
-  color: #7a0000;
+  color: red;
+  font-weight: bold;
 }
 
 /* Add to your global CSS (or module) */
@@ -2098,8 +2099,9 @@ html {
 }
 
 .lidpopup__error {
-  color: #ffd1d1;
+  color: red;
   font-size: 16px;
+  font-weight: bold;
 }
 
 .lidpopup__hint {
