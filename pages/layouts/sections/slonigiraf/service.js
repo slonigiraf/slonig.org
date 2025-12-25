@@ -16,7 +16,7 @@ const Service = () => (
                             <div className="format-sub-text">
                                 <p className="about-para">For decades, peer tutoring has been recognized as one of the most effective ways to teach. Slonig makes it effortless for teachers to implement.</p>
                             </div>
-                            <a className=" btn btn-default btn-gradient" href="/assets/pdf/site.Slonig-paper.pdf">Discover Scientific Evidence</a>
+                            <a className=" btn btn-default btn-gradient" href="/#call_me_back_popup">Discover Scientific Evidence</a>
                         </div>
                     </div>
                 </Col>
@@ -88,7 +88,6 @@ const Service = () => (
                                     Hidayat, R., & Saad, M. R. M. (2025). A Meta-analysis of the effect of peer tutoring in Science, Technology, Engineering and Mathematics (STEM) subjects. International Journal of Educational Research Open, 8, 100446. DOI:10.1016/j.ijedro.2025.100446</p>
 
                             </div>
-                            <a className=" btn btn-default btn-gradient" href="/assets/pdf/site.Slonig-paper.pdf">Read Our Research Paper</a>
                         </div>
                     </div>
                 </Col>

@@ -46,13 +46,17 @@ const Home = () => {
 
       <BannerSection />
 
-      <LidCollector id={'book_a_demo'} caption={'Book a Demo'} />
+      <LidCollector id={'call_me_back'} caption={'Call Me Back'} />
 
       <AboutSection />
 
       <ServiceSection />
 
+      <LidCollector id={'book_a_demo'} caption={'Send Me the Research'} />
+
       <TestimonialSection />
+
+      <LidCollector id={'book_a_demo'} caption={'Book a Demo'} />
 
       <Steps />
 
@@ -66,7 +70,7 @@ const Home = () => {
 
       <FooterSection />
 
-      <LidCollectorPopup id={'book_a_demo_popup'} caption={'Book a Demo'}/>
+      <LidCollectorPopup id={'call_me_back_popup'} caption={'Call Me Back'} />
     </div>
   )
 }

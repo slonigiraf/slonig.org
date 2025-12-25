@@ -35,9 +35,7 @@ const Testimonial = () => (
             <Row>
                 <Col md="5">
                     <div className="format-container m-b-50">
-                        <h6 className="borders-before">
-                            <span>Happy Teachers</span>
-                        </h6>
+                        <br/>
                         <div className="format-head-text">
                             <h2 className=" text-white">Slonig <span className="block-span">eases teaching</span></h2>
                         </div>

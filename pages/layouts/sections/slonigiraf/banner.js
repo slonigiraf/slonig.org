@@ -48,7 +48,7 @@ const Banner = () => {
                                     <div className="link-horizontal">
                                         <ul>
                                             <li>
-                                                <a className=" btn btn-default btn-gradient" href='/#book_a_demo_popup'>start using</a>
+                                                <a className=" btn btn-default btn-gradient" href='/#call_me_back_popup'>start using</a>
                                             </li>
                                         </ul>
                                     </div>
