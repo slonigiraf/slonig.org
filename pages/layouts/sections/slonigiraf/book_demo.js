@@ -1,76 +1,167 @@
-// BookDemo.jsx
+import React, { useEffect, useState } from "react";
 import { Container, Row, Col } from "reactstrap";
 
-const BookDemo = () => (
-  <section className="bookdemo">
-    <Container>
-      <h2 className="bookdemo__title">Call me back</h2>
+const RECAPTCHA_SITE_KEY = "6Lc3Sp4UAAAAAC3xfBlq6NKHGMM-1eHuifZ5qtRP";
 
-      <form
-        id="lid-collector-5"
-        role="form"
-        action="https://denslon.com/add-lid"
-        method="post"
-        acceptCharset="UTF-8"
-      >
-        <Row className="bookdemo__row g-3 align-items-center">
-          <Col md="3" sm="6" xs="12">
-            <input
-              className="bookdemo__input"
-              placeholder="Name"
-              name="cf-name"
-              required
-            />
-          </Col>
+const BookDemo = () => {
+    const [form, setForm] = useState({ name: "", tel: "", email: "" });
+    const [page, setPage] = useState("");
+    const [submitting, setSubmitting] = useState(false);
+    const [errorText, setErrorText] = useState("");
+    const [success, setSuccess] = useState(false);
 
-          <Col md="3" sm="6" xs="12">
-            <input
-              type="tel"
-              className="bookdemo__input"
-              placeholder="Mobile (e.g., +1...)"
-              name="cf-tel"
-              required
-            />
-          </Col>
+    // ✅ Client-only
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            setPage(window.location.pathname);
+        }
+    }, []);
 
-          <Col md="3" sm="6" xs="12">
-            <input
-              type="email"
-              className="bookdemo__input"
-              placeholder="Email"
-              name="cf-email"
-              required
-            />
-          </Col>
+    const onChange = (e) => {
+        const { name, value } = e.target;
+        if (name === "cf-name") setForm((s) => ({ ...s, name: value }));
+        if (name === "cf-tel") setForm((s) => ({ ...s, tel: value }));
+        if (name === "cf-email") setForm((s) => ({ ...s, email: value }));
+    };
 
-          <Col md="3" sm="6" xs="12">
-            <input
-              type="submit"
-              className="bookdemo__button"
-              name="submit"
-              value="Call me back"
-            />
-          </Col>
+    const onSubmit = async (event) => {
+        event.preventDefault();
+        setErrorText("");
 
-          <Col md="12">
-            <div className="bookdemo__hint">
-              *By submitting, I agree to the{" "}
-              <a href="https://denslon.com/app/personalDataAgreeIP/">agreement</a> and{" "}
-              <a href="https://denslon.com/app/personalDataPoliticsIP/">privacy policy</a>
-            </div>
-          </Col>
+        if (submitting) return;
 
-          <Col
-            md="12"
-            className="bookdemo__error hidden-element error-info"
-            id="lid-collector-5-error"
-          >
-            <span>Please fix the errors!</span>
-          </Col>
-        </Row>
-      </form>
-    </Container>
-  </section>
-);
+        try {
+            setSubmitting(true);
+
+            if (!form.name || !form.tel || !form.email) {
+                setErrorText("Please fill in all fields.");
+                return;
+            }
+
+            // ✅ Client-only reCAPTCHA
+            if (typeof window === "undefined" || !window.grecaptcha) {
+                setErrorText("reCAPTCHA not ready. Please refresh the page.");
+                return;
+            }
+
+            const token = await new Promise((resolve, reject) => {
+                window.grecaptcha.ready(() => {
+                    window.grecaptcha
+                        .execute(RECAPTCHA_SITE_KEY, { action: "lid_collector" })
+                        .then(resolve)
+                        .catch(reject);
+                });
+            });
+
+            const payload = {
+                name: form.name,
+                tel: form.tel,
+                email: form.email,
+                form_id: "perezvonite",
+                page,
+                token,
+            };
+
+            const res = await fetch("/api/add-lid", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json",
+                },
+                body: JSON.stringify(payload),
+            });
+
+            const result = await res.json();
+
+            if (!result?.success) {
+                setErrorText(
+                    result?.error
+                        ? `Исправьте ошибки: ${result.error}`
+                        : "Please fix the errors!"
+                );
+                return;
+            }
+
+            setSuccess(true);
+        } catch (err) {
+            setErrorText("Please fix the errors!");
+        } finally {
+            setSubmitting(false);
+        }
+    };
+
+    return (
+        <section className="bookdemo">
+            <Container>
+                <h2 className="bookdemo__title">Call me back</h2>
+
+                {!success && (
+                    <form id="lid-collector-5" onSubmit={onSubmit}>
+                        <Row className="bookdemo__row g-3 align-items-center">
+                            <Col md="3" sm="6" xs="12">
+                                <input
+                                    className="bookdemo__input"
+                                    name="cf-name"
+                                    placeholder="Name"
+                                    value={form.name}
+                                    onChange={onChange}
+                                    required
+                                />
+                            </Col>
+
+                            <Col md="3" sm="6" xs="12">
+                                <input
+                                    className="bookdemo__input"
+                                    name="cf-tel"
+                                    placeholder="Mobile"
+                                    value={form.tel}
+                                    onChange={onChange}
+                                    required
+                                />
+                            </Col>
+
+                            <Col md="3" sm="6" xs="12">
+                                <input
+                                    type="email"
+                                    className="bookdemo__input"
+                                    name="cf-email"
+                                    placeholder="Email"
+                                    value={form.email}
+                                    onChange={onChange}
+                                    required
+                                />
+                            </Col>
+
+                            <Col md="3" sm="6" xs="12">
+                                <button className="bookdemo__button" type="submit" disabled={submitting}>
+                                    {submitting ? "Sending…" : "Call me back"}
+                                </button>
+                            </Col>
+
+                            {errorText && (
+                                <Col md="12" id="lid-collector-5-error">
+                                    <span>{errorText}</span>
+                                </Col>
+                            )}
+                            <Col md="12">
+                                <div className="bookdemo__hint">
+                                    *By submitting, I agree to the{" "}
+                                    <a href="https://denslon.com/app/personalDataAgreeIP/">agreement</a> and{" "}
+                                    <a href="https://denslon.com/app/personalDataPoliticsIP/">privacy policy</a>
+                                </div>
+                            </Col>
+                        </Row>
+                    </form>
+                )}
+
+                {success && (
+                    <div id="section-lid-collector-5-success">
+                        ✅ Thanks! We’ll call you back.
+                    </div>
+                )}
+            </Container>
+        </section>
+    );
+};
 
 export default BookDemo;

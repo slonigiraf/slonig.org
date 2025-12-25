@@ -15,6 +15,11 @@ export default class MyDocument extends Document {
   render() {
     return (
       <html>
+        <script
+          src="https://www.google.com/recaptcha/api.js?render=6Lc3Sp4UAAAAAC3xfBlq6NKHGMM-1eHuifZ5qtRP"
+          async
+          defer
+        ></script>
         <Head>
           <link rel="icon" href="/favicon.ico" />
           <meta name='viewport' content='width=device-width, initial-scale=1' />
