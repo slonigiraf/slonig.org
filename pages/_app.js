@@ -86,6 +86,8 @@ function MyFunctionComponent({ children }) {
   )
 }
 
+console.log("process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY: ", process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY)
+
 export default function MyApp({ Component, pageProps }) {
   return (
     <div>
