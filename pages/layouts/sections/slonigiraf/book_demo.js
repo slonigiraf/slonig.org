@@ -154,10 +154,15 @@ const BookDemo = () => {
                 )}
 
                 {success && (
-                    <Row className="bookdemo__row g-3 align-items-center">
-                        <Col md="12" sm="12" xs="12">
+                    <Row className="bookdemo__row g-3 align-items-center justify-content-center">
+                        <Col
+                            md="12"
+                            sm="12"
+                            xs="12"
+                            className="d-flex justify-content-center text-center"
+                        >
                             <div id="section-lid-collector-5-success">
-                                ✅ Thanks! We’ll call you back.
+                                <h2 className="bookdemo__thanks">✅ Thanks! We’ll call you back</h2>
                             </div>
                         </Col>
                     </Row>
