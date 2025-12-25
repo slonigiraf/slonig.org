@@ -4,7 +4,7 @@ import Head from 'next/head';
 import NProgress from 'nprogress';
 import getConfig from 'next/config'
 import { ToastContainer } from 'react-toastify';
-import Customizer from '../containers/customizer';
+import Script from "next/script";
 
 import './index.scss';
 
@@ -89,6 +89,10 @@ function MyFunctionComponent({ children }) {
 export default function MyApp({ Component, pageProps }) {
   return (
     <div>
+      <Script
+        src={`https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`}
+        strategy="afterInteractive"
+      />
       <MyFunctionComponent>
         <Component {...pageProps} />
         {/* <Customizer /> */}
