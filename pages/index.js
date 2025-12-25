@@ -12,8 +12,9 @@ import BlogSection from './layouts/sections/slonigiraf/blog'
 import FooterSection from './layouts/sections/slonigiraf/footer'
 import Steps from './layouts/sections/slonigiraf/steps'
 import Collaborators from './layouts/sections/slonigiraf/collaborators'
-import Script from "next/script";
+import Script from "next/script"
 import LidCollector from './layouts/sections/slonigiraf/lid_collector'
+import LidCollectorPopup from './layouts/sections/slonigiraf/lid_collector_popup'
 
 const Home = () => {
 
@@ -45,7 +46,7 @@ const Home = () => {
 
       <BannerSection />
 
-      <LidCollector id={'book_a_demo'} caption={'Book a Demo'}/>
+      <LidCollector id={'book_a_demo'} caption={'Book a Demo'} />
 
       <AboutSection />
 
@@ -65,6 +66,7 @@ const Home = () => {
 
       <FooterSection />
 
+      <LidCollectorPopup id={'book_a_demo_popup'} caption={'Book a Demo'}/>
     </div>
   )
 }
