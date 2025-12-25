@@ -9,7 +9,7 @@ const BookDemo = () => (
       <form
         id="lid-collector-5"
         role="form"
-        action="/add-lid"
+        action="https://denslon.com/add-lid"
         method="post"
         acceptCharset="UTF-8"
       >
@@ -55,8 +55,8 @@ const BookDemo = () => (
           <Col md="12">
             <div className="bookdemo__hint">
               *By submitting, I agree to the{" "}
-              <a href="/app/personalDataAgreeIP/">agreement</a> and{" "}
-              <a href="/app/personalDataPoliticsIP/">privacy policy</a>
+              <a href="https://denslon.com/app/personalDataAgreeIP/">agreement</a> and{" "}
+              <a href="https://denslon.com/app/personalDataPoliticsIP/">privacy policy</a>
             </div>
           </Col>
 
