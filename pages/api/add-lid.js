@@ -81,13 +81,13 @@ export default async function handler(req, res) {
     const remoteip =
       (req.headers["x-forwarded-for"]?.toString().split(",")[0] || req.socket?.remoteAddress || "").trim();
 
-    // const rec = await verifyRecaptchaV3(token, remoteip);
-    // if (!rec.ok) {
-    //   return res.status(400).json({
-    //     success: false,
-    //     error: `reCAPTCHA failed: ${rec.reason}`,
-    //   });
-    // }
+    const rec = await verifyRecaptchaV3(token, remoteip);
+    if (!rec.ok) {
+      return res.status(400).json({
+        success: false,
+        error: `reCAPTCHA failed: ${rec.reason}`,
+      });
+    }
 
     const transporter = makeTransporter();
 
@@ -101,7 +101,7 @@ export default async function handler(req, res) {
       `Form: ${form_id}\n` +
       `Page: ${page || "(unknown)"}\n` +
       `IP: ${remoteip || "(unknown)"}\n` +
-      // `reCAPTCHA score: ${rec.score}\n` +
+      `reCAPTCHA score: ${rec.score}\n` +
       `Time: ${new Date().toISOString()}\n`;
 
     await transporter.sendMail({

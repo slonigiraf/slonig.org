@@ -154,9 +154,13 @@ const BookDemo = () => {
                 )}
 
                 {success && (
-                    <div id="section-lid-collector-5-success">
-                        ✅ Thanks! We’ll call you back.
-                    </div>
+                    <Row className="bookdemo__row g-3 align-items-center">
+                        <Col md="12" sm="12" xs="12">
+                            <div id="section-lid-collector-5-success">
+                                ✅ Thanks! We’ll call you back.
+                            </div>
+                        </Col>
+                    </Row>
                 )}
             </Container>
         </section>
