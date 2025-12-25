@@ -10,7 +10,7 @@ function clean(s, max = 200) {
 }
 
 async function verifyRecaptchaV3(token, remoteip) {
-  const secret = process.env.RECAPTCHA_SECRET;
+  const secret = process.env.NEXT_PUBLIC_RECAPTCHA_SECRET;
   if (!secret) return { ok: false, reason: "Missing RECAPTCHA_SECRET" };
   if (!token) return { ok: false, reason: "Missing token" };
 

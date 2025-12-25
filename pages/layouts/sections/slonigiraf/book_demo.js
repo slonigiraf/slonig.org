@@ -2,6 +2,10 @@ import React, { useEffect, useState } from "react";
 import { Container, Row, Col } from "reactstrap";
 
 const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
+const RECAPTCHA_SECRET = process.env.NEXT_PUBLIC_RECAPTCHA_SECRET;
+
+console.log("RECAPTCHA_SITE_KEY: ", RECAPTCHA_SITE_KEY)
+console.log("RECAPTCHA_SECRET: ", RECAPTCHA_SECRET)
 
 const BookDemo = () => {
     const [form, setForm] = useState({ name: "", tel: "", email: "" });
