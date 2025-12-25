@@ -3,7 +3,7 @@ import { Container, Row, Col } from "reactstrap";
 
 const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
 
-const BookDemo = () => {
+const LidCollector = ({ id, caption }) => {
     const [form, setForm] = useState({ name: "", tel: "", email: "" });
     const [page, setPage] = useState("");
     const [submitting, setSubmitting] = useState(false);
@@ -47,7 +47,7 @@ const BookDemo = () => {
             const token = await new Promise((resolve, reject) => {
                 window.grecaptcha.ready(() => {
                     window.grecaptcha
-                        .execute(RECAPTCHA_SITE_KEY, { action: "lid_collector" })
+                        .execute(RECAPTCHA_SITE_KEY, { action: id })
                         .then(resolve)
                         .catch(reject);
                 });
@@ -57,7 +57,7 @@ const BookDemo = () => {
                 name: form.name,
                 tel: form.tel,
                 email: form.email,
-                form_id: "perezvonite",
+                form_id: id,
                 page,
                 token,
             };
@@ -76,7 +76,7 @@ const BookDemo = () => {
             if (!result?.success) {
                 setErrorText(
                     result?.error
-                        ? `Исправьте ошибки: ${result.error}`
+                        ? `Please fix the errors: ${result.error}`
                         : "Please fix the errors!"
                 );
                 return;
@@ -91,16 +91,16 @@ const BookDemo = () => {
     };
 
     return (
-        <section className="bookdemo">
+        <section className="LidCollector">
             <Container>
-                <h2 className="bookdemo__title">Call me back</h2>
+                <h2 className="lidcollector__title">{caption}</h2>
 
                 {!success && (
-                    <form id="lid-collector-5" onSubmit={onSubmit}>
-                        <Row className="bookdemo__row g-3 align-items-center">
+                    <form id={id} onSubmit={onSubmit}>
+                        <Row className="lidcollector__row g-3 align-items-center">
                             <Col md="3" sm="6" xs="12">
                                 <input
-                                    className="bookdemo__input"
+                                    className="lidcollector__input"
                                     name="cf-name"
                                     placeholder="Name"
                                     value={form.name}
@@ -111,7 +111,7 @@ const BookDemo = () => {
 
                             <Col md="3" sm="6" xs="12">
                                 <input
-                                    className="bookdemo__input"
+                                    className="lidcollector__input"
                                     name="cf-tel"
                                     placeholder="Mobile"
                                     value={form.tel}
@@ -123,7 +123,7 @@ const BookDemo = () => {
                             <Col md="3" sm="6" xs="12">
                                 <input
                                     type="email"
-                                    className="bookdemo__input"
+                                    className="lidcollector__input"
                                     name="cf-email"
                                     placeholder="Email"
                                     value={form.email}
@@ -133,18 +133,18 @@ const BookDemo = () => {
                             </Col>
 
                             <Col md="3" sm="6" xs="12">
-                                <button className="bookdemo__button" type="submit" disabled={submitting}>
-                                    {submitting ? "Sending…" : "Call me back"}
+                                <button className="lidcollector__button" type="submit" disabled={submitting}>
+                                    {submitting ? "Sending…" : caption}
                                 </button>
                             </Col>
 
                             {errorText && (
-                                <Col md="12" id="lid-collector-5-error">
+                                <Col md="12">
                                     <span>{errorText}</span>
                                 </Col>
                             )}
                             <Col md="12">
-                                <div className="bookdemo__hint">
+                                <div className="lidcollector__hint">
                                     *By submitting, I agree to the{" "}
                                     <a href="https://slonig.org/privacy-policy">privacy policy</a>
                                 </div>
@@ -154,16 +154,14 @@ const BookDemo = () => {
                 )}
 
                 {success && (
-                    <Row className="bookdemo__row g-3 align-items-center justify-content-center">
+                    <Row className="lidcollector__row g-3 align-items-center justify-content-center">
                         <Col
                             md="12"
                             sm="12"
                             xs="12"
                             className="d-flex justify-content-center text-center"
                         >
-                            <div id="section-lid-collector-5-success">
-                                <h2 className="bookdemo__thanks">✅ Thanks! We’ll call you back</h2>
-                            </div>
+                            <h2 className="lidcollector__thanks">✅ Thanks! We’ll call you back</h2>
                         </Col>
                     </Row>
                 )}
@@ -172,4 +170,4 @@ const BookDemo = () => {
     );
 };
 
-export default BookDemo;
+export default LidCollector;

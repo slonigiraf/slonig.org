@@ -1928,29 +1928,31 @@ html {
   }
 }
 
-/* BookDemo */
-.bookdemo {
+/* LidCollector */
+.LidCollector {
+  margin-top: 10px;
+  margin-bottom: 10px;
   padding: 26px 0 20px;
   background: linear-gradient(90deg, #0a66ff 0%, #0db3c3 50%, #14d86a 100%);
 }
 
-.bookdemo__title {
+.lidcollector__title {
   margin: 0 0 16px;
   text-align: center;
   color: #ffffff;
 }
 
-.bookdemo__thanks {
+.lidcollector__thanks {
   margin: 0 0 16px;
   text-align: center;
   color: #ffffff;
 }
 
-.bookdemo__row {
+.lidcollector__row {
   margin: 0;
 }
 
-.bookdemo__input {
+.lidcollector__input {
   width: 100%;
   height: 56px;
   border: 0;
@@ -1963,11 +1965,11 @@ html {
   box-shadow: 0 2px 0 rgba(0, 0, 0, 0.06);
 }
 
-.bookdemo__input::placeholder {
+.lidcollector__input::placeholder {
   color: #8e8e8e;
 }
 
-.bookdemo__button {
+.lidcollector__button {
   width: 100%;
   height: 56px;
   border: 0;
@@ -1982,29 +1984,29 @@ html {
   transition: transform 120ms ease, filter 120ms ease;
 }
 
-.bookdemo__button:hover {
+.lidcollector__button:hover {
   filter: brightness(1.02);
   transform: translateY(-1px);
 }
 
-.bookdemo__button:active {
+.lidcollector__button:active {
   transform: translateY(0px);
   filter: brightness(0.98);
 }
 
-.bookdemo__hint {
+.lidcollector__hint {
   margin-top: 10px;
   text-align: center;
   font-size: 14px;
   color: rgba(0, 0, 0, 0.70);
 }
 
-.bookdemo__hint a {
+.lidcollector__hint a {
   color: rgba(0, 0, 0, 0.85);
   text-decoration: underline;
 }
 
-.bookdemo__error {
+.lidcollector__error {
   margin-top: 6px;
   text-align: center;
   color: #7a0000;

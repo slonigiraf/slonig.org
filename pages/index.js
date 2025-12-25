@@ -13,7 +13,7 @@ import FooterSection from './layouts/sections/slonigiraf/footer'
 import Steps from './layouts/sections/slonigiraf/steps'
 import Collaborators from './layouts/sections/slonigiraf/collaborators'
 import Script from "next/script";
-import BookDemo from './layouts/sections/slonigiraf/book_demo'
+import LidCollector from './layouts/sections/slonigiraf/lid_collector'
 
 const Home = () => {
 
@@ -45,7 +45,7 @@ const Home = () => {
 
       <BannerSection />
 
-      <BookDemo />
+      <LidCollector id={'book_a_demo'} caption={'Book a Demo'}/>
 
       <AboutSection />
 
