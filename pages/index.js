@@ -45,7 +45,7 @@ const Home = () => {
 
       <BannerSection />
 
-      {/* <BookDemo /> */}
+      <BookDemo />
 
       <AboutSection />
 
