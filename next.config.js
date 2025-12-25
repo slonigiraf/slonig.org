@@ -9,13 +9,6 @@ module.exports = {
     static: {
       directory: "./dist",
     },
-    proxy: {
-      "/add-lid": {
-        target: "https://denslon.com",
-        changeOrigin: true,
-        secure: true, // allow https
-      },
-    },
   },
 
   module: {
