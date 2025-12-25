@@ -177,7 +177,7 @@ const LidCollectorPopup = ({ id, caption = "Send", triggerText = "Send request" 
 
               {errorText && <div className="lidpopup__error">{errorText}</div>}
 
-              <div className="lidpopup__hint">
+              <div className="lidcollector__hint">
                 *By submitting, I agree to the{" "}
                 <a href="https://slonig.org/privacy-policy" target="_blank" rel="noreferrer">
                   privacy policy

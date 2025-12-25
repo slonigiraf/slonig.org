@@ -58,15 +58,13 @@ const Home = () => {
 
       <LidCollector id={'book_a_demo'} caption={'Book a Demo'} />
 
-      <Steps />
-
       <Collaborators />
 
       <ExpertSection />
 
       <WorkSection />
 
-      <BlogSection />
+      <LidCollector id={'ask_a_question'} caption={'Ask a Question'} />
 
       <FooterSection />
 
