@@ -16,6 +16,10 @@
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --brand-primary: #1e3a8a;
+    --brand-secondary: #3b82f6;
+    --brand-accent: #f59e0b;
+    --brand-surface: #f8fafc;
   }
 }
 
