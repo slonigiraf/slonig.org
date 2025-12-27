@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import Nav from './nav'
 import Link from 'next/link'
 import { Container, Row, Col } from 'reactstrap'
 
@@ -28,7 +27,6 @@ const Header = props => {
                                     <i aria-hidden="true" className="fa fa-bars text-white"></i>
                                 </a>
                             </div>
-                            <Nav />
                             {props.shop &&
                                 <div className="top-header-right">
                                     <ul>
