@@ -1,16 +1,12 @@
-import React, { useEffect } from 'react'
 import Head from 'next/head'
-// import Custom Components
 import Header from './layouts/sections/slonigiraf/header'
-import BannerSection from './layouts/sections/slonigiraf/banner'
-import AboutSection from './layouts/sections/slonigiraf/about'
-import ServiceSection from './layouts/sections/slonigiraf/service'
-import WorkSection from './layouts/sections/slonigiraf/work'
-import ExpertSection from './layouts/sections/slonigiraf/expert'
-import TestimonialSection from './layouts/sections/slonigiraf/testimonial'
-import BlogSection from './layouts/sections/slonigiraf/blog'
-import FooterSection from './layouts/sections/slonigiraf/footer'
-import Steps from './layouts/sections/slonigiraf/steps'
+import Banner from './layouts/sections/slonigiraf/banner'
+import About from './layouts/sections/slonigiraf/about'
+import Service from './layouts/sections/slonigiraf/service'
+import Work from './layouts/sections/slonigiraf/work'
+import Expert from './layouts/sections/slonigiraf/expert'
+import Testimonial from './layouts/sections/slonigiraf/testimonial'
+import Footer from './layouts/sections/slonigiraf/footer'
 import Collaborators from './layouts/sections/slonigiraf/collaborators'
 import Script from "next/script"
 import LidCollector from './layouts/sections/slonigiraf/lid_collector'
@@ -44,29 +40,29 @@ const Home = () => {
 
       <Header className="agency" />
 
-      <BannerSection />
+      <Banner />
 
       <LidCollector id={'call_me_back'} caption={'Call Me Back'} />
 
-      <AboutSection />
+      <About />
 
-      <ServiceSection />
+      <Service />
 
       <LidCollector id={'book_a_demo'} caption={'Send Me the Research'} />
 
-      <TestimonialSection />
+      <Testimonial />
 
       <LidCollector id={'book_a_demo'} caption={'Book a Demo'} />
 
       <Collaborators />
 
-      <ExpertSection />
+      <Expert />
 
-      <WorkSection />
+      <Work />
 
       <LidCollector id={'ask_a_question'} caption={'Ask a Question'} />
 
-      <FooterSection />
+      <Footer />
 
       <LidCollectorPopup id={'call_me_back_popup'} caption={'Call Me Back'} />
     </div>
