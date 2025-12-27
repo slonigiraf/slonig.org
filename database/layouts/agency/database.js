@@ -1,29 +1,5 @@
 
 module.exports = {
-
-    PricingData: [
-        {
-            title: 'Free',
-            features: ['Easy Installations','Unlimited support','Free Forever'],
-            price: 0,
-        },
-        {
-            title: 'Medium',
-            features: ['Easy Installations','Unlimited support','Free Forever'],
-            price: 99,
-        },
-        {
-            title: 'Business',
-            features: ['Easy Installations','Unlimited support','Free Forever'],
-            price: 999,
-        },
-        {
-            title: 'Free',
-            features: ['Easy Installations','Unlimited support','Free Forever'],
-            price: 0,
-        }
-    ],
-
     ExpertData: [
         {
             photo: '/assets/images/agency/team/reshetov.png',
@@ -40,11 +16,6 @@ module.exports = {
             title: 'Ilya Moskvin',
             details: 'Software Engineer. Ilya works with a wide range of technologies, from Javascript to distributed computing and blockchain.'
         },
-        // {
-        //     photo: '/assets/images/event/l3-3.png',
-        //     title: 'Mark Tucker',
-        //     details: 'App Developer - Jumpster'
-        // },
     ],
 
     TestimonialData: [
@@ -71,36 +42,6 @@ module.exports = {
             name: 'Elena Shirokova',
             role: 'English teacher, Family education center, Saratov city',
             details: 'I was pleased with the results. The kids enjoyed it. Those children who were mentors felt more confident. Most of the child mentors really tried to teach others, they felt responsible.'
-        },
-    ],
-
-    BlogData: [
-        {
-            id: 2,
-            url: "https://medium.com/web3foundation/web3-foundation-grants-wave-13-recipients-3e948cd29f18",
-            photo: '/assets/images/agency/blog/web3-slon.jpg',
-            title: 'Slonig has received a grant from Web3',
-            date: 'July 4, 2022',
-            place: 'Medium',
-            details: 'We\'re glad to report that Slonig (Slonigiraf) has received a grant from Web3 foundation to create a blockchain module for '
-        },
-        {
-            id: 3,
-            url: "https://github.com/ipfs/devgrants/issues/156",
-            photo: '/assets/images/agency/blog/ipfs-slon.jpg',
-            title: 'Slonig has received a grant from IPFS',
-            date: 'June 19, 2022',
-            place: 'Github',
-            details: 'We\'re proud to announce that Slonig has received a grant from IPFS to add p2p file storage system to SLON reputation '
-        },
-        {
-            id: 1,
-            url: "https://medium.com/@slonigiraf/recommendations-that-work-a223e28a2437",
-            photo: '/assets/images/agency/blog/slon-blog-1.jpg',
-            title: 'Recommendations that work',
-            date: 'March 24, 2022',
-            place: 'Medium',
-            details: 'A job interview is a complicated process that aimed to ensure that a candidate has enough skills. Companies spend tons of money '
         },
     ]
 }
