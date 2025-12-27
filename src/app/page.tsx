@@ -744,7 +744,425 @@ const ContactsBlock = () => (
     </div>
   </Section>
 );
+const EvidenceSection = () => (
+  <Section className="bg-white border-t border-slate-100">
+    <div className="text-center mb-10">
+      <Badge>Evidence base</Badge>
+      <h2 className="text-3xl font-bold text-slate-900">Why peer tutoring is worth reorganizing around</h2>
+      <p className="mt-3 text-slate-600 max-w-3xl mx-auto">
+        The paper summarizes decades of research: adult 1:1 tutoring can be extremely powerful, but expensive to scale;
+        peer tutoring shows meaningful effects—yet usually fails operationally without structure and tutor training.
+      </p>
+    </div>
 
+    <div className="grid lg:grid-cols-4 gap-6">
+      <Card className="p-6">
+        <div className="font-bold text-slate-900">Adult 1:1 tutoring</div>
+        <div className="mt-2 text-3xl font-extrabold text-slate-900">~2σ</div>
+        <div className="mt-2 text-sm text-slate-600">
+          Bloom’s “2-sigma problem”: tutored + mastery learning students performed about two standard deviations above
+          traditional classrooms. 
+        </div>
+      </Card>
+
+      <Card className="p-6">
+        <div className="font-bold text-slate-900">Professional tutoring (meta)</div>
+        <div className="mt-2 text-3xl font-extrabold text-slate-900">d ≈ 0.59</div>
+        <div className="mt-2 text-sm text-slate-600">
+          Tutor quality matters: professional teachers outperform nonprofessionals.
+        </div>
+      </Card>
+
+      <Card className="p-6">
+        <div className="font-bold text-slate-900">Peer tutoring in math (meta)</div>
+        <div className="mt-2 text-3xl font-extrabold text-slate-900">d ≈ 0.34–0.37</div>
+        <div className="mt-2 text-sm text-slate-600">
+          Same-age and cross-age peer tutoring in mathematics shows substantial average effects.
+        </div>
+      </Card>
+
+      <Card className="p-6">
+        <div className="font-bold text-slate-900">Why Slonig exists</div>
+        <div className="mt-2 text-3xl font-extrabold text-slate-900">Operational gap</div>
+        <div className="mt-2 text-sm text-slate-600">
+          The paper argues adoption fails because peer tutoring usually requires planning, matching, training, and monitoring—
+          Slonig is designed to remove those barriers.
+        </div>
+      </Card>
+    </div>
+
+    <div className="mt-8 rounded-2xl border border-slate-200 bg-slate-50 p-6">
+      <div className="flex items-start gap-3">
+        <AlertTriangle className="w-5 h-5 text-amber-600 mt-0.5" />
+        <div className="text-slate-700">
+          <span className="font-semibold text-slate-900">Important:</span> the paper reports rapid onboarding/usability pilots,
+          but explicitly notes that larger studies (e.g., RCTs) are needed to quantify learning gains.
+        </div>
+      </div>
+    </div>
+  </Section>
+);
+
+const DesignPrinciplesSection = () => (
+  <Section className="bg-slate-50 border-t border-slate-100">
+    <div className="text-center mb-10">
+      <Badge>Design principles</Badge>
+      <h2 className="text-3xl font-bold text-slate-900">Built for real classrooms: simple, private, low-prep</h2>
+      <p className="mt-3 text-slate-600 max-w-3xl mx-auto">
+        The platform is described as open-source and free to use, with student data stored locally on the user’s device,
+        and lesson materials integrated so teachers don’t need extra prep.
+      </p>
+    </div>
+
+    <div className="grid lg:grid-cols-3 gap-6">
+      <Card className="p-8">
+        <div className="flex items-center gap-2 font-bold text-slate-900">
+          <Layers className="w-5 h-5 text-blue-700" />
+          Open-source & CC materials
+        </div>
+        <p className="mt-3 text-slate-600">
+          Free for students/teachers/parents; lesson materials licensed under Creative Commons; community can evolve content
+          “like Wikipedia.”
+        </p>
+      </Card>
+
+      <Card className="p-8">
+        <div className="flex items-center gap-2 font-bold text-slate-900">
+          <ShieldCheck className="w-5 h-5 text-emerald-700" />
+          Privacy by design
+        </div>
+        <p className="mt-3 text-slate-600">
+          User data (names, learning history, progress) is stored only on the personal device; no contact info collection is
+          required by design.
+        </p>
+      </Card>
+
+      <Card className="p-8">
+        <div className="flex items-center gap-2 font-bold text-slate-900">
+          <Clock className="w-5 h-5 text-amber-700" />
+          Minimal teacher workload
+        </div>
+        <p className="mt-3 text-slate-600">
+          Content lives in the app; teachers don’t prepare materials; teacher intro can be brief (paper describes a short
+          onboarding/training approach).
+        </p>
+      </Card>
+    </div>
+  </Section>
+);
+
+const AlgorithmSection = () => (
+  <Section className="bg-white border-t border-slate-100">
+    <div className="text-center mb-10">
+      <Badge>Teaching algorithm</Badge>
+      <h2 className="text-3xl font-bold text-slate-900">A scripted tutoring loop that drives mastery</h2>
+      <p className="mt-3 text-slate-600 max-w-3xl mx-auto">
+        The paper describes a built-in tutor algorithm: immediate feedback + repetition, then student-generated examples,
+        then “student corrects tutor’s deliberate mistake,” and badges only when perfect—otherwise repeat next day (spaced
+        repetition).
+      </p>
+    </div>
+
+    <div className="grid lg:grid-cols-2 gap-6">
+      <Card className="p-8">
+        <div className="font-bold text-slate-900">What the tutor does (guided prompts)</div>
+        <ol className="mt-4 space-y-3 text-slate-700">
+          <li className="flex gap-3">
+            <CheckCircle2 className="w-5 h-5 text-emerald-600 mt-0.5" />
+            <span>Gives an exercise and checks the answer.</span>
+          </li>
+          <li className="flex gap-3">
+            <CheckCircle2 className="w-5 h-5 text-emerald-600 mt-0.5" />
+            <span>If incorrect: provides the correct answer and has the student repeat it (retrieval practice).</span>
+          </li>
+          <li className="flex gap-3">
+            <CheckCircle2 className="w-5 h-5 text-emerald-600 mt-0.5" />
+            <span>After correct: asks student to create a similar exercise (transfer via generation).</span>
+          </li>
+          <li className="flex gap-3">
+            <CheckCircle2 className="w-5 h-5 text-emerald-600 mt-0.5" />
+            <span>Tutor makes a deliberate mistake; student must correct it (learning-by-teaching).</span>
+          </li>
+        </ol>
+      </Card>
+
+      <Card className="p-8">
+        <div className="font-bold text-slate-900">How mastery is enforced</div>
+        <ul className="mt-4 space-y-3 text-slate-700">
+          <li className="flex gap-3">
+            <CheckCircle2 className="w-5 h-5 text-emerald-600 mt-0.5" />
+            <span>Badge is awarded only if the session is perfect that day; otherwise repeat tomorrow (spaced repetition).</span>
+          </li>
+          <li className="flex gap-3">
+            <CheckCircle2 className="w-5 h-5 text-emerald-600 mt-0.5" />
+            <span>Tutor cannot mark a skill “learned” unless the full algorithm is completed without errors that session.</span>
+          </li>
+          <li className="flex gap-3">
+            <CheckCircle2 className="w-5 h-5 text-emerald-600 mt-0.5" />
+            <span>Skill progression is structured into modules; composite “complex skills” unlock after prerequisites.</span>
+          </li>
+        </ul>
+        <div className="mt-5 rounded-xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-700">
+          This section is based on the “Built-in tutoring algorithm / mastery learning / skill-based learning” description and
+          Figure 1 narrative.
+        </div>
+      </Card>
+    </div>
+  </Section>
+);
+
+const QualityControlSection = () => (
+  <Section className="bg-slate-900 text-white">
+    <div className="text-center mb-10">
+      <Badge>Quality control</Badge>
+      <h2 className="text-3xl font-bold">Badges + stakes make “fake progress” expensive</h2>
+      <p className="mt-3 text-slate-300 max-w-3xl mx-auto">
+        The paper describes badges containing skill metadata and a stake (Slon) placed by the tutor; badges can be challenged
+        (e.g., by another tutor/teacher/parent), which can reduce the tutor’s Slon—discouraging sloppy tutoring.
+      </p>
+    </div>
+
+    <div className="grid lg:grid-cols-3 gap-6">
+      <div className="rounded-2xl border border-slate-700 bg-slate-800 p-8">
+        <div className="flex items-center gap-2 font-bold">
+          <CheckCircle2 className="w-5 h-5 text-emerald-400" />
+          Verifiable outcomes
+        </div>
+        <p className="mt-3 text-slate-200">
+          Badges include skill ID + proof tied to the student, so “what was learned” is visible and reviewable.
+        </p>
+      </div>
+
+      <div className="rounded-2xl border border-slate-700 bg-slate-800 p-8">
+        <div className="flex items-center gap-2 font-bold">
+          <DollarSign className="w-5 h-5 text-amber-400" />
+          Stake-based accountability
+        </div>
+        <p className="mt-3 text-slate-200">
+          Tutors stake Slon when awarding a badge; improper awarding can be challenged, lowering tutor Slon.
+        </p>
+      </div>
+
+      <div className="rounded-2xl border border-slate-700 bg-slate-800 p-8">
+        <div className="flex items-center gap-2 font-bold">
+          <School className="w-5 h-5 text-blue-400" />
+          Transparent for adults
+        </div>
+        <p className="mt-3 text-slate-200">
+          Teachers (and potentially principals/parents) can review progress and revoke badges if mastery isn’t real.
+        </p>
+      </div>
+    </div>
+  </Section>
+);
+
+const ExponentialSpreadSection = () => {
+  const rows = [
+    { lesson: 1, minutes: 0, students: 1 },
+    { lesson: 1, minutes: 10, students: 2 },
+    { lesson: 1, minutes: 20, students: 4 },
+    { lesson: 1, minutes: 30, students: 8 },
+    { lesson: 1, minutes: 40, students: 16 },
+    { lesson: 1, minutes: 50, students: 32 },
+    { lesson: 2, minutes: 60, students: 64 },
+    { lesson: 2, minutes: 70, students: 128 },
+    { lesson: 2, minutes: 80, students: 256 },
+    { lesson: 2, minutes: 90, students: 512 },
+    { lesson: 2, minutes: 100, students: 1024 },
+  ];
+
+  return (
+    <Section className="bg-white border-t border-slate-100">
+      <div className="text-center mb-10">
+        <Badge>Scalability model</Badge>
+        <h2 className="text-3xl font-bold text-slate-900">Teach 1 student → the class learns fast</h2>
+        <p className="mt-3 text-slate-600 max-w-3xl mx-auto">
+          The paper argues new skills can spread through peer tutoring without lectures: if a “typical skill” takes ~10 minutes,
+          the number of students who can teach it can double each cycle (Table 1).
+        </p>
+      </div>
+
+      <div className="grid lg:grid-cols-2 gap-8 items-start">
+        <Card className="p-8">
+          <div className="font-bold text-slate-900">The claim (from Table 1)</div>
+          <ul className="mt-4 space-y-3 text-slate-700">
+            <li className="flex gap-3">
+              <CheckCircle2 className="w-5 h-5 text-emerald-600 mt-0.5" />
+              <span>~50 minutes: up to ~32 students can master a skill (class-scale).</span>
+            </li>
+            <li className="flex gap-3">
+              <CheckCircle2 className="w-5 h-5 text-emerald-600 mt-0.5" />
+              <span>~100 minutes: model extrapolates to 1,000+ learners (school-scale).</span>
+            </li>
+          </ul>
+          <div className="mt-5 rounded-xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-700">
+            This section summarizes “Introducing new material without lectures” + Table 1.
+          </div>
+        </Card>
+
+        <Card className="p-0 overflow-hidden">
+          <div className="px-6 py-4 border-b border-slate-200 bg-slate-50">
+            <div className="font-bold text-slate-900">Table 1 (rendered as HTML)</div>
+            <div className="text-sm text-slate-600">Exponential growth of skill mastery (paper’s example).</div>
+          </div>
+          <div className="p-6 overflow-x-auto">
+            <table className="min-w-full text-sm">
+              <thead>
+                <tr className="text-left text-slate-500">
+                  <th className="py-2 pr-4">Lesson</th>
+                  <th className="py-2 pr-4">Minutes</th>
+                  <th className="py-2 pr-4">Students mastered</th>
+                </tr>
+              </thead>
+              <tbody>
+                {rows.map((r, i) => (
+                  <tr key={i} className="border-t border-slate-100">
+                    <td className="py-2 pr-4 text-slate-900 font-medium">{r.lesson}</td>
+                    <td className="py-2 pr-4 text-slate-700">{r.minutes}</td>
+                    <td className="py-2 pr-4 text-slate-900 font-semibold">{r.students}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </Card>
+      </div>
+    </Section>
+  );
+};
+
+const OnboardingProtocolSection = () => {
+  const steps = [
+    { n: 1, t: "Choose any tutee." },
+    { n: 2, t: "Tutee scans QR to launch the site (first load may be slow)." },
+    { n: 3, t: "Tutee types full name." },
+    { n: 4, t: "Tutee chooses a familiar topic." },
+    { n: 5, t: "Tutee toggles “learn with a tutor”." },
+    { n: 6, t: "Tutor scans the QR from tutee’s screen." },
+    { n: 7, t: "Tutor teaches a skill by following the on-screen green prompts; uses Next/Yes/No." },
+    { n: 8, t: "At end: tutee scans tutor QR and taps Reward; tutee gets badge, tutor gets Slon." },
+    { n: 9, t: "Student chooses someone else to teach; give them the cheat sheet; agree on reward." },
+    { n: 10, t: "Ensure the student teaches the new person correctly." },
+    { n: 11, t: "Student rewards you as agreed." },
+  ];
+
+  return (
+    <Section className="bg-slate-50 border-t border-slate-100">
+      <div className="text-center mb-10">
+        <Badge>1-lesson rollout</Badge>
+        <h2 className="text-3xl font-bold text-slate-900">Peer-led onboarding that actually works</h2>
+        <p className="mt-3 text-slate-600 max-w-3xl mx-auto">
+          The paper compares three onboarding methods and reports that “frontal” and “video” introductions didn’t produce
+          real understanding, while the peer-tutoring onboarding did (Table 2).
+        </p>
+      </div>
+
+      <div className="grid lg:grid-cols-2 gap-8 items-start">
+        <Card className="p-8">
+          <div className="font-bold text-slate-900">The protocol (Table 2)</div>
+          <div className="mt-3 text-slate-600 text-sm">
+            Designed so the number of “guides” doubles each ~10-minute cycle (class trained in one lesson; school in two).
+          </div>
+
+          <div className="mt-6 space-y-3">
+            {steps.map((s) => (
+              <div key={s.n} className="flex gap-3">
+                <div className="w-8 h-8 rounded-full bg-blue-900 text-white flex items-center justify-center font-bold text-sm">
+                  {s.n}
+                </div>
+                <div className="text-slate-700">{s.t}</div>
+              </div>
+            ))}
+          </div>
+        </Card>
+
+        <Card className="p-8">
+          <div className="font-bold text-slate-900">What you can say on the principal call</div>
+          <ul className="mt-4 space-y-3 text-slate-700">
+            <li className="flex gap-3">
+              <CheckCircle2 className="w-5 h-5 text-emerald-600 mt-0.5" />
+              <span>“We don’t train staff for weeks—students train each other in one lesson.”</span>
+            </li>
+            <li className="flex gap-3">
+              <CheckCircle2 className="w-5 h-5 text-emerald-600 mt-0.5" />
+              <span>“No prep: the content and prompts are built in.”</span>
+            </li>
+            <li className="flex gap-3">
+              <CheckCircle2 className="w-5 h-5 text-emerald-600 mt-0.5" />
+              <span>“We can start with 2 classes and prove operational adoption fast.”</span>
+            </li>
+          </ul>
+
+          <div className="mt-6 rounded-xl border border-slate-200 bg-white p-5">
+            <div className="flex items-start gap-3">
+              <Users className="w-5 h-5 text-blue-700 mt-0.5" />
+              <div className="text-slate-700">
+                Pilot notes in the paper describe successful peer-led onboarding in small groups across multiple ages, and
+                emphasize that larger evaluation is the next step.
+              </div>
+            </div>
+          </div>
+        </Card>
+      </div>
+    </Section>
+  );
+};
+
+const ResearchPartnersSection = () => (
+  <Section className="bg-white border-t border-slate-100">
+    <div className="text-center mb-10">
+      <Badge>Research partners</Badge>
+      <h2 className="text-3xl font-bold text-slate-900">Want to run an RCT or quasi-experiment?</h2>
+      <p className="mt-3 text-slate-600 max-w-3xl mx-auto">
+        The paper explicitly calls for further randomized controlled trials to assess long-term effectiveness across diverse
+        settings. If you’re a district, university, or research org, let’s design a clean evaluation.
+      </p>
+    </div>
+
+    <div className="grid lg:grid-cols-3 gap-6">
+      <Card className="p-8">
+        <div className="font-bold text-slate-900">Suggested outcomes</div>
+        <ul className="mt-4 space-y-2 text-slate-700">
+          <li>Badge velocity (badges per lesson) as “learning speed”</li>
+          <li>Growth measures (district/state assessments)</li>
+          <li>Engagement and behavior indicators</li>
+        </ul>
+        <div className="mt-4 text-sm text-slate-600">
+          The paper discusses schoolwide monitoring and learning speed via badge counts.
+        </div>
+      </Card>
+
+      <Card className="p-8">
+        <div className="font-bold text-slate-900">Suggested design</div>
+        <ul className="mt-4 space-y-2 text-slate-700">
+          <li>Start with 2 classes (pilot)</li>
+          <li>Scale to grade-level rollout</li>
+          <li>Compare vs. business-as-usual or alternative intervention</li>
+        </ul>
+      </Card>
+
+      <Card className="p-8">
+        <div className="font-bold text-slate-900">Implementation constraints</div>
+        <ul className="mt-4 space-y-2 text-slate-700">
+          <li>Same-age, in-class, face-to-face tutoring</li>
+          <li>Structured prompts + incentive balancing</li>
+          <li>Minimal teacher prep requirements</li>
+        </ul>
+        <div className="mt-4 text-sm text-slate-600">
+          These constraints mirror the platform design principles and classroom deployment approach described in the paper.
+        </div>
+      </Card>
+    </div>
+
+    <div className="mt-10 text-center">
+      <a href="#lead">
+        <Button variant="primary">
+          Propose a Study / Pilot <ArrowRight className="w-4 h-4" />
+        </Button>
+      </a>
+    </div>
+  </Section>
+);
 
 export default async function LandingPage({ searchParams }: { searchParams?: Promise<Record<string, any>> }) {
   const sp = (await searchParams) ?? {};
@@ -755,22 +1173,34 @@ export default async function LandingPage({ searchParams }: { searchParams?: Pro
 
       <Navbar />
    
-      <Hero />
+            <Hero />
+      <PromoStrip />
       <Agitation />
+
+      <EvidenceSection />
       <NotAlone />
       <SchoolsFacingItToo />
       <WhatChanged />
 
+      <DesignPrinciplesSection />
       <Solution />
+
+      <AlgorithmSection />
+      <QualityControlSection />
+      <ExponentialSpreadSection />
+      <OnboardingProtocolSection />
+
       <DirectCosts />
       <StopSpendingOn />
       <ValueStack />
 
+      <ResearchPartnersSection />
+
       <LeadSection success={success} />
       <GuaranteeBand />
       <ContactsBlock />
-
       <Footer />
+
     </main>
   );
 }
