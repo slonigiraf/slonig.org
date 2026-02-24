@@ -1,11 +1,12 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Layers, Menu, X } from "lucide-react";
 import Button from "./Button";
 
 export const Navbar: React.FC = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const panelRef = useRef<HTMLDivElement | null>(null);
 
   const openMobile = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -30,6 +31,27 @@ export const Navbar: React.FC = () => {
     return () => {
       document.documentElement.style.overflow = prevHtmlOverflow || "";
       document.body.style.overflow = prevBodyOverflow || "";
+    };
+  }, [mobileOpen]);
+
+  // Close when clicking outside the mobile panel + navbar row
+  useEffect(() => {
+    if (!mobileOpen) return;
+
+    const onPointerDown = (e: PointerEvent) => {
+      const target = e.target as Node | null;
+      if (!target) return;
+
+      // If click is inside the mobile panel, do nothing
+      if (panelRef.current?.contains(target)) return;
+
+      // Otherwise close (this includes clicks on overlay / page background)
+      closeMobile();
+    };
+
+    document.addEventListener("pointerdown", onPointerDown, { capture: true });
+    return () => {
+      document.removeEventListener("pointerdown", onPointerDown, { capture: true } as any);
     };
   }, [mobileOpen]);
 
@@ -90,17 +112,14 @@ export const Navbar: React.FC = () => {
       {/* Mobile panel (attached to top, below navbar) */}
       {mobileOpen && (
         <>
-          {/* Click-away overlay */}
-          <button
-            type="button"
-            aria-label="Close menu overlay"
-            onClick={closeMobile}
-            className="md:hidden fixed inset-0 top-[72px] z-40 bg-black/20"
-          />
+          {/* Overlay (kept, but no onClick needed now) */}
+          <div className="md:hidden fixed inset-0 top-[72px] z-40 bg-black/20" />
 
-          <div className="md:hidden fixed left-0 right-0 top-[72px] z-50 border-t border-slate-200 bg-white shadow-lg">
+          <div
+            ref={panelRef}
+            className="md:hidden fixed left-0 right-0 top-[72px] z-50 border-t border-slate-200 bg-white shadow-lg"
+          >
             <div className="mx-auto max-w-7xl px-6 py-4">
-              
               <div className="mt-4 flex flex-col gap-4 text-base font-semibold text-slate-900">
                 <a href="#why_slonig" onClick={closeMobile} className="hover:text-blue-900">
                   Why Slonig?
