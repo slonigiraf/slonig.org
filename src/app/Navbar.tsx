@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import { Layers, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import Button from "./Button";
 
 export const Navbar: React.FC = () => {
@@ -34,18 +34,14 @@ export const Navbar: React.FC = () => {
     };
   }, [mobileOpen]);
 
-  // Close when clicking outside the mobile panel + navbar row
+  // Close when clicking outside the mobile panel
   useEffect(() => {
     if (!mobileOpen) return;
 
     const onPointerDown = (e: PointerEvent) => {
       const target = e.target as Node | null;
       if (!target) return;
-
-      // If click is inside the mobile panel, do nothing
       if (panelRef.current?.contains(target)) return;
-
-      // Otherwise close (this includes clicks on overlay / page background)
       closeMobile();
     };
 
@@ -57,21 +53,23 @@ export const Navbar: React.FC = () => {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 w-full bg-white/90 backdrop-blur-md border-b border-slate-200">
-      <div className="flex items-center justify-between px-6 py-4">
+      {/* Navbar row: make it taller and reduce padding so logo fills more of it */}
+      <div className="flex h-16 items-center justify-between px-6 py-2">
         {/* Brand */}
         <a
           href="#top"
-          className="text-xl font-bold text-slate-900 flex items-center gap-2"
+          className="flex items-center"
           onClick={(e) => {
             e.preventDefault();
             window.scrollTo({ top: 0, behavior: "smooth" });
             closeMobile();
           }}
         >
-          <Layers className="w-6 h-6 text-blue-900" />
-          <span>
-            Slonig<span className="text-blue-600">.org</span>
-          </span>
+          <img
+            src="/named-logo.svg"
+            alt="Slonig"
+            className="h-10 w-auto md:h-10"
+          />
         </a>
 
         {/* Desktop menu */}
@@ -89,10 +87,7 @@ export const Navbar: React.FC = () => {
             ROI
           </a>
           <a href="#lead" className="shrink-0">
-            <Button
-              variant="primary"
-              className="!py-2 !px-4 text-sm inline-flex items-center gap-2"
-            >
+            <Button variant="primary" className="!py-2 !px-4 text-sm inline-flex items-center gap-2">
               Request a Demo
             </Button>
           </a>
@@ -112,12 +107,12 @@ export const Navbar: React.FC = () => {
       {/* Mobile panel (attached to top, below navbar) */}
       {mobileOpen && (
         <>
-          {/* Overlay (kept, but no onClick needed now) */}
-          <div className="md:hidden fixed inset-0 top-[72px] z-40 bg-black/20" />
+          {/* Overlay */}
+          <div className="md:hidden fixed inset-0 top-16 z-40 bg-black/20" />
 
           <div
             ref={panelRef}
-            className="md:hidden fixed left-0 right-0 top-[72px] z-50 border-t border-slate-200 bg-white shadow-lg"
+            className="md:hidden fixed left-0 right-0 top-16 z-50 border-t border-slate-200 bg-white shadow-lg"
           >
             <div className="mx-auto max-w-7xl px-6 py-4">
               <div className="mt-4 flex flex-col gap-4 text-base font-semibold text-slate-900">
