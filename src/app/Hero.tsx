@@ -5,8 +5,8 @@ type Props = {};
 export default function Hero({}: Props) {
   return (
     <section className="relative w-full text-white" style={{ backgroundColor: "var(--primary-color)" }}>
-      <div className="mx-auto max-w-6xl px-6 py-16 sm:py-20 md:py-24">
-        <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
+      <div className="mx-auto max-w-6xl px-6 py-24">
+        <div className="mx-auto flex flex-col items-center text-center">
           <h1 className="text-4xl font-semibold leading-tight tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
             Reach 70% +
             <br />
@@ -14,9 +14,9 @@ export default function Hero({}: Props) {
           </h1>
 
           <p className="mt-10 max-w-4xl text-xl leading-relaxed sm:text-2xl md:text-3xl">
-            Math achievement shouldn’t mirror family income, so we
+            Math achievement shouldn’t mirror family income, so we&nbsp;
             <br className="hidden md:block" />
-            designed a method that gets schools above 70% proficiency—
+            discovered a method that gets schools above 70% proficiency—
             <br className="hidden md:block" />
             without relying on “star” teachers or wealthy parents.
           </p>

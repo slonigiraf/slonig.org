@@ -1229,7 +1229,7 @@ export default async function LandingPage({ searchParams }: { searchParams?: Pro
       <Navbar />
 
       <Hero />
-      <PromoStrip />
+
       <Agitation />
       <CurrentSolutionsBlock />
 
