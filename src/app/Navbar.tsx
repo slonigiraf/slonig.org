@@ -1,11 +1,15 @@
 "use client";
 
 import React, { useEffect, useCallback, useState } from "react";
+import { createPortal } from "react-dom";
 import { Menu, X } from "lucide-react";
 import Button from "./Button";
 
 export const Navbar: React.FC = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => setMounted(true), []);
 
   const closeMobile = useCallback(() => setMobileOpen(false), []);
 
@@ -14,7 +18,6 @@ export const Navbar: React.FC = () => {
     setMobileOpen(true);
   }, []);
 
-  // Smooth-scroll + close (prevents the default anchor jump)
   const navTo = useCallback(
     (hash: string) => (e: React.MouseEvent<HTMLAnchorElement>) => {
       e.preventDefault();
@@ -102,47 +105,53 @@ export const Navbar: React.FC = () => {
         </button>
       </div>
 
-      {/* Mobile panel (NO document-level outside-click listener; overlay handles outside click) */}
-      {mobileOpen && (
-        <>
-          {/* Overlay: tap anywhere outside the panel to close */}
-          <button
-            type="button"
-            aria-label="Close menu overlay"
-            onClick={closeMobile}
-            className="md:hidden fixed inset-0 top-16 z-40 bg-black/20"
-          />
+      {/* Mobile menu via portal (fixes overlay click issues caused by stacking contexts) */}
+      {mounted && mobileOpen
+        ? createPortal(
+            <div className="md:hidden fixed inset-0 z-[9999]">
+              {/* Overlay */}
+              <div
+                className="absolute inset-0 bg-black/20"
+                onClick={closeMobile}
+                aria-label="Close menu overlay"
+                role="button"
+              />
 
-          {/* Panel */}
-          <div className="md:hidden fixed left-0 right-0 top-16 z-50 border-t border-slate-200 bg-white shadow-lg">
-            <div className="mx-auto max-w-7xl px-6 py-4">
-              <div className="mt-4 flex flex-col gap-4 text-base font-semibold text-slate-900">
-                <a href="#why_slonig" className="hover:text-blue-900" onClick={navTo("#why_slonig")}>
-                  Why Slonig?
-                </a>
-                <a href="#how_it_works" className="hover:text-blue-900" onClick={navTo("#how_it_works")}>
-                  How It Works
-                </a>
-                <a href="#efficacy" className="hover:text-blue-900" onClick={navTo("#efficacy")}>
-                  Efficacy
-                </a>
-                <a href="#roi" className="hover:text-blue-900" onClick={navTo("#roi")}>
-                  ROI
-                </a>
+              {/* Panel (stop click bubbling so it doesn't close immediately) */}
+              <div
+                className="absolute left-0 right-0 top-16 border-t border-slate-200 bg-white shadow-lg"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <div className="mx-auto max-w-7xl px-6 py-4">
+                  <div className="mt-4 flex flex-col gap-4 text-base font-semibold text-slate-900">
+                    <a href="#why_slonig" className="hover:text-blue-900" onClick={navTo("#why_slonig")}>
+                      Why Slonig?
+                    </a>
+                    <a href="#how_it_works" className="hover:text-blue-900" onClick={navTo("#how_it_works")}>
+                      How It Works
+                    </a>
+                    <a href="#efficacy" className="hover:text-blue-900" onClick={navTo("#efficacy")}>
+                      Efficacy
+                    </a>
+                    <a href="#roi" className="hover:text-blue-900" onClick={navTo("#roi")}>
+                      ROI
+                    </a>
 
-                <a href="#lead" className="shrink-0" onClick={navTo("#lead")}>
-                  <Button
-                    variant="primary"
-                    className="w-full !py-2 !px-4 text-sm inline-flex items-center justify-center gap-2"
-                  >
-                    Request a Demo
-                  </Button>
-                </a>
+                    <a href="#lead" className="shrink-0" onClick={navTo("#lead")}>
+                      <Button
+                        variant="primary"
+                        className="w-full !py-2 !px-4 text-sm inline-flex items-center justify-center gap-2"
+                      >
+                        Request a Demo
+                      </Button>
+                    </a>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        </>
-      )}
+            </div>,
+            document.body
+          )
+        : null}
     </nav>
   );
 };
