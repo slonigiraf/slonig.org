@@ -1,5 +1,5 @@
 import React from "react";
-import { Layers, ArrowRight } from "lucide-react";
+import { Layers } from "lucide-react";
 import Button from "./Button";
 
 export const Navbar: React.FC = () => (
@@ -11,26 +11,27 @@ export const Navbar: React.FC = () => (
       </span>
     </div>
 
-    <div className="hidden md:flex gap-6 text-sm font-medium text-slate-600">
-      <a href="#problem" className="hover:text-blue-900">
-        The Challenge
+    <div className="hidden md:flex gap-15 items-center text-lg font-bold text-slate-900">
+      <a href="#why_slonig" className="hover:text-blue-900">
+        Why Slonig?
       </a>
-      <a href="#solution" className="hover:text-blue-900">
+      <a href="#how_it_works" className="hover:text-blue-900">
         How It Works
       </a>
-      <a href="#impact" className="hover:text-blue-900">
+      <a href="#efficacy" className="hover:text-blue-900">
+        Efficacy
+      </a>
+      <a href="#roi" className="hover:text-blue-900">
         ROI
       </a>
-      <a href="#lead" className="hover:text-blue-900">
-        Get a Demo
-      </a>
-    </div>
-
-    <a href="#lead" className="shrink-0">
+      <a href="#lead" className="shrink-0">
       <Button variant="primary" className="!py-2 !px-4 text-sm inline-flex items-center gap-2">
         Request a Demo
       </Button>
     </a>
+    </div>
+
+    
   </nav>
 );
 
