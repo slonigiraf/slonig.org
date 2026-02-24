@@ -21,6 +21,7 @@ import {
 } from "lucide-react";
 import Button from "./Button";
 import Navbar from "./Navbar";
+import Hero from "./Hero";
 
 const Section = ({
   children,
@@ -58,56 +59,7 @@ const Card = ({
 
 
 
-const Hero = () => (
-  <div className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-slate-50">
-    <div className="absolute inset-0 z-0 opacity-10 bg-[radial-gradient(#3b82f6_1px,transparent_1px)] [background-size:16px_16px]" />
-    <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
-      <Badge>Instructional Capacity Building</Badge>
-      <h1 className="text-4xl md:text-6xl font-extrabold text-slate-900 tracking-tight mb-6 leading-tight">
-        Scale Academic Mastery with <br className="hidden md:block" />
-        <span className="text-blue-700">Structured Peer Learning</span>
-      </h1>
-      <p className="max-w-3xl mx-auto text-lg md:text-xl text-slate-600 mb-10 leading-relaxed">
-        Slonig turns classrooms into structured learning-by-teaching. Students work face-to-face,
-        with guided prompts and accountability—so teachers become facilitators, not firefighters.
-      </p>
-      <div className="flex flex-col sm:flex-row justify-center gap-4">
-        <a href="#lead">
-          <Button variant="primary">
-            Request Principal Consultation <ArrowRight className="w-4 h-4" />
-          </Button>
-        </a>
-        <a href="#solution">
-          <Button variant="outline">See How It Works</Button>
-        </a>
-      </div>
 
-      <div className="mt-10 max-w-4xl mx-auto grid sm:grid-cols-3 gap-6 text-left">
-        <Card className="p-6">
-          <div className="flex items-center gap-2 text-slate-900 font-bold">
-            <DollarSign className="w-5 h-5 text-amber-600" />
-            $15K / school / year
-          </div>
-          <div className="mt-2 text-sm text-slate-600">$50 per student (typical 300-student school).</div>
-        </Card>
-        <Card className="p-6">
-          <div className="flex items-center gap-2 text-slate-900 font-bold">
-            <BarChart3 className="w-5 h-5 text-blue-700" />
-            400%–887% ROI
-          </div>
-          <div className="mt-2 text-sm text-slate-600">Net savings: $60K–$133K annually.</div>
-        </Card>
-        <Card className="p-6">
-          <div className="flex items-center gap-2 text-slate-900 font-bold">
-            <Clock className="w-5 h-5 text-emerald-600" />
-            ~2-month payback
-          </div>
-          <div className="mt-2 text-sm text-slate-600">Pilot: 2 classes · 1 month.</div>
-        </Card>
-      </div>
-    </div>
-  </div>
-);
 
 const Agitation = () => (
   <Section id="why_slonig" className="bg-white">

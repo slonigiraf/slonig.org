@@ -93,7 +93,7 @@ export const Navbar: React.FC = () => {
   }, [mobileOpen]);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 w-full bg-white/90 backdrop-blur-md border-b border-slate-200">
+    <nav className="fixed top-0 left-0 right-0 z-50 w-full bg-white backdrop-blur-md border-b border-slate-200">
       {/* Navbar row */}
       <div className="flex h-16 items-center justify-between px-6 py-2">
         {/* Brand */}
