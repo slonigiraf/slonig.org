@@ -19,6 +19,8 @@ import {
   CirclePile,
   Bot,
 } from "lucide-react";
+import Button from "./Button";
+import Navbar from "./Navbar";
 
 const Section = ({
   children,
@@ -34,31 +36,7 @@ const Section = ({
   </section>
 );
 
-const Button = ({
-  children,
-  variant = "primary",
-  className = "",
-  type = "button",
-}: {
-  children: React.ReactNode;
-  variant?: "primary" | "secondary" | "outline";
-  className?: string;
-  type?: "button" | "submit";
-}) => {
-  const baseStyle =
-    "px-6 py-3 rounded-lg font-semibold transition-all duration-200 inline-flex items-center gap-2 justify-center";
-  const variants: Record<string, string> = {
-    primary: "bg-blue-900 text-white hover:bg-blue-800 shadow-lg hover:shadow-xl",
-    secondary: "bg-amber-500 text-white hover:bg-amber-600 shadow-md",
-    outline: "border-2 border-blue-900 text-blue-900 hover:bg-blue-50",
-  };
 
-  return (
-    <button type={type} className={`${baseStyle} ${variants[variant]} ${className}`}>
-      {children}
-    </button>
-  );
-};
 
 const Badge = ({ children }: { children: React.ReactNode }) => (
   <span className="inline-block px-3 py-1 mb-4 text-xs font-bold tracking-wider text-blue-900 uppercase bg-blue-100 rounded-full">
@@ -78,27 +56,7 @@ const Card = ({
   </div>
 );
 
-const Navbar = () => (
-  <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 bg-white/90 backdrop-blur-md border-b border-slate-200">
-    <div className="text-xl font-bold text-slate-900 flex items-center gap-2">
-      <Layers className="w-6 h-6 text-blue-900" />
-      <span>
-        Slonig<span className="text-blue-600">.org</span>
-      </span>
-    </div>
-    <div className="hidden md:flex gap-6 text-sm font-medium text-slate-600">
-      <a href="#problem" className="hover:text-blue-900">The Challenge</a>
-      <a href="#solution" className="hover:text-blue-900">How It Works</a>
-      <a href="#impact" className="hover:text-blue-900">ROI</a>
-      <a href="#lead" className="hover:text-blue-900">Get a Demo</a>
-    </div>
-    <a href="#lead">
-      <Button variant="primary" className="!py-2 !px-4 text-sm">
-        Request Consult <ArrowRight className="w-4 h-4" />
-      </Button>
-    </a>
-  </nav>
-);
+
 
 const Hero = () => (
   <div className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-slate-50">
