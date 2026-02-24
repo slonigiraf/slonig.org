@@ -1,19 +1,36 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useCallback, useState } from "react";
 import { Menu, X } from "lucide-react";
 import Button from "./Button";
 
 export const Navbar: React.FC = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const panelRef = useRef<HTMLDivElement | null>(null);
 
-  const openMobile = () => {
+  const closeMobile = useCallback(() => setMobileOpen(false), []);
+
+  const openMobile = useCallback(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
     setMobileOpen(true);
-  };
+  }, []);
 
-  const closeMobile = () => setMobileOpen(false);
+  // Smooth-scroll + close (prevents the default anchor jump)
+  const navTo = useCallback(
+    (hash: string) => (e: React.MouseEvent<HTMLAnchorElement>) => {
+      e.preventDefault();
+      closeMobile();
+
+      if (hash === "#top") {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        return;
+      }
+
+      const id = hash.replace("#", "");
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    },
+    [closeMobile]
+  );
 
   // Lock background scroll when mobile menu is open
   useEffect(() => {
@@ -34,59 +51,40 @@ export const Navbar: React.FC = () => {
     };
   }, [mobileOpen]);
 
-  // Close when clicking outside the mobile panel
+  // Close on Escape
   useEffect(() => {
     if (!mobileOpen) return;
-
-    const onPointerDown = (e: PointerEvent) => {
-      const target = e.target as Node | null;
-      if (!target) return;
-      if (panelRef.current?.contains(target)) return;
-      closeMobile();
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") closeMobile();
     };
-
-    document.addEventListener("pointerdown", onPointerDown, { capture: true });
-    return () => {
-      document.removeEventListener("pointerdown", onPointerDown, { capture: true } as any);
-    };
-  }, [mobileOpen]);
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, [mobileOpen, closeMobile]);
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 w-full bg-white/90 backdrop-blur-md border-b border-slate-200">
-      {/* Navbar row: make it taller and reduce padding so logo fills more of it */}
+      {/* Navbar row */}
       <div className="flex h-16 items-center justify-between px-6 py-2">
         {/* Brand */}
-        <a
-          href="#top"
-          className="flex items-center"
-          onClick={(e) => {
-            e.preventDefault();
-            window.scrollTo({ top: 0, behavior: "smooth" });
-            closeMobile();
-          }}
-        >
-          <img
-            src="/named-logo.svg"
-            alt="Slonig"
-            className="h-10 w-auto md:h-10"
-          />
+        <a href="#top" className="flex items-center" onClick={navTo("#top")}>
+          <img src="/named-logo.svg" alt="Slonig" className="h-10 w-auto md:h-10" />
         </a>
 
         {/* Desktop menu */}
         <div className="hidden md:flex gap-12 items-center text-lg font-bold text-slate-900">
-          <a href="#why_slonig" className="hover:text-blue-900">
+          <a href="#why_slonig" className="hover:text-blue-900" onClick={navTo("#why_slonig")}>
             Why Slonig?
           </a>
-          <a href="#how_it_works" className="hover:text-blue-900">
+          <a href="#how_it_works" className="hover:text-blue-900" onClick={navTo("#how_it_works")}>
             How It Works
           </a>
-          <a href="#efficacy" className="hover:text-blue-900">
+          <a href="#efficacy" className="hover:text-blue-900" onClick={navTo("#efficacy")}>
             Efficacy
           </a>
-          <a href="#roi" className="hover:text-blue-900">
+          <a href="#roi" className="hover:text-blue-900" onClick={navTo("#roi")}>
             ROI
           </a>
-          <a href="#lead" className="shrink-0">
+          <a href="#lead" className="shrink-0" onClick={navTo("#lead")}>
             <Button variant="primary" className="!py-2 !px-4 text-sm inline-flex items-center gap-2">
               Request a Demo
             </Button>
@@ -104,32 +102,35 @@ export const Navbar: React.FC = () => {
         </button>
       </div>
 
-      {/* Mobile panel (attached to top, below navbar) */}
+      {/* Mobile panel (NO document-level outside-click listener; overlay handles outside click) */}
       {mobileOpen && (
         <>
-          {/* Overlay */}
-          <div className="md:hidden fixed inset-0 top-16 z-40 bg-black/20" />
+          {/* Overlay: tap anywhere outside the panel to close */}
+          <button
+            type="button"
+            aria-label="Close menu overlay"
+            onClick={closeMobile}
+            className="md:hidden fixed inset-0 top-16 z-40 bg-black/20"
+          />
 
-          <div
-            ref={panelRef}
-            className="md:hidden fixed left-0 right-0 top-16 z-50 border-t border-slate-200 bg-white shadow-lg"
-          >
+          {/* Panel */}
+          <div className="md:hidden fixed left-0 right-0 top-16 z-50 border-t border-slate-200 bg-white shadow-lg">
             <div className="mx-auto max-w-7xl px-6 py-4">
               <div className="mt-4 flex flex-col gap-4 text-base font-semibold text-slate-900">
-                <a href="#why_slonig" onClick={closeMobile} className="hover:text-blue-900">
+                <a href="#why_slonig" className="hover:text-blue-900" onClick={navTo("#why_slonig")}>
                   Why Slonig?
                 </a>
-                <a href="#how_it_works" onClick={closeMobile} className="hover:text-blue-900">
+                <a href="#how_it_works" className="hover:text-blue-900" onClick={navTo("#how_it_works")}>
                   How It Works
                 </a>
-                <a href="#efficacy" onClick={closeMobile} className="hover:text-blue-900">
+                <a href="#efficacy" className="hover:text-blue-900" onClick={navTo("#efficacy")}>
                   Efficacy
                 </a>
-                <a href="#roi" onClick={closeMobile} className="hover:text-blue-900">
+                <a href="#roi" className="hover:text-blue-900" onClick={navTo("#roi")}>
                   ROI
                 </a>
 
-                <a href="#lead" onClick={closeMobile} className="shrink-0">
+                <a href="#lead" className="shrink-0" onClick={navTo("#lead")}>
                   <Button
                     variant="primary"
                     className="w-full !py-2 !px-4 text-sm inline-flex items-center justify-center gap-2"
