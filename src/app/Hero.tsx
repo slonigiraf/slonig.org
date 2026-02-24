@@ -4,7 +4,7 @@ type Props = {};
 
 export default function Hero({}: Props) {
   return (
-    <section className="relative w-full text-white" style={{ backgroundColor: "var(--main)" }}>
+    <section className="relative w-full text-white" style={{ backgroundColor: "var(--primary-color)" }}>
       <div className="mx-auto max-w-6xl px-6 py-16 sm:py-20 md:py-24">
         <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
           <h1 className="text-4xl font-semibold leading-tight tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">

@@ -25,8 +25,8 @@ export default function Button({
     primary: [
       "relative border border-transparent",
       "rounded-full px-24 py-6 text-3xl text-white",
-      "bg-[var(--main)]",
-      "bg-[linear-gradient(to_right,var(--light),var(--main),var(--main),var(--light))]",
+      "bg-[var(--primary-color)]",
+      "bg-[linear-gradient(to_right,var(--light),var(--primary-color),var(--primary-color),var(--light))]",
       "bg-[length:300%_100%]",
       "transition-all duration-[400ms] ease-in-out",
       "hover:bg-[position:100%_0%]",
