@@ -1,15 +1,23 @@
 "use client";
 
-import React, { useEffect, useCallback, useState } from "react";
+import React, { useEffect, useCallback, useState, useRef } from "react";
 import { createPortal } from "react-dom";
 import { Menu, X } from "lucide-react";
 import Button from "./Button";
 
 export const Navbar: React.FC = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
 
-  useEffect(() => setMounted(true), []);
+  // Portal root set only on client (prevents hydration issues)
+  const [portalRoot, setPortalRoot] = useState<HTMLElement | null>(null);
+
+  // Measure panel height so overlay starts *below* the menu (no grey behind menu)
+  const panelRef = useRef<HTMLDivElement | null>(null);
+  const [panelH, setPanelH] = useState(0);
+
+  useEffect(() => {
+    setPortalRoot(document.body);
+  }, []);
 
   const closeMobile = useCallback(() => setMobileOpen(false), []);
 
@@ -64,6 +72,26 @@ export const Navbar: React.FC = () => {
     return () => document.removeEventListener("keydown", onKeyDown);
   }, [mobileOpen, closeMobile]);
 
+  // Measure the panel height (and keep it updated)
+  useEffect(() => {
+    if (!mobileOpen) return;
+
+    const el = panelRef.current;
+    if (!el) return;
+
+    const update = () => setPanelH(el.getBoundingClientRect().height);
+    update();
+
+    const ro = new ResizeObserver(update);
+    ro.observe(el);
+
+    window.addEventListener("resize", update);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener("resize", update);
+    };
+  }, [mobileOpen]);
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 w-full bg-white/90 backdrop-blur-md border-b border-slate-200">
       {/* Navbar row */}
@@ -105,21 +133,18 @@ export const Navbar: React.FC = () => {
         </button>
       </div>
 
-      {/* Mobile menu via portal (fixes overlay click issues caused by stacking contexts) */}
-      {mounted && mobileOpen
+      {/* Mobile menu via portal:
+          - portalRoot exists only on client -> no hydration mismatch
+          - no grey behind the menu panel
+          - overlay starts below the panel + click outside closes
+      */}
+      {portalRoot && mobileOpen
         ? createPortal(
-            <div className="md:hidden fixed inset-0 z-[9999]">
-              {/* Overlay */}
+            <div className="md:hidden fixed left-0 right-0 bottom-0 top-16 z-[9999]">
+              {/* Panel */}
               <div
-                className="absolute inset-0 bg-black/20"
-                onClick={closeMobile}
-                aria-label="Close menu overlay"
-                role="button"
-              />
-
-              {/* Panel (stop click bubbling so it doesn't close immediately) */}
-              <div
-                className="absolute left-0 right-0 top-16 border-t border-slate-200 bg-white shadow-lg"
+                ref={panelRef}
+                className="absolute left-0 right-0 top-0 border-t border-slate-200 bg-white shadow-lg"
                 onClick={(e) => e.stopPropagation()}
               >
                 <div className="mx-auto max-w-7xl px-6 py-4">
@@ -148,8 +173,17 @@ export const Navbar: React.FC = () => {
                   </div>
                 </div>
               </div>
+
+              {/* Overlay ONLY below the panel (so nothing behind menu is grey) */}
+              <div
+                className="absolute left-0 right-0 bottom-0 bg-black/20"
+                style={{ top: panelH }}
+                onClick={closeMobile}
+                role="button"
+                aria-label="Close menu overlay"
+              />
             </div>,
-            document.body
+            portalRoot
           )
         : null}
     </nav>
