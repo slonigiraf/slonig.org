@@ -110,7 +110,7 @@ const Hero = () => (
 );
 
 const Agitation = () => (
-  <Section id="problem" className="bg-white">
+  <Section id="why_slonig" className="bg-white">
     <div className="max-w-3xl mx-auto text-center">
       <h2 className="text-3xl font-bold text-slate-900 mb-6">The “One-to-Many” Model is Breaking</h2>
       <p className="text-lg text-slate-600 mb-8">
