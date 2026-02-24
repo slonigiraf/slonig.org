@@ -28,7 +28,7 @@ export const Navbar: React.FC = () => (
 
     <a href="#lead" className="shrink-0">
       <Button variant="primary" className="!py-2 !px-4 text-sm inline-flex items-center gap-2">
-        Request Consult <ArrowRight className="w-4 h-4" />
+        Request a Demo
       </Button>
     </a>
   </nav>
