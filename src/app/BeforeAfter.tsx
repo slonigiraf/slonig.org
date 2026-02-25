@@ -1,3 +1,4 @@
+import React from "react";
 import { TimerOff, UsersRound } from "lucide-react";
 
 type Props = {};
@@ -38,8 +39,7 @@ export default function BeforeAfter({}: Props) {
                     aria-hidden="true"
                   />
                 </div>
-
-                <p className="text-xl leading-relaxed sm:text-2xl md:text-3xl">
+                <p className="leading-relaxed">
                   <span className="font-semibold text-[var(--secondary-color)]">
                     {label}
                   </span>{" "}
