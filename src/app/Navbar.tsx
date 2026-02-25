@@ -103,9 +103,6 @@ export const Navbar: React.FC = () => {
 
         {/* Desktop menu */}
         <div className="hidden md:flex gap-12 items-center text-lg font-bold text-slate-900">
-          <a href="#why_slonig" className="hover:text-blue-900" onClick={navTo("#why_slonig")}>
-            Why Slonig?
-          </a>
           <a href="#how_it_works" className="hover:text-blue-900" onClick={navTo("#how_it_works")}>
             How It Works
           </a>
