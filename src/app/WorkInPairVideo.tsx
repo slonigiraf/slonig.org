@@ -43,8 +43,8 @@ export default function WorkInPairVideo({}: Props) {
             alt="Evidence"
             className="
               pointer-events-none absolute z-20
-              right-10 bottom-5 md:right-20 md:bottom-10
-              w-24 sm:w-24 md:w-44
+              right-10 bottom-4 md:right-19 md:bottom-8
+              w-24 sm:w-24 md:w-46
               translate-x-1/2 translate-y-1/2
               drop-shadow-md
             "
