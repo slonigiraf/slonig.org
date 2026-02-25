@@ -22,7 +22,7 @@ export default function QuoteCarousel({
   quotes,
   initialIndex = 0,
   className = "",
-  bgClassName = "bg-[#F5D24A]", // warm yellow like screenshot
+  bgClassName = "bg-[#F5D24A]",
   textClassName = "text-slate-900",
   heightClassName = "min-h-[220px] md:min-h-[240px]",
 }: Props) {
@@ -60,21 +60,20 @@ export default function QuoteCarousel({
 
   return (
     <section className="relative w-full text-slate-900">
-      {/* Center the card within the page/container */}
       <div className="mx-auto w-full max-w-6xl px-6">
         <div
           className={[
-            "relative w-full overflow-hidden rounded-3xl",
+            "relative w-full overflow-visible rounded-3xl", // allow quotes to sit on border
             "px-6 py-10 md:px-12 md:py-12",
             heightClassName,
             bgClassName,
             className,
           ].join(" ")}
         >
-          {/* Big quote marks */}
+          {/* Big quote marks (sit on the rounded border) */}
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute left-6 top-6 text-white opacity-95"
+            className="pointer-events-none absolute left-10 top-4 -translate-x-1/4 -translate-y-1/4 text-white opacity-95"
             style={{ fontSize: 120, lineHeight: 0.9, fontWeight: 900 }}
           >
             “
@@ -82,7 +81,7 @@ export default function QuoteCarousel({
 
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute bottom-6 right-8 text-white opacity-95"
+            className="pointer-events-none absolute -bottom-[30px] right-10 translate-x-1/4 translate-y-1/4 text-white opacity-95"
             style={{ fontSize: 120, lineHeight: 0.9, fontWeight: 900 }}
           >
             ”
@@ -109,7 +108,7 @@ export default function QuoteCarousel({
             {/* Dots */}
             <div className="mt-8 flex items-center justify-center gap-2">{dots}</div>
 
-            {/* Optional prev/next (hidden but accessible; you can style/show if you want) */}
+            {/* Optional prev/next (hidden but accessible) */}
             <div className="sr-only">
               <button type="button" onClick={prev}>
                 Previous
