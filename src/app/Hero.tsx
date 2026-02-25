@@ -14,10 +14,7 @@ export default function Hero({}: Props) {
           </h1>
 
           <p className="mt-3 max-w-4xl text-xl leading-relaxed sm:text-2xl md:text-3xl">
-            Math achievement shouldn’t mirror family income, so we&nbsp;
-            <br className="hidden md:block" />
-            discovered a method that gets schools above 70% proficiency—
-            <br className="hidden md:block" />
+            Math achievement shouldn’t mirror family income, so we discovered a method that gets schools above 70% proficiency — 
             without relying on “star” teachers or wealthy parents.
           </p>
 
