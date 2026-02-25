@@ -1238,8 +1238,6 @@ export default async function LandingPage({ searchParams }: { searchParams?: Pro
       <BeforeAfter />
       <Collaboration />
 
-      <CurrentSolutionsBlock />
-
       <EvidenceSection />
       <NotAlone />
       <SchoolsFacingItToo />
