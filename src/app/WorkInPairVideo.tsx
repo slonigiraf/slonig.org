@@ -15,14 +15,22 @@ export default function WorkInPairVideo({}: Props) {
     `&playsinline=1`;
 
   return (
-    <div className="w-full">
+    <div className="relative w-full">
+      {/* Background: top half primary color, bottom half none */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background: `linear-gradient(to bottom, var(--primary-color) 0 50%, transparent 50% 100%)`,
+        }}
+      />
+
       {/* 16:9 container */}
       <div className="relative w-full max-w-4xl mx-auto aspect-video overflow-hidden rounded-2xl">
         <iframe
           className="absolute inset-0 h-full w-full"
           src={src}
-          title="YouTube video"
-          frameBorder={0}
+          title="Students work in pairs using Slonig"
           allow="autoplay; encrypted-media; picture-in-picture"
           allowFullScreen
         />
