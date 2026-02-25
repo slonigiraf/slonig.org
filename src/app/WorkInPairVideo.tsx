@@ -1,6 +1,6 @@
 type Props = {};
 
-export default function WorkInPairVideo({}: Props) {
+export default function WorkInPairVideo({ }: Props) {
   const videoId = "z0oQM6yRUmY";
 
   const src =
@@ -16,7 +16,6 @@ export default function WorkInPairVideo({}: Props) {
 
   return (
     <div className="relative w-full">
-      {/* Background: top half primary color, bottom half none */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0"
@@ -25,15 +24,31 @@ export default function WorkInPairVideo({}: Props) {
         }}
       />
 
-      {/* 16:9 container */}
-      <div className="relative w-full max-w-4xl mx-auto aspect-video overflow-hidden rounded-2xl">
-        <iframe
-          className="absolute inset-0 h-full w-full"
-          src={src}
-          title="Students work in pairs using Slonig"
-          allow="autoplay; encrypted-media; picture-in-picture"
-          allowFullScreen
-        />
+      <div className="px-10 sm:px-0">
+        <div className="relative w-full max-w-4xl mx-auto aspect-video isolate">
+          <div className="absolute inset-0 overflow-hidden rounded-2xl">
+            <iframe
+              className="absolute inset-0 h-full w-full"
+              src={src}
+              title="Students work in pairs using Slonig"
+              allow="autoplay; encrypted-media; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
+
+          {/* Evidence: right bottom */}
+          <img
+            src="/evidence.png"
+            alt="Evidence"
+            className="
+    pointer-events-none absolute z-20
+    right-10 bottom-5 md:right-20 md:bottom-10
+    w-24 sm:w-24 md:w-44
+    translate-x-1/2 translate-y-1/2
+    drop-shadow-md
+  "
+          />
+        </div>
       </div>
     </div>
   );
