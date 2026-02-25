@@ -22,6 +22,7 @@ import {
 import Button from "./Button";
 import Navbar from "./Navbar";
 import Hero from "./Hero";
+import WorkInPairVideo from "./WorkInPairVideo";
 
 const Section = ({
   children,
@@ -1229,6 +1230,8 @@ export default async function LandingPage({ searchParams }: { searchParams?: Pro
       <Navbar />
 
       <Hero />
+
+      <WorkInPairVideo />
 
       <Agitation />
       <CurrentSolutionsBlock />
