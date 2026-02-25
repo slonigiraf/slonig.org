@@ -23,6 +23,7 @@ import Button from "./Button";
 import Navbar from "./Navbar";
 import Hero from "./Hero";
 import WorkInPairVideo from "./WorkInPairVideo";
+import BeforeAfter from "./BeforeAfter";
 
 const Section = ({
   children,
@@ -1233,7 +1234,8 @@ export default async function LandingPage({ searchParams }: { searchParams?: Pro
 
       <WorkInPairVideo />
 
-      <Agitation />
+      <BeforeAfter />
+
       <CurrentSolutionsBlock />
 
       <EvidenceSection />
