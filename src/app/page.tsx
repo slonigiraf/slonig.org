@@ -25,6 +25,7 @@ import Hero from "./Hero";
 import WorkInPairVideo from "./WorkInPairVideo";
 import BeforeAfter from "./BeforeAfter";
 import Collaboration from "./Collaboration";
+import QuoteCarousel from "./QuoteCarousel";
 
 const Section = ({
   children,
@@ -1237,6 +1238,18 @@ export default async function LandingPage({ searchParams }: { searchParams?: Pro
 
       <BeforeAfter />
       <Collaboration />
+
+      <QuoteCarousel
+        quotes={[
+          {
+            text: "I could talk with my favorite classmates, everything somehow sticks in memory more easily",
+            byline: "Student, 10th grade",
+          },
+          { text: "Working in pairs helps me stay focused.", byline: "Student, 8th grade" },
+          { text: "I learn faster when I explain it to someone.", byline: "Student, 9th grade" },
+          { text: "It feels less scary to ask questions.", byline: "Student, 7th grade" },
+        ]}
+      />
 
       <EvidenceSection />
       <NotAlone />
