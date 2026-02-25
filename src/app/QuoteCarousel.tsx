@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useCallback, useMemo, useState } from "react";
+import React, { useCallback, useMemo, useRef, useState } from "react";
 
 type Quote = {
   text: string;
-  byline?: string; // e.g. "Student, 10th grade"
+  byline?: string;
 };
 
 type Props = {
@@ -13,9 +13,9 @@ type Props = {
   className?: string;
 
   // Styling
-  bgClassName?: string; // default matches screenshot
+  bgClassName?: string;
   textClassName?: string;
-  heightClassName?: string; // e.g. "min-h-[240px]"
+  heightClassName?: string;
 };
 
 export default function QuoteCarousel({
@@ -58,23 +58,84 @@ export default function QuoteCarousel({
     ));
   }, [active, goTo, safeQuotes]);
 
+  // --- Swipe support (mobile) ---
+  const swipe = useRef<{
+    startX: number;
+    startY: number;
+    active: boolean;
+    locked: boolean; // locks to horizontal once we detect intent
+  }>({ startX: 0, startY: 0, active: false, locked: false });
+
+  const SWIPE_PX = 40; // threshold
+
+  const onPointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
+    // only primary pointer
+    if (e.pointerType === "mouse") return;
+    swipe.current = {
+      startX: e.clientX,
+      startY: e.clientY,
+      active: true,
+      locked: false,
+    };
+  };
+
+  const onPointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (!swipe.current.active) return;
+
+    const dx = e.clientX - swipe.current.startX;
+    const dy = e.clientY - swipe.current.startY;
+
+    // Decide if gesture is horizontal; then prevent vertical page scroll while swiping.
+    if (!swipe.current.locked) {
+      if (Math.abs(dx) > 10 || Math.abs(dy) > 10) {
+        swipe.current.locked = Math.abs(dx) > Math.abs(dy);
+      }
+    }
+
+    if (swipe.current.locked) {
+      e.preventDefault(); // requires touchAction: "pan-y" below
+    }
+  };
+
+  const onPointerUp = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (!swipe.current.active) return;
+
+    const dx = e.clientX - swipe.current.startX;
+    const dy = e.clientY - swipe.current.startY;
+
+    swipe.current.active = false;
+
+    // Only trigger if it was mostly horizontal
+    if (Math.abs(dx) < Math.abs(dy)) return;
+
+    if (dx <= -SWIPE_PX) next();
+    else if (dx >= SWIPE_PX) prev();
+  };
+  // --- end swipe support ---
+
   return (
     <section className="relative w-full text-slate-900">
       <div className="mx-auto w-full max-w-6xl px-6">
         <div
           className={[
-            "relative w-full overflow-visible rounded-3xl", // allow quotes to sit on border
+            "relative w-full overflow-visible rounded-3xl",
             "px-6 py-10 md:px-12 md:py-12",
             heightClassName,
             bgClassName,
             className,
           ].join(" ")}
+          // Allow horizontal swipe gestures without killing vertical scroll
+          style={{ touchAction: "pan-y" }}
+          onPointerDown={onPointerDown}
+          onPointerMove={onPointerMove}
+          onPointerUp={onPointerUp}
+          onPointerCancel={() => (swipe.current.active = false)}
         >
-          {/* Big quote marks (sit on the rounded border) */}
+          {/* Big quote marks */}
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute left-10 top-4 -translate-x-1/4 -translate-y-1/4 text-white opacity-95"
-            style={{ fontSize: 120, lineHeight: 0.9, fontWeight: 900 }}
+            className="pointer-events-none absolute left-10 top-3 -translate-x-1/4 -translate-y-1/4 text-white opacity-95"
+            style={{ fontSize: 100, lineHeight: 0.9, fontWeight: 900 }}
           >
             “
           </div>
@@ -82,7 +143,7 @@ export default function QuoteCarousel({
           <div
             aria-hidden="true"
             className="pointer-events-none absolute -bottom-[30px] right-10 translate-x-1/4 translate-y-1/4 text-white opacity-95"
-            style={{ fontSize: 120, lineHeight: 0.9, fontWeight: 900 }}
+            style={{ fontSize: 100, lineHeight: 0.9, fontWeight: 900 }}
           >
             ”
           </div>
