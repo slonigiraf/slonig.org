@@ -124,7 +124,7 @@ export const Navbar: React.FC = () => {
           type="button"
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
           onClick={mobileOpen ? closeMobile : openMobile}
-          className="md:hidden inline-flex items-center justify-center rounded-lg p-2 text-slate-900 hover:bg-slate-100"
+          className="md:hidden inline-flex items-center justify-center rounded-lg p-2 text-[var(--secondary-color)] hover:bg-slate-100"
         >
           {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
@@ -137,51 +137,51 @@ export const Navbar: React.FC = () => {
       */}
       {portalRoot && mobileOpen
         ? createPortal(
-            <div className="md:hidden fixed left-0 right-0 bottom-0 top-16 z-[9999]">
-              {/* Panel */}
-              <div
-                ref={panelRef}
-                className="absolute left-0 right-0 top-0 border-t border-slate-200 bg-white shadow-lg"
-                onClick={(e) => e.stopPropagation()}
-              >
-                <div className="mx-auto max-w-7xl px-6 py-4">
-                  <div className="mt-4 flex flex-col gap-4 text-base font-semibold text-[var(--secondary-color)]">
-                    <a href="#why_slonig" className="hover:text-blue-900" onClick={navTo("#why_slonig")}>
-                      Why Slonig?
-                    </a>
-                    <a href="#how_it_works" className="hover:text-blue-900" onClick={navTo("#how_it_works")}>
-                      How It Works
-                    </a>
-                    <a href="#efficacy" className="hover:text-blue-900" onClick={navTo("#efficacy")}>
-                      Efficacy
-                    </a>
-                    <a href="#roi" className="hover:text-blue-900" onClick={navTo("#roi")}>
-                      ROI
-                    </a>
+          <div className="md:hidden fixed left-0 right-0 bottom-0 top-16 z-[9999]">
+            {/* Panel */}
+            <div
+              ref={panelRef}
+              className="absolute left-0 right-0 top-0 border-t border-slate-200 bg-white shadow-lg"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="mx-auto max-w-7xl px-6 py-4">
+                <div className="mt-4 flex flex-col gap-4 text-base font-semibold text-[var(--secondary-color)]">
+                  <a href="#why_slonig" className="hover:text-blue-900" onClick={navTo("#why_slonig")}>
+                    Why Slonig?
+                  </a>
+                  <a href="#how_it_works" className="hover:text-blue-900" onClick={navTo("#how_it_works")}>
+                    How It Works
+                  </a>
+                  <a href="#efficacy" className="hover:text-blue-900" onClick={navTo("#efficacy")}>
+                    Efficacy
+                  </a>
+                  <a href="#roi" className="hover:text-blue-900" onClick={navTo("#roi")}>
+                    ROI
+                  </a>
 
-                    <a href="#lead" className="shrink-0" onClick={navTo("#lead")}>
-                      <Button
-                        variant="primary"
-                        className="w-full !py-2 !px-4 text-sm inline-flex items-center justify-center gap-2"
-                      >
-                        Request a Demo
-                      </Button>
-                    </a>
-                  </div>
+                  <a href="#lead" className="shrink-0" onClick={navTo("#lead")}>
+                    <Button
+                      variant="primary"
+                      className="w-full !py-2 !px-4 text-sm inline-flex items-center justify-center gap-2"
+                    >
+                      Request a Demo
+                    </Button>
+                  </a>
                 </div>
               </div>
+            </div>
 
-              {/* Overlay ONLY below the panel (so nothing behind menu is grey) */}
-              <div
-                className="absolute left-0 right-0 bottom-0 bg-black/20"
-                style={{ top: panelH }}
-                onClick={closeMobile}
-                role="button"
-                aria-label="Close menu overlay"
-              />
-            </div>,
-            portalRoot
-          )
+            {/* Overlay ONLY below the panel (so nothing behind menu is grey) */}
+            <div
+              className="absolute left-0 right-0 bottom-0 bg-black/20"
+              style={{ top: panelH }}
+              onClick={closeMobile}
+              role="button"
+              aria-label="Close menu overlay"
+            />
+          </div>,
+          portalRoot
+        )
         : null}
     </nav>
   );
