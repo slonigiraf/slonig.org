@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="415" viewBox="0 0 980 415" role="img" aria-label="Number line with ranges and a peer-learning point estimate">
+  <style>
+    .label { font: 16px system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; fill: #111; }
+    .small { font: 12px system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; fill: #333; }
+    .axis  { stroke: #111; stroke-width: 2; }
+    .tick  { stroke: #111; stroke-width: 2; }
+    .grid  { stroke: #d0d0d0; stroke-width: 1; }
+    .bar   { fill: none; stroke-width: 10; stroke-linecap: round; }
+    .cap   { stroke-width: 2; }
+    .value { font: 12px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; fill: #333; }
+  </style>
+
+  <!-- Layout constants:
+       x from 120 to 920 maps values 0.00 to 0.40 (width 800)
+       x = 120 + value*2000
+  -->
+
+  <text x="120" y="32" class="label" font-weight="700">Average Effect Size ± SD</text>
+
+  <!-- Axis baseline -->
+  <line x1="120" y1="70" x2="920" y2="70" class="axis"></line>
+
+  <!-- Major ticks every 0.05 with faint grid (extended to cover new row) -->
+  <line x1="120" y1="70" x2="120" y2="82" class="tick"></line>
+  <text x="120" y="102" text-anchor="middle" class="small">0.00</text>
+
+  <line x1="220" y1="70" x2="220" y2="80" class="tick"></line>
+  <line x1="220" y1="50" x2="220" y2="375" class="grid"></line>
+  <text x="220" y="102" text-anchor="middle" class="small">0.05</text>
+
+  <line x1="320" y1="70" x2="320" y2="82" class="tick"></line>
+  <line x1="320" y1="50" x2="320" y2="375" class="grid"></line>
+  <text x="320" y="102" text-anchor="middle" class="small">0.10</text>
+
+  <line x1="420" y1="70" x2="420" y2="80" class="tick"></line>
+  <line x1="420" y1="50" x2="420" y2="375" class="grid"></line>
+  <text x="420" y="102" text-anchor="middle" class="small">0.15</text>
+
+  <line x1="520" y1="70" x2="520" y2="82" class="tick"></line>
+  <line x1="520" y1="50" x2="520" y2="375" class="grid"></line>
+  <text x="520" y="102" text-anchor="middle" class="small">0.20</text>
+
+  <line x1="620" y1="70" x2="620" y2="80" class="tick"></line>
+  <line x1="620" y1="50" x2="620" y2="375" class="grid"></line>
+  <text x="620" y="102" text-anchor="middle" class="small">0.25</text>
+
+  <line x1="720" y1="70" x2="720" y2="82" class="tick"></line>
+  <line x1="720" y1="50" x2="720" y2="375" class="grid"></line>
+  <text x="720" y="102" text-anchor="middle" class="small">0.30</text>
+
+  <line x1="820" y1="70" x2="820" y2="80" class="tick"></line>
+  <line x1="820" y1="50" x2="820" y2="375" class="grid"></line>
+  <text x="820" y="102" text-anchor="middle" class="small">0.35</text>
+
+  <line x1="920" y1="70" x2="920" y2="82" class="tick"></line>
+  <text x="920" y="102" text-anchor="middle" class="small">0.40</text>
+
+  <!-- Rows (order + colors):
+       Curriculum (purple)
+       Teacher PD (blue)
+       EdTech (dark yellow)
+       Tutoring (green)
+       Slonig-like peer-learning (orange #f19135) as dot at 0.333
+  -->
+  <!-- Row y positions -->
+  <!-- Curriculum y=150; Teacher PD y=200; EdTech y=250; Tutoring y=300; Peer-learning y=350 -->
+
+  <!-- Left labels -->
+  <text x="20" y="156" class="label">Curriculum</text>
+  <text x="20" y="206" class="label">Teacher Prof. Dev. (PD)</text>
+  <text x="20" y="256" class="label">EdTech</text>
+  <text x="20" y="306" class="label">Tutoring</text>
+  <text x="20" y="356" class="label">Slonig-like peer-learning</text>
+
+  <!-- Curriculum 0.06–0.14 => x 240–400 (purple) -->
+  <line x1="240" y1="150" x2="400" y2="150" class="bar" stroke="#805ad5"></line>
+  <line x1="240" y1="142" x2="240" y2="158" class="cap" stroke="#805ad5"></line>
+  <line x1="400" y1="142" x2="400" y2="158" class="cap" stroke="#805ad5"></line>
+  <text x="240" y="138" text-anchor="middle" class="value">0.06</text>
+  <text x="400" y="138" text-anchor="middle" class="value">0.14</text>
+
+  <!-- Teacher PD 0.07–0.18 => x 260–480 (blue) -->
+  <line x1="260" y1="200" x2="480" y2="200" class="bar" stroke="#2b6cb0"></line>
+  <line x1="260" y1="192" x2="260" y2="208" class="cap" stroke="#2b6cb0"></line>
+  <line x1="480" y1="192" x2="480" y2="208" class="cap" stroke="#2b6cb0"></line>
+  <text x="260" y="188" text-anchor="middle" class="value">0.07</text>
+  <text x="480" y="188" text-anchor="middle" class="value">0.18</text>
+
+  <!-- EdTech 0.05–0.20 => x 220–520 (dark yellow) -->
+  <line x1="220" y1="250" x2="520" y2="250" class="bar" stroke="#b7791f"></line>
+  <line x1="220" y1="242" x2="220" y2="258" class="cap" stroke="#b7791f"></line>
+  <line x1="520" y1="242" x2="520" y2="258" class="cap" stroke="#b7791f"></line>
+  <text x="220" y="238" text-anchor="middle" class="value">0.05</text>
+  <text x="520" y="238" text-anchor="middle" class="value">0.20</text>
+
+  <!-- Tutoring 0.14–0.38 => x 400–880 (green) -->
+  <line x1="400" y1="300" x2="880" y2="300" class="bar" stroke="#38a169"></line>
+  <line x1="400" y1="292" x2="400" y2="308" class="cap" stroke="#38a169"></line>
+  <line x1="880" y1="292" x2="880" y2="308" class="cap" stroke="#38a169"></line>
+  <text x="400" y="288" text-anchor="middle" class="value">0.14</text>
+  <text x="880" y="288" text-anchor="middle" class="value">0.38</text>
+
+  <!-- Slonig-like peer-learning dot at 0.333 => x = 120 + 0.333*2000 = 786 -->
+  <!-- Wide dot -->
+  <circle cx="786" cy="350" r="9.5" fill="#f19135"></circle>
+  <!-- Optional small outline for crispness -->
+  <circle cx="786" cy="350" r="9.5" fill="none" stroke="#f19135" stroke-width="2"></circle>
+  <text x="786" y="336" text-anchor="middle" class="value">0.333</text>
+</svg>
