@@ -22,7 +22,7 @@ export default function QuoteCarousel({
   quotes,
   initialIndex = 0,
   className = "",
-  bgClassName = "bg-[#F5D24A]",
+  bgClassName = "bg-[var(--primary-color)]",
   textClassName = "text-slate-900",
   heightClassName = "min-h-[220px] md:min-h-[240px]",
 }: Props) {
