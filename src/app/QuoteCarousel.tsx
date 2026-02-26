@@ -23,7 +23,7 @@ export default function QuoteCarousel({
   initialIndex = 0,
   className = "",
   bgClassName = "bg-[var(--primary-color)]",
-  textClassName = "text-slate-900",
+  textClassName = "text-white",
   heightClassName = "min-h-[220px] md:min-h-[240px]",
 }: Props) {
   const safeQuotes = quotes?.length ? quotes : [{ text: "Add a quote here…" }];

@@ -1241,13 +1241,9 @@ export default async function LandingPage({ searchParams }: { searchParams?: Pro
 
       <QuoteCarousel
         quotes={[
-          {
-            text: "I could talk with my favorite classmates, everything somehow sticks in memory more easily",
-            byline: "Student, 10th grade",
-          },
-          { text: "Working in pairs helps me stay focused.", byline: "Student, 8th grade" },
-          { text: "I learn faster when I explain it to someone.", byline: "Student, 9th grade" },
-          { text: "It feels less scary to ask questions.", byline: "Student, 7th grade" },
+          { text: "I could talk with my favorite classmates, everything somehow sticks in memory more easily.", byline: "Student, 10th grade", },
+          { text: "With Slonig you can work particularly well.", byline: "Student, 9th grade" },
+          { text: "I like that I can learn with friends.", byline: "Student, 9th grade" },
         ]}
       />
 
