@@ -20,8 +20,8 @@ body {
   --font-mono: var(--font-geist-mono);
 
   /* Main text size */
-  --text-main: 1.875rem;
-  --text-main-sm: 1.4rem;
+  --text-main: 1.4rem;
+  --text-main-sm: 1.2rem;
 
   /* Headings (consistent scale) */
   --text-h1: 3rem;

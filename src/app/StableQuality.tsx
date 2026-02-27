@@ -9,7 +9,7 @@ export default function StableQuality({ }: Props) {
         <div className="mx-auto max-w-5xl">
           {/* Title */}
           <h2 className="text-center">
-            No more star teachers required
+            No more “star” teachers required
           </h2>
 
           {/* Image */}
