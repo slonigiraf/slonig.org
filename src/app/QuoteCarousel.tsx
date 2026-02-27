@@ -160,7 +160,7 @@ export default function QuoteCarousel({
             </p>
 
             {q.byline ? (
-              <p className={["mt-3 font-semibold", textClassName].join(" ")}>
+              <p className={["mt-3 font-semibold text-sm", textClassName].join(" ")}>
                 {q.byline}
               </p>
             ) : null}
