@@ -28,6 +28,7 @@ import Collaboration from "./Collaboration";
 import QuoteCarousel from "./QuoteCarousel";
 import EffectSize from "./EffectSize";
 import StableQuality from "./StableQuality";
+import LidCollector from "./LidCollector";
 
 const Section = ({
   children,
@@ -1261,6 +1262,8 @@ export default async function LandingPage({ searchParams }: { searchParams?: Pro
           { text: "As a computer science professor and education researcher focused on peer instruction and technology-enhanced pedagogy, I appreciate Slonig’s commitment to strengthening human-to-human learning rather than replacing it with AI.", byline: "Steve Geinitz, Associate Professor, Metropolitan State University of Denver" },
         ]}
       />
+
+      <LidCollector id="after_efficiency" caption="Request a Demo"/>
 
       <EvidenceSection />
       <NotAlone />

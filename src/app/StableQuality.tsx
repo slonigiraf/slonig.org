@@ -1,5 +1,3 @@
-import { Icon, UsersRound } from "lucide-react";
-
 type Props = {};
 
 export default function StableQuality({ }: Props) {
