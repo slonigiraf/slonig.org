@@ -45,13 +45,13 @@
   <g transform="translate(196.191,160)">
     <line x1="0" y1="0" x2="0" y2="-44" stroke="#805ad5" stroke-width="6" stroke-linecap="round"></line>
     <path d="M0 -44 L36 -36 L0 -28 Z" fill="#805ad5"></path>
-    <text x="0" y="-58" text-anchor="end" class="flagName" fill="#805ad5">Curriculum</text>
+    <text x="-10" y="-28" text-anchor="end" class="flagName" fill="#805ad5">Curriculum</text>
   </g>
 
   <g transform="translate(226.667,160)">
     <line x1="0" y1="0" x2="0" y2="-44" stroke="#b569b1" stroke-width="6" stroke-linecap="round"></line>
     <path d="M0 -44 L36 -36 L0 -28 Z" fill="#b569b1"></path>
-    <text x="0" y="-86" text-anchor="end" class="flagName" fill="#b569b1">Teacher PD</text>
+    <text x="0" y="-58" text-anchor="end" class="flagName" fill="#b569b1">Teacher PD</text>
   </g>
 
   <g transform="translate(241.905,160)">
