@@ -20,7 +20,7 @@ export default function WorkInPairVideo({}: Props) {
         aria-hidden
         className="pointer-events-none absolute inset-0"
         style={{
-          background: `linear-gradient(to bottom, var(--primary-color) 0 50%, transparent 50% 100%)`,
+          background: `linear-gradient(to bottom, var(--primary-color) 0 70%, transparent 70% 100%)`,
         }}
       />
 
