@@ -7,11 +7,11 @@ export default function EffectSize({}: Props) {
         <div className="mx-auto max-w-5xl">
           {/* Title */}
           <h2 className="text-center tracking-tight text-[color:var(--secondary-color)]">
-            Slonig outperforms most EdTech solutions<br/>— and often even tutoring
+            Slonig outperforms digital math programs<br/>— and often even tutoring
           </h2>
 
           {/* Image */}
-         <div className="mt-6 flex justify-center md:mt-8">
+         <div className="mt-0 flex justify-center">
             <div className="w-full ">
               <img
                 src="/effect-size.svg"
