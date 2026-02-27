@@ -153,7 +153,6 @@ export default function QuoteCarousel({
             <p
               className={[
                 "max-w-4xl font-semibold tracking-tight",
-                "text-2xl md:text-3xl",
                 textClassName,
               ].join(" ")}
             >
@@ -161,7 +160,7 @@ export default function QuoteCarousel({
             </p>
 
             {q.byline ? (
-              <p className={["mt-3 text-xl md:text-2xl font-semibold", textClassName].join(" ")}>
+              <p className={["mt-3 font-semibold", textClassName].join(" ")}>
                 {q.byline}
               </p>
             ) : null}
