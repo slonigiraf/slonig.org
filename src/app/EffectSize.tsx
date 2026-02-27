@@ -17,6 +17,13 @@ export default function EffectSize({ }: Props) {
               />
             </div>
           </div>
+          <div className="text-sm">
+            <p><b>Datasources:</b></p>
+            <ul className="list-disc pl-5">
+              <li>https://www.evidenceforessa.org/programs/math/. To calculate average and SD, we used math programs that were marked as "Strong". We categorized programs into groups manually.</li>
+              <li>Alegre-Ansuategui, F. J., Moliner, L., Lorenzo, G., &amp; Maroto, A. (2017). Peer Tutoring and Academic Achievement in Mathematics: A Meta-Analysis. EURASIA Journal of Mathematics, Science and Technology Education, 14(1).</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
