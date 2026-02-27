@@ -52,7 +52,13 @@ export default function EffectSize({}: Props) {
           {open && (
             <div className="mt-4 text-sm">
               <p>
-                <b>Datasources:</b>
+                The figure shows the effect size for each type of math intervention. 
+                The flags indicate the average, and the horizontal bars beneath the number line 
+                represent ± one standard deviation, and the circle represents the effect size of peer tutoring.
+              </p>
+              <br />
+              <p>
+                Datasources:
               </p>
               <ul className="list-disc pl-5">
                 <li>
