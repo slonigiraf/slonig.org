@@ -5,7 +5,7 @@ type Props = {};
 export default function StableQuality({ }: Props) {
   return (
     <section className="w-full bg-white text-slate-900">
-      <div className="mx-auto max-w-6xl px-6 py-16 md:py-10">
+      <div className="mx-auto flex min-h-[60vh] max-w-6xl items-center justify-center px-6 py-16 md:py-10">
         <div className="mx-auto max-w-5xl">
           {/* Title */}
           <h2 className="text-center">
@@ -24,7 +24,7 @@ export default function StableQuality({ }: Props) {
           </div>
 
           {/* Text */}
-          <div className="mt-10 md:mt-12">
+          <div className="mt-10 md:mt-12 md:max-w-4xl">
             <ul className="list-disc pl-5">
               <li>
                 Two classes (A and B) were taught by the same teacher.
