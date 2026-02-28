@@ -83,6 +83,8 @@ h2 {
   font-size: var(--text-h2);
   line-height: var(--lh-snug);
   font-weight: 800;
+  margin-top: 50px !important;
+  margin-bottom: 30px !important;
 }
 
 h3 {
