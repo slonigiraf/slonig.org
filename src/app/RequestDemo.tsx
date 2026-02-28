@@ -1,12 +1,13 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { X } from "lucide-react";
 
 type Props = {
   id: string;
   caption: string;
-  expanded?: boolean; // default true
+  expanded?: boolean;
 };
 
 const APPOINTMENT_URL =
@@ -15,6 +16,12 @@ const APPOINTMENT_URL =
 export default function RequestDemo({ id, caption, expanded = true }: Props) {
   const [form, setForm] = useState({ name: "", email: "" });
   const [calendarOpen, setCalendarOpen] = useState(false);
+
+  // ✅ portal root (client-only)
+  const [portalRoot, setPortalRoot] = useState<HTMLElement | null>(null);
+  useEffect(() => {
+    setPortalRoot(document.body);
+  }, []);
 
   const openCalendar = () => setCalendarOpen(true);
   const closeCalendar = () => setCalendarOpen(false);
@@ -52,17 +59,11 @@ export default function RequestDemo({ id, caption, expanded = true }: Props) {
   const buttonClass =
     "h-[54px] w-full rounded-full bg-[#f3a312] px-8 text-[18px] font-extrabold text-white shadow-[0_10px_22px_rgba(0,0,0,0.18)] transition hover:brightness-95 active:translate-y-[1px]";
 
-  // ✅ If expanded=false: literally only render the button (+ popup if open)
-  if (!expanded) {
-    return (
-      <>
-        <button className={buttonClass} type="button" onClick={openCalendar}>
-          {caption}
-        </button>
-
-        {calendarOpen && (
+  const CalendarModal =
+    calendarOpen && portalRoot
+      ? createPortal(
           <div
-            className="fixed inset-0 z-[100] bg-black/60"
+            className="fixed inset-0 z-[100000] bg-black/60"
             role="dialog"
             aria-modal="true"
             aria-label="Schedule an appointment"
@@ -102,13 +103,23 @@ export default function RequestDemo({ id, caption, expanded = true }: Props) {
                 </div>
               </div>
             </div>
-          </div>
-        )}
+          </div>,
+          portalRoot
+        )
+      : null;
+
+  // ✅ collapsed = button only
+  if (!expanded) {
+    return (
+      <>
+        <button className={buttonClass} type="button" onClick={openCalendar}>
+          {caption}
+        </button>
+        {CalendarModal}
       </>
     );
   }
 
-  // ✅ Expanded mode (original full section)
   return (
     <section className="relative mt-10 w-full text-slate-900">
       <div className="mx-auto w-full max-w-6xl px-6">
@@ -153,64 +164,12 @@ export default function RequestDemo({ id, caption, expanded = true }: Props) {
               >
                 {caption}
               </button>
-
-              <div className="lg:col-span-3 text-center">
-                <div className="mt-1 text-sm text-slate-900/85">
-                  *By submitting, I agree to the{" "}
-                  <a className="underline underline-offset-4" href="/privacy-policy">
-                    privacy policy
-                  </a>
-                </div>
-              </div>
             </div>
           </form>
         </div>
       </div>
 
-      {calendarOpen && (
-        <div
-          className="fixed inset-0 z-[100] bg-black/60"
-          role="dialog"
-          aria-modal="true"
-          aria-label="Schedule an appointment"
-          onClick={(e) => {
-            if (e.target === e.currentTarget) closeCalendar();
-          }}
-        >
-          <div className="h-full w-full sm:flex sm:items-center sm:justify-center sm:p-4">
-            <div
-              className="
-                h-[100svh] w-[100vw]
-                bg-white
-                sm:h-auto sm:w-full sm:max-w-4xl sm:rounded-3xl
-                sm:shadow-[0_20px_70px_rgba(0,0,0,0.35)]
-                overflow-hidden
-              "
-              onClick={(e) => e.stopPropagation()}
-            >
-              <div className="flex h-14 items-center justify-end border-b border-slate-200 px-3 sm:rounded-t-3xl">
-                <button
-                  type="button"
-                  onClick={closeCalendar}
-                  className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white shadow hover:bg-slate-50 active:translate-y-[1px] touch-manipulation"
-                  aria-label="Close"
-                >
-                  <X className="h-5 w-5" />
-                </button>
-              </div>
-
-              <div className="h-[calc(100svh-56px)] w-full sm:h-[565px]">
-                <iframe
-                  title="Google Calendar Appointments"
-                  src={APPOINTMENT_URL}
-                  className="h-full w-full"
-                  frameBorder="0"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
+      {CalendarModal}
     </section>
   );
 }
