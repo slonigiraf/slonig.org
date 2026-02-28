@@ -11,19 +11,19 @@ const slides: Slide[] = [
   {
     imgDesktop: "/step1-desktop.png",
     imgMobile: "/step1-mobile.png",
-    alt: "Two students working together",
-    text: "During the first lesson, the app trains students on how to help their classmates.",
+    alt: "Slonig trains students on how to help their classmates",
+    text: "During the first lesson, Slonig trains students on how to help their classmates.",
   },
   {
     imgDesktop: "/step2-desktop.png",
     imgMobile: "/step2-mobile.png",
-    alt: "Student using a laptop",
+    alt: "Students work in pairs",
     text: "Students work in pairs and use instant hints from Slonig on how to teach math more effectively. Both students are allowed to start with no prior knowledge of the skill they’re practicing.",
   },
   {
     imgDesktop: "/step3-desktop.png",
     imgMobile: "/step3-mobile.png",
-    alt: "Teacher monitoring students",
+    alt: "Every 15 minutes, students switch partners",
     text: "Every 15 minutes, students switch partners and roles—if they were teaching, they begin learning.",
   },
 ];
