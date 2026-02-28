@@ -22,8 +22,8 @@ export default function Collaboration({ }: Props) {
           </div>
 
           {/* Text */}
-          <div className="mt-10 md:mt-12 mx-auto max-w-2xl text-center">
-            Slonig organizes students work face-to-face, and just one of them rarely look for hints from the app.
+          <div className="mt-5 mx-auto max-w-2xl text-center">
+            <span>Slonig organizes students work face-to-face, and just one of them rarely look for hints from the app.</span>
           </div>
         </div>
       </div>
