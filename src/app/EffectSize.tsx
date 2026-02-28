@@ -30,7 +30,7 @@ export default function EffectSize({}: Props) {
 
   return (
     <section className="w-full bg-white text-slate-900">
-      <div className="mx-auto max-w-6xl px-6 py-16 md:py-10">
+      <div className="mx-auto max-w-6xl px-6">
         <div className="mx-auto max-w-3xl">
           <h2 className="text-center tracking-tight text-[color:var(--secondary-color)]">
             Slonig outperforms digital math programs

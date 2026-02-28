@@ -96,7 +96,7 @@ export default function RequestDemo({
     }
 
     return (
-        <section className="relative mt-10 w-full text-slate-900">
+        <section className="relative mt-16 w-full text-slate-900">
             <div className="mx-auto w-full max-w-6xl px-6">
                 <div className="relative w-full overflow-visible rounded-3xl bg-gradient-to-r from-[#0b63ff] via-[#00a9d6] to-[#19d46a] px-6 py-10 shadow-[0_18px_50px_rgba(0,0,0,0.18)] md:px-12 md:py-12 text-center">
                     <div className="request-demo-title !text-white !mb-3 !py-0">
