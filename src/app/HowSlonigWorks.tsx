@@ -79,7 +79,7 @@ export default function HowSlonigWorks({}: Props) {
                     </picture>
                   </div>
 
-                  <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed md:text-lg">
+                  <p>
                     {s.text}
                   </p>
                 </div>
