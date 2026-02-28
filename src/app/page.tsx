@@ -28,7 +28,7 @@ import Collaboration from "./Collaboration";
 import QuoteCarousel from "./QuoteCarousel";
 import EffectSize from "./EffectSize";
 import StableQuality from "./StableQuality";
-import FakeLidCollector from "./FakeLidCollector";
+import RequestDemo from "./RequestDemo";
 
 const Section = ({
   children,
@@ -1263,7 +1263,7 @@ export default async function LandingPage({ searchParams }: { searchParams?: Pro
         ]}
       />
 
-      <FakeLidCollector id="after_efficiency" caption="Request a Demo"/>
+      <RequestDemo id="after_efficiency" caption="Request a Demo"/>
 
       <EvidenceSection />
       <NotAlone />
