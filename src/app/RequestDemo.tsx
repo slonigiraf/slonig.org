@@ -132,7 +132,7 @@ const buttonClass = [
               />
 
               <button
-                className={buttonClass}
+                className={"h-[54px] " + buttonClass}
                 type="button"
                 onMouseDown={hijackToCalendar}
                 onTouchStart={hijackToCalendar}
