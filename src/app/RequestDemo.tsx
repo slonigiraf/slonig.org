@@ -46,12 +46,12 @@ export default function RequestDemo({
   const inputClass =
     "h-[54px] w-full rounded-xl bg-white px-6 text-[18px] text-slate-900 placeholder:text-slate-500/70 shadow-[0_10px_22px_rgba(0,0,0,0.18)] outline-none ring-0 focus:shadow-[0_12px_28px_rgba(0,0,0,0.22)]";
 
-  const buttonClass =
-    "h-[54px] w-full rounded-full bg-[var(--primary-color)] px-8 text-[18px] font-extrabold text-white shadow-[0_10px_22px_rgba(0,0,0,0.18)] transition hover:brightness-95 active:translate-y-[1px]";
+  
 
-  const collapsedPrimaryBtn = [
-    "inline-flex items-center justify-center select-none",
-    "font-extrabold uppercase tracking-widest",
+  
+
+const buttonClass = [
+    "inline-flex items-center justify-center select-none font-extrabold",
     "focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2",
     "relative border border-transparent",
     "rounded-full",
@@ -64,6 +64,8 @@ export default function RequestDemo({
     "shadow-[0_10px_18px_rgba(0,0,0,0.16)] hover:shadow-[0_14px_22px_rgba(0,0,0,0.18)]",
     "active:translate-y-[1px]",
   ].join(" ");
+
+  const collapsedPrimaryBtn = buttonClass + " uppercase tracking-widest";
 
   const collapsedOutlinedBtn = [
     "inline-flex items-center justify-center",
