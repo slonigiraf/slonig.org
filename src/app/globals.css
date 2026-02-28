@@ -87,6 +87,12 @@ h2 {
   margin-bottom: 30px !important;
 }
 
+.request-demo-title {
+  font-size: var(--text-h2);
+  line-height: var(--lh-snug);
+  font-weight: 800;
+}
+
 h3 {
   font-size: var(--text-h3);
   line-height: var(--lh-snug);
@@ -98,6 +104,9 @@ h3 {
     font-size: var(--text-h1-sm);
   }
   h2 {
+    font-size: var(--text-h2-sm);
+  }
+  .request-demo-title {
     font-size: var(--text-h2-sm);
   }
   h3 {
