@@ -1,16 +1,10 @@
 import React from "react";
 import { TimerOff, UsersRound } from "lucide-react";
+import ListWithIcons, { type ListWithIconsRow } from "./ListWithIcons";
 
 type Props = {};
 
-type Row = {
-  key: string;
-  Icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
-  label: string;
-  text: string;
-};
-
-const ROWS: Row[] = [
+const ROWS: ListWithIconsRow[] = [
   {
     key: "before",
     Icon: TimerOff,
@@ -28,28 +22,7 @@ const ROWS: Row[] = [
 export default function BeforeAfter({}: Props) {
   return (
     <section className="relative w-full text-slate-900">
-      <div className="mx-auto max-w-6xl px-6 pt-15 pb-5">
-        <div className="mx-auto max-w-4xl">
-          <div className="grid grid-cols-[2.25rem_1fr] gap-x-4 gap-y-6 sm:grid-cols-[2.75rem_1fr] sm:gap-x-5 md:grid-cols-[3rem_1fr] md:gap-x-6">
-            {ROWS.map(({ key, Icon, label, text }) => (
-              <div key={key} className="contents">
-                <div className="flex items-start justify-center pt-[0.4em]">
-                  <Icon
-                    className="h-6 w-6 shrink-0 sm:h-7 sm:w-7 md:h-8 md:w-8"
-                    aria-hidden="true"
-                  />
-                </div>
-                <p className="leading-relaxed">
-                  <span className="font-semibold text-[var(--secondary-color)]">
-                    {label}
-                  </span>{" "}
-                  {text}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
+      <ListWithIcons rows={ROWS} />
     </section>
   );
 }
