@@ -96,7 +96,7 @@ export default function EffectSize({}: Props) {
               onClick={() => setOpen((v) => !v)}
               className="group inline-flex flex-col items-center gap-1 text-sm font-semibold text-[color:var(--secondary-color)]"
             >
-              <span>{open ? "Hide details" : "See details"}</span>
+              <span>{open ? "Hide details" : "*See details"}</span>
               <DoubleChevronDown
                 className={`h-5 w-5 origin-center scale-x-150 transition-transform duration-300 ${
                   open ? "rotate-180" : ""
