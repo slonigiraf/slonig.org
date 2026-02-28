@@ -56,8 +56,29 @@ export default function RequestDemo({ id, caption, expanded = true }: Props) {
   const inputClass =
     "h-[54px] w-full rounded-xl bg-white px-6 text-[18px] text-slate-900 placeholder:text-slate-500/70 shadow-[0_10px_22px_rgba(0,0,0,0.18)] outline-none ring-0 focus:shadow-[0_12px_28px_rgba(0,0,0,0.22)]";
 
+  // Full-width CTA inside expanded form (kept as-is)
   const buttonClass =
     "h-[54px] w-full rounded-full bg-[#f3a312] px-8 text-[18px] font-extrabold text-white shadow-[0_10px_22px_rgba(0,0,0,0.18)] transition hover:brightness-95 active:translate-y-[1px]";
+
+  // Collapsed button should look like your <Button variant="primary" ...>
+  // without importing/using Button component.
+  const collapsedPrimaryBtn = [
+    "inline-flex items-center justify-center select-none",
+    "font-extrabold uppercase tracking-widest",
+    "focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2",
+
+    "relative border border-transparent",
+    "rounded-full",
+    "text-white",
+
+    "bg-[var(--primary-color)]",
+    "bg-[linear-gradient(to_right,var(--light),var(--primary-color),var(--primary-color),var(--light))]",
+    "bg-[length:300%_100%]",
+    "transition-all duration-[400ms] ease-in-out",
+    "hover:bg-[position:100%_0%]",
+    "shadow-[0_10px_18px_rgba(0,0,0,0.16)] hover:shadow-[0_14px_22px_rgba(0,0,0,0.18)]",
+    "active:translate-y-[1px]",
+  ].join(" ");
 
   const CalendarModal =
     calendarOpen && portalRoot
@@ -112,7 +133,15 @@ export default function RequestDemo({ id, caption, expanded = true }: Props) {
   if (!expanded) {
     return (
       <>
-        <button className={buttonClass} type="button" onClick={openCalendar}>
+        <button
+          type="button"
+          onClick={openCalendar}
+          className={[
+            collapsedPrimaryBtn,
+            // match your navbar usage:
+            "!py-2 !px-4 text-sm inline-flex items-center gap-2",
+          ].join(" ")}
+        >
           {caption}
         </button>
         {CalendarModal}
