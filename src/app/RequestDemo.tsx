@@ -8,12 +8,18 @@ type Props = {
   id: string;
   caption: string;
   expanded?: boolean;
+  outlined?: boolean; // ✅ NEW
 };
 
 const APPOINTMENT_URL =
   "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0TmcFsCgKSTrSWKTr1oZCd2JIFmc8IJSwpoxsGPSt6nAX891ynanbn7FBx8SSqxJfa0oQaf0br";
 
-export default function RequestDemo({ id, caption, expanded = true }: Props) {
+export default function RequestDemo({
+  id,
+  caption,
+  expanded = true,
+  outlined = false, // ✅ NEW default
+}: Props) {
   const [form, setForm] = useState({ name: "", email: "" });
   const [calendarOpen, setCalendarOpen] = useState(false);
 
@@ -80,6 +86,15 @@ export default function RequestDemo({ id, caption, expanded = true }: Props) {
     "active:translate-y-[1px]",
   ].join(" ");
 
+  // ✅ NEW: outlined style (your <a> style, but for a <button>)
+  const collapsedOutlinedBtn = [
+    "inline-flex items-center justify-center",
+    "rounded-full border-2 border-white/90",
+    "px-10 py-4 text-xl font-semibold text-white",
+    "transition hover:bg-white/10",
+    "focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70",
+  ].join(" ");
+
   const CalendarModal =
     calendarOpen && portalRoot
       ? createPortal(
@@ -136,11 +151,15 @@ export default function RequestDemo({ id, caption, expanded = true }: Props) {
         <button
           type="button"
           onClick={openCalendar}
-          className={[
-            collapsedPrimaryBtn,
-            // match your navbar usage:
-            "!py-2 !px-4 text-sm inline-flex items-center gap-2",
-          ].join(" ")}
+          className={
+            outlined
+              ? collapsedOutlinedBtn
+              : [
+                  collapsedPrimaryBtn,
+                  // match your navbar usage:
+                  "!py-2 !px-4 text-sm inline-flex items-center gap-2",
+                ].join(" ")
+          }
         >
           {caption}
         </button>

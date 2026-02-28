@@ -1,4 +1,5 @@
 import React from "react";
+import RequestDemo from "./RequestDemo";
 
 type Props = {};
 
@@ -19,12 +20,7 @@ export default function Hero({ }: Props) {
           </p>
 
           <div className="mt-3">
-            <a
-              href="#request_demo"
-              className="inline-flex items-center justify-center rounded-full border-2 border-white/90 px-10 py-4 text-xl font-semibold text-white transition hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
-            >
-              Request a Demo
-            </a>
+            <RequestDemo outlined={true} expanded={false} id={"first-screen-button"} caption={"Request a Demo"} />
           </div>
         </div>
       </div>
