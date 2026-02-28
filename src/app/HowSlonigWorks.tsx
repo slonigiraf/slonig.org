@@ -1,7 +1,7 @@
 type Props = {};
 
 type Slide = {
-  imgLaptop: string;
+  imgDesktop: string;
   imgMobile: string;
   alt: string;
   text: string;
@@ -9,19 +9,19 @@ type Slide = {
 
 const slides: Slide[] = [
   {
-    imgLaptop: "/collaboration.jpg",
-    imgMobile: "/collaboration-mobile.jpg",
+    imgDesktop: "/step1-desktop.png",
+    imgMobile: "/step1-mobile.png",
     alt: "Two students working together",
     text: "During the first lesson, the app trains students on how to help their classmates.",
   },
   {
-    imgLaptop: "/laptop.jpg",
-    imgMobile: "/laptop-mobile.jpg",
+    imgDesktop: "/step2-desktop.png",
+    imgMobile: "/step2-mobile.png",
     alt: "Student using a laptop",
     text: "Students work in pairs and use instant hints from Slonig on how to teach math more effectively. Both students are allowed to start with no prior knowledge of the skill they’re practicing.",
   },
   {
-    imgLaptop: "/teacher.jpg",
+    imgDesktop: "/teacher.jpg",
     imgMobile: "/teacher-mobile.jpg",
     alt: "Teacher monitoring students",
     text: "Every 15 minutes, students switch partners and roles—if they were teaching, they begin learning.",
@@ -67,11 +67,11 @@ export default function HowSlonigWorks({}: Props) {
               <div key={idx} className="w-full">
                 {/* Slide */}
                 <div className="mx-auto flex w-full max-w-3xl flex-col items-center text-center">
-                  <div className="w-full max-w-xs overflow-hidden rounded-sm shadow-sm md:max-w-sm">
+                  <div className="w-full overflow-hidden rounded-sm shadow-sm">
                     <picture>
                       <source media="(max-width: 767px)" srcSet={s.imgMobile} />
                       <img
-                        src={s.imgLaptop}
+                        src={s.imgDesktop}
                         alt={s.alt}
                         className="h-auto w-full object-cover"
                         loading="lazy"
@@ -93,10 +93,6 @@ export default function HowSlonigWorks({}: Props) {
               </div>
             ))}
           </div>
-
-          <p className="mx-auto mt-10 max-w-3xl text-center text-sm text-slate-600 md:text-base">
-            Students learn by explaining ideas to each other, while the app provides structure and occasional hints.
-          </p>
         </div>
       </div>
     </section>
