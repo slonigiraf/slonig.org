@@ -4,6 +4,7 @@ import React, { useEffect, useCallback, useState, useRef } from "react";
 import { createPortal } from "react-dom";
 import { Menu, X } from "lucide-react";
 import Button from "./Button";
+import RequestDemo from "./RequestDemo";
 
 export const Navbar: React.FC = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -112,11 +113,7 @@ export const Navbar: React.FC = () => {
           <a href="#roi" className="hover:text-blue-900" onClick={navTo("#roi")}>
             ROI
           </a>
-          <a href="#lead" className="shrink-0" onClick={navTo("#lead")}>
-            <Button variant="primary" className="!py-2 !px-4 text-sm inline-flex items-center gap-2">
-              Request a Demo
-            </Button>
-          </a>
+          <RequestDemo expanded={false} id={"navbar-button"} caption={"Request a Demo"} />
         </div>
 
         {/* Mobile toggle */}
@@ -156,14 +153,7 @@ export const Navbar: React.FC = () => {
                     ROI
                   </a>
 
-                  <a href="#lead" className="shrink-0" onClick={navTo("#lead")}>
-                    <Button
-                      variant="primary"
-                      className="w-full !py-2 !px-4 text-sm inline-flex items-center justify-center gap-2"
-                    >
-                      Request a Demo
-                    </Button>
-                  </a>
+                  <RequestDemo expanded={false} id={"navbar-button"} caption={"Request a Demo"} />
                 </div>
               </div>
             </div>
