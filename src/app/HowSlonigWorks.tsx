@@ -21,8 +21,8 @@ const slides: Slide[] = [
     text: "Students work in pairs and use instant hints from Slonig on how to teach math more effectively. Both students are allowed to start with no prior knowledge of the skill they’re practicing.",
   },
   {
-    imgDesktop: "/teacher.jpg",
-    imgMobile: "/teacher-mobile.jpg",
+    imgDesktop: "/step3-desktop.png",
+    imgMobile: "/step3-mobile.png",
     alt: "Teacher monitoring students",
     text: "Every 15 minutes, students switch partners and roles—if they were teaching, they begin learning.",
   },
