@@ -79,7 +79,7 @@ export default function HowSlonigWorks({}: Props) {
                     </picture>
                   </div>
 
-                  <p>
+                  <p className="mt-5">
                     {s.text}
                   </p>
                 </div>
