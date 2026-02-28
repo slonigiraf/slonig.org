@@ -11,14 +11,8 @@ type Props = {
 const APPOINTMENT_URL =
     "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0TmcFsCgKSTrSWKTr1oZCd2JIFmc8IJSwpoxsGPSt6nAX891ynanbn7FBx8SSqxJfa0oQaf0br";
 
-export default function LidCollector({ id, caption }: Props) {
+export default function RequestDemo({ id, caption }: Props) {
     const [form, setForm] = useState({ name: "", email: "" });
-    const [page, setPage] = useState("");
-    const [submitting, setSubmitting] = useState(false);
-    const [errorText, setErrorText] = useState("");
-    const [success, setSuccess] = useState(false);
-
-    // ✅ modal
     const [calendarOpen, setCalendarOpen] = useState(false);
     const openCalendar = () => setCalendarOpen(true);
     const closeCalendar = () => setCalendarOpen(false);
@@ -31,10 +25,6 @@ export default function LidCollector({ id, caption }: Props) {
         e.stopPropagation();
         openCalendar();
     };
-
-    useEffect(() => {
-        if (typeof window !== "undefined") setPage(window.location.pathname);
-    }, []);
 
     // Close on ESC
     useEffect(() => {
@@ -72,83 +62,57 @@ export default function LidCollector({ id, caption }: Props) {
                         {caption}
                     </h2>
 
-                    {!success ? (
-                        <form
-                            id={id}
-                            onSubmit={(e) => e.preventDefault()} // ✅ never block button due to HTML validation
-                            onKeyDown={preventEnterSubmit}
-                            noValidate // ✅ allow empty inputs; no browser validation UI
-                        >
-                            {/* ✅ 3 items now: name, email, button */}
-                            <div className="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-[18px]">
-                                <input
-                                    className={inputClass}
-                                    name="cf-name"
-                                    placeholder="Name"
-                                    value={form.name}
-                                    onChange={onChange}
-                                    // ✅ open calendar on interaction
-                                    onMouseDown={hijackToCalendar}
-                                    onTouchStart={hijackToCalendar}
-                                />
+                    <form
+                        id={id}
+                        onSubmit={(e) => e.preventDefault()} // ✅ never block button due to HTML validation
+                        onKeyDown={preventEnterSubmit}
+                        noValidate // ✅ allow empty inputs; no browser validation UI
+                    >
+                        {/* ✅ 3 items now: name, email, button */}
+                        <div className="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-[18px]">
+                            <input
+                                className={inputClass}
+                                name="cf-name"
+                                placeholder="Name"
+                                value={form.name}
+                                onChange={onChange}
+                                // ✅ open calendar on interaction
+                                onMouseDown={hijackToCalendar}
+                                onTouchStart={hijackToCalendar}
+                            />
 
-                                <input
-                                    type="email"
-                                    className={inputClass}
-                                    name="cf-email"
-                                    placeholder="Email"
-                                    value={form.email}
-                                    onChange={onChange}
-                                    onMouseDown={hijackToCalendar}
-                                    onTouchStart={hijackToCalendar}
-                                />
+                            <input
+                                type="email"
+                                className={inputClass}
+                                name="cf-email"
+                                placeholder="Email"
+                                value={form.email}
+                                onChange={onChange}
+                                onMouseDown={hijackToCalendar}
+                                onTouchStart={hijackToCalendar}
+                            />
 
-                                <button
-                                    className={buttonClass}
-                                    type="button" // ✅ not submit: always clickable regardless of inputs
-                                    onMouseDown={hijackToCalendar}
-                                    onTouchStart={hijackToCalendar}
-                                >
-                                    {submitting ? (
-                                        <span className="inline-flex items-center justify-center gap-3">
-                                            <Loader2 className="h-5 w-5 animate-spin" aria-hidden="true" />
-                                            Sending…
-                                        </span>
-                                    ) : (
-                                        caption
-                                    )}
-                                </button>
+                            <button
+                                className={buttonClass}
+                                type="button" // ✅ not submit: always clickable regardless of inputs
+                                onMouseDown={hijackToCalendar}
+                                onTouchStart={hijackToCalendar}
+                            > {caption} </button>
 
-                                {errorText && (
-                                    <div className="lg:col-span-3">
-                                        <span className="inline-flex w-full items-center gap-2 rounded-xl bg-white/95 px-4 py-3 text-slate-900 shadow-[0_10px_22px_rgba(0,0,0,0.12)]">
-                                            <AlertCircle className="h-[18px] w-[18px]" aria-hidden="true" />
-                                            {errorText}
-                                        </span>
-                                    </div>
-                                )}
-
-                                <div className="lg:col-span-3 text-center">
-                                    <div className="mt-1 text-sm text-slate-900/85">
-                                        *By submitting, I agree to the{" "}
-                                        <a
-                                            className="underline underline-offset-4"
-                                            href="https://slonig.org/privacy-policy"
-                                        >
-                                            privacy policy
-                                        </a>
-                                    </div>
+                            <div className="lg:col-span-3 text-center">
+                                <div className="mt-1 text-sm text-slate-900/85">
+                                    *By submitting, I agree to the{" "}
+                                    <a
+                                        className="underline underline-offset-4"
+                                        href="/privacy-policy"
+                                    >
+                                        privacy policy
+                                    </a>
                                 </div>
                             </div>
-                        </form>
-                    ) : (
-                        <div className="flex justify-center py-2">
-                            <h2 className="m-0 inline-flex items-center gap-3 text-[clamp(22px,2.2vw,32px)] font-extrabold text-white">
-                                <CheckCircle2 className="h-7 w-7" aria-hidden="true" />
-                                Thanks! We’ll call you back
-                            </h2>
                         </div>
-                    )}
+                    </form>
+
                 </div>
             </div>
 

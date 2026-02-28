@@ -10,7 +10,7 @@ type Props = {
     caption: string;
 };
 
-export default function LidCollector({ id, caption }: Props) {
+export default function Subscribe({ id, caption }: Props) {
     const [form, setForm] = useState({ name: "", tel: "", email: "" });
     const [page, setPage] = useState("");
     const [submitting, setSubmitting] = useState(false);
