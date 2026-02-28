@@ -22,7 +22,7 @@ type ListWithIconsProps = {
 
 export default function ListWithIcons({
   rows,
-  outerClassName = "mx-auto max-w-6xl px-6 pt-15 pb-5",
+  outerClassName = "mx-auto max-w-6xl px-6 pb-5",
   innerClassName = "mx-auto max-w-4xl",
   gridClassName = "grid grid-cols-[2.25rem_1fr] gap-x-4 gap-y-6 sm:grid-cols-[2.75rem_1fr] sm:gap-x-5 md:grid-cols-[3rem_1fr] md:gap-x-6",
   iconWrapClassName = "flex items-start justify-center pt-[0.4em]",

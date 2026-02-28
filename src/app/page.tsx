@@ -29,6 +29,7 @@ import QuoteCarousel from "./QuoteCarousel";
 import EffectSize from "./EffectSize";
 import StableQuality from "./StableQuality";
 import RequestDemo from "./RequestDemo";
+import LessonIntegration from "./LessonIntegration";
 
 const Section = ({
   children,
@@ -1084,145 +1085,7 @@ const ResearchPartnersSection = () => (
   </Section>
 );
 
-const CurrentSolutionsBlock = () => {
-  const items = [
-    {
-      icon: Users,
-      solution: "Hire more staff",
-      why: "You can't hire teachers who don't exist in the applicant pool and don’t have budget for it.",
-    },
-    {
-      icon: School,
-      solution: "Adopt a new program / curriculum",
-      why: "Great content doesn't matter if the delivery is inconsistent or the teacher is overwhelmed.",
-    },
-    {
-      icon: BarChart3,
-      solution: "Coaching + PD workshops",
-      why: "High effort, low transfer: great in theory, hard to turn into daily routines under real constraints.",
-    },
-    {
-      icon: Clock,
-      solution: "After-school / pull-out tutoring",
-      why: "Limited seats and inconsistent attendance; the students who need it most often can’t access it reliably.",
-    },
-    {
-      icon: Calculator,
-      solution: "Test prep & benchmarking",
-      why: "Improves familiarity, not mastery. Scores plateau quickly.",
-    },
-    {
-      icon: CirclePile,
-      solution: "Ability grouping/tracking",
-      why: "Widens achievement gaps, with lower-tracked students receiving watered-down curriculum.",
-    },
-    {
-      icon: Sparkles,
-      solution: "Personalized learning software",
-      why: "'Screen time' isn’t 'instructional time.' Students learn how to cheat and click through screens—not math concepts.",
-    },
 
-    {
-      icon: Bot,
-      solution: "Ai-tutoring software",
-      why: "Students come to school to interact with classmates, not to message robots.",
-    },
-  ];
-
-  return (
-    <Section className="bg-white border-t border-slate-100">
-      <div className="text-center mb-10">
-        <Badge>Current solutions</Badge>
-        <h2 className="text-3xl font-bold text-slate-900">Current Solutions & Why They Fall Short</h2>
-        <p className="mt-3 text-slate-600 max-w-3xl mx-auto">
-          Most fixes add programs, not instructional capacity. They’re costly, hard to sustain, and rarely change what happens
-          minute-by-minute in the classroom.
-        </p>
-      </div>
-
-      <Card className="p-0 overflow-hidden">
-        <div className="px-6 py-4 bg-slate-50 border-b border-slate-200">
-          <div className="grid md:grid-cols-12 gap-3 text-sm font-bold text-slate-700">
-            <div className="md:col-span-5">What Principals Try</div>
-            <div className="md:col-span-7">Why It Falls Short</div>
-          </div>
-        </div>
-
-        <div className="divide-y divide-slate-100">
-          {items.map((x) => {
-            const Icon = x.icon;
-            return (
-              <div key={x.solution} className="px-6 py-5">
-                <div className="grid md:grid-cols-12 gap-4 items-start">
-                  <div className="md:col-span-5">
-                    <div className="flex items-start gap-3">
-                      <div className="mt-0.5 w-10 h-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center">
-                        <Icon className="w-5 h-5 text-blue-800" />
-                      </div>
-                      <div className="min-h-[40px] flex items-center">
-                        <div className="font-extrabold text-slate-900 leading-tight">{x.solution}</div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="md:col-span-7">
-                    <div className="rounded-2xl border border-amber-200 bg-amber-50 px-5 py-4 text-slate-800">
-                      <div className="flex items-start gap-3">
-                        <AlertTriangle className="w-5 h-5 text-amber-700 mt-0.5" />
-                        <div className="text-sm leading-relaxed">{x.why}</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </Card>
-
-      <div className="mt-8 grid lg:grid-cols-3 gap-6">
-        <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
-          <div className="flex items-center gap-2 font-bold text-slate-900">
-            <BrainCircuit className="w-5 h-5 text-blue-700" />
-            The core bottleneck
-          </div>
-          <p className="mt-2 text-sm text-slate-600">
-            One teacher cannot deliver enough high-quality, immediate-feedback practice to every student—every lesson—without
-            changing the operating system.
-          </p>
-        </div>
-
-        <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
-          <div className="flex items-center gap-2 font-bold text-slate-900">
-            <ShieldCheck className="w-5 h-5 text-emerald-700" />
-            The missing ingredient
-          </div>
-          <p className="mt-2 text-sm text-slate-600">
-            Fidelity and accountability: without a built-in structure, “initiative completed” replaces “skill mastered.”
-          </p>
-        </div>
-
-        <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
-          <div className="flex items-center gap-2 font-bold text-slate-900">
-            <DollarSign className="w-5 h-5 text-amber-700" />
-            The budget reality
-          </div>
-          <p className="mt-2 text-sm text-slate-600">
-            Most interventions are recurring costs. When funding tightens, the support disappears—and scores revert.
-          </p>
-        </div>
-      </div>
-
-      <div className="mt-10 text-center">
-        <a href="#solution">
-          <Button variant="primary">
-            See the alternative: structured peer learning <ArrowRight className="w-4 h-4" />
-          </Button>
-        </a>
-      </div>
-    </Section>
-  );
-};
 
 
 
@@ -1264,6 +1127,8 @@ export default async function LandingPage({ searchParams }: { searchParams?: Pro
       />
 
       <RequestDemo id="after_efficiency" caption="Request a Demo"/>
+
+      <LessonIntegration />
 
       <EvidenceSection />
       <NotAlone />

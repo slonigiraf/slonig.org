@@ -21,7 +21,7 @@ const ROWS: ListWithIconsRow[] = [
 
 export default function BeforeAfter({}: Props) {
   return (
-    <section className="relative w-full text-slate-900">
+    <section className="relative w-full text-slate-900 pt-15">
       <ListWithIcons rows={ROWS} />
     </section>
   );
