@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Linkedin, Instagram } from "lucide-react";
 
 type Props = {
@@ -16,44 +17,6 @@ type Props = {
   threadsUrl?: string;
   instagramUrl?: string;
 };
-
-function SlonigMark({ className = "" }: { className?: string }) {
-  return (
-    <div className={`flex items-center gap-3 ${className}`}>
-      <svg
-        width="46"
-        height="46"
-        viewBox="0 0 64 64"
-        aria-hidden="true"
-        className="shrink-0"
-      >
-        <path
-          d="M18 20c7-7 22-10 31-7"
-          fill="none"
-          stroke="white"
-          strokeWidth="7"
-          strokeLinecap="round"
-        />
-        <path
-          d="M15 34c10 5 26 2 34-6"
-          fill="none"
-          stroke="white"
-          strokeWidth="7"
-          strokeLinecap="round"
-        />
-        <path
-          d="M18 48c9 3 22-1 28-9"
-          fill="none"
-          stroke="white"
-          strokeWidth="7"
-          strokeLinecap="round"
-        />
-      </svg>
-
-      <span className="font-semibold tracking-[0.18em] text-white">slonig</span>
-    </div>
-  );
-}
 
 function SocialButton({
   href,
@@ -122,19 +85,33 @@ export default function Footer({
         <div className="grid gap-10 md:grid-cols-3 md:gap-12">
           {/* Left */}
           <div>
-            <SlonigMark />
+            {/* named-logo.svg (forced to white) */}
+            <Link href="/" className="inline-flex items-center">
+              <Image
+                src="/named-logo.svg"
+                alt="Slonig"
+                width={160}
+                height={46}
+                priority
+                className="h-12 w-auto"
+                style={{
+                  // makes a dark SVG appear white
+                  filter: "brightness(0) invert(1)",
+                }}
+              />
+            </Link>
 
             <div className="mt-10 space-y-3 leading-snug text-white md:mt-12">
               <div className="font-medium">© {year} Slonig. All rights reserved</div>
-              <div>{companyName},</div>
-              <div>{addressLine1}</div>
-              <div>{addressLine2}</div>
+              <div>
+                {companyName}, {addressLine1} {addressLine2}
+              </div>
             </div>
           </div>
 
           {/* Middle */}
           <div className="md:justify-self-center">
-            <div className="font-semibold text-white">Get Started</div>
+            <div className="text-lg font-semibold text-white">Get Started</div>
 
             <nav className="mt-5">
               <ul className="space-y-3 leading-snug text-white">
@@ -169,7 +146,7 @@ export default function Footer({
 
           {/* Right */}
           <div className="md:justify-self-end">
-            <div className="font-semibold text-white">Contact us</div>
+            <div className="text-lg font-semibold text-white">Contact us</div>
 
             <div className="mt-5 space-y-2 leading-snug text-white">
               <div>
