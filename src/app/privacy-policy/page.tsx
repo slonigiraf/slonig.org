@@ -6,7 +6,7 @@ export default async function App() {
     <main className="min-h-screen font-sans selection:bg-blue-100 selection:text-blue-900">
       <Navbar />
 
-      {/* Intro block (same “style” as happynumbers privacy policy page) */}
+      {/* Intro block */}
       <section
         className="relative w-full !text-white"
         style={{ backgroundColor: "var(--primary-color)" }}
@@ -26,22 +26,46 @@ export default async function App() {
               information we collect, why we collect it, how we use it, and what choices
               you have.
             </p>
-
           </div>
         </div>
       </section>
 
       {/* Policy content */}
       <section className="mx-auto w-full max-w-4xl px-6 py-14 text-slate-900">
-        {/* Force left alignment everywhere inside (wins even if a parent uses text-center) */}
+        {/* ✅ force left alignment for ALL content, including headings */}
         <div className="text-left [&_*]:!text-left">
-          <h2 className="text-[clamp(24px,2.4vw,34px)] font-extrabold leading-[1.1]">
-            Privacy Policy
-          </h2>
-
           <p className="mt-3 text-sm text-slate-600">Effective date: 2026.03.01</p>
 
-          <div className="prose prose-slate mt-10 max-w-none text-left [&_*]:!text-left">
+          {/* ✅ Tailwind-only policy typography overrides */}
+          <div
+            className={[
+              "prose prose-slate mt-10 max-w-none text-left",
+
+              // force all headings black + consistent weight/letter-spacing
+              "[&_:is(h1,h2,h3,h4,h5,h6)]:!text-black",
+              "[&_:is(h1,h2,h3,h4,h5,h6)]:!tracking-tight",
+              "[&_:is(h1,h2,h3)]:!font-extrabold",
+              "[&_:is(h4,h5,h6)]:!font-bold",
+
+              // sizes + line heights
+              "[&h2]:text-[clamp(24px,2.4vw,34px)] [&h2]:leading-[1.15]",
+              "[&h3]:text-[clamp(18px,1.6vw,22px)] [&h3]:leading-[1.2]",
+              "[&h4]:text-[16px] [&h4]:leading-[1.25]",
+
+              // spacing rules
+              "[&_:is(h2,h3,h4)]:!mb-2",
+              "[&_:is(h2,h3,h4)+p]:!mt-2.5",
+              "[&_:is(h2,h3,h4)+ul]:!mt-2.5",
+
+              // add larger separation when a heading follows a paragraph/list
+              "[&p+h2]:!mt-9 [&p+h3]:!mt-9",
+              "[&ul+h2]:!mt-9 [&ul+h3]:!mt-9",
+              "[&p+h4]:!mt-6 [&ul+h4]:!mt-6",
+            ].join(" ")}
+          >
+            <h2>
+            Privacy Policy
+          </h2>
             <p>
               In this Privacy Policy and (where applicable) our Terms of Service, “Slonig”
               (“Company,” “we,” “us,” “our”) refers to our websites, applications, features,
@@ -109,7 +133,10 @@ export default async function App() {
             </p>
             <ul>
               <li>Information provided by Educators and Parents (not by students directly)</li>
-              <li>Information about Educators obtained from third parties (e.g., public school/district contact sources)</li>
+              <li>
+                Information about Educators obtained from third parties (e.g., public school/district
+                contact sources)
+              </li>
               <li>Usage information you generate when using the site</li>
               <li>Information collected via cookies (see Section 4)</li>
             </ul>
@@ -265,9 +292,7 @@ export default async function App() {
             </p>
 
             <h3>16. Contact Us</h3>
-            <p>
-              If you have questions or requests about this Privacy Policy, contact us:
-            </p>
+            <p>If you have questions or requests about this Privacy Policy, contact us:</p>
             <p>
               <strong>Email:</strong> info@slonig.org
               <br />
