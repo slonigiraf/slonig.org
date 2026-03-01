@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useMemo, useState } from "react";
-import { CheckCircle2, ChevronDown, ArrowDownLeft } from "lucide-react";
+import { CheckCircle2, ChevronDown } from "lucide-react";
 import RequestDemo from "./RequestDemo";
 
 type Props = {};
@@ -236,7 +236,7 @@ function GradeCard({
   );
 }
 
-export default function CurriculumAlignment({ }: Props) {
+export default function CurriculumAlignment({}: Props) {
   const grades = useMemo(
     () =>
       (Object.keys(GRADE_LABEL) as unknown as string[])
@@ -252,7 +252,6 @@ export default function CurriculumAlignment({ }: Props) {
     <section className="w-full bg-white text-slate-900">
       <h2>Matching Your Math Standards</h2>
       <div className="mx-auto max-w-6xl px-6">
-
         <div className="rounded-[28px] bg-emerald-50/70 p-8 md:p-10">
           <div className="text-sm font-extrabold uppercase tracking-widest text-slate-700/70 text-center">
             Curriculum Alignment
@@ -262,8 +261,7 @@ export default function CurriculumAlignment({ }: Props) {
           <div className="mt-10 grid gap-10 lg:grid-cols-[1.05fr_0.95fr]">
             {/* Left */}
             <div>
-
-              {/* Top select */}
+              {/* State select */}
               <div className="flex justify-center">
                 <div className="relative w-full max-w-xl">
                   <select
@@ -284,9 +282,27 @@ export default function CurriculumAlignment({ }: Props) {
                 </div>
               </div>
 
-               
+              {/* Grade select (mobile) */}
+              <div className="mt-5 flex justify-center lg:hidden">
+                <div className="relative w-full max-w-xl">
+                  <select
+                    value={selectedGrade}
+                    onChange={(e) => setSelectedGrade(Number(e.target.value) as GradeKey)}
+                    className="h-16 w-full appearance-none rounded-2xl bg-gradient-to-b from-blue-500 to-blue-600 px-6 text-center text-xl font-semibold text-white shadow-md outline-none ring-1 ring-blue-300/40"
+                    aria-label="Select grade"
+                  >
+                    {grades.map((g) => (
+                      <option key={g} value={g}>
+                        {GRADE_LABEL[g]} grade
+                      </option>
+                    ))}
+                  </select>
+                  <ChevronDown className="pointer-events-none absolute right-6 top-1/2 h-6 w-6 -translate-y-1/2 text-white/90" />
+                </div>
+              </div>
 
-              <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+              {/* Grade grid (desktop/tablet) */}
+              <div className="mt-8 hidden grid-cols-2 gap-4 sm:grid-cols-3 lg:grid lg:grid-cols-4">
                 {grades.map((g) => (
                   <GradeCard
                     key={g}
@@ -296,8 +312,6 @@ export default function CurriculumAlignment({ }: Props) {
                   />
                 ))}
               </div>
-
-             
             </div>
 
             {/* Right */}
@@ -308,7 +322,6 @@ export default function CurriculumAlignment({ }: Props) {
                     Featured Grade {selectedGrade} Alignment
                   </div>
                 </div>
-                
               </div>
 
               <div className="mt-6 space-y-5">
@@ -323,7 +336,11 @@ export default function CurriculumAlignment({ }: Props) {
               </div>
 
               <div className="mt-8">
-                <RequestDemo expanded={false} id={"curriculum-button"} caption={"Request a Demo"} />
+                <RequestDemo
+                  expanded={false}
+                  id={"curriculum-button"}
+                  caption={"Request a Demo"}
+                />
               </div>
             </div>
           </div>
