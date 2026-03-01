@@ -103,7 +103,7 @@ export default async function LandingPage({ searchParams }: { searchParams?: Pro
       <LessonIntegration />
       <HowSlonigWorks />
       <TeacherWork />
-      <ThinkPairShareComparison />
+      
       <QuoteCarousel
         title="Teachers Say"
         quotes={[
@@ -129,7 +129,20 @@ export default async function LandingPage({ searchParams }: { searchParams?: Pro
           },
         ]}
       />
-      <RequestDemo id="after_teacher_testimonials" caption="Request a Demo" />
+      <ThinkPairShareComparison />
+
+      <QuoteCarousel
+        title="Researchers Say"
+        quotes={[
+          {
+            text: "Peer learning is an essential mode of learning in school settings and beyond. Yet, it is also a process that is unwieldy to manage for teachers, given that multiple pairs of students may be working in parallel and structure can be hard to maintain. As part of the Teaching Clinic cohort of the Winter Semester 2025 at the University of Vienna, we have evaluated peer learning processes structured by the App Slonig and we found it to provide the necessary scaffolding for students to approach peer learning in a more structured environment (and lessen the load for the teacher).",
+            byline: "Dominik E. Froehlich, Associate Professor, Centre for Teacher Education, University of Vienna",
+          },
+          
+        ]}
+      />
+
+      <RequestDemo id="after_researchers_testimonials" caption="Request a Demo" />
       <SlonigFeatures />
       <Assessments />
       <Diagnostics />
