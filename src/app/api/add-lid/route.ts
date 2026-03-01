@@ -1,16 +1,20 @@
 import nodemailer from "nodemailer";
+import { NextResponse } from "next/server";
 
-function isEmail(s) {
+export const runtime = "nodejs"; // nodemailer needs Node runtime (not Edge)
+
+function isEmail(s: unknown) {
   return typeof s === "string" && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s);
 }
 
-function clean(s, max = 200) {
+function clean(s: unknown, max = 200) {
   if (typeof s !== "string") return "";
   return s.trim().slice(0, max);
 }
 
-async function verifyRecaptchaV3(token, remoteip) {
-  const secret = process.env.NEXT_PUBLIC_RECAPTCHA_SECRET;
+async function verifyRecaptchaV3(token: string, remoteip?: string) {
+  // IMPORTANT: secret must NOT be NEXT_PUBLIC_ (that’s for client)
+  const secret = process.env.RECAPTCHA_SECRET;
   if (!secret) return { ok: false, reason: "Missing RECAPTCHA_SECRET" };
   if (!token) return { ok: false, reason: "Missing token" };
 
@@ -27,13 +31,8 @@ async function verifyRecaptchaV3(token, remoteip) {
 
   const data = await resp.json();
 
-  // reCAPTCHA v3 returns { success, score, action, ... }
   if (!data?.success) return { ok: false, reason: "recaptcha_failed", data };
 
-  // OPTIONAL: validate expected action
-  // if (data.action !== "lid_collector") return { ok: false, reason: "bad_action", data };
-
-  // OPTIONAL: tune threshold (0.5 is a common starting point)
   const score = typeof data.score === "number" ? data.score : 0;
   if (score < 0.5) return { ok: false, reason: "low_score", data };
 
@@ -54,44 +53,42 @@ function makeTransporter() {
   return nodemailer.createTransport({
     host,
     port,
-    secure, // true for 465, false for 587 (STARTTLS)
+    secure,
     auth: { user, pass },
   });
 }
 
-export default async function handler(req, res) {
-  if (req.method !== "POST") return res.status(405).json({ success: false, error: "Method Not Allowed" });
-
+export async function POST(req: Request) {
   try {
-    const name = clean(req.body?.name, 100);
-    const tel = clean(req.body?.tel, 50);
-    const email = clean(req.body?.email, 150);
-    const page = clean(req.body?.page, 200);
-    const form_id = clean(req.body?.form_id, 50);
-    const token = clean(req.body?.token, 1000000);
+    const body = await req.json().catch(() => ({} as any));
+
+    const name = clean(body?.name, 100);
+    const tel = clean(body?.tel, 50);
+    const email = clean(body?.email, 150);
+    const page = clean(body?.page, 200);
+    const form_id = clean(body?.form_id, 50);
+    const token = clean(body?.token, 1000000);
 
     if (!name || !email || !form_id || !token) {
-      return res.status(400).json({ success: false, error: "Missing required fields." });
+      return NextResponse.json({ success: false, error: "Missing required fields." }, { status: 400 });
     }
     if (!isEmail(email)) {
-      return res.status(400).json({ success: false, error: "Invalid email." });
+      return NextResponse.json({ success: false, error: "Invalid email." }, { status: 400 });
     }
 
-    // reCAPTCHA verification
-    const remoteip =
-      (req.headers["x-forwarded-for"]?.toString().split(",")[0] || req.socket?.remoteAddress || "").trim();
+    const xff = req.headers.get("x-forwarded-for") || "";
+    const remoteip = (xff.split(",")[0] || "").trim();
 
     const rec = await verifyRecaptchaV3(token, remoteip);
     if (!rec.ok) {
-      return res.status(400).json({
-        success: false,
-        error: `reCAPTCHA failed: ${rec.reason}`,
-      });
+      return NextResponse.json(
+        { success: false, error: `reCAPTCHA failed: ${rec.reason}` },
+        { status: 400 }
+      );
     }
 
     const transporter = makeTransporter();
 
-    // Email content
     const subject = `New lead: ${name} (${form_id})`;
     const text =
       `New lead submitted\n\n` +
@@ -107,14 +104,14 @@ export default async function handler(req, res) {
     await transporter.sendMail({
       from: `"Lead Collector" <reshetovdenis@mailbook.org>`,
       to: "reshetovdenis@gmail.com",
-      replyTo: email, // so you can reply directly to the lead
+      replyTo: email,
       subject,
       text,
     });
 
-    return res.status(200).json({ success: true });
+    return NextResponse.json({ success: true }, { status: 200 });
   } catch (err) {
     console.error("add-lid error:", err);
-    return res.status(500).json({ success: false, error: "Server error." });
+    return NextResponse.json({ success: false, error: "Server error." }, { status: 500 });
   }
 }
