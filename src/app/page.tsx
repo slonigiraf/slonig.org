@@ -34,6 +34,7 @@ import HowSlonigWorks from "./HowSlonigWorks";
 import DirectCosts from "./DirectCosts";
 import StopSpendingOn from "./StopSpendingOn";
 import ValueStack from "./ValueStack";
+import TeacherWork from "./TeacherWork";
 
 const Section = ({
   children,
@@ -95,6 +96,7 @@ export default async function LandingPage({ searchParams }: { searchParams?: Pro
       <RequestDemo id="after_efficiency" caption="Request a Demo"/>
       <LessonIntegration />
       <HowSlonigWorks />
+      <TeacherWork />
 
       <ValueStack />
 
