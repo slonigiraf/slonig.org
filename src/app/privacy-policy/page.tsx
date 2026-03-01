@@ -26,7 +26,7 @@ export default async function App() {
           <p className="max-w-5xl leading-relaxed !text-white/95">
             In this Privacy Policy and the Terms of Service, the term “Slonig” (“Company,”
             “we,” “us,” “our”) refers to all websites (including slonig.org,
-            app.slonig.org,), applications, their features, and content we offer. The
+            app.slonig.org), applications, their features, and content we offer. The
             services we provide and the information collected are managed by Slonig, Inc.,
             located at 1111B S Governors Ave STE 48458, Dover, DE 19904, USA.
           </p>
