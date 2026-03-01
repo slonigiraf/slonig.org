@@ -113,7 +113,13 @@ const ROWS: ExpandableListRow[] = [
   {
     Icon: ShieldCheck,
     label: "Quality Control",
-    text: "At the end of each session, the student in the tutor role either awards a digital badge or suggests repeating the skill later. Badges include metadata: the skill ID, a cryptographic proof tied to the student, and a game-currency stake placed by the tutor. If a badge is given without proper teaching, it can be challenged by another tutor, teacher, or parent—potentially lowering the tutor’s currency balance. While misuse is theoretically possible, it rarely occurs in practice. Because students typically tutor friends, they avoid actions that would harm those relationships.",
+    text: "",
+    node: <ul className="list-disc pl-5 mt-5">
+      <li>At the end of each session, the classmate in the tutor role either awards a digital badge or suggests repeating the skill later.</li>
+      <li>Badges include metadata: the skill ID, a cryptographic proof tied to the student, and a game-currency stake placed by the tutor.</li>
+      <li>If a badge is given without proper teaching, it can be challenged by another tutor, teacher, or parent—potentially lowering the tutor’s currency balance.</li>
+      <li>While misuse is theoretically possible, it rarely occurs in practice. Because students typically tutor friends, they avoid actions that would harm those relationships.</li>
+    </ul>
   },
   {
     Icon: Presentation,
