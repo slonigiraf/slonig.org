@@ -1,25 +1,5 @@
 import React from "react";
-import {
-  Users,
-  BrainCircuit,
-  BarChart3,
-  ArrowRight,
-  CheckCircle2,
-  ShieldCheck,
-  Layers,
-  Phone,
-  Mail,
-  MessageCircle,
-  School,
-  DollarSign,
-  Clock,
-  Sparkles,
-  AlertTriangle,
-  Calculator,
-  CirclePile,
-  Bot,
-} from "lucide-react";
-import Button from "./Button";
+import { Layers} from "lucide-react";
 import Navbar from "./Navbar";
 import Hero from "./Hero";
 import WorkInPairVideo from "./WorkInPairVideo";
@@ -31,8 +11,6 @@ import StableQuality from "./StableQuality";
 import RequestDemo from "./RequestDemo";
 import LessonIntegration from "./LessonIntegration";
 import HowSlonigWorks from "./HowSlonigWorks";
-import DirectCosts from "./DirectCosts";
-import StopSpendingOn from "./StopSpendingOn";
 import ValueStack from "./ValueStack";
 import TeacherWork from "./TeacherWork";
 import SlonigFeatures from "./SlonigFeatures";
@@ -41,20 +19,8 @@ import Diagnostics from "./Diagnostics";
 import ThinkPairShareComparison from "./ThinkPairShareComparison";
 import CurriculumAlignment from "./CurriculumAlignment";
 import Badges from "./Badges";
+import JoinProfessionals from "./JoinProfessionals";
 
-const Section = ({
-  children,
-  className = "",
-  id = "",
-}: {
-  children: React.ReactNode;
-  className?: string;
-  id?: string;
-}) => (
-  <section id={id} className={`py-20 px-6 md:px-12 lg:px-24 ${className}`}>
-    <div className="max-w-7xl mx-auto">{children}</div>
-  </section>
-);
 
 const Footer = () => (
   <footer className="bg-slate-950 text-slate-400 py-12 px-6 border-t border-slate-800">
@@ -71,9 +37,6 @@ const Footer = () => (
 
 
 export default async function LandingPage({ searchParams }: { searchParams?: Promise<Record<string, any>> }) {
-  const sp = (await searchParams) ?? {};
-  const success = sp.success === "1";
-
   return (
     <main className="min-h-screen font-sans selection:bg-blue-100 selection:text-blue-900">
       <Navbar />
@@ -158,6 +121,7 @@ export default async function LandingPage({ searchParams }: { searchParams?: Pro
       <RequestDemo id="after_roi" caption="Request a Demo" />
       <CurriculumAlignment />
       <Badges />
+      <JoinProfessionals />
 
       <Footer />
 
