@@ -21,6 +21,7 @@ import CurriculumAlignment from "./CurriculumAlignment";
 import Badges from "./Badges";
 import JoinProfessionals from "./JoinProfessionals";
 import OtherSubjects from "./OtherSubjects";
+import Subscribe from "./Subscribe";
 
 
 const Footer = () => (
@@ -124,6 +125,7 @@ export default async function LandingPage({ searchParams }: { searchParams?: Pro
       <Badges />
       <JoinProfessionals />
       <OtherSubjects />
+      <Subscribe id={"join-newsletter"} caption={"Join Newsletter"} />
 
       <Footer />
 
