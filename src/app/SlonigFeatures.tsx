@@ -68,7 +68,25 @@ const ROWS: ExpandableListRow[] = [
   {
     Icon: Workflow,
     label: "Built-in Interaction Algorithm",
-    text: "Slonig guides both classmates step by step with a consistent algorithm designed to ensure effective learning (see the figure below). The student in the tutor role poses an exercise and assesses the tutee’s response. If the response is incorrect, the tutor provides immediate feedback with the correct answer and prompts the student to repeat it, leveraging active recall and retrieval practice (Roediger & Butler, 2011). Once the student responds correctly, the tutor asks them to generate a similar exercise, creating productive struggle and promoting transfer through student-generated examples (Ebersbach et al., 2020; Ramirez-Velarde et al., 2014). The tutor then deliberately makes an error when attempting the student’s exercise and asks the student to correct it—an application of learning by teaching, which has been shown to enhance metacognitive monitoring and conceptual understanding (Fiorella & Mayer, 2013). A digital badge is awarded only if the student’s performance—including correcting the tutor’s mistake—is perfect that day; otherwise, the skill is repeated in a later session to harness the benefits of spaced repetition (Cepeda et al., 2006). This tutor-led algorithm supports mastery learning (Bloom, 1984) by ensuring that each student progresses only after demonstrating comprehensive understanding and the ability to apply, explain, and correct the target skill. When a badge is awarded, the tutee gains the confidence to tutor the same skill to someone else.",
+    text: "",
+    node: <div><div className="flex justify-center">
+        <div className="w-full overflow-hidden">
+          <img
+            src="/algo.png"
+            alt="Slonig’s algorithm helps students communicate and learn efficiently."
+            className="h-auto w-full object-cover"
+          />
+        </div>
+      </div>
+      <ul className="list-disc pl-5">
+        <li>Slonig guides both classmates step by step with a consistent algorithm designed to ensure effective learning.</li>
+        <li>The student in the tutor role poses an exercise and assesses the tutee’s response. If the response is incorrect, the tutor provides immediate feedback with the correct answer and prompts the student to repeat it, leveraging active recall and retrieval practice (Roediger & Butler, 2011).</li>
+        <li>Once the student responds correctly, the tutor asks them to generate a similar exercise, creating productive struggle and promoting transfer through student-generated examples (Ebersbach et al., 2020; Ramirez-Velarde et al., 2014).</li>
+        <li>The tutor then deliberately makes an error when attempting the student’s exercise and asks the student to correct it—an application of learning by teaching, which has been shown to enhance metacognitive monitoring and conceptual understanding (Fiorella & Mayer, 2013).</li>
+        <li>A digital badge is awarded only if the student’s performance—including correcting the tutor’s mistake—is perfect that day; otherwise, the skill is repeated in a later session to harness the benefits of spaced repetition (Cepeda et al., 2006).</li>
+        <li>This tutor-led algorithm supports mastery learning (Bloom, 1984) by ensuring that each student progresses only after demonstrating comprehensive understanding and the ability to apply, explain, and correct the target skill. When a badge is awarded, the tutee gains the confidence to tutor the same skill to someone else.</li>
+      </ul>
+    </div>
   },
   {
     Icon: CheckCheck,
