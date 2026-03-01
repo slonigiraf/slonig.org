@@ -27,6 +27,17 @@ export const Navbar: React.FC = () => {
     setMobileOpen(true);
   }, []);
 
+  const NAVBAR_H = 64; // h-16
+  const scrollToWithOffset = (el: HTMLElement) => {
+    const rect = el.getBoundingClientRect();
+    const y = rect.top + window.scrollY - NAVBAR_H;
+
+    window.scrollTo({
+      top: Math.max(0, y),
+      behavior: "smooth",
+    });
+  };
+
   const navTo = useCallback(
     (hash: string) => (e: React.MouseEvent<HTMLAnchorElement>) => {
       e.preventDefault();
@@ -37,9 +48,9 @@ export const Navbar: React.FC = () => {
         return;
       }
 
-      const id = hash.replace("#", "");
+      const id = hash.slice(1);
       const el = document.getElementById(id);
-      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+      if (el) scrollToWithOffset(el);
     },
     [closeMobile]
   );
