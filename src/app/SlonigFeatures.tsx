@@ -36,7 +36,34 @@ const ROWS: ExpandableListRow[] = [
   {
     Icon: Layers,
     label: "Learning in the Zone of Proximal Development",
-    text: "Slonig structures content into courses, each made up of modules composed of small, individual skills. Students master all skills in a module before moving to the next, staying in the zone of proximal development. Examples of skills include: writing fractions from a graphical context; writing fractions from a textual context; finding a numerator; and finding a denominator. Because the content is broken into very small, specific skills, teachers sometimes worry that complex abilities cannot be reduced to a sum of parts—mastering each skill does not automatically guarantee full, integrated competence. Slonig addresses this by introducing complex (composite) skills that are taught only after the relevant foundational skills have been acquired. For example, the complex skill “Multiply Mixed Numbers” is taught only after the student has learned to “Convert a Mixed Number to an Improper Fraction” and “Multiply Fractions.”",
+    text: "",
+    node: <ul className="list-disc pl-5">
+      <li>
+        Slonig structures content into courses, each made up of modules composed of
+        small, individual skills. Students master all skills in a module before
+        moving to the next, staying in the zone of proximal development.
+      </li>
+
+      <li>
+        Examples of skills include:
+        <ul className="list-[square] pl-5">
+          <li>Writing fractions from a graphical context</li>
+          <li>Writing fractions from a textual context</li>
+          <li>Finding a numerator; and finding a denominator</li>
+        </ul>
+      </li>
+
+      <li>
+        Because the content is broken into very small, specific skills, teachers
+        sometimes worry that complex abilities cannot be reduced to a sum of
+        parts—mastering each skill does not automatically guarantee full, integrated
+        competence. Slonig addresses this by introducing complex (composite) skills
+        that are taught only after the relevant foundational skills have been
+        acquired. For example, the complex skill “Multiply Mixed Numbers” is taught
+        only after the student has learned to “Convert a Mixed Number to an Improper
+        Fraction” and “Multiply Fractions.”
+      </li>
+    </ul>
   },
   {
     Icon: Workflow,
@@ -85,7 +112,7 @@ const ROWS: ExpandableListRow[] = [
   },
 ];
 
-export default function SlonigFeatures({}: Props) {
+export default function SlonigFeatures({ }: Props) {
   return (
     <section className="relative w-full text-slate-900">
       <h2>Slonig features</h2>

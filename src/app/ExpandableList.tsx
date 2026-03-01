@@ -3,7 +3,12 @@ import React from "react";
 export type ExpandableListRow = {
   Icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
   label: string;
-  text: string;
+
+  // ✅ optional text
+  text?: string;
+
+  // ✅ optional extra content under text
+  node?: React.ReactNode;
 };
 
 type ExpandableListProps = {
@@ -26,6 +31,9 @@ type ExpandableListProps = {
   summaryClassName?: string;
   expandedCellClassName?: string;
   expandedTextClassName?: string;
+
+  // ✅ optional styling for node block
+  expandedNodeClassName?: string;
 };
 
 export default function ExpandableList({
@@ -49,12 +57,15 @@ export default function ExpandableList({
   // Expanded block has its own padding; content is laid out with the same grid
   expandedCellClassName = "px-4 pb-5",
   expandedTextClassName = "mt-2 text-slate-700 leading-relaxed",
+
+  // ✅ node appears under text
+  expandedNodeClassName = "mt-3",
 }: ExpandableListProps) {
   return (
     <div className={outerClassName}>
       <div className={innerClassName}>
         <div className={tableClassName} role="table" aria-label="Expandable list">
-          {rows.map(({ Icon, label, text }, idx) => (
+          {rows.map(({ Icon, label, text, node }, idx) => (
             <details key={label} className={rowDetailsClassName} open={idx === 0}>
               {/* Summary row */}
               <summary className={summaryClassName}>
@@ -83,14 +94,17 @@ export default function ExpandableList({
               </summary>
 
               {/* Expanded content: starts under ICON column (col 2) */}
-              <div className={expandedCellClassName}>
-                <div className="grid grid-cols-[2.75rem_3rem_1fr]">
-                  <div aria-hidden="true" /> {/* col 1 spacer (chevron col) */}
-                  <div className="col-span-2">
-                    <div className={expandedTextClassName}>{text}</div>
+              {(text || node) && (
+                <div className={expandedCellClassName}>
+                  <div className="grid grid-cols-[2.75rem_3rem_1fr]">
+                    <div aria-hidden="true" /> {/* col 1 spacer (chevron col) */}
+                    <div className="col-span-2">
+                      {text ? <div className={expandedTextClassName}>{text}</div> : null}
+                      {node ? <div className={expandedNodeClassName}>{node}</div> : null}
+                    </div>
                   </div>
                 </div>
-              </div>
+              )}
             </details>
           ))}
         </div>
