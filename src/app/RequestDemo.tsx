@@ -9,7 +9,7 @@ type Props = {
     outlined?: boolean;
 };
 
-const APPOINTMENT_URL =
+export const APPOINTMENT_URL =
     "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0TmcFsCgKSTrSWKTr1oZCd2JIFmc8IJSwpoxsGPSt6nAX891ynanbn7FBx8SSqxJfa0oQaf0br";
 
 export default function RequestDemo({

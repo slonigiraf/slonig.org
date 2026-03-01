@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Linkedin, Instagram } from "lucide-react";
+import { APPOINTMENT_URL } from "./RequestDemo";
 
 type Props = {
   className?: string;
@@ -116,7 +117,7 @@ export default function Footer({
             <nav className="mt-5">
               <ul className="space-y-3 leading-snug text-white">
                 <li>
-                  <Link className="hover:underline" href="/request-demo">
+                  <Link className="hover:underline" href={APPOINTMENT_URL} target="_blank" rel="noreferrer">
                     Request a demo
                   </Link>
                 </li>
