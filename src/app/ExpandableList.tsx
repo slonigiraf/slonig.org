@@ -1,7 +1,7 @@
 import React from "react";
 
 export type ExpandableListRow = {
-  Icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  Icon?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
   label: string;
 
   // ✅ optional text
@@ -85,8 +85,9 @@ export default function ExpandableList({
 
                   {/* Icon */}
                   <div className={cellIconClassName} role="cell">
-                    <Icon className="h-6 w-6 sm:h-7 sm:w-7" aria-hidden="true" />
+                    {Icon && <Icon className="h-6 w-6 sm:h-7 sm:w-7" aria-hidden="true" />}
                   </div>
+
 
                   {/* Label (collapsed text) */}
                   <div role="cell" className="flex items-center">
