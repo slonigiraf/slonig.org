@@ -12,7 +12,7 @@ const ROWS: ListWithIconsRow[] = [
 
 export default function ValueStack({}: Props) {
   return (
-    <section className="relative w-full text-slate-900">
+    <section id="roi" className="relative w-full text-slate-900">
       <h2>400%–887% ROI&nbsp;First&nbsp;Year</h2>
       <div className="mt-6 flex justify-center">
         <div className="w-full max-w-3xl">

@@ -2,7 +2,7 @@ type Props = {};
 
 export default function StableQuality({ }: Props) {
   return (
-    <section className="w-full bg-white text-slate-900">
+    <section id="how_it_works" className="w-full bg-white text-slate-900">
       <div className="mx-auto flex max-w-6xl items-center justify-center px-6">
         <div className="mx-auto max-w-5xl">
           <h2>Works Without “Rockstar” Teachers</h2>

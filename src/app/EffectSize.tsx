@@ -29,7 +29,7 @@ export default function EffectSize({}: Props) {
   const [open, setOpen] = useState(false);
 
   return (
-    <section className="w-full bg-white text-slate-900">
+    <section id="efficacy" className="w-full bg-white text-slate-900">
       <div className="mx-auto max-w-6xl px-6">
         <div className="mx-auto max-w-3xl">
           <h2 className="text-center tracking-tight text-[color:var(--secondary-color)]">
