@@ -5,7 +5,15 @@ import { createPortal } from "react-dom";
 import { Menu, X } from "lucide-react";
 import RequestDemo from "./RequestDemo";
 
-export const Navbar: React.FC = () => {
+type Props = {
+  /**
+   * If false (default): clicking a nav item navigates to "/#section"
+   * If true: smooth-scrolls on the current page
+   */
+  indexPage?: boolean;
+};
+
+export const Navbar: React.FC<Props> = ({ indexPage = false }) => {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   // Portal root set only on client (prevents hydration issues)
@@ -42,6 +50,14 @@ export const Navbar: React.FC = () => {
       e.preventDefault();
       closeMobile();
 
+      // If we're NOT on the index page, navigate there with the hash
+      if (!indexPage) {
+        // preserve absolute path for safety (works on nested routes)
+        window.location.assign(`/${hash}`);
+        return;
+      }
+
+      // We are on the index page -> smooth scroll
       if (hash === "#top") {
         window.scrollTo({ top: 0, behavior: "smooth" });
         return;
@@ -51,7 +67,7 @@ export const Navbar: React.FC = () => {
       const el = document.getElementById(id);
       if (el) scrollToWithOffset(el);
     },
-    [closeMobile]
+    [closeMobile, indexPage]
   );
 
   // Lock background scroll when mobile menu is open
