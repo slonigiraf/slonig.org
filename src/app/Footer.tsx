@@ -49,9 +49,9 @@ export default function Footer({
   companyName = "Slonig, Inc.",
   addressLine1 = "1111B S Governors Ave STE 48458",
   addressLine2 = "Dover, DE 19904, USA",
-  linkedinUrl = "#",
-  threadsUrl = "#",
-  instagramUrl = "#",
+  linkedinUrl = "https://www.linkedin.com/in/reshetovdenis/",
+  threadsUrl = "https://www.threads.com/@denslon_eng",
+  instagramUrl = "https://www.instagram.com/denslon_eng",
 }: Props) {
   const year = new Date().getFullYear();
 
@@ -97,11 +97,6 @@ export default function Footer({
                 <li>
                   <Link className="hover:underline" href={APPOINTMENT_URL} target="_blank" rel="noreferrer">
                     Request a demo
-                  </Link>
-                </li>
-                <li>
-                  <Link className="hover:underline" href="/evidence">
-                    See the evidence
                   </Link>
                 </li>
                 <li>
@@ -166,7 +161,7 @@ export default function Footer({
         </div>
 
         {/* Bottom legal line */}
-        <div className="mt-16 text-center leading-relaxed text-white/80">
+        <div className="mt-16 text-center leading-relaxed text-white/80 text-sm">
           Use of this website constitutes acceptance of the{" "}
           <Link className="text-white underline-offset-2 hover:underline" href="/privacy">
             Privacy Policy
@@ -179,7 +174,9 @@ export default function Footer({
           <Link className="text-white underline-offset-2 hover:underline" href="/terms">
             Terms of Service
           </Link>
-          . <span className="text-white">Slonig</span> complies with the Children&apos;s Online
+          . 
+          <br/>
+          <span className="text-white">Slonig</span> complies with the Children&apos;s Online
           Privacy Protection Act (COPPA), the Family Educational Rights and Privacy Act (FERPA), and
           the California Education Code including the Student Online Personal Information Protection
           Act (SOPIPA) and AB1584.
