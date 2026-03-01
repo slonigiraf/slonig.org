@@ -10,7 +10,7 @@ export default function Assessments({ }: Props) {
             <div className="w-full max-w-xs overflow-hidden rounded-sm shadow-sm md:max-w-sm">
               <img
                 src="/assessments.jpg"
-                alt="Two students working together"
+                alt="Slonig provides a complete set of assessments"
                 className="h-auto w-full object-cover"
               />
             </div>

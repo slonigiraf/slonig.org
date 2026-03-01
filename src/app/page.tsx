@@ -37,6 +37,7 @@ import ValueStack from "./ValueStack";
 import TeacherWork from "./TeacherWork";
 import SlonigFeatures from "./SlonigFeatures";
 import Assessments from "./Assessments";
+import Diagnostics from "./Diagnostics";
 
 const Section = ({
   children,
@@ -129,6 +130,7 @@ export default async function LandingPage({ searchParams }: { searchParams?: Pro
       <RequestDemo id="after_teacher_testimonials" caption="Request a Demo" />
       <SlonigFeatures />
       <Assessments />
+      <Diagnostics />
 
       <ValueStack />
 
