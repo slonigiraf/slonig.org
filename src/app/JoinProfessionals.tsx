@@ -140,6 +140,7 @@ export default function JoinProfessionals({}: Props) {
             <div className="mx-auto max-w-3xl">
 
               <ExpandableList
+                collapsed={true}
                 rows={ROWS}
                 outerClassName="mx-auto max-w-3xl px-0"
                 innerClassName="mx-auto max-w-3xl"

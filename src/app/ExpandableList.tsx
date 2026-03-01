@@ -12,6 +12,7 @@ export type ExpandableListRow = {
 };
 
 type ExpandableListProps = {
+  collapsed?: boolean;
   rows: ExpandableListRow[];
 
   outerClassName?: string;
@@ -37,6 +38,7 @@ type ExpandableListProps = {
 };
 
 export default function ExpandableList({
+  collapsed = false,
   rows,
   outerClassName = "mx-auto max-w-6xl px-6",
   innerClassName = "mx-auto max-w-4xl",
@@ -52,7 +54,7 @@ export default function ExpandableList({
   cellLabelClassName = "text-[var(--secondary-color)] font-semibold",
 
   summaryClassName =
-    "cursor-pointer list-none select-none outline-none focus-visible:ring-2 focus-visible:ring-[var(--secondary-color)]/40",
+  "cursor-pointer list-none select-none outline-none focus-visible:ring-2 focus-visible:ring-[var(--secondary-color)]/40",
 
   // Expanded block has its own padding; content is laid out with the same grid
   expandedCellClassName = "px-4 pb-5",
@@ -66,7 +68,7 @@ export default function ExpandableList({
       <div className={innerClassName}>
         <div className={tableClassName} role="table" aria-label="Expandable list">
           {rows.map(({ Icon, label, text, node }, idx) => (
-            <details key={label} className={rowDetailsClassName} open={idx === 0}>
+            <details key={label} className={rowDetailsClassName} open={idx === 0 && !collapsed}>
               {/* Summary row */}
               <summary className={summaryClassName}>
                 <div className={rowGridClassName} role="row">
