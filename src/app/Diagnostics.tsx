@@ -5,7 +5,7 @@ export default function Diagnostics({ }: Props) {
     <section className="w-full bg-white text-slate-900">
       <div className="mx-auto max-w-6xl px-6">
         <div className="mx-auto max-w-5xl">
-          <h2>Diagnostics in Real Time</h2>
+          <h2>Diagnostics in Real&nbsp;Time</h2>
           <div className="mt-6 flex justify-center md:mt-8">
             <div className="w-full max-w-xs overflow-hidden md:max-w-sm">
               <img
