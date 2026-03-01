@@ -7,7 +7,7 @@ export default function Collaboration({ }: Props) {
         <div className="mx-auto max-w-5xl">
           {/* Title */}
           <h2 className="text-center tracking-tight text-[color:var(--secondary-color)]">
-            Students learn from peers not from screens
+            Students Learn from Peers, Not from Screens
           </h2>
 
           {/* Image */}

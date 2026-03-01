@@ -33,8 +33,8 @@ export default function EffectSize({}: Props) {
       <div className="mx-auto max-w-6xl px-6">
         <div className="mx-auto max-w-3xl">
           <h2 className="text-center tracking-tight text-[color:var(--secondary-color)]">
-            Slonig outperforms digital math programs
-            <br />— and often even tutoring
+            Slonig Outperforms Digital Math Programs
+            <br />— and Often Even Tutoring
           </h2>
 
           {/* Image */}

@@ -7,7 +7,7 @@ export default function TeacherWork({ }: Props) {
         <div className="mx-auto max-w-5xl">
           {/* Title */}
           <h2 className="text-center tracking-tight text-[color:var(--secondary-color)]">
-            Teachers can do 1:1 interventions —&nbsp;or&nbsp;breathe
+            Teachers Can Do 1:1 Interventions —&nbsp;or&nbsp;Breathe
           </h2>
 
           {/* Image */}

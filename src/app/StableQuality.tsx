@@ -5,7 +5,7 @@ export default function StableQuality({ }: Props) {
     <section className="w-full bg-white text-slate-900">
       <div className="mx-auto flex max-w-6xl items-center justify-center px-6">
         <div className="mx-auto max-w-5xl">
-          <h2>No more “star” teachers required</h2>
+          <h2>Works Without “Rockstar” Teachers</h2>
           <div className="flex justify-center w-full max-w-xl overflow-hidden md:max-w-3xl">
               <img
                 src="/stable-quality.png"

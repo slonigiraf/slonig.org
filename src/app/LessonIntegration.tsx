@@ -39,7 +39,7 @@ const ROWS: ListWithIconsRow[] = [
 export default function LessonIntegration({}: Props) {
   return (
     <section className="relative w-full text-slate-900">
-      <h2>Safe ways to integrate Slonig to your lesson</h2>
+      <h2>Safe Ways to Integrate Slonig Into Your Lesson</h2>
       <ListWithIcons rows={ROWS} />
     </section>
   );

@@ -59,7 +59,7 @@ export default function HowSlonigWorks({}: Props) {
       <div className="mx-auto max-w-6xl px-6">
         <div className="mx-auto max-w-5xl">
           <h2 className="text-3xl font-extrabold tracking-tight md:text-4xl">
-            How Slonig works
+            How Slonig Works
           </h2>
 
           <div className="mt-8 flex flex-col items-center gap-6 md:gap-8">

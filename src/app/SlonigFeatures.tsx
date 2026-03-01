@@ -151,7 +151,7 @@ const ROWS: ExpandableListRow[] = [
 export default function SlonigFeatures({ }: Props) {
   return (
     <section className="relative w-full text-slate-900">
-      <h2>Slonig features</h2>
+      <h2>Slonig Features</h2>
       <ExpandableList rows={ROWS} />
     </section>
   );
