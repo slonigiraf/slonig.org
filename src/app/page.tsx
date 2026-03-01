@@ -40,6 +40,7 @@ import Assessments from "./Assessments";
 import Diagnostics from "./Diagnostics";
 import ThinkPairShareComparison from "./ThinkPairShareComparison";
 import CurriculumAlignment from "./CurriculumAlignment";
+import Badges from "./Badges";
 
 const Section = ({
   children,
@@ -156,6 +157,7 @@ export default async function LandingPage({ searchParams }: { searchParams?: Pro
       <ValueStack />
       <RequestDemo id="after_roi" caption="Request a Demo" />
       <CurriculumAlignment />
+      <Badges />
 
       <Footer />
 

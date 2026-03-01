@@ -277,7 +277,7 @@ export default function CurriculumAlignment({}: Props) {
       <div className="mx-auto max-w-6xl px-6">
         <div className="rounded-[28px] bg-emerald-50/70 p-8 md:p-10">
           <div className="text-sm font-extrabold uppercase tracking-widest text-slate-700/70 text-center">
-            Curriculum Alignment
+            Curriculum Alignment Available in Spanish and English
           </div>
 
           {/* Main grid */}
