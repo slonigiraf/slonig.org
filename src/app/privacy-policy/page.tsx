@@ -6,36 +6,59 @@ export default async function App() {
     <main className="min-h-screen font-sans selection:bg-blue-100 selection:text-blue-900">
       <Navbar />
 
-      {/* Intro block */}
+      {/* Intro block (match screenshot text) */}
       <section
         className="relative w-full !text-white"
         style={{ backgroundColor: "var(--primary-color)" }}
       >
-        <div className="mx-auto max-w-6xl px-6 pt-24 pb-7">
-          <div className="mx-auto flex flex-col items-center text-center">
-            <h1 className="font-semibold leading-tight tracking-tight !text-white">
-              Privacy Policy
-              <br />
-              <span className="block mt-3 sm:mt-4">
-                How we collect, use, and protect information
-              </span>
-            </h1>
+        <div className="mx-auto max-w-6xl px-6 pt-24 pb-10 text-[20px]">
+          <h1 className="!text-white">
+            Privacy Policy
+          </h1>
 
-            <p className="mt-3 max-w-4xl leading-relaxed">
-              Slonig values privacy and data protection. This Privacy Policy explains what
-              information we collect, why we collect it, how we use it, and what choices
-              you have.
-            </p>
-          </div>
+          <p className="max-w-5xl leading-relaxed !text-white/95">
+            At Slonig, Inc., we highly value your privacy and data protection rights. We
+            acknowledge the significance of safeguarding the personal data we collect and
+            process. This Privacy Policy aims to provide a clear understanding of the
+            personal information we collect and how we use it.
+          </p>
+
+          <p className="max-w-5xl leading-relaxed !text-white/95">
+            In this Privacy Policy and the Terms of Service, the term “Slonig” (“Company,”
+            “we,” “us,” “our”) refers to all websites (including www.slonig.org,
+            slonig.org/blog), applications, their features, and content we offer. The
+            services we provide and the information collected are managed by Slonig, Inc.,
+            located at 1111B S Governors Ave STE 48458, Dover, DE 19904, USA.
+          </p>
+
+          <p className="max-w-5xl leading-relaxed !text-white/95">
+            <span className="font-extrabold !text-white">Student Privacy Policy:</span>{" "}
+            In addition to this Privacy Policy, we have created a dedicated Privacy Policy
+            for Students that provides additional information specifically about how we
+            handle student information. Parents, guardians, and educators are encouraged to
+            review both this Privacy Policy and our Privacy Policy for Students to fully
+            understand our practices regarding student data protection.
+          </p>
+
+          <p className="max-w-5xl leading-relaxed !text-white/95">
+            By using Slonig.org, you expressly consent to the practices and policies
+            outlined in our Privacy Policy. Please note that your use of our services is
+            always subject to our Terms of Service which includes this Privacy Policy.
+          </p>
+
+          <p className="mt-10 text-[clamp(14px,1.1vw,16px)] !text-white/90">
+            Date of issue of this Privacy Policy: 03/01/2026
+          </p>
+          <p className="mt-2 text-[clamp(14px,1.1vw,16px)] !text-white/90">
+            Last updated: 03/01/2026
+          </p>
         </div>
       </section>
 
       {/* Policy content */}
-      <section className="mx-auto w-full max-w-4xl px-6 py-14 text-slate-900">
+      <section className="mx-auto w-full max-w-4xl px-6 text-slate-900 pb-10">
         {/* ✅ force left alignment for ALL content, including headings */}
         <div className="text-left [&_*]:!text-left">
-          <p className="mt-3 text-sm text-slate-600">Effective date: 2026.03.01</p>
-
           {/* ✅ Tailwind-only policy typography overrides */}
           <div
             className={[
@@ -64,8 +87,8 @@ export default async function App() {
             ].join(" ")}
           >
             <h2>
-            Privacy Policy
-          </h2>
+              Privacy Policy
+            </h2>
             <p>
               In this Privacy Policy and (where applicable) our Terms of Service, “Slonig”
               (“Company,” “we,” “us,” “our”) refers to our websites, applications, features,
