@@ -163,6 +163,11 @@ export default function Subscribe({ id, caption }: Props) {
                         privacy policy
                       </a>
                     </div>
+                    <div className="mt-1 text-sm text-slate-900/85">
+                      This site is protected by reCAPTCHA and the Google
+                      <a href="https://policies.google.com/privacy">Privacy Policy</a> and&nbsp;
+                      <a href="https://policies.google.com/terms">Terms of Service</a> apply.
+                    </div>
                   </div>
                 </div>
               </form>

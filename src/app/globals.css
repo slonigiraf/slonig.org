@@ -115,3 +115,7 @@ h3 {
     font-size: var(--text-h3-sm);
   }
 }
+
+.grecaptcha-badge {
+  visibility: hidden !important;
+}
