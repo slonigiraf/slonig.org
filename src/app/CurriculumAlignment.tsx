@@ -1,5 +1,8 @@
-import React from "react";
+"use client";
+
+import React, { useMemo, useState } from "react";
 import { CheckCircle2, ChevronDown, ArrowDownLeft } from "lucide-react";
+import RequestDemo from "./RequestDemo";
 
 type Props = {};
 
@@ -86,21 +89,6 @@ const GRADE_LABEL: Record<GradeKey, string> = {
   10: "10th",
   11: "11th",
   12: "12th",
-};
-
-const GRADE_SUBTITLE: Record<GradeKey, string> = {
-  1: "First Grade",
-  2: "Second Grade",
-  3: "Third Grade",
-  4: "Fourth Grade",
-  5: "Fifth Grade",
-  6: "Sixth Grade",
-  7: "Seventh Grade",
-  8: "Eighth Grade",
-  9: "Ninth Grade",
-  10: "Tenth Grade",
-  11: "Eleventh Grade",
-  12: "Twelfth Grade",
 };
 
 const FEATURED_ALIGNMENT: Record<GradeKey, string[]> = {
@@ -207,23 +195,29 @@ const FEATURED_ALIGNMENT: Record<GradeKey, string[]> = {
 function GradeCard({
   grade,
   selected,
+  onSelect,
 }: {
   grade: GradeKey;
   selected?: boolean;
+  onSelect: (g: GradeKey) => void;
 }) {
   return (
-    <div
+    <button
+      type="button"
+      onClick={() => onSelect(grade)}
+      aria-pressed={selected}
       className={[
-        "rounded-2xl border shadow-sm transition",
+        "w-full rounded-2xl border shadow-sm transition",
+        "focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 focus-visible:ring-offset-2",
         selected
           ? "border-emerald-200 bg-gradient-to-br from-emerald-500 to-emerald-600 text-white shadow-emerald-200/50"
-          : "border-slate-200 bg-white text-slate-900",
+          : "border-slate-200 bg-white text-slate-900 hover:border-slate-300 hover:bg-slate-50",
       ].join(" ")}
     >
       <div className="px-6 py-6 text-center">
         <div
           className={[
-            "text-5xl font-extrabold tracking-tight",
+            "text-2xl font-extrabold tracking-tight",
             selected ? "text-white" : "text-slate-500",
           ].join(" ")}
         >
@@ -235,65 +229,75 @@ function GradeCard({
             selected ? "text-white/90" : "text-slate-500",
           ].join(" ")}
         >
-          {GRADE_SUBTITLE[grade]}
+          grade
         </div>
       </div>
-    </div>
+    </button>
   );
 }
 
-export default function CurriculumAlignment({}: Props) {
-  const selectedGrade: GradeKey = 1; // mock “selected” state for the static template
-  const selectedState = "Select state";
+export default function CurriculumAlignment({ }: Props) {
+  const grades = useMemo(
+    () =>
+      (Object.keys(GRADE_LABEL) as unknown as string[])
+        .map((k) => Number(k) as GradeKey)
+        .sort((a, b) => a - b),
+    []
+  );
+
+  const [selectedGrade, setSelectedGrade] = useState<GradeKey>(1);
+  const [selectedState, setSelectedState] = useState("Select state");
 
   return (
     <section className="w-full bg-white text-slate-900">
-      <div className="mx-auto max-w-6xl px-6 py-10">
+      <h2>Matching Your Math Standards</h2>
+      <div className="mx-auto max-w-6xl px-6">
+
         <div className="rounded-[28px] bg-emerald-50/70 p-8 md:p-10">
-          {/* Top select */}
-          <div className="flex justify-center">
-            <div className="relative w-full max-w-xl">
-              <select
-                defaultValue={selectedState}
-                className="h-16 w-full appearance-none rounded-2xl bg-gradient-to-b from-blue-500 to-blue-600 px-6 text-center text-xl font-semibold text-white shadow-md outline-none ring-1 ring-blue-300/40"
-              >
-                <option value="Select state" disabled>
-                  Select state
-                </option>
-                {STATES.map((s) => (
-                  <option key={s} value={s}>
-                    {s}
-                  </option>
-                ))}
-              </select>
-              <ChevronDown className="pointer-events-none absolute right-6 top-1/2 h-6 w-6 -translate-y-1/2 text-white/90" />
-            </div>
+          <div className="text-sm font-extrabold uppercase tracking-widest text-slate-700/70 text-center">
+            Curriculum Alignment
           </div>
 
           {/* Main grid */}
           <div className="mt-10 grid gap-10 lg:grid-cols-[1.05fr_0.95fr]">
             {/* Left */}
             <div>
-              <div className="text-sm font-extrabold uppercase tracking-widest text-slate-700/70">
-                Curriculum Alignment
+
+              {/* Top select */}
+              <div className="flex justify-center">
+                <div className="relative w-full max-w-xl">
+                  <select
+                    value={selectedState}
+                    onChange={(e) => setSelectedState(e.target.value)}
+                    className="h-16 w-full appearance-none rounded-2xl bg-gradient-to-b from-blue-500 to-blue-600 px-6 text-center text-xl font-semibold text-white shadow-md outline-none ring-1 ring-blue-300/40"
+                  >
+                    <option value="Select state" disabled>
+                      Select state
+                    </option>
+                    {STATES.map((s) => (
+                      <option key={s} value={s}>
+                        {s}
+                      </option>
+                    ))}
+                  </select>
+                  <ChevronDown className="pointer-events-none absolute right-6 top-1/2 h-6 w-6 -translate-y-1/2 text-white/90" />
+                </div>
               </div>
-              <h2 className="mt-3 text-4xl font-extrabold tracking-tight md:text-5xl">
-                Matching your <br className="hidden md:block" />
-                math standards
-              </h2>
+
+               
 
               <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-                {(Object.keys(GRADE_LABEL) as unknown as GradeKey[]).map(
-                  (g) => (
-                    <GradeCard key={g} grade={g} selected={g === selectedGrade} />
-                  )
-                )}
+                {grades.map((g) => (
+                  <GradeCard
+                    key={g}
+                    grade={g}
+                    selected={g === selectedGrade}
+                    onSelect={setSelectedGrade}
+                  />
+                ))}
               </div>
 
-              <div className="mt-6 flex items-center gap-3 text-sm font-semibold text-slate-600">
-                <ArrowDownLeft className="h-5 w-5 text-slate-500" />
-                <span className="italic tracking-wide">Select your grade level</span>
-              </div>
+             
             </div>
 
             {/* Right */}
@@ -304,12 +308,7 @@ export default function CurriculumAlignment({}: Props) {
                     Featured Grade {selectedGrade} Alignment
                   </div>
                 </div>
-                <div className="hidden md:block text-slate-500">
-                  <span className="inline-flex items-center gap-2 text-sm font-semibold italic">
-                    <span className="inline-block h-2 w-2 rounded-full bg-emerald-400" />
-                    Example
-                  </span>
-                </div>
+                
               </div>
 
               <div className="mt-6 space-y-5">
@@ -324,12 +323,7 @@ export default function CurriculumAlignment({}: Props) {
               </div>
 
               <div className="mt-8">
-                <button
-                  type="button"
-                  className="inline-flex w-full items-center justify-center gap-3 rounded-full bg-gradient-to-r from-emerald-500 to-emerald-600 px-6 py-4 text-lg font-extrabold text-white shadow-md transition hover:brightness-105 active:brightness-95"
-                >
-                  Curriculum &amp; Standards Alignment <span aria-hidden>›</span>
-                </button>
+                <RequestDemo expanded={false} id={"curriculum-button"} caption={"Request a Demo"} />
               </div>
             </div>
           </div>
