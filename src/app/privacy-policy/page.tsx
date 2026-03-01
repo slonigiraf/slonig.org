@@ -16,7 +16,7 @@ export default async function App() {
             Privacy Policy
           </h1>
 
-          <p className="max-w-5xl leading-relaxed !text-white/95">
+          <p className="mt-2 max-w-5xl leading-relaxed !text-white/95">
             At Slonig, Inc., we highly value your privacy and data protection rights. We
             acknowledge the significance of safeguarding the personal data we collect and
             process. This Privacy Policy aims to provide a clear understanding of the
@@ -25,8 +25,8 @@ export default async function App() {
 
           <p className="max-w-5xl leading-relaxed !text-white/95">
             In this Privacy Policy and the Terms of Service, the term “Slonig” (“Company,”
-            “we,” “us,” “our”) refers to all websites (including www.slonig.org,
-            slonig.org/blog), applications, their features, and content we offer. The
+            “we,” “us,” “our”) refers to all websites (including slonig.org,
+            app.slonig.org,), applications, their features, and content we offer. The
             services we provide and the information collected are managed by Slonig, Inc.,
             located at 1111B S Governors Ave STE 48458, Dover, DE 19904, USA.
           </p>
@@ -41,12 +41,12 @@ export default async function App() {
           </p>
 
           <p className="max-w-5xl leading-relaxed !text-white/95">
-            By using Slonig.org, you expressly consent to the practices and policies
+            By using Slonig, you expressly consent to the practices and policies
             outlined in our Privacy Policy. Please note that your use of our services is
             always subject to our Terms of Service which includes this Privacy Policy.
           </p>
 
-          <p className="mt-10 text-[clamp(14px,1.1vw,16px)] !text-white/90">
+          <p className="mt-8 text-[clamp(14px,1.1vw,16px)] !text-white/90">
             Date of issue of this Privacy Policy: 03/01/2026
           </p>
           <p className="mt-2 text-[clamp(14px,1.1vw,16px)] !text-white/90">
@@ -119,33 +119,12 @@ export default async function App() {
             <p>Slonig may serve three user categories:</p>
             <ul>
               <li>
-                <strong>Students (Children):</strong> Under 18, using Slonig for educational
-                purposes. Student accounts are created and managed by Educators or Parents.
-                Students do not create accounts independently.
+                <strong>Students (Children):</strong> Under 18 and using app.slonig.org for educational purposes. 
+                Students use Slonig without creating accounts.
               </li>
               <li>
                 <strong>Educators:</strong> Teachers and school/district administrators
                 who deploy and manage Slonig for classrooms or organizations.
-              </li>
-              <li>
-                <strong>Parents (Homeschoolers):</strong> Parents/guardians who create and
-                manage accounts for their own children.
-              </li>
-            </ul>
-
-            <h4>1.2 Account Structure and Data Collection</h4>
-            <ul>
-              <li>
-                Student accounts are linked to an Educator or Parent account, and students
-                cannot independently create accounts.
-              </li>
-              <li>
-                Student information is provided to us by Educators or Parents (or via approved
-                school/district integrations), not by students directly.
-              </li>
-              <li>
-                Educators provide student information through school/district workflows; Parents
-                provide information when creating homeschool accounts.
               </li>
             </ul>
 
@@ -166,30 +145,18 @@ export default async function App() {
 
             <h4>2.1 Categories of Personal Information</h4>
             <p>
-              <strong>For Students (provided by Educators or Parents):</strong> student name
-              (first/last), grade level, school name (for school accounts), username
-              (created by Educator/Parent), password (set by Educator/Parent), performance/progress
-              data (generated through platform use), and IP address (collected during use).
-            </p>
-            <p>
               <strong>For Educators:</strong> name, email, school/district name and address,
-              telephone (often for administrators), username/password, role/position, and IP address.
+              telephone (often for administrators) and role/position.
             </p>
             <p>
-              <strong>For Parents (Homeschoolers):</strong> name, email, mailing address (if used
-              for communications), username/password, and IP address.
-            </p>
-            <p>
-              Schools/districts may provide student roster elements (e.g., names, grades, teacher/class),
-              and those disclosures may also be governed by school/district agreements and applicable laws.
+              <strong>For Parents (Homeschoolers):</strong> name, email, and mailing address (if used
+              for communications).
             </p>
 
-            <h4>2.2 Accuracy of Personal Information and Account Names</h4>
+            <h4>2.2 Accuracy of Display Names</h4>
             <p>
-              Users are responsible for keeping Personal Information accurate and up to date.
-              Usernames/display names must be appropriate for an educational environment and must not:
+              Display names must be appropriate for an educational environment and must not:
               impersonate others, include profanity/hate speech, or include offensive or violent references.
-              We may require changes, suspend accounts, or request verification if information appears inaccurate.
             </p>
 
             <h4>2.3 Data Ownership and Use Limitations</h4>
@@ -204,22 +171,10 @@ export default async function App() {
               email (and optionally name) solely to send the invitation and measure referral success.
             </p>
 
-            <h4>2.5 Student Rostering Through Single Sign-On (SSO) Systems</h4>
-            <p>
-              Schools/districts may use SSO/rostering platforms (for example, Clever or ClassLink) to automate account
-              creation and roster syncing. Rostering typically syncs minimal data needed to maintain accounts (e.g.,
-              names, grade, school, class/section, IDs/usernames, and educator roles). Sensitive data like SSNs,
-              home addresses, medical data, discipline records, etc. should not be included.
-            </p>
-            <p>
-              Districts control which schools/classes are shared and can revoke access through the SSO platform.
-              Rostering data is handled under the same retention/deletion rules described later in this Policy.
-            </p>
-
             <h3>3. Automatic Information</h3>
             <p>
-              We may automatically collect technical and usage information such as IP address, browser type,
-              operating system, login/activity times, and pages/features used. This helps operate the site,
+              We may automatically collect technical and usage information such as masked IP address, browser type,
+              operating system, activity times, and pages/features used. This helps operate the site,
               improve usability, and maintain security.
             </p>
 
@@ -244,7 +199,6 @@ export default async function App() {
             <h3>5. How We Use Personal Information</h3>
             <p>We use Personal Information to:</p>
             <ul>
-              <li>Create and manage accounts</li>
               <li>Provide requested services and support</li>
               <li>Operate, troubleshoot, secure, and improve the website and platform</li>
               <li>Prevent fraud and enforce our terms</li>
@@ -268,8 +222,7 @@ export default async function App() {
 
             <h3>8. Your Rights</h3>
             <p>
-              Depending on your location and relationship to the account (Educator, Parent, authorized school official),
-              you may have rights to access, correct, delete, or obtain a copy of Personal Information, and to object
+              Depending on your location you may have rights to access, correct, delete, or obtain a copy of Personal Information, and to object
               to or restrict certain processing. We may need to verify identity before fulfilling requests.
             </p>
 
@@ -290,31 +243,25 @@ export default async function App() {
               providing it. If we learn we collected such information improperly, we will delete it.
             </p>
 
-            <h3>12. Optional Features</h3>
-            <p>
-              If we offer optional engagement features (e.g., leaderboards), we design them to minimize exposure of
-              student Personal Information and to provide administrator/teacher controls.
-            </p>
-
-            <h3>13. California Privacy Notice</h3>
+            <h3>12. California Privacy Notice</h3>
             <p>
               If you are a California resident, you may have additional rights under California privacy laws. We do not
               sell Personal Information, and we do not share student data for cross-context behavioral advertising.
             </p>
 
-            <h3>14. Changes to This Privacy Policy</h3>
+            <h3>13. Changes to This Privacy Policy</h3>
             <p>
               We may update this Privacy Policy to reflect changes in practices, services, or legal requirements.
               We will post updates here and revise the effective date.
             </p>
 
-            <h3>15. Jurisdiction and Applicable Law</h3>
+            <h3>14. Jurisdiction and Applicable Law</h3>
             <p>
               This Policy is governed by applicable laws as determined by our agreements and/or the jurisdiction
               most relevant to the services provided. Some school/district agreements may include additional terms.
             </p>
 
-            <h3>16. Contact Us</h3>
+            <h3>15. Contact Us</h3>
             <p>If you have questions or requests about this Privacy Policy, contact us:</p>
             <p>
               <strong>Email:</strong> info@slonig.org
