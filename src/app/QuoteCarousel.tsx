@@ -8,6 +8,7 @@ type Quote = {
 };
 
 type Props = {
+  title: string,
   quotes: Quote[];
   initialIndex?: number;
   className?: string;
@@ -19,6 +20,7 @@ type Props = {
 };
 
 export default function QuoteCarousel({
+  title,
   quotes,
   initialIndex = 0,
   className = "",
@@ -114,7 +116,8 @@ export default function QuoteCarousel({
   // --- end swipe support ---
 
   return (
-    <section className="relative w-full mt-16 text-slate-900">
+    <section className="relative w-full text-slate-900">
+      <h2>{title}</h2>
       <div className="mx-auto w-full max-w-6xl px-6">
         <div
           className={[

@@ -78,6 +78,7 @@ export default async function LandingPage({ searchParams }: { searchParams?: Pro
       <BeforeAfter />
       <Collaboration />
       <QuoteCarousel
+        title="Students Say"
         quotes={[
           { text: "I could talk with my favorite classmates, everything somehow sticks in memory more easily.", byline: "Student, 10th grade", },
           { text: "With Slonig you can work particularly well.", byline: "Student, 9th grade" },
@@ -87,6 +88,7 @@ export default async function LandingPage({ searchParams }: { searchParams?: Pro
       <EffectSize />
       <StableQuality />
       <QuoteCarousel
+        title="Educators Say"
         quotes={[
           { text: "As opposed to many apps which foster interaction and engagement with the technology itself, Slonig fosters interaction and engagement between the learners themselves. As such, this app can help create learner-centered classrooms where learners learn from each other as they take turns adopting the roles of tutor and learner.", byline: "Lee Mackenzie, Senior Lecturer in Education, Liverpool Hope University" },
           { text: "I have regularly found that when students teach one another and learn from one another, they engage more deeply with the content in my statistics/data science courses. I think a distributed and structured approach such as Slonig offers a solution and fosters a collaborative and educationally beneficial environment in the classroom.", byline: "Amish Mishra, Ph.D., Assistant Professor, Mathematics Department, Taylor University" },
@@ -100,6 +102,7 @@ export default async function LandingPage({ searchParams }: { searchParams?: Pro
       <HowSlonigWorks />
       <TeacherWork />
       <QuoteCarousel
+        title="Teachers Say"
         quotes={[
           {
             text: "Most of the time, students worked on their own. I just observed—and I was surprised they actually learned.",
