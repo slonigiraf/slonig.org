@@ -121,6 +121,7 @@ export default async function LandingPage({ searchParams }: { searchParams?: Pro
           },
         ]}
       />
+      <RequestDemo id="after_teacher_testimonials" caption="Request a Demo" />
 
       <ValueStack />
 
