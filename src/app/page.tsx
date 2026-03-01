@@ -35,6 +35,7 @@ import DirectCosts from "./DirectCosts";
 import StopSpendingOn from "./StopSpendingOn";
 import ValueStack from "./ValueStack";
 import TeacherWork from "./TeacherWork";
+import SlonigFeatures from "./SlonigFeatures";
 
 const Section = ({
   children,
@@ -122,6 +123,7 @@ export default async function LandingPage({ searchParams }: { searchParams?: Pro
         ]}
       />
       <RequestDemo id="after_teacher_testimonials" caption="Request a Demo" />
+      <SlonigFeatures />
 
       <ValueStack />
 
