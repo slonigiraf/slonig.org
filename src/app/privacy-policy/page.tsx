@@ -112,7 +112,7 @@ export default async function App() {
 
             <h4>1.1 User Categories</h4>
             <p>Slonig may serve three user categories:</p>
-            <ul>
+            <ul className="list-disc pl-5">
               <li>
                 <strong>Students (Children):</strong> Under 18 and using app.slonig.org for educational purposes. 
                 Students use Slonig without creating accounts.
@@ -128,7 +128,7 @@ export default async function App() {
               We collect limited Personal Information needed to operate the site and services.
               Sources generally include:
             </p>
-            <ul>
+            <ul className="list-disc pl-5">
               <li>Information provided by Educators and Parents (not by students directly)</li>
               <li>
                 Information about Educators obtained from third parties (e.g., public school/district
@@ -141,10 +141,10 @@ export default async function App() {
             <h4>2.1 Categories of Personal Information</h4>
             <p>
               <strong>For Educators:</strong> name, email, school/district name and address,
-              telephone (often for administrators) and role/position.
+              telephone (often for administrators), and role/position.
             </p>
             <p>
-              <strong>For Parents (Homeschoolers):</strong> name, email, and mailing address (if used
+              <strong>For Parents (Homeschoolers):</strong> name, email, telephone, and mailing address (if used
               for communications).
             </p>
 
@@ -168,7 +168,7 @@ export default async function App() {
 
             <h3>3. Automatic Information</h3>
             <p>
-              We may automatically collect technical and usage information such as masked IP address, browser type,
+              We may automatically collect technical and usage information such as masked/anonymized IP address, browser type,
               operating system, activity times, and pages/features used. This helps operate the site,
               improve usability, and maintain security.
             </p>
@@ -193,7 +193,7 @@ export default async function App() {
 
             <h3>5. How We Use Personal Information</h3>
             <p>We use Personal Information to:</p>
-            <ul>
+            <ul className="list-disc pl-5">
               <li>Provide requested services and support</li>
               <li>Operate, troubleshoot, secure, and improve the website and platform</li>
               <li>Prevent fraud and enforce our terms</li>
