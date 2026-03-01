@@ -20,6 +20,7 @@ import ThinkPairShareComparison from "./ThinkPairShareComparison";
 import CurriculumAlignment from "./CurriculumAlignment";
 import Badges from "./Badges";
 import JoinProfessionals from "./JoinProfessionals";
+import OtherSubjects from "./OtherSubjects";
 
 
 const Footer = () => (
@@ -122,6 +123,7 @@ export default async function LandingPage({ searchParams }: { searchParams?: Pro
       <CurriculumAlignment />
       <Badges />
       <JoinProfessionals />
+      <OtherSubjects />
 
       <Footer />
 
