@@ -131,6 +131,12 @@ export default async function LandingPage({ searchParams }: { searchParams?: Pro
       <SlonigFeatures />
       <Assessments />
       <Diagnostics />
+      <QuoteCarousel
+        title="Principals Say"
+        quotes={[
+          { text: "I’ve never seen anything similar to Slonig. Data looks fabulous!", byline: "Brenton DeFlitch, Principal, Wonderful College Prep Academy, CA" },
+        ]}
+      />
 
       <ValueStack />
 
