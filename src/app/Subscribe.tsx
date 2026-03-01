@@ -167,11 +167,10 @@ export default function Subscribe({ id, caption }: Props) {
                 </div>
               </form>
             ) : (
-              <div className="flex justify-center py-2">
-                <h2 className="m-0 inline-flex items-center gap-3 text-[clamp(22px,2.2vw,32px)] font-extrabold text-white">
-                  <CheckCircle2 className="h-7 w-7" aria-hidden="true" />
-                  Thanks! We’ll email you shortly
-                </h2>
+              <div className="flex justify-center">
+                <p className="m-0 inline-flex items-center gap-3 text-[clamp(22px,2.2vw,32px)] font-extrabold text-white">
+                  Thanks! You’re subscribed.
+                </p>
               </div>
             )}
           </div>
