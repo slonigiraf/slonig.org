@@ -77,13 +77,8 @@ export default async function App() {
 
               // spacing rules
               "[&_:is(h2,h3,h4)]:!mb-2",
-              "[&_:is(h2,h3,h4)+p]:!mt-2.5",
-              "[&_:is(h2,h3,h4)+ul]:!mt-2.5",
+              "[&_:is(h2,h3,h4)]:!mt-5",
 
-              // add larger separation when a heading follows a paragraph/list
-              "[&p+h2]:!mt-9 [&p+h3]:!mt-9",
-              "[&ul+h2]:!mt-9 [&ul+h3]:!mt-9",
-              "[&p+h4]:!mt-6 [&ul+h4]:!mt-6",
             ].join(" ")}
           >
             <h2>
