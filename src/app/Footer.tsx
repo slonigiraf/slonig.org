@@ -42,28 +42,6 @@ function SocialButton({
   );
 }
 
-function ThreadsIcon({ className = "" }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      className={className}
-      width="22"
-      height="22"
-      aria-hidden="true"
-    >
-      <path
-        d="M12 3c4.8 0 8 2.8 8.7 7.3.1.7-.4 1.3-1.1 1.4-.7.1-1.3-.4-1.4-1.1C17.7 7.4 15.6 5.5 12 5.5c-3.8 0-6.4 2.2-6.4 6.4 0 4.1 2.3 6.6 6.2 6.6 2.8 0 4.8-1.3 5.6-3.3h-3.3c-.7 0-1.2-.6-1.2-1.2s.6-1.2 1.2-1.2H19c.7 0 1.2.6 1.2 1.2 0 4.7-3.4 7-8.2 7-5.4 0-8.7-3.5-8.7-9.1C3.3 6.8 7 3 12 3Z"
-        fill="currentColor"
-      />
-      <path
-        d="M12.2 9.2c2.9 0 5 1.2 5.6 3.4.2.6-.2 1.3-.9 1.5-.6.2-1.3-.2-1.5-.9-.3-1.1-1.4-1.7-3.2-1.7-1.9 0-3 .8-3 2 0 1.4 1.4 1.9 3.2 1.9h.5c.7 0 1.2.6 1.2 1.2 0 .7-.6 1.2-1.2 1.2h-.6c-2.9 0-5.6-1.1-5.6-4.3 0-2.6 2.2-4.4 5.5-4.4Z"
-        fill="currentColor"
-        opacity="0.9"
-      />
-    </svg>
-  );
-}
-
 export default function Footer({
   className = "",
   email = "info@slonig.org",
@@ -170,7 +148,14 @@ export default function Footer({
               </SocialButton>
 
               <SocialButton href={threadsUrl} label="Threads">
-                <ThreadsIcon className="h-6 w-6 text-white" />
+                <Image
+                  src="/threads.svg"
+                  alt=""
+                  width={24}
+                  height={24}
+                  className="h-6 w-6"
+                  style={{ filter: "brightness(0) invert(1)" }}
+                />
               </SocialButton>
 
               <SocialButton href={instagramUrl} label="Instagram">
