@@ -1,5 +1,3 @@
-import React from "react";
-import { Layers} from "lucide-react";
 import Navbar from "./Navbar";
 import Hero from "./Hero";
 import WorkInPairVideo from "./WorkInPairVideo";
@@ -22,23 +20,10 @@ import Badges from "./Badges";
 import JoinProfessionals from "./JoinProfessionals";
 import OtherSubjects from "./OtherSubjects";
 import Subscribe from "./Subscribe";
+import Footer from "./Footer";
 
 
-const Footer = () => (
-  <footer className="bg-slate-950 text-slate-400 py-12 px-6 border-t border-slate-800">
-    <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-      <div className="text-lg font-bold text-white flex items-center gap-2">
-        <Layers className="w-5 h-5 text-blue-500" />
-        Slonig
-      </div>
-      <div className="text-sm">© {new Date().getFullYear()} Slonig. All rights reserved.</div>
-    </div>
-  </footer>
-);
-
-
-
-export default async function LandingPage({ searchParams }: { searchParams?: Promise<Record<string, any>> }) {
+export default async function App() {
   return (
     <main className="min-h-screen font-sans selection:bg-blue-100 selection:text-blue-900">
       <Navbar />
@@ -126,9 +111,7 @@ export default async function LandingPage({ searchParams }: { searchParams?: Pro
       <JoinProfessionals />
       <OtherSubjects />
       <Subscribe id={"newsletter"} caption={"Join Newsletter"} />
-
       <Footer />
-
     </main>
   );
 }

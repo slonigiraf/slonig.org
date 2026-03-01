@@ -22,6 +22,7 @@ body {
   /* Main text size */
   --text-main: 1.4rem;
   --text-main-sm: 1.2rem;
+  --text-footer: 1rem;
 
   /* Headings (consistent scale) */
   --text-h1: 3rem;
@@ -62,6 +63,10 @@ body {
   body {
     font-size: var(--text-main-sm);
   }
+}
+
+footer {
+  font-size: var(--text-footer);
 }
 
 /* Consistent headings */
