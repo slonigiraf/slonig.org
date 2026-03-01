@@ -144,7 +144,7 @@ const ROWS: ExpandableListRow[] = [
   {
     Icon: Sparkles,
     label: "Better Than AI",
-    text: "Slonig outperforms existing AI-based tutoring systems.",
+    text: "Slonig outperforms AI-based tutoring systems because it uses the one thing software still can’t replicate: real human-to-human learning in the moment. Instead of replacing students with a chatbot or pushing them into another screen-based “personalized” flow, Slonig turns classmates into active learning partners—watching each other think, catching misunderstandings instantly, and adapting explanations to what a real person is actually confused about.",
   },
 ];
 
