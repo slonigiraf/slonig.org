@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { CheckCircle2, ChevronDown } from "lucide-react";
 import RequestDemo from "./RequestDemo";
 
@@ -236,6 +236,18 @@ function GradeCard({
   );
 }
 
+function Loader() {
+  return (
+    <div className="flex items-center justify-center py-10">
+      <div
+        className="h-10 w-10 animate-spin rounded-full border-4 border-slate-300 border-t-blue-600"
+        aria-label="Loading"
+        role="status"
+      />
+    </div>
+  );
+}
+
 export default function CurriculumAlignment({}: Props) {
   const grades = useMemo(
     () =>
@@ -247,6 +259,17 @@ export default function CurriculumAlignment({}: Props) {
 
   const [selectedGrade, setSelectedGrade] = useState<GradeKey>(1);
   const [selectedState, setSelectedState] = useState("Select state");
+  const [isLoading, setIsLoading] = useState(false);
+
+  // Show loader for 1s after state OR grade changes
+  useEffect(() => {
+    // Don’t show loader for the initial "Select state" if you prefer:
+    // if (selectedState === "Select state") return;
+
+    setIsLoading(true);
+    const t = window.setTimeout(() => setIsLoading(false), 1000);
+    return () => window.clearTimeout(t);
+  }, [selectedState, selectedGrade]);
 
   return (
     <section className="w-full bg-white text-slate-900">
@@ -287,7 +310,9 @@ export default function CurriculumAlignment({}: Props) {
                 <div className="relative w-full max-w-xl">
                   <select
                     value={selectedGrade}
-                    onChange={(e) => setSelectedGrade(Number(e.target.value) as GradeKey)}
+                    onChange={(e) =>
+                      setSelectedGrade(Number(e.target.value) as GradeKey)
+                    }
                     className="h-16 w-full appearance-none rounded-2xl bg-gradient-to-b from-blue-500 to-blue-600 px-6 text-center text-xl font-semibold text-white shadow-md outline-none ring-1 ring-blue-300/40"
                     aria-label="Select grade"
                   >
@@ -324,24 +349,30 @@ export default function CurriculumAlignment({}: Props) {
                 </div>
               </div>
 
-              <div className="mt-6 space-y-5">
-                {FEATURED_ALIGNMENT[selectedGrade].map((item) => (
-                  <div key={item} className="flex items-start gap-3">
-                    <CheckCircle2 className="mt-0.5 h-6 w-6 text-blue-600" />
-                    <div className="text-base font-medium text-slate-700">
-                      {item}
-                    </div>
+              {isLoading ? (
+                <Loader />
+              ) : (
+                <>
+                  <div className="mt-6 space-y-5">
+                    {FEATURED_ALIGNMENT[selectedGrade].map((item) => (
+                      <div key={item} className="flex items-start gap-3">
+                        <CheckCircle2 className="mt-0.5 h-6 w-6 text-blue-600" />
+                        <div className="text-base font-medium text-slate-700">
+                          {item}
+                        </div>
+                      </div>
+                    ))}
                   </div>
-                ))}
-              </div>
 
-              <div className="mt-8">
-                <RequestDemo
-                  expanded={false}
-                  id={"curriculum-button"}
-                  caption={"Request a Demo"}
-                />
-              </div>
+                  <div className="mt-8">
+                    <RequestDemo
+                      expanded={false}
+                      id={"curriculum-button"}
+                      caption={"Request a Demo"}
+                    />
+                  </div>
+                </>
+              )}
             </div>
           </div>
         </div>
