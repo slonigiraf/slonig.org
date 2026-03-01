@@ -21,17 +21,17 @@ const ROWS: ExpandableListRow[] = [
   {
     Icon: Sprout,
     label: "Student Training Program",
-    text: "Slonig includes a one-lesson onboarding module that teaches students how to use the app. After this brief training, any student can start working in pairs effectively using Slonig’s built-in tools and guidance.",
+    text: "Slonig includes a one-lesson onboarding module that teaches students how to work in pairs effectively using Slonig’s built-in tools and guidance.",
   },
   {
     Icon: UsersRound,
     label: "Students Match into Compatible Pairs",
-    text: "Pairing students is challenging—it requires understanding both their current skills and their personal compatibility. Slonig uses principles from game theory to address this challenge efficiently. It allows students to form pairs voluntarily, taking into account psychological compatibility, how well they work with a particular partner, and the partner’s availability.",
+    text: "Pairing students is challenging—it requires understanding both their current skills and their personal compatibility. Slonig uses principles from game theory to address this properly. It considers psychological compatibility, how effectively a student works with a particular partner, and each partner’s availability.",
   },
   {
     Icon: Coins,
     label: "Game Currency",
-    text: "A common problem with peer learning is that students like receiving help from classmates but are less willing to provide help in return. Slonig addresses this using the same kind of incentive system that helps markets function efficiently: game currency. If you receive help, you pay your classmate; if you provide help, you get paid. Because every student starts with the same initial amount of currency, access to 1:1 support becomes more equitable and does not depend on how much money a family has. During lessons, all students can receive 1:1 support—similar to working with professional tutors.",
+    text: "A common problem with peer learning is that students like receiving help from classmates but are less willing to provide help in return. Slonig addresses this with the same kind of incentive system that helps societies function efficiently: in-game currency. If you receive help, you pay your classmate; if you provide help, you get paid. Because every student starts with the same initial amount of currency, access to 1:1 support becomes more equitable and does not depend on a family’s income. During lessons, all students can receive 1:1 support—similar to working with professional tutors.",
   },
   {
     Icon: Layers,
