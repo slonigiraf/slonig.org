@@ -38,6 +38,7 @@ import TeacherWork from "./TeacherWork";
 import SlonigFeatures from "./SlonigFeatures";
 import Assessments from "./Assessments";
 import Diagnostics from "./Diagnostics";
+import ThinkPairShareComparison from "./ThinkPairShareComparison";
 
 const Section = ({
   children,
@@ -102,6 +103,7 @@ export default async function LandingPage({ searchParams }: { searchParams?: Pro
       <LessonIntegration />
       <HowSlonigWorks />
       <TeacherWork />
+      <ThinkPairShareComparison />
       <QuoteCarousel
         title="Teachers Say"
         quotes={[
