@@ -1,7 +1,6 @@
 import React from "react";
 
 export type ExpandableListRow = {
-  key: string;
   Icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
   label: string;
   text: string;
@@ -55,8 +54,8 @@ export default function ExpandableList({
     <div className={outerClassName}>
       <div className={innerClassName}>
         <div className={tableClassName} role="table" aria-label="Expandable list">
-          {rows.map(({ key, Icon, label, text }, idx) => (
-            <details key={key} className={rowDetailsClassName} open={idx === 0}>
+          {rows.map(({ Icon, label, text }, idx) => (
+            <details key={label} className={rowDetailsClassName} open={idx === 0}>
               {/* Summary row */}
               <summary className={summaryClassName}>
                 <div className={rowGridClassName} role="row">
