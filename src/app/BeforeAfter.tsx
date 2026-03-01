@@ -6,13 +6,11 @@ type Props = {};
 
 const ROWS: ListWithIconsRow[] = [
   {
-    key: "before",
     Icon: TimerOff,
     label: "Before,",
     text: "teachers were expected to differentiate instruction with barely any time to breathe.",
   },
   {
-    key: "now",
     Icon: UsersRound,
     label: "Now Slonig",
     text: "organizes students to support each other’s differentiated learning, saving teachers up to 80% of their time.",

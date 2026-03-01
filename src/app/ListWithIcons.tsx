@@ -1,7 +1,6 @@
 import React from "react";
 
 export type ListWithIconsRow = {
-  key: string;
   Icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
   label: string;
   text: string;
@@ -34,8 +33,8 @@ export default function ListWithIcons({
     <div className={outerClassName}>
       <div className={innerClassName}>
         <div className={gridClassName}>
-          {rows.map(({ key, Icon, label, text }) => (
-            <div key={key} className="contents">
+          {rows.map(({ Icon, label, text }) => (
+            <div key={label} className="contents">
               <div className={iconWrapClassName}>
                 <Icon className={iconClassName} aria-hidden="true" />
               </div>

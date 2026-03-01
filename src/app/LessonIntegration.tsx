@@ -11,25 +11,21 @@ type Props = {};
 
 const ROWS: ListWithIconsRow[] = [
   {
-    key: "start-small",
     Icon: Sprout,
     label: "Start small:",
     text: "Run Slonig as math centers—two same-level students, guided by Slonig.",
   },
   {
-    key: "scale-fast",
     Icon: TrendingUp,
     label: "Scale fast:",
     text: "Add more centers as you see results.",
   },
   {
-    key: "go-all-in",
     Icon: Rocket,
     label: "Go all-in:",
     text: "Make paired learning the default for everyone—and finally breathe.",
   },
   {
-    key: "ditch-busywork",
     Icon: FileX2,
     label: "Ditch the busywork:",
     text: "Skip textbooks and worksheets—Slonig teaches, checks, and prevents cheating.",
