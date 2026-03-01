@@ -26,7 +26,7 @@ export default function QuoteCarousel({
   className = "",
   bgClassName = "bg-[var(--primary-color)]",
   textClassName = "text-white",
-  heightClassName = "min-h-[220px] md:min-h-[240px]",
+  heightClassName = "",
 }: Props) {
   const safeQuotes = quotes?.length ? quotes : [{ text: "Add a quote here…" }];
 
@@ -169,7 +169,7 @@ export default function QuoteCarousel({
             ) : null}
 
             {/* Dots */}
-            <div className="mt-8 flex items-center justify-center gap-2">{dots}</div>
+            {dots.length > 1 && <div className="mt-8 flex items-center justify-center gap-2">{dots}</div>}
 
             {/* Optional prev/next (hidden but accessible) */}
             <div className="sr-only">
