@@ -11,7 +11,7 @@ type Props = {
 };
 
 export default function Subscribe({ id, caption }: Props) {
-    const [form, setForm] = useState({ name: "", tel: "", email: "" });
+    const [form, setForm] = useState({ name: "", email: "" });
     const [page, setPage] = useState("");
     const [submitting, setSubmitting] = useState(false);
     const [errorText, setErrorText] = useState("");
@@ -24,7 +24,6 @@ export default function Subscribe({ id, caption }: Props) {
     const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
         if (name === "cf-name") setForm((s) => ({ ...s, name: value }));
-        if (name === "cf-tel") setForm((s) => ({ ...s, tel: value }));
         if (name === "cf-email") setForm((s) => ({ ...s, email: value }));
     };
 
@@ -40,7 +39,7 @@ export default function Subscribe({ id, caption }: Props) {
         try {
             setSubmitting(true);
 
-            if (!form.name || !form.tel || !form.email) {
+            if (!form.name || !form.email) {
                 setErrorText("Please fill in all fields.");
                 return;
             }
@@ -59,13 +58,15 @@ export default function Subscribe({ id, caption }: Props) {
 
             const token: string = await new Promise((resolve, reject) => {
                 grecaptcha.ready(() => {
-                    grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: id }).then(resolve).catch(reject);
+                    grecaptcha
+                        .execute(RECAPTCHA_SITE_KEY, { action: id })
+                        .then(resolve)
+                        .catch(reject);
                 });
             });
 
             const payload = {
                 name: form.name,
-                tel: form.tel,
                 email: form.email,
                 form_id: id,
                 page,
@@ -103,81 +104,77 @@ export default function Subscribe({ id, caption }: Props) {
 
     return (
         <section className="relative mt-10 w-full text-slate-900">
-            <div className="mx-auto w-full max-w-6xl px-6">
-                <div className="relative w-full overflow-visible rounded-3xl bg-gradient-to-r from-[#0b63ff] via-[#00a9d6] to-[#19d46a] px-6 py-10 shadow-[0_18px_50px_rgba(0,0,0,0.18)] md:px-12 md:py-12">
-                    <h2 className="mb-6 text-center text-[clamp(28px,3.2vw,44px)] font-extrabold leading-[1.05] !text-white">
-                        {caption}
-                    </h2>
+            {/* ✅ full-width background band */}
+            <div className="w-full">
+                {/* ✅ still keeps nice inner padding + readable max width */}
+                <div className="mx-auto w-full max-w-none">
+                    <div className="text-center relative w-full overflow-visible bg-gradient-to-r from-[#0b63ff] via-[#00a9d6] to-[#19d46a] px-6 py-10 shadow-[0_18px_50px_rgba(0,0,0,0.18)] md:px-12">
+                        <p className="mb-[15px] text-center text-[clamp(28px,3.2vw,44px)] font-extrabold leading-[1.05] !text-white">
+                            {caption}
+                        </p>
 
-                    {!success ? (
-                        <form id={id} onSubmit={onSubmit} onKeyDown={preventEnterSubmit}>
-                            {/* ✅ equal width: 4 columns on desktop, each item = 1 column */}
-                            <div className="grid grid-cols-1 gap-4 lg:grid-cols-4 lg:gap-[18px]">
-                                <input
-                                    className={inputClass}
-                                    name="cf-name"
-                                    placeholder="Name"
-                                    value={form.name}
-                                    onChange={onChange}
-                                    required
-                                />
+                        {!success ? (
+                            <form id={id} onSubmit={onSubmit} onKeyDown={preventEnterSubmit}>
+                                {/* ✅ 3 columns on desktop (name, email, button) */}
+                                <div className="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-[18px]">
+                                    <input
+                                        className={inputClass}
+                                        name="cf-name"
+                                        placeholder="Name"
+                                        value={form.name}
+                                        onChange={onChange}
+                                        required
+                                    />
 
-                                <input
-                                    className={inputClass}
-                                    name="cf-tel"
-                                    placeholder="Mobile (e.g. +1...)"
-                                    value={form.tel}
-                                    onChange={onChange}
-                                    required
-                                />
+                                    <input
+                                        type="email"
+                                        className={inputClass}
+                                        name="cf-email"
+                                        placeholder="Email"
+                                        value={form.email}
+                                        onChange={onChange}
+                                        required
+                                    />
 
-                                <input
-                                    type="email"
-                                    className={inputClass}
-                                    name="cf-email"
-                                    placeholder="Email"
-                                    value={form.email}
-                                    onChange={onChange}
-                                    required
-                                />
+                                    <button className={buttonClass} type="submit" disabled={submitting}>
+                                        {submitting ? (
+                                            <span className="inline-flex items-center justify-center gap-3">
+                                                <Loader2 className="h-5 w-5 animate-spin" aria-hidden="true" />
+                                                Sending…
+                                            </span>
+                                        ) : (
+                                            caption
+                                        )}
+                                    </button>
 
-                                <button className={buttonClass} type="submit" disabled={submitting}>
-                                    {submitting ? (
-                                        <span className="inline-flex items-center justify-center gap-3">
-                                            <Loader2 className="h-5 w-5 animate-spin" aria-hidden="true" />
-                                            Sending…
-                                        </span>
-                                    ) : caption
-                                    }
-                                </button>
+                                    {errorText && (
+                                        <div className="lg:col-span-3">
+                                            <span className="inline-flex w-full items-center gap-2 rounded-xl bg-white/95 px-4 py-3 text-slate-900 shadow-[0_10px_22px_rgba(0,0,0,0.12)]">
+                                                <AlertCircle className="h-[18px] w-[18px]" aria-hidden="true" />
+                                                {errorText}
+                                            </span>
+                                        </div>
+                                    )}
 
-                                {errorText && (
-                                    <div className="lg:col-span-4">
-                                        <span className="inline-flex w-full items-center gap-2 rounded-xl bg-white/95 px-4 py-3 text-slate-900 shadow-[0_10px_22px_rgba(0,0,0,0.12)]">
-                                            <AlertCircle className="h-[18px] w-[18px]" aria-hidden="true" />
-                                            {errorText}
-                                        </span>
-                                    </div>
-                                )}
-
-                                <div className="lg:col-span-4 text-center">
-                                    <div className="mt-1 text-sm text-slate-900/85">
-                                        *By submitting, I agree to the{" "}
-                                        <a className="underline underline-offset-4" href="https://slonig.org/privacy-policy">
-                                            privacy policy
-                                        </a>
+                                    <div className="lg:col-span-3 text-center">
+                                        <div className="mt-1 text-sm text-slate-900/85">
+                                            *By submitting, I agree to the{" "}
+                                            <a className="underline underline-offset-4" href="https://slonig.org/privacy-policy">
+                                                privacy policy
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
+                            </form>
+                        ) : (
+                            <div className="flex justify-center py-2">
+                                <h2 className="m-0 inline-flex items-center gap-3 text-[clamp(22px,2.2vw,32px)] font-extrabold text-white">
+                                    <CheckCircle2 className="h-7 w-7" aria-hidden="true" />
+                                    Thanks! We’ll email you shortly
+                                </h2>
                             </div>
-                        </form>
-                    ) : (
-                        <div className="flex justify-center py-2">
-                            <h2 className="m-0 inline-flex items-center gap-3 text-[clamp(22px,2.2vw,32px)] font-extrabold text-white">
-                                <CheckCircle2 className="h-7 w-7" aria-hidden="true" />
-                                Thanks! We’ll call you back
-                            </h2>
-                        </div>
-                    )}
+                        )}
+                    </div>
                 </div>
             </div>
         </section>
