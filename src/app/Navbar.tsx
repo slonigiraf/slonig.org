@@ -3,7 +3,6 @@
 import React, { useEffect, useCallback, useState, useRef } from "react";
 import { createPortal } from "react-dom";
 import { Menu, X } from "lucide-react";
-import Button from "./Button";
 import RequestDemo from "./RequestDemo";
 
 export const Navbar: React.FC = () => {
@@ -110,16 +109,19 @@ export const Navbar: React.FC = () => {
       <div className="flex h-16 items-center justify-between px-6 py-2">
         {/* Brand */}
         <a href="#top" className="flex items-center" onClick={navTo("#top")}>
-          <img src="/named-logo.svg" alt="Slonig" className="h-10 w-auto md:h-10" />
+          <img src="/named-logo.svg" alt="Slonig" className="h-10 w-auto lg:h-10" />
         </a>
 
-        {/* Desktop menu */}
-        <div className="hidden md:flex gap-12 items-center text-lg font-bold text-[var(--secondary-color)]">
+        {/* Desktop menu (now shows from lg and up, so iPad mini uses this) */}
+        <div className="hidden lg:flex gap-12 items-center text-lg font-bold text-[var(--secondary-color)]">
           <a href="#how_it_works" className="hover:text-blue-900" onClick={navTo("#how_it_works")}>
             How It Works
           </a>
           <a href="#efficacy" className="hover:text-blue-900" onClick={navTo("#efficacy")}>
             Efficacy
+          </a>
+          <a href="#curriculum" className="hover:text-blue-900" onClick={navTo("#curriculum")}>
+            Curriculum
           </a>
           <a href="#roi" className="hover:text-blue-900" onClick={navTo("#roi")}>
             ROI
@@ -127,59 +129,55 @@ export const Navbar: React.FC = () => {
           <RequestDemo expanded={false} id={"navbar-button"} caption={"Request a Demo"} />
         </div>
 
-        {/* Mobile toggle */}
+        {/* Mobile toggle (now only below lg) */}
         <button
           type="button"
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
           onClick={mobileOpen ? closeMobile : openMobile}
-          className="md:hidden inline-flex items-center justify-center rounded-lg p-2 text-[var(--secondary-color)] hover:bg-slate-100"
+          className="lg:hidden inline-flex items-center justify-center rounded-lg p-2 text-[var(--secondary-color)] hover:bg-slate-100"
         >
           {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
       </div>
 
-      {/* Mobile menu via portal:
-          - portalRoot exists only on client -> no hydration mismatch
-          - no grey behind the menu panel
-          - overlay starts below the panel + click outside closes
-      */}
+      {/* Mobile menu via portal (now only below lg) */}
       {portalRoot && mobileOpen
         ? createPortal(
-          <div className="md:hidden fixed left-0 right-0 bottom-0 top-16 z-[9999]">
-            {/* Panel */}
-            <div
-              ref={panelRef}
-              className="absolute left-0 right-0 top-0 border-t border-slate-200 bg-white shadow-lg"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <div className="mx-auto max-w-7xl px-6 py-4">
-                <div className="mt-4 flex flex-col gap-4 text-base font-semibold text-[var(--secondary-color)]">
-                  <a href="#how_it_works" className="hover:text-blue-900" onClick={navTo("#how_it_works")}>
-                    How It Works
-                  </a>
-                  <a href="#efficacy" className="hover:text-blue-900" onClick={navTo("#efficacy")}>
-                    Efficacy
-                  </a>
-                  <a href="#roi" className="hover:text-blue-900" onClick={navTo("#roi")}>
-                    ROI
-                  </a>
+            <div className="lg:hidden fixed left-0 right-0 bottom-0 top-16 z-[9999]">
+              {/* Panel */}
+              <div
+                ref={panelRef}
+                className="absolute left-0 right-0 top-0 border-t border-slate-200 bg-white shadow-lg"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <div className="mx-auto max-w-7xl px-6 py-4">
+                  <div className="mt-4 flex flex-col gap-4 text-base font-semibold text-[var(--secondary-color)]">
+                    <a href="#how_it_works" className="hover:text-blue-900" onClick={navTo("#how_it_works")}>
+                      How It Works
+                    </a>
+                    <a href="#efficacy" className="hover:text-blue-900" onClick={navTo("#efficacy")}>
+                      Efficacy
+                    </a>
+                    <a href="#roi" className="hover:text-blue-900" onClick={navTo("#roi")}>
+                      ROI
+                    </a>
 
-                  <RequestDemo expanded={false} id={"navbar-button"} caption={"Request a Demo"} />
+                    <RequestDemo expanded={false} id={"navbar-button"} caption={"Request a Demo"} />
+                  </div>
                 </div>
               </div>
-            </div>
 
-            {/* Overlay ONLY below the panel (so nothing behind menu is grey) */}
-            <div
-              className="absolute left-0 right-0 bottom-0 bg-black/20"
-              style={{ top: panelH }}
-              onClick={closeMobile}
-              role="button"
-              aria-label="Close menu overlay"
-            />
-          </div>,
-          portalRoot
-        )
+              {/* Overlay ONLY below the panel */}
+              <div
+                className="absolute left-0 right-0 bottom-0 bg-black/20"
+                style={{ top: panelH }}
+                onClick={closeMobile}
+                role="button"
+                aria-label="Close menu overlay"
+              />
+            </div>,
+            portalRoot
+          )
         : null}
     </nav>
   );

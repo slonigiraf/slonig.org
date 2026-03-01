@@ -272,7 +272,7 @@ export default function CurriculumAlignment({}: Props) {
   }, [selectedState, selectedGrade]);
 
   return (
-    <section className="w-full bg-white text-slate-900">
+    <section id="curriculum" className="w-full bg-white text-slate-900">
       <h2>Matching Your Math Standards</h2>
       <div className="mx-auto max-w-6xl px-6">
         <div className="rounded-[28px] bg-emerald-50/70 p-8 md:p-10">
