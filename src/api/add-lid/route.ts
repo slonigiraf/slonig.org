@@ -68,9 +68,9 @@ export default async function handler(req, res) {
     const email = clean(req.body?.email, 150);
     const page = clean(req.body?.page, 200);
     const form_id = clean(req.body?.form_id, 50);
-    const token = clean(req.body?.token, 2000);
+    const token = clean(req.body?.token, 1000000);
 
-    if (!name || !tel || !email || !form_id || !token) {
+    if (!name || !email || !form_id || !token) {
       return res.status(400).json({ success: false, error: "Missing required fields." });
     }
     if (!isEmail(email)) {

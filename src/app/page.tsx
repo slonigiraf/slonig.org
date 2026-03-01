@@ -125,7 +125,7 @@ export default async function LandingPage({ searchParams }: { searchParams?: Pro
       <Badges />
       <JoinProfessionals />
       <OtherSubjects />
-      <Subscribe id={"join-newsletter"} caption={"Join Newsletter"} />
+      <Subscribe id={"newsletter"} caption={"Join Newsletter"} />
 
       <Footer />
 

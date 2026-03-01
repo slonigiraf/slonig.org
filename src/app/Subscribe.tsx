@@ -73,6 +73,8 @@ export default function Subscribe({ id, caption }: Props) {
         token,
       };
 
+      console.log('payload: ', payload)
+
       const res = await fetch("/api/add-lid", {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
