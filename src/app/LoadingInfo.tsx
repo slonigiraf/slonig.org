@@ -16,7 +16,7 @@ export default function LoadingInfo({}: Props) {
             <circle
               cx="12"
               cy="12"
-              r="9"
+              r="30"
               fill="none"
               stroke="currentColor"
               strokeWidth="3"
@@ -50,15 +50,15 @@ export default function LoadingInfo({}: Props) {
           flex-direction:column;
           align-items:center;
           gap:16px;
-          color: var(--secondary-color);
+          color: var(--primary-color);
         }
         .loading-spinner{
-          width:40px;
-          height:40px;
+          width:70px;
+          height:70px;
           animation: spin 1s linear infinite;
         }
         .loading-text{
-          font-size:16px;
+          font-size:20px;
           font-weight:600;
           text-align:center;
         }
