@@ -189,7 +189,54 @@ export default async function App() {
               our platform.
             </p>
 
-            <h3>6. How We Protect Student Information</h3>
+            <h3>6. California Student Privacy (SOPIPA)</h3>
+            <p>
+              If Slonig is provided to K–12 students in California, we follow the requirements
+              of California’s Student Online Personal Information Protection Act (SOPIPA).
+              In addition to the commitments stated elsewhere in this policy, we make the
+              following SOPIPA-specific commitments regarding “covered information” collected
+              through the service.
+            </p>
+
+            <p><strong>Prohibited uses.</strong> We do not:</p>
+            <ul className="list-disc pl-5">
+              <li>Use covered information to target advertising to students.</li>
+              <li>Sell or rent covered information.</li>
+              <li>
+                Use covered information to create a profile about a K–12 student except as
+                needed for K–12 school purposes (for example, to provide, maintain, improve,
+                or troubleshoot the service, or to provide analytics and reporting for
+                educational purposes).
+              </li>
+            </ul>
+
+            <p><strong>Limits on disclosure.</strong> We disclose covered information only as allowed for K–12 school purposes, such as:</p>
+            <ul className="list-disc pl-5">
+              <li>
+                To schools, districts, teachers, administrators, and parents/guardians, as
+                applicable, to support the student’s education and the operation of the service.
+              </li>
+              <li>
+                To service providers that help us operate the service (for example, hosting,
+                security, and support), <strong>only</strong> when necessary to provide the service.
+                These service providers are bound by contract to (i) use student information only
+                to provide services to Slonig, (ii) protect it, and (iii) not use it for any other
+                purpose.
+              </li>
+              <li>
+                When required by law, legal process, or to protect the rights, safety, and security
+                of users and the service.
+              </li>
+            </ul>
+
+            <p>
+              If we ever share covered information in connection with a business transaction
+              (see “Business Transfer”), we require the recipient to handle it in a manner
+              consistent with this Student Privacy Policy and applicable student privacy laws,
+              including SOPIPA.
+            </p>
+
+            <h3>7. How We Protect Student Information</h3>
             <p>
               We take the security of student information very seriously and use
               industry-standard safeguards to protect it. Our security measures may include
@@ -205,7 +252,7 @@ export default async function App() {
               training on FERPA, COPPA, and data privacy requirements.
             </p>
 
-            <h3>7. Product Safeguards for Student Users</h3>
+            <h3>8. Product Safeguards for Student Users</h3>
             <p>
               Beyond technical security measures, we have designed our website and
               platform with specific safeguards to protect students while they learn.
@@ -217,7 +264,7 @@ export default async function App() {
               personal information.
             </p>
 
-            <h3>8. Student Rights and Parent/Guardian Rights</h3>
+            <h3>9. Student Rights and Parent/Guardian Rights</h3>
             <p>
               Parents or guardians have the
               right to review their child’s information and progress data, request
@@ -230,7 +277,7 @@ export default async function App() {
               their authorized scope.
             </p>
 
-            <h3>9. COPPA Notice and Consent (Children Under 13)</h3>
+            <h3>10. COPPA Notice and Consent (Children Under 13)</h3>
             <p>
               The Children’s Online Privacy Protection Act (COPPA) requires specific
               disclosures and consent when personal information is collected online from
@@ -291,7 +338,7 @@ export default async function App() {
               information.
             </p>
 
-            <h3>10. Slonig as a School Official Under FERPA</h3>
+            <h3>11. Slonig as a School Official Under FERPA</h3>
             <p>
               When schools and districts use Slonig, we may act as a "school official"
               under the Family Educational Rights and Privacy Act (FERPA). This means:
@@ -323,7 +370,7 @@ export default async function App() {
               use student education records in accordance with FERPA regulations.
             </p>
 
-            <h3>11. How Long We Keep Student Information</h3>
+            <h3>12. How Long We Keep Student Information</h3>
             <p>
               In rare cases—such as participation in a randomized controlled trial (RCT)
               or a school-managed pilot—we may collect a student’s name, surname, grade, school name, and scores.
@@ -355,7 +402,7 @@ export default async function App() {
               before we delete it.
             </p>
 
-            <h3>12. Third-Party Services We Use</h3>
+            <h3>13. Third-Party Services We Use</h3>
             <p>
               To provide our services, we work with trusted third-party service
               providers. These providers may have access to student information only to
@@ -364,7 +411,7 @@ export default async function App() {
               authorized purposes.
             </p>
 
-            <h3>13. Business Transfer</h3>
+            <h3>14. Business Transfer</h3>
             <p>
               In certain circumstances, Slonig may be involved in a business transaction
               such as a merger, acquisition, reorganization, bankruptcy, or sale of
@@ -385,7 +432,7 @@ export default async function App() {
             </p>
 
 
-            <h3>14. Changes to This Policy</h3>
+            <h3>15. Changes to This Policy</h3>
             <p>
               We may update this Student Privacy Policy from time to time. When we make
               changes, we will update the "Last updated" date at the top of this policy
@@ -394,7 +441,7 @@ export default async function App() {
               information, we will notify schools and parents in advance.
             </p>
 
-            <h3>15. Data Breach Notification</h3>
+            <h3>16. Data Breach Notification</h3>
             <p>
               In the unlikely event of a data breach affecting student information, we
               will notify the school or district (for school-based accounts) or parents
@@ -403,7 +450,7 @@ export default async function App() {
               to address the breach and protect student information.
             </p>
 
-            <h3>16. Questions and Contact Information</h3>
+            <h3>17. Questions and Contact Information</h3>
             <p>If you have questions about how we handle student information, please contact us:</p>
 
             <p>
@@ -412,7 +459,7 @@ export default async function App() {
             </p>
             <p><strong>Email:</strong> <a href="mailto:info@slonig.org">info@slonig.org</a></p>
 
-            <h3>17. Additional Resources</h3>
+            <h3>18. Additional Resources</h3>
             <p>For more detailed information about our privacy practices, please see:</p>
             <ul>
               <li>Our complete Privacy Policy</li>
