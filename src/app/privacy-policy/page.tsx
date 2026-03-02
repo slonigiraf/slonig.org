@@ -48,8 +48,7 @@ export default async function App() {
             </p>
 
             <p>
-              In this Privacy Policy and the Terms of Service, the term “Slonig” (“Company,”
-              “we,” “us,” “our”) refers to all websites (including slonig.org,
+              In this Privacy Policy and the Terms of Service, the term “Slonig“ (“we”, “us”, “our”) refers to all websites (including slonig.org,
               app.slonig.org), applications, their features, and content we offer. The
               services we provide and the information collected are managed by Slonig, Inc.,
               located at 1111B S Governors Ave STE 48458, Dover, DE 19904, USA.
@@ -92,7 +91,7 @@ export default async function App() {
               </li>
               <li>
                 <strong>Educators:</strong> Teachers and school/district administrators
-                who deploy and manage Slonig for classrooms or organizations.
+                who deploy and manage Slonig for classrooms or organizations, using www.slonig.org and app.slonig.org.
               </li>
             </ul>
 
@@ -102,13 +101,12 @@ export default async function App() {
               Sources generally include:
             </p>
             <ul className="list-disc pl-5">
-              <li>Information provided by Educators and Parents (not by students directly)</li>
+              <li>Information provided by Educators and Parents</li>
               <li>
                 Information about Educators obtained from third parties (e.g., public school/district
                 contact sources)
               </li>
               <li>Usage information you generate when using the site</li>
-              <li>Information collected via cookies (see Section 4)</li>
             </ul>
 
             <h4>2.1 Categories of Personal Information</h4>
@@ -121,13 +119,7 @@ export default async function App() {
               for communications).
             </p>
 
-            <h4>2.2 Accuracy of Display Names</h4>
-            <p>
-              Display names must be appropriate for an educational environment and must not:
-              impersonate others, include profanity/hate speech, or include offensive or violent references.
-            </p>
-
-            <h4>2.3 Data Ownership and Use Limitations</h4>
+            <h4>2.2 Data Ownership and Use Limitations</h4>
             <p>
               We do not claim ownership of your data and do not use it for unrelated marketing.
               We apply additional restrictions for children’s data and do not use children’s data to market to minors.
@@ -146,22 +138,9 @@ export default async function App() {
               improve usability, and maintain security.
             </p>
 
-            <h3>4. Use of Cookies and Web Beacons</h3>
+            <h3>4. Cookies</h3>
             <p>
-              We may use cookies for necessary site functionality and optional functionality preferences.
-              Cookies can store items like session state. You can control cookies via browser settings,
-              but disabling cookies may reduce site functionality.
-            </p>
-            <p>
-              We do not use behavioral advertising cookies on student-facing areas. Where we use analytics
-              on marketing pages, it is intended to understand aggregate usage and improve content.
-            </p>
-
-            <h4>4.1 Third-Party Advertising Platforms</h4>
-            <p>
-              We may advertise our services to Educators/Parents via third-party platforms (e.g., search and social).
-              We do not target advertisements to students and do not provide student Personal Information to
-              advertising platforms. You can manage ad preferences via those platforms and browser settings.
+              We do not use cookies.
             </p>
 
             <h3>5. How We Use Personal Information</h3>
@@ -175,7 +154,7 @@ export default async function App() {
 
             <h3>6. How We Protect Personal Information</h3>
             <p>
-              We use administrative, technical, and organizational safeguards designed to protect Personal Information
+              We may use administrative, technical, and organizational safeguards designed to protect Personal Information
               (e.g., access controls, encryption in transit, secure backups, and internal policies). No security
               measures are perfect; we continuously work to improve protections.
             </p>
