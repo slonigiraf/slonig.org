@@ -150,7 +150,7 @@ export default async function App() {
             <p>
               We use student information only for educational purposes to help students
               study effectively. Specifically, we use student information to personalize learning experiences
-              and improve our educational content and curriculum, ensure the platform works properly and securely, 
+              and improve our educational content and curriculum, ensure the platform works properly and securely,
               and comply with legal obligations.
             </p>
 
@@ -264,32 +264,29 @@ export default async function App() {
 
             <h3>10. How Long We Keep Student Information</h3>
             <p>
-              <strong>During Active Use:</strong> We keep student information as long as
-              the student's account is active and the teacher or parent continues to use
-              our services.
+              In rare cases—such as participation in a randomized controlled trial (RCT)
+              or a school-managed pilot—we may collect a student’s name, surname, grade, school name, and scores.
+              We keep this information only for as long as needed for the RCT or pilot.
+              Unless the school requests a shorter period, we delete or de-identify it within
+              <strong>30 days</strong> after the RCT or pilot ends, except where a longer retention
+              period is required by law or to resolve disputes.
             </p>
 
             <p>
-              <strong>After a School Stops Using Slonig:</strong> When a school or
-              district stops using Slonig, we delete all student information, including
-              backups, within 60 days after June 30th of the current calendar year,
-              unless the school requests earlier deletion. Upon request, we will delete
-              student information within seven business days from our active systems and
-              within 30 days from backup systems.
+              <strong>What We Keep:</strong>
             </p>
 
-            <p>
-              <strong>After a Parent stops using Slonig:</strong> When a parent
-              stops using Slonig, we delete the associated student
-              information within seven business days from our active systems and within
-              30 days from backup systems.
-            </p>
-
-            <p>
-              <strong>What We Keep:</strong> We may retain only minimal information
-              required by law, such as records needed for tax purposes or to comply with
-              legal obligations.
-            </p>
+            <ul className="list-disc pl-5">
+              <li>We may retain only minimal information
+                required by law, such as records needed for tax purposes or to comply with
+                legal obligations.</li>
+              <li>
+                We may also retain anonymous platform usage data, such as anonymized or aggregated performance data,
+                an anonymized IP address, browser and device information, and anonymous information about which
+                activities students complete and how they interact with the platform. Because this data is anonymized,
+                it cannot be linked back to a specific student, and individual deletion is not technically possible.
+              </li>
+            </ul>
 
             <p>
               <strong>Getting Your Data:</strong> Schools, districts, or parents can
@@ -304,13 +301,6 @@ export default async function App() {
               the extent necessary to perform their services for us. All our service
               providers are required to protect student information and use it only for
               authorized purposes.
-            </p>
-
-            <p>
-              Please see here for a list of service providers to whom we disclose
-              personal information. All of these service providers are bound by
-              contract to maintain the confidentiality and security of student
-              information.
             </p>
 
             <h3>12. Business Transfer</h3>
@@ -352,22 +342,16 @@ export default async function App() {
               to address the breach and protect student information.
             </p>
 
-
-
-            <h3>17. Questions and Contact Information</h3>
+            <h3>16. Questions and Contact Information</h3>
             <p>If you have questions about how we handle student information, please contact us:</p>
-            <ul>
-              <li><strong>For School-Based Accounts:</strong> Parents should first contact their child's school or district. You may also contact Slonig directly.</li>
-              <li><strong>For Homeschool Accounts:</strong> Parents can contact Slonig directly.</li>
-            </ul>
-
+            
             <p>
               <strong>Contact Information:</strong> Slonig, Inc., 1111B S Governors Ave
               STE 48458 Dover, DE 19904, USA
             </p>
             <p><strong>Email:</strong> <a href="mailto:info@slonig.org">info@slonig.org</a></p>
 
-            <h3>21. Additional Resources</h3>
+            <h3>17. Additional Resources</h3>
             <p>For more detailed information about our privacy practices, please see:</p>
             <ul>
               <li>Our complete Privacy Policy</li>
