@@ -13,6 +13,7 @@ import {
   BarChart3,
   ClipboardCheck,
   Sparkles,
+  BookOpenCheck,
 } from "lucide-react";
 
 type Props = {};
@@ -145,6 +146,32 @@ const ROWS: ExpandableListRow[] = [
     Icon: Sparkles,
     label: "Better Than AI",
     text: "Slonig outperforms AI-based tutoring systems because it uses the one thing software still can’t replicate: real human-to-human learning in the moment. Instead of replacing students with a chatbot or pushing them into another screen-based “personalized” flow, Slonig turns classmates into active learning partners—watching each other think, catching misunderstandings instantly, and adapting explanations to what a real person is actually confused about.",
+  },
+  {
+    Icon: BookOpenCheck,
+    label: "Supported by Decades of Evidence",
+    text: "",
+    node: (
+      <ul className="list-disc pl-5">
+        <li>
+          Students learn by providing tutoring more than by getting tutoring help{" "}
+          (<em>Topping, 1996</em>).
+        </li>
+        <li>
+          Under rigorous experimental conditions, students who engaged in teaching
+          demonstrated learning gains comparable to roughly two additional years of
+          schooling relative to traditional study methods (<em>Fiorella et al., 2013</em>).
+        </li>
+        <li>
+          2,436 scientific studies confirm that learning by teaching significantly
+          outperforms all currently known instructional approaches (<em>ERIC Database of Educational Studies</em>).
+        </li>
+        <li>
+          Learning by teaching can be started in five minutes using the Slonig platform
+          and requires no prep from teachers (<em>Reshetov, 2025</em>).
+        </li>
+      </ul>
+    ),
   },
 ];
 
