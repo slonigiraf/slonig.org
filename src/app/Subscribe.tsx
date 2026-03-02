@@ -99,11 +99,7 @@ export default function Subscribe({ id, caption }: Props) {
     const onVerified = (ev: any) => {
       setAltchaState("verified");
 
-      const p =
-        ev?.detail?.payload ||
-        ev?.detail?.solution ||
-        ev?.detail?.token ||
-        "";
+      const p = ev?.detail?.payload || ev?.detail?.solution || ev?.detail?.token || "";
 
       const payload =
         (typeof p === "string" && p.length > 0 ? p : readHiddenInput()) || "";
@@ -214,6 +210,11 @@ export default function Subscribe({ id, caption }: Props) {
     "h-[54px] w-full rounded-full bg-[#f3a312] px-8 text-[18px] font-extrabold text-white shadow-[0_10px_22px_rgba(0,0,0,0.18)] transition hover:brightness-95 active:translate-y-[1px] disabled:cursor-not-allowed disabled:opacity-75";
 
   const altchaBusy = altchaState === "verifying";
+
+  // ✅ NEW: "Verifying Data…" only when user typed something AND not yet verified
+  const hasAnyInput = form.name.trim().length > 0 || form.email.trim().length > 0;
+  const showVerifyingData = hasAnyInput && altchaState !== "verified";
+
   const canSubmit =
     !submitting &&
     !altchaBusy &&
@@ -283,6 +284,11 @@ export default function Subscribe({ id, caption }: Props) {
                       <span className="inline-flex items-center justify-center gap-3">
                         <Loader2 className="h-5 w-5 animate-spin" aria-hidden />
                         Sending…
+                      </span>
+                    ) : showVerifyingData ? (
+                      <span className="inline-flex items-center justify-center gap-3">
+                        <Loader2 className="h-5 w-5 animate-spin" aria-hidden />
+                        Verifying Data…
                       </span>
                     ) : altchaBusy ? (
                       <span className="inline-flex items-center justify-center gap-3">
