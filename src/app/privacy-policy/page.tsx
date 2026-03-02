@@ -1,3 +1,4 @@
+import { Link } from "lucide-react";
 import Navbar from "../Navbar";
 
 export default async function App() {
@@ -56,8 +57,14 @@ export default async function App() {
 
             <p>
               <span className="font-extrabold">Student Privacy Policy:</span>{" "}
-              In addition to this Privacy Policy, we have created a dedicated Privacy Policy
-              for Students that provides additional information specifically about how we
+              In addition to this Privacy Policy, we have created a dedicated&nbsp;
+              <a
+                href="/privacy-policy-students"
+                className="text-[var(--secondary-color)] underline underline-offset-4 hover:opacity-80"
+              >
+                Privacy policy for students
+              </a>
+              &nbsp;that provides additional information specifically about how we
               handle student information. Parents, guardians, and educators are encouraged to
               review both this Privacy Policy and our Privacy Policy for Students to fully
               understand our practices regarding student data protection.
