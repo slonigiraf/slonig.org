@@ -21,6 +21,7 @@ import JoinProfessionals from "./JoinProfessionals";
 import OtherSubjects from "./OtherSubjects";
 import Subscribe from "./Subscribe";
 import Footer from "./Footer";
+import GateUntilVideoReady from "./GateUntilVideoReady";
 
 
 export default async function App() {
@@ -28,7 +29,13 @@ export default async function App() {
     <main className="min-h-screen font-sans selection:bg-blue-100 selection:text-blue-900">
       <Navbar indexPage={true} />
       <Hero />
-      <WorkInPairVideo />
+      <GateUntilVideoReady>
+        {/* Your actual page content goes here */}
+        <WorkInPairVideo />
+
+        {/* ...privacy policy section... */}
+      </GateUntilVideoReady>
+
       <BeforeAfter />
       <Collaboration />
       <QuoteCarousel
