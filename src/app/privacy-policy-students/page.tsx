@@ -477,10 +477,18 @@ export default async function App() {
 
             <h3>16. Data Breach Notification</h3>
             <p>
-              In the unlikely event of a data breach affecting student information, we
-              will notify the school or district or parents within 24 hours. The notification will include
-              what information was affected, what happened, and what steps we are taking
-              to address the breach and protect student information.
+              In the unlikely event of a data breach affecting student information, we will
+              notify the school or district (and, where applicable, parents/guardians)
+              <strong> without unreasonable delay</strong> and in accordance with applicable law.
+              Timing may depend on what we learn as we investigate the incident and determine
+              the scope and impacted data. We may also delay notice if requested by law
+              enforcement or otherwise permitted by law.
+            </p>
+
+            <p>
+              Our notification will include, to the extent known and as required by law:
+              what information was affected, what happened, the steps we are taking to
+              address the incident, and guidance on protective measures that may be helpful.
             </p>
 
             <h3>17. Questions and Contact Information</h3>
