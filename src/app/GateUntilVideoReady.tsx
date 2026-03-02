@@ -13,11 +13,18 @@ export default function GateUntilVideoReady({ children }: Props) {
     return (
       <div className="relative min-h-screen grid place-items-center">
         <div className="flex flex-col items-center gap-4">
-          <Loader2 className="h-10 w-10 animate-spin" />
-          <div className="text-base font-semibold text-slate-900">Loading…</div>
+          <Loader2
+            className="h-10 w-10 animate-spin"
+            style={{ color: "var(--secondary-color)" }}
+          />
+          <div
+            className="text-base font-semibold text-center"
+            style={{ color: "var(--secondary-color)" }}
+          >
+            Loading…
+          </div>
         </div>
 
-        {/* preload video without affecting layout */}
         <div className="sr-only" aria-hidden>
           <WorkInPairVideo onReady={() => setReady(true)} />
         </div>
