@@ -31,7 +31,7 @@ export default function LoadingInfo({}: Props) {
             />
           </svg>
 
-          <div className="loading-text">Loading…</div>
+          <div className="loading-text">Loading</div>
         </div>
       </div>
 
