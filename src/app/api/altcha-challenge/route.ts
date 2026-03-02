@@ -15,7 +15,7 @@ export async function GET() {
 
   const challenge = await createChallenge({
     hmacKey,
-    maxNumber: 1_000,
+    maxNumber: 1_000_000,
   });
 
   // Don’t cache challenges

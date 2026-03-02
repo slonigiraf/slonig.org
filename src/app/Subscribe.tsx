@@ -38,10 +38,8 @@ export default function Subscribe({ id, caption }: Props) {
       try {
         await import("altcha");
         if (cancelled) return;
-        console.log("[ALTCHA] module imported");
         setAltchaLoaded(true);
-      } catch (e) {
-        console.error("[ALTCHA] failed to import", e);
+      } catch {
         if (cancelled) return;
         setAltchaLoaded(false);
         setAltchaState("error");
@@ -54,18 +52,14 @@ export default function Subscribe({ id, caption }: Props) {
     };
   }, []);
 
-  // ✅ Attach ALTCHA listeners via ref (most reliable) + verbose logs
+  // ✅ Attach ALTCHA listeners via ref
   useEffect(() => {
     if (!altchaLoaded) return;
 
     const el = altchaRef.current;
-    if (!el) {
-      console.warn("[ALTCHA] ref is null (widget not mounted yet)");
-      return;
-    }
+    if (!el) return;
 
     const readHiddenInput = () => {
-      // ALTCHA typically injects <input name="altcha" ...> inside/near the widget
       const input =
         (el.querySelector('input[name="altcha"]') as HTMLInputElement | null) ||
         (document.querySelector(
@@ -78,12 +72,7 @@ export default function Subscribe({ id, caption }: Props) {
       return input?.value || "";
     };
 
-    const log = (name: string, ev?: any) => {
-      console.log(`[ALTCHA] ${name}`, ev?.detail ?? "");
-    };
-
-    const onLoad = (ev: any) => {
-      log("load", ev);
+    const onLoad = () => {
       const existing = readHiddenInput();
       if (existing) {
         setAltchaState("verified");
@@ -92,8 +81,6 @@ export default function Subscribe({ id, caption }: Props) {
     };
 
     const onStateChange = (ev: any) => {
-      log("statechange", ev);
-
       const state = ev?.detail?.state as AltchaState | undefined;
       const payload = ev?.detail?.payload as string | undefined;
 
@@ -110,7 +97,6 @@ export default function Subscribe({ id, caption }: Props) {
     };
 
     const onVerified = (ev: any) => {
-      log("verified", ev);
       setAltchaState("verified");
 
       const p =
@@ -125,14 +111,12 @@ export default function Subscribe({ id, caption }: Props) {
       setAltchaPayload(payload);
     };
 
-    const onError = (ev: any) => {
-      log("error", ev);
+    const onError = () => {
       setAltchaState("error");
       setAltchaPayload("");
     };
 
-    const onExpired = (ev: any) => {
-      log("expired", ev);
+    const onExpired = () => {
       setAltchaState("expired");
       setAltchaPayload("");
     };
@@ -142,8 +126,6 @@ export default function Subscribe({ id, caption }: Props) {
     el.addEventListener("verified", onVerified as any);
     el.addEventListener("error", onError as any);
     el.addEventListener("expired", onExpired as any);
-
-    console.log("[ALTCHA] listeners attached", el);
 
     // If it verified before listeners attached (rare), still pick it up:
     const existing = readHiddenInput();
@@ -185,7 +167,7 @@ export default function Subscribe({ id, caption }: Props) {
       }
 
       if (altchaState !== "verified" || !altchaPayload) {
-        setErrorText("Please complete the verification.");
+        setErrorText("Verification is still running—please try again in a moment.");
         return;
       }
 
@@ -250,6 +232,21 @@ export default function Subscribe({ id, caption }: Props) {
 
             {!success ? (
               <form id={id} onSubmit={onSubmit} onKeyDown={preventEnterSubmit}>
+                {/* ✅ Invisible ALTCHA: verifies automatically in background */}
+                {altchaLoaded && (
+                  <altcha-widget
+                    ref={(node) => {
+                      altchaRef.current = node as any;
+                    }}
+                    id={altchaId}
+                    challengeurl="/api/altcha-challenge"
+                    name="altcha"
+                    auto="onload"
+                    className="sr-only"
+                    aria-hidden="true"
+                  />
+                )}
+
                 <div className="mx-auto grid w-full max-w-none grid-cols-1 gap-4 lg:max-w-4xl lg:grid-cols-3 lg:gap-[18px]">
                   <input
                     className={inputClass}
@@ -277,7 +274,7 @@ export default function Subscribe({ id, caption }: Props) {
                     title={
                       altchaLoaded
                         ? altchaState !== "verified"
-                          ? "Complete verification first"
+                          ? "Verifying in background…"
                           : undefined
                         : "Loading verification…"
                     }
@@ -301,26 +298,6 @@ export default function Subscribe({ id, caption }: Props) {
                       caption
                     )}
                   </button>
-
-                  {/* ALTCHA widget (full row) */}
-                  <div className="lg:col-span-3 flex justify-center">
-                    <div className="rounded-xl bg-white/95 px-4 py-3 shadow-[0_10px_22px_rgba(0,0,0,0.12)]">
-                      {altchaLoaded ? (
-                        <altcha-widget
-                          ref={(node) => {
-                            altchaRef.current = node as any;
-                          }}
-                          id={altchaId}
-                          challengeurl="/api/altcha-challenge"
-                          name="altcha"
-                        ></altcha-widget>
-                      ) : (
-                        <div className="text-sm text-slate-700">
-                          Loading verification…
-                        </div>
-                      )}
-                    </div>
-                  </div>
 
                   {errorText && (
                     <div className="lg:col-span-3">
