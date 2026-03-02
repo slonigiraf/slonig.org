@@ -25,7 +25,6 @@ import Subscribe from "./Subscribe";
 export default async function App() {
   return (
     <>
-      <Navbar indexPage={true} />
       <Hero />
       <WorkInPairVideo />
       <BeforeAfter />

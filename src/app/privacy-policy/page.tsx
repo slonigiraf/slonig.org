@@ -4,7 +4,6 @@ import Navbar from "../Navbar";
 export default async function App() {
   return (
     <>
-      <Navbar />
       {/* Policy content */}
       <section className="mx-auto w-full max-w-4xl pt-24 px-6 text-slate-900 pb-10">
         <h1 className="!text-black">

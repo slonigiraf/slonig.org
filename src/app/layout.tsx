@@ -4,6 +4,7 @@ import Script from "next/script";
 import "./globals.css";
 import LoadingInfo from "./LoadingInfo";
 import Footer from "./Footer";
+import Navbar from "./Navbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -39,6 +40,7 @@ export default function RootLayout({
           />
         ) : null}
         <LoadingInfo />
+        <Navbar />
         {children}
         <Footer />
       </body>

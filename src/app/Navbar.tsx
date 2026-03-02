@@ -9,12 +9,26 @@ type Props = {
   /**
    * If false (default): clicking a nav item navigates to "/#section"
    * If true: smooth-scrolls on the current page
+   *
+   * If not provided, it auto-detects: indexPage=true when pathname === "/"
    */
   indexPage?: boolean;
 };
 
-export const Navbar: React.FC<Props> = ({ indexPage = false }) => {
+export const Navbar: React.FC<Props> = ({ indexPage }) => {
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  // Auto-detect index page if prop wasn't provided
+  const [isIndexPage, setIsIndexPage] = useState(false);
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    // handles "/" and also "/?x=y"
+    const path = window.location.pathname.replace(/\/+$/, "") || "/";
+    setIsIndexPage(path === "/");
+  }, []);
+
+  const effectiveIndexPage = indexPage ?? isIndexPage;
 
   // Portal root set only on client (prevents hydration issues)
   const [portalRoot, setPortalRoot] = useState<HTMLElement | null>(null);
@@ -51,8 +65,7 @@ export const Navbar: React.FC<Props> = ({ indexPage = false }) => {
       closeMobile();
 
       // If we're NOT on the index page, navigate there with the hash
-      if (!indexPage) {
-        // preserve absolute path for safety (works on nested routes)
+      if (!effectiveIndexPage) {
         window.location.assign(`/${hash}`);
         return;
       }
@@ -67,7 +80,7 @@ export const Navbar: React.FC<Props> = ({ indexPage = false }) => {
       const el = document.getElementById(id);
       if (el) scrollToWithOffset(el);
     },
-    [closeMobile, indexPage]
+    [closeMobile, effectiveIndexPage]
   );
 
   // Lock background scroll when mobile menu is open
@@ -125,24 +138,44 @@ export const Navbar: React.FC<Props> = ({ indexPage = false }) => {
       <div className="flex h-16 items-center justify-between px-6 py-2">
         {/* Brand */}
         <a href="#top" className="flex items-center" onClick={navTo("#top")}>
-          <img src="/named-logo.svg" alt="Slonig" className="h-10 w-auto lg:h-10" />
+          <img
+            src="/named-logo.svg"
+            alt="Slonig"
+            className="h-10 w-auto lg:h-10"
+          />
         </a>
 
         {/* Desktop menu (now shows from lg and up, so iPad mini uses this) */}
         <div className="hidden lg:flex gap-12 items-center text-lg font-bold text-[var(--secondary-color)]">
-          <a href="#how_it_works" className="hover:text-blue-900" onClick={navTo("#how_it_works")}>
+          <a
+            href="#how_it_works"
+            className="hover:text-blue-900"
+            onClick={navTo("#how_it_works")}
+          >
             How It Works
           </a>
-          <a href="#efficacy" className="hover:text-blue-900" onClick={navTo("#efficacy")}>
+          <a
+            href="#efficacy"
+            className="hover:text-blue-900"
+            onClick={navTo("#efficacy")}
+          >
             Efficacy
           </a>
-          <a href="#curriculum" className="hover:text-blue-900" onClick={navTo("#curriculum")}>
+          <a
+            href="#curriculum"
+            className="hover:text-blue-900"
+            onClick={navTo("#curriculum")}
+          >
             Curriculum
           </a>
           <a href="#roi" className="hover:text-blue-900" onClick={navTo("#roi")}>
             ROI
           </a>
-          <RequestDemo expanded={false} id={"navbar-button"} caption={"Request a Demo"} />
+          <RequestDemo
+            expanded={false}
+            id={"navbar-button"}
+            caption={"Request a Demo"}
+          />
         </div>
 
         {/* Mobile toggle (now only below lg) */}
@@ -168,17 +201,29 @@ export const Navbar: React.FC<Props> = ({ indexPage = false }) => {
               >
                 <div className="mx-auto max-w-7xl px-6 py-4">
                   <div className="mt-4 flex flex-col gap-4 text-base font-semibold text-[var(--secondary-color)]">
-                    <a href="#how_it_works" className="hover:text-blue-900" onClick={navTo("#how_it_works")}>
+                    <a
+                      href="#how_it_works"
+                      className="hover:text-blue-900"
+                      onClick={navTo("#how_it_works")}
+                    >
                       How It Works
                     </a>
-                    <a href="#efficacy" className="hover:text-blue-900" onClick={navTo("#efficacy")}>
+                    <a
+                      href="#efficacy"
+                      className="hover:text-blue-900"
+                      onClick={navTo("#efficacy")}
+                    >
                       Efficacy
                     </a>
                     <a href="#roi" className="hover:text-blue-900" onClick={navTo("#roi")}>
                       ROI
                     </a>
 
-                    <RequestDemo expanded={false} id={"navbar-button"} caption={"Request a Demo"} />
+                    <RequestDemo
+                      expanded={false}
+                      id={"navbar-button"}
+                      caption={"Request a Demo"}
+                    />
                   </div>
                 </div>
               </div>
