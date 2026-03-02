@@ -57,7 +57,7 @@ export default async function App() {
               advertising or marketing purposes.
             </p>
 
-            <p><strong>We do not sell or rent student information.</strong></p>
+            <p><strong>We do NOT sell or rent student information.</strong></p>
             <p>
               Student data remains within our educational platform and is never shared
               with third parties for commercial purposes.
@@ -115,7 +115,7 @@ export default async function App() {
 
             <p>
               Slonig is designed not to collect personal information directly from students.
-              Students do not create accounts, and student work and progress are stored locally
+              Students do NOT create accounts, and student work and progress are stored locally
               on the student’s device (including school-provided devices). This data remains
               on the device and can be removed at any time by clearing the browser cache/storage.
             </p>
@@ -127,7 +127,7 @@ export default async function App() {
             </p>
 
 
-            <h3>3. What Information Do We Have About Students?</h3>
+            <h3>2. What Information Do We Have About Students?</h3>
             <p>
               Slonig is designed to collect as little student personal data as possible. Use of
               <strong>app.slonig.org</strong> is anonymous by default.
@@ -154,66 +154,10 @@ export default async function App() {
               </li>
             </ul>
 
-            <h3>4. Single Sign-On (SSO) Integration</h3>
-            <p>
-              Many schools and districts use Single Sign-On platforms like Clever and
-              ClassLink to simplify account creation and management. When your school
-              enables SSO integration, the district administrator authorizes a secure
-              connection between your school's Student Information System and Slonig.
-              Student and teacher information is then transmitted automatically to
-              create and update accounts, and changes in enrollment or class assignments
-              sync automatically without requiring manual updates.
-            </p>
-
-            <p>
-              Through SSO, we receive only the minimum data necessary to create and
-              maintain functional accounts. For students, this includes first and last
-              name, grade level, school name, class assignments, username, and a student
-              ID that is used only for internal matching and is never displayed to
-              users. For teachers, we receive first and last name, email address, school
-              name, class assignments, and their role within the school.
-            </p>
-
-            <p>
-              We do not receive Social Security Numbers, student home addresses or phone
-              numbers, parent or guardian contact information (unless separately
-              provided through other means), detailed academic records or transcripts,
-              disciplinary records, medical or health information, or free/reduced lunch
-              status through SSO systems.
-            </p>
-
-            <p>
-              Your school or district maintains complete control over SSO integration.
-              Districts can choose to share only specific schools, grade levels, or
-              classes with Slonig, control which specific data fields are shared through
-              platform settings, and revoke Slonig’s access at any time. All data
-              transfers between the SSO platform and Slonig use industry-standard
-              encryption (TLS 1.2 or higher), and secure authentication protocols verify
-              the identity of users accessing Slonig.
-            </p>
-
-            <p>
-              Schools are not required to use SSO. Manual options remain available,
-              including CSV file upload where district administrators can upload roster
-              files directly to Slonig, manual account creation where teachers can
-              create student accounts individually through the Slonig interface, or
-              hybrid approaches where some schools may use SSO for certain grades or
-              classes while managing others manually.
-            </p>
-
-            <p>
-              Parents and guardians maintain all rights regarding their children's
-              information even when accounts are created through SSO. Parents and
-              guardians have the right to access and review your child's information at
-              any time, request corrections to inaccurate information, and request
-              deletion of your child's account and data.
-            </p>
-
-            <h3>5. How We Use Student Information</h3>
+            <h3>3. How We Use Student Information</h3>
             <p>
               We use student information only for educational purposes to help students
-              study effectively. Specifically, we use student information to provide
-              access to the Slonig learning platform, personalize learning experiences
+              study effectively. Specifically, we use student information to personalize learning experiences
               and adapt activities to each student's level, track student progress and
               generate reports for teachers and parents, improve our educational content
               and curriculum, ensure the platform works properly and securely, and
@@ -228,11 +172,11 @@ export default async function App() {
               other than providing educational services.
             </p>
 
-            <h3>6. Who Can See Student Information?</h3>
+            <h3>4. Who Can See Student Information?</h3>
             <p>
               Student information is shared only with authorized parties who need access
-              to provide educational services. The student's teacher or parent who
-              manages their account can see their progress and performance. School or
+              to provide educational services. The student's teacher or parent
+              can see their progress and performance. School or
               district administrators (for school-based accounts) may see student
               information as authorized by the school or district. Slonig employees and
               contractors who need access to provide technical support, improve the
@@ -247,15 +191,15 @@ export default async function App() {
               traced back to individual students for research and improvement purposes.
             </p>
 
-            <h3>7. We Never Sell Student Information</h3>
+            <h3>5. We Never Sell Student Information</h3>
             <p>
-              Slonig does not sell, trade, or rent student information to anyone. We do
+              Slonig does NOT sell, trade, or rent student information to anyone. We do
               not share student information with third parties for their marketing
-              purposes. We do not allow any advertising on the student-facing parts of
+              purposes. We do NOT allow any advertising on the student-facing parts of
               our platform.
             </p>
 
-            <h3>8. How We Protect Student Information</h3>
+            <h3>6. How We Protect Student Information</h3>
             <p>
               We take the security of student information very seriously and use
               industry-standard safeguards to protect it. Our security measures include
@@ -271,7 +215,7 @@ export default async function App() {
               training on FERPA, COPPA, and data privacy requirements.
             </p>
 
-            <h3>9. Product Safeguards for Student Users</h3>
+            <h3>7. Product Safeguards for Student Users</h3>
             <p>
               Beyond technical security measures, we have designed our website and
               platform with specific safeguards to protect students while they learn.
@@ -280,56 +224,16 @@ export default async function App() {
             <p><strong>Private Learning Environment:</strong></p>
             <p>
               Slonig provides a private, focused learning environment where students
-              interact only with educational content. We do not enable any social
-              interactions between students within the platform. Students cannot
+              interact only with educational content. Students cannot
               message, chat with, or communicate with other students through Slonig.
-              Students cannot post information publicly or share content with other
-              students. Students cannot see other students' profiles, progress, or
+              Students cannot see other students' profiles, progress, or
               personal information.
             </p>
 
-            <p>
-              When students log into Slonig, they work independently on their activities
-              in a safe, distraction-free environment. Student accounts are created and
-              managed by educators or parents, and once students are using the product,
-              they interact solely with the educational content itself, not with other
-              users.
-            </p>
 
+            <h3>8. Student Rights and Parent/Guardian Rights</h3>
             <p>
-              This design ensures that students can focus on learning without exposure
-              to social media-style features, peer pressure, or potential safety
-              concerns associated with student-to-student interactions. Please note that
-              this policy applies only to interactions within the Slonig platform and
-              does not prevent or control what users may post on other websites or
-              services outside of Slonig.
-            </p>
-
-            <h3>10. Parental Consent</h3>
-            <p>
-              Before student accounts can be created on our website, we require consent
-              from authorized parties.
-            </p>
-
-            <p>
-              <strong>For school-based accounts:</strong> Schools and districts that
-              obtain licenses to use Slonig act as the authorized party providing
-              consent on behalf of parents and guardians. Individual teachers creating
-              accounts within their school must have authorization from their school or
-              district. We follow the necessary steps to confirm proper authorization to
-              set up student accounts.
-            </p>
-
-            <p>
-              <strong>For homeschool accounts:</strong> Parents or legal guardians must
-              create the account themselves, providing verifiable consent through the
-              account creation process. Parents provide consent by creating and managing
-              their children's accounts directly.
-            </p>
-
-            <h3>11. Student Rights and Parent/Guardian Rights</h3>
-            <p>
-              <strong>For School-Based Accounts:</strong> Parents or guardians have the
+              Parents or guardians have the
               right to review their child's information and progress data, request
               corrections to inaccurate information, request deletion of their child's
               account and information, receive a copy of their child's information, and
@@ -340,24 +244,25 @@ export default async function App() {
               their authorized scope.
             </p>
 
-            <p>
-              <strong>For Homeschool Accounts:</strong> Parents who manage their child's
-              homeschool account have the right to review, correct, update, delete, or
-              receive a copy of their child's information at any time. Parents can do
-              this through their account settings or by contacting Slonig directly.
-            </p>
-
-            <h3>12. Slonig as a School Official Under FERPA</h3>
+            <h3>9. Slonig as a School Official Under FERPA</h3>
             <p>
               When schools and districts use Slonig, we may act as a "school official"
               under the Family Educational Rights and Privacy Act (FERPA). This means:
             </p>
 
-            <p><strong>Our Role:</strong> Slonig performs institutional services and functions that the school would otherwise perform itself, specifically providing educational technology services and learning analytics.</p>
-            <p><strong>Legitimate Educational Interest:</strong> We access student education records only to fulfill our specific responsibilities in providing the Slonig learning platform and supporting student learning outcomes.</p>
-            <p><strong>Direct Control:</strong> Schools and districts maintain direct control over our use of student education records. We use student information only as directed by the school and in accordance with our service agreement.</p>
+            <p><strong>Our Role:</strong> Slonig performs institutional services and functions 
+            that the school would otherwise perform itself, specifically providing educational 
+            technology services and learning analytics.</p>
+            <p><strong>Legitimate Educational Interest:</strong> We access student education 
+            records only to fulfill our specific responsibilities in providing the Slonig learning 
+            platform and supporting student learning outcomes.</p>
 
-            <p><strong>FERPA Compliance:</strong> We comply with FERPA's requirements applicable to school officials, including:</p>
+            <p><strong>Direct Control:</strong> Schools and districts maintain direct control 
+            over our use of student education records. We use student information only as directed 
+            by the school and in accordance with our service agreement.</p>
+
+            <p><strong>FERPA Compliance:</strong> We comply with FERPA's requirements applicable 
+            to school officials, including:</p>
             <ul>
               <li>Using student information only for authorized educational purposes</li>
               <li>Not re-disclosing student information without proper authorization</li>
@@ -371,7 +276,7 @@ export default async function App() {
               use student education records in accordance with FERPA regulations.
             </p>
 
-            <h3>13. How Long We Keep Student Information</h3>
+            <h3>10. How Long We Keep Student Information</h3>
             <p>
               <strong>During Active Use:</strong> We keep student information as long as
               the student's account is active and the teacher or parent continues to use
@@ -388,8 +293,8 @@ export default async function App() {
             </p>
 
             <p>
-              <strong>After a Parent Closes a Homeschool Account:</strong> When a parent
-              closes their homeschool account, we delete the associated student
+              <strong>After a Parent stops using Slonig:</strong> When a parent
+              stops using Slonig, we delete the associated student
               information within seven business days from our active systems and within
               30 days from backup systems.
             </p>
@@ -406,7 +311,7 @@ export default async function App() {
               before we delete it.
             </p>
 
-            <h3>14. Third-Party Services We Use</h3>
+            <h3>11. Third-Party Services We Use</h3>
             <p>
               To provide our services, we work with trusted third-party service
               providers. These providers may have access to student information only to
@@ -422,7 +327,7 @@ export default async function App() {
               information.
             </p>
 
-            <h3>15. Business Transfer</h3>
+            <h3>12. Business Transfer</h3>
             <p>
               In certain circumstances, Slonig may be involved in a business transaction
               such as a merger, acquisition, reorganization, bankruptcy, or sale of
@@ -442,23 +347,8 @@ export default async function App() {
               same privacy protections remain in place.
             </p>
 
-            <h3>16. Cookies and Tracking</h3>
-            <p>
-              Like many websites, Slonig uses cookies (small data files) to help the
-              platform work properly. We use cookies to remember login information, keep
-              students logged in during their session, ensure security and prevent
-              unauthorized access, understand technical issues and improve the platform,
-              and remember settings and preferences.
-            </p>
-
-            <p>
-              We do not use cookies to track students across other websites. We do not
-              use cookies for advertising purposes. Parents and schools can manage
-              cookie settings through their browser, though this may affect how the
-              platform works.
-            </p>
-
-            <h3>17. Changes to This Policy</h3>
+           
+            <h3>14. Changes to This Policy</h3>
             <p>
               We may update this Student Privacy Policy from time to time. When we make
               changes, we will update the "Last updated" date at the top of this policy
@@ -467,7 +357,7 @@ export default async function App() {
               information, we will notify schools and parents in advance.
             </p>
 
-            <h3>18. Data Breach Notification</h3>
+            <h3>15. Data Breach Notification</h3>
             <p>
               In the unlikely event of a data breach affecting student information, we
               will notify the school or district (for school-based accounts) or parents
@@ -476,38 +366,9 @@ export default async function App() {
               to address the breach and protect student information.
             </p>
 
-            <h3>19. Leaderboard Feature</h3>
-            <p>
-              Slonig offers an optional Leaderboard feature designed to encourage
-              positive classroom engagement while protecting student privacy.
-            </p>
+            
 
-            <p>
-              Participation in the Leaderboard is at the class level, not the individual
-              student level. The Leaderboard displays a single, combined score based on
-              aggregated class performance data. We never calculate, display, or share
-              individual student scores or personal information on the Leaderboard.
-            </p>
-
-            <p>
-              To ensure privacy, all participating classes are assigned a system-generated,
-              anonymous name instead of real school, teacher, or class names. The
-              Leaderboard displays only the state-level location of participating
-              classes, without any school, district, teacher, or student identifiers.
-              Leaderboards are only visible to authorized, logged-in users (students and
-              teachers) on our platform.
-            </p>
-
-            <p>
-              The data collected for the Leaderboard is used only for this feature's
-              functionality and is never sold or shared with third parties for marketing
-              or advertising purposes. This feature is completely optional, and teachers
-              have full control and can opt out their class at any time by emailing us.
-              Upon opting out, the class is immediately removed from all Leaderboards,
-              and its data is no longer displayed.
-            </p>
-
-            <h3>20. Questions and Contact Information</h3>
+            <h3>17. Questions and Contact Information</h3>
             <p>If you have questions about how we handle student information, please contact us:</p>
             <ul>
               <li><strong>For School-Based Accounts:</strong> Parents should first contact their child's school or district. You may also contact Slonig directly.</li>
