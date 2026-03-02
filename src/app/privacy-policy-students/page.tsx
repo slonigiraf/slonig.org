@@ -132,7 +132,7 @@ export default async function App() {
               Slonig is designed to collect as little student personal data as possible. Use of&nbsp;
               <strong>app.slonig.org</strong> is anonymous by default.
               In limited cases—such as participation in a randomized controlled trial (RCT) or a
-              school-managed pilot—student personal data may be collected.
+              school-managed pilot—student personal data may be provided to Slonig, Inc. by authorized adults, and processed by Slonig, Inc.
               When that happens, the information is provided to us by teachers, school administrators,
               and/or parents or guardians, and may include: student first and last name, grade level, school name (for school-based accounts),
               and learning results (for example, scores).
@@ -230,7 +230,68 @@ export default async function App() {
               their authorized scope.
             </p>
 
-            <h3>9. Slonig as a School Official Under FERPA</h3>
+            <h3>9. COPPA Notice and Consent (Children Under 13)</h3>
+            <p>
+              The Children’s Online Privacy Protection Act (COPPA) requires specific
+              disclosures and consent when personal information is collected online from
+              children under 13.
+            </p>
+
+            <p>
+              <strong>When Slonig collects student personal information.</strong> Slonig is
+              designed to be anonymous by default. In limited cases—such as a
+              school-managed pilot or a randomized controlled trial (RCT)—authorized adults
+              (for example, a school/district or a parent/guardian) may provide student
+              personal information to Slonig, Inc. (such as a student’s name, grade, school,
+              and learning results).
+            </p>
+
+            <p>
+              <strong>How consent is provided.</strong> When COPPA applies, consent is
+              obtained in one of the following ways, depending on the context:
+            </p>
+            <ul className="list-disc pl-5">
+              <li>
+                <strong>School consent (school-authorized use):</strong> If a school or
+                district provides student information to Slonig for educational use, the
+                school may provide consent on behalf of parents/guardians as permitted under
+                COPPA’s school-consent pathway, and Slonig will use the information only to
+                provide and improve educational services for the school.
+              </li>
+              <li>
+                <strong>Parent/guardian consent (homeschool or direct parent use):</strong>{" "}
+                If a parent/guardian provides student personal information to Slonig outside
+                of a school setting, we will obtain verifiable parental consent or rely on
+                another lawful basis permitted under COPPA before collecting or using that
+                personal information.
+              </li>
+            </ul>
+
+            <p>
+              <strong>Direct notice.</strong> When we need parental consent under COPPA, we
+              provide parents/guardians with COPPA-required notice describing what
+              information we collect, how we use it, whether we share it, and how parents
+              can review or delete the information.
+            </p>
+
+            <p>
+              <strong>Parents can revoke consent.</strong> A parent/guardian may withdraw
+              consent and request deletion of the child’s personal information at any time
+              by contacting us at{" "}
+              <a href="mailto:info@slonig.org">info@slonig.org</a>. If the student uses Slonig
+              through a school, parents/guardians may also contact the school to submit a
+              request through the school.
+            </p>
+
+            <p>
+              <strong>Operator disclosures.</strong> Slonig, Inc. is the operator of the
+              Slonig service. We collect only the personal information described in this
+              Student Privacy Policy (and only in the limited situations described above),
+              we use it solely for educational purposes, and we do not sell student personal
+              information.
+            </p>
+
+            <h3>10. Slonig as a School Official Under FERPA</h3>
             <p>
               When schools and districts use Slonig, we may act as a "school official"
               under the Family Educational Rights and Privacy Act (FERPA). This means:
@@ -262,7 +323,7 @@ export default async function App() {
               use student education records in accordance with FERPA regulations.
             </p>
 
-            <h3>10. How Long We Keep Student Information</h3>
+            <h3>11. How Long We Keep Student Information</h3>
             <p>
               In rare cases—such as participation in a randomized controlled trial (RCT)
               or a school-managed pilot—we may collect a student’s name, surname, grade, school name, and scores.
@@ -294,7 +355,7 @@ export default async function App() {
               before we delete it.
             </p>
 
-            <h3>11. Third-Party Services We Use</h3>
+            <h3>12. Third-Party Services We Use</h3>
             <p>
               To provide our services, we work with trusted third-party service
               providers. These providers may have access to student information only to
@@ -303,7 +364,7 @@ export default async function App() {
               authorized purposes.
             </p>
 
-            <h3>12. Business Transfer</h3>
+            <h3>13. Business Transfer</h3>
             <p>
               In certain circumstances, Slonig may be involved in a business transaction
               such as a merger, acquisition, reorganization, bankruptcy, or sale of
@@ -344,7 +405,7 @@ export default async function App() {
 
             <h3>16. Questions and Contact Information</h3>
             <p>If you have questions about how we handle student information, please contact us:</p>
-            
+
             <p>
               <strong>Contact Information:</strong> Slonig, Inc., 1111B S Governors Ave
               STE 48458 Dover, DE 19904, USA
