@@ -38,11 +38,10 @@ export default async function App() {
             <p>Protecting student privacy is foundational to everything we do.</p>
 
             <p>
-              Slonig holds the iKeepSafe FERPA, COPPA, and California Student Privacy
-              Certification (CSPC) badges and maintains SOC 2 Type 2 compliance. These
-              certifications require independent verification of our privacy practices
-              and security controls, ensuring we meet rigorous standards for protecting
-              student data.
+              Protecting student privacy is foundational to everything we do.
+              Slonig is built to align with FERPA, COPPA, and California Student Privacy expectations, 
+              and we follow SOC 2 Type II security principles. Our privacy and security practices are 
+              designed to protect student data and support school compliance.
             </p>
 
             <h3>Our Approach</h3>
