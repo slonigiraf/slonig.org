@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import { Loader2 } from "lucide-react";
 
 type Props = { onReady?: () => void };
 
@@ -26,15 +25,15 @@ export default function WorkInPairVideo({ onReady }: Props) {
       if (v.readyState >= 2) markReady();
     };
 
-    // ✅ If the video loaded before hydration, catch it here immediately
+    // If the video loaded before hydration, catch it immediately
     checkNow();
 
-    // ✅ Also catch “late” readiness after hydration
+    // Also catch “late” readiness after hydration
     v.addEventListener("loadeddata", checkNow, { passive: true });
     v.addEventListener("canplay", checkNow, { passive: true });
     v.addEventListener("playing", checkNow, { passive: true });
 
-    // ✅ Safety fallback (still keep it)
+    // Safety fallback
     const t = window.setTimeout(() => {
       if (!firedRef.current) markReady();
     }, 8000);
@@ -61,15 +60,14 @@ export default function WorkInPairVideo({ onReady }: Props) {
       <div className="px-10 sm:px-0 md:px-10">
         <div className="relative w-full max-w-4xl mx-auto aspect-video isolate">
           <div className="absolute inset-0 overflow-hidden rounded-2xl bg-black/5">
+            {/* Placeholder image instead of spinner */}
             {!ready && (
-              <div className="absolute inset-0 z-20 grid place-items-center">
-                <div className="flex items-center gap-3 rounded-xl bg-white/80 px-4 py-3 shadow-sm backdrop-blur">
-                  <Loader2 className="h-5 w-5 animate-spin" />
-                  <span className="text-sm font-semibold text-slate-900">
-                    Loading video…
-                  </span>
-                </div>
-              </div>
+              <img
+                src="/work-in-pair.jpg"
+                alt=""
+                aria-hidden="true"
+                className="absolute inset-0 z-20 h-full w-full object-cover"
+              />
             )}
 
             <video
