@@ -52,9 +52,11 @@ export default async function App() {
             <p><strong>We use data solely for educational purposes.</strong></p>
             <p>
               Student information supports learning. It is not used for marketing,
-              advertising, or any commercial activities. Our website contains no
-              third-party advertising and no behavioral tracking of students for
-              advertising or marketing purposes.
+              advertising, or other commercial purposes. We do not show third-party ads
+              in student-facing experiences, and we do not track students across websites
+              or services for advertising (“cross-context behavioral advertising”).
+              We may collect <strong>in-product usage data</strong> (for example, which activities
+              are completed and how the platform performs) to operate, secure, and improve Slonig.
             </p>
 
             <p><strong>We do NOT sell or rent student information.</strong></p>
@@ -71,7 +73,11 @@ export default async function App() {
             </p>
 
             <p><strong>We respect parental and school authority.</strong></p>
-            <p>Parents and schools can access, correct, export, or delete student data at any time.</p>
+            <p>
+              Parents/guardians and schools can request access to, correction of, export of, or deletion of
+              student information that Slonig, Inc. holds, if any. (Most student progress is stored locally
+              on the student’s device by default.)
+            </p>
 
             <p><strong>We comply with applicable privacy laws.</strong></p>
             <p>Our practices adhere to COPPA, FERPA, and state privacy regulations.</p>
@@ -114,16 +120,18 @@ export default async function App() {
             </ul>
 
             <p>
-              Slonig is designed not to collect personal information directly from students.
-              Students do NOT create accounts, and student work and progress are stored locally
-              on the student’s device (including school-provided devices). This data remains
-              on the device and can be removed at any time by clearing the browser cache/storage.
+              Slonig is designed to work <strong>without student-created accounts</strong>.
+              By default, students do not sign up, and most learning progress is stored
+              <strong>locally on the student’s device</strong> (including school-provided devices).
+              Local data can be removed at any time by clearing the browser cache/storage or using
+              the device’s management tools.
             </p>
 
             <p>
-              If any student information is provided to Slonig, Inc., it is provided by
-              authorized adults (such as educators, school administrators, or parents/guardians)
-              who have the right to share that information.
+              In limited cases (for example, a school-managed pilot or a randomized controlled trial (RCT)),
+              an authorized adult (such as a teacher, school administrator, or parent/guardian) may provide
+              student information to Slonig, Inc. If we receive student information, we use it only for
+              the educational purposes described in this policy.
             </p>
 
 
@@ -134,16 +142,18 @@ export default async function App() {
               In limited cases—such as participation in a randomized controlled trial (RCT) or a
               school-managed pilot—student personal data may be provided to Slonig, Inc. by authorized adults, and processed by Slonig, Inc.
               When that happens, the information is provided to us by teachers, school administrators,
-              and/or parents or guardians, and may include: student first and last name, grade level, school name (for school-based accounts),
+              and/or parents or guardians, and may include: student first and last name, grade level, school name,
               and learning results (for example, scores).
             </p>
 
             <p>
-              As students use Slonig to learn and practice, we collect certain technical data and
-              learning/usage data needed to operate, secure, and improve the platform. This may include
-              anonymized or aggregated performance data, an anonymized IP address (for security and
-              technical purposes), browser and device information, and anonymous information about which
-              activities students complete and how they interact with the platform.
+              As students use Slonig, we may collect limited <strong>technical and usage analytics</strong>
+              needed to operate, secure, and improve the platform. This may include aggregated or
+              de-identified performance metrics, security logs (which may include an IP address or a
+              truncated/anonymized form of it, depending on configuration), browser and device information,
+              and in-product usage events (for example, which activities are completed and basic interaction
+              patterns). We do not use this data to advertise to students or to track them across other
+              companies’ websites or apps.
             </p>
 
             <h3>3. How We Use Student Information</h3>
@@ -167,7 +177,7 @@ export default async function App() {
               Student information is shared only with authorized parties who need access
               to provide educational services. The student’s teacher or parent
               can see their progress and performance. School or
-              district administrators (for school-based accounts) may see student
+              district administrators may see student
               information as authorized by the school or district. Slonig employees and
               contractors who need access to provide technical support, improve the
               platform, or fulfill other necessary functions work under strict
@@ -266,15 +276,24 @@ export default async function App() {
 
             <h3>9. Student Rights and Parent/Guardian Rights</h3>
             <p>
-              Parents or guardians have the
-              right to review their child’s information and progress data, request
-              corrections to inaccurate information, request deletion of their child’s
-              account and information, receive a copy of their child’s information, and
-              refuse further collection or use of their child’s information. Parents
-              should contact their child’s school or district to exercise these rights,
-              or they may contact Slonig directly. Teachers and administrators can also
-              help students and parents access and manage student information within
-              their authorized scope.
+              Parents/guardians (and schools, where applicable) can request access to, correction of,
+              export of, or deletion of <strong>student information that Slonig, Inc. holds on its servers</strong>,
+              if any. Because Slonig is designed to work without student-created accounts and stores most
+              learning progress locally on the student’s device by default, in many cases Slonig, Inc. may
+              not have student information to access, export, or delete.
+            </p>
+
+            <p>
+              <strong>Local device data:</strong> If a student’s progress is stored on the device, it can be removed
+              by clearing the browser cache/storage or through device management controls.
+            </p>
+
+            <p>
+              <strong>Server-held data (limited cases):</strong> If a school, district, or parent/guardian provided
+              student information to Slonig, Inc. (for example, for a pilot or RCT), you may request access,
+              correction, export, or deletion by contacting us at{" "}
+              <a href="mailto:info@slonig.org">info@slonig.org</a> (or by contacting the school/district, if the
+              student uses Slonig through a school).
             </p>
 
             <h3>10. COPPA Notice and Consent (Children Under 13)</h3>
@@ -449,8 +468,7 @@ export default async function App() {
             <h3>16. Data Breach Notification</h3>
             <p>
               In the unlikely event of a data breach affecting student information, we
-              will notify the school or district (for school-based accounts) or parents
-              (for homeschool accounts) within 24 hours. The notification will include
+              will notify the school or district or parents within 24 hours. The notification will include
               what information was affected, what happened, and what steps we are taking
               to address the breach and protect student information.
             </p>
