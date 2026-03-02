@@ -413,22 +413,27 @@ export default async function App() {
 
             <h3>14. Business Transfer</h3>
             <p>
-              In certain circumstances, Slonig may be involved in a business transaction
-              such as a merger, acquisition, reorganization, bankruptcy, or sale of
-              assets. In such events, we may transfer or share student information in
-              connection with the transaction. Your consent to this Student Privacy
-              Policy, followed by the submission of student information by authorized
-              parties (teachers, administrators, or parents), represents explicit
-              agreement to such transfer.
+              In certain circumstances, Slonig may be involved in a business transaction such as a
+              merger, acquisition, reorganization, bankruptcy, or sale of assets. If that happens,
+              we may transfer student information as part of the transaction{" "}
+              <strong>only as permitted by applicable law</strong> and (where relevant){" "}
+              <strong>our agreements with schools and districts</strong>.
             </p>
 
             <p>
-              In the event of any business transfer, the acquiring party will be
-              required to continue protecting student information in accordance with
-              this Student Privacy Policy and all applicable privacy laws, including
-              FERPA and COPPA. We will provide notice to schools, districts, and parents
-              before any transfer of student information occurs and will ensure that the
-              same privacy protections remain in place.
+              <strong>Protection carries over.</strong> Any acquiring organization must continue to
+              protect student information in a manner consistent with this Student Privacy Policy
+              and applicable student privacy laws (including COPPA, FERPA, and SOPIPA), and may use
+              student information only for the same educational purposes described in this policy,
+              unless and until we provide any required notices and obtain any required consents.
+            </p>
+
+            <p>
+              <strong>Notice.</strong> We will provide notice to schools and districts (and, where
+              applicable, parents/guardians) about a business transfer involving student information
+              as required by law and/or our contractual commitments. If the transaction would result
+              in materially different privacy practices for student information, we will provide
+              additional notice and obtain any required consent before applying those changes.
             </p>
 
 
