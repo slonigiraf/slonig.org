@@ -129,39 +129,29 @@ export default async function App() {
 
             <h3>2. What Information Do We Have About Students?</h3>
             <p>
-              Slonig is designed to collect as little student personal data as possible. Use of
+              Slonig is designed to collect as little student personal data as possible. Use of&nbsp;
               <strong>app.slonig.org</strong> is anonymous by default.
               In limited cases—such as participation in a randomized controlled trial (RCT) or a
               school-managed pilot—student personal data may be collected.
               When that happens, the information is provided to us by teachers, school administrators,
-              and/or parents or guardians, and may include:
+              and/or parents or guardians, and may include: student first and last name, grade level, school name (for school-based accounts),
+              and learning results (for example, scores).
             </p>
 
-            <ul>
-              <li>
-                <strong>Information Provided by Teachers, School Administrators, or Parents/Guardians:</strong>
-                student first and last name, grade level, school name (for school-based accounts),
-                and learning results (for example, scores).
-              </li>
-
-              <li>
-                <strong>Information Collected Automatically During Platform Use:</strong>
-                as students use Slonig to learn and practice, we collect certain technical data and
-                learning/usage data needed to operate, secure, and improve the platform. This may include
-                anonymized or aggregated performance data, an anonymized IP address (for security and
-                technical purposes), browser and device information, and anonymous information about which
-                activities students complete and how they interact with the platform.
-              </li>
-            </ul>
+            <p>
+              As students use Slonig to learn and practice, we collect certain technical data and
+              learning/usage data needed to operate, secure, and improve the platform. This may include
+              anonymized or aggregated performance data, an anonymized IP address (for security and
+              technical purposes), browser and device information, and anonymous information about which
+              activities students complete and how they interact with the platform.
+            </p>
 
             <h3>3. How We Use Student Information</h3>
             <p>
               We use student information only for educational purposes to help students
               study effectively. Specifically, we use student information to personalize learning experiences
-              and adapt activities to each student's level, track student progress and
-              generate reports for teachers and parents, improve our educational content
-              and curriculum, ensure the platform works properly and securely, and
-              comply with legal obligations.
+              and improve our educational content and curriculum, ensure the platform works properly and securely, 
+              and comply with legal obligations.
             </p>
 
             <p>
@@ -175,7 +165,7 @@ export default async function App() {
             <h3>4. Who Can See Student Information?</h3>
             <p>
               Student information is shared only with authorized parties who need access
-              to provide educational services. The student's teacher or parent
+              to provide educational services. The student’s teacher or parent
               can see their progress and performance. School or
               district administrators (for school-based accounts) may see student
               information as authorized by the school or district. Slonig employees and
@@ -202,7 +192,7 @@ export default async function App() {
             <h3>6. How We Protect Student Information</h3>
             <p>
               We take the security of student information very seriously and use
-              industry-standard safeguards to protect it. Our security measures include
+              industry-standard safeguards to protect it. Our security measures may include
               encryption of data both when it is stored and when it is transmitted,
               secure passwords and authentication systems, limited access to student
               data ensuring only authorized personnel can access student information,
@@ -220,16 +210,12 @@ export default async function App() {
               Beyond technical security measures, we have designed our website and
               platform with specific safeguards to protect students while they learn.
             </p>
-
-            <p><strong>Private Learning Environment:</strong></p>
             <p>
-              Slonig provides a private, focused learning environment where students
-              interact only with educational content. Students cannot
+              Slonig provides a private, focused learning environment. Students cannot
               message, chat with, or communicate with other students through Slonig.
               Students cannot see other students' profiles, progress, or
               personal information.
             </p>
-
 
             <h3>8. Student Rights and Parent/Guardian Rights</h3>
             <p>
@@ -250,19 +236,19 @@ export default async function App() {
               under the Family Educational Rights and Privacy Act (FERPA). This means:
             </p>
 
-            <p><strong>Our Role:</strong> Slonig performs institutional services and functions 
-            that the school would otherwise perform itself, specifically providing educational 
-            technology services and learning analytics.</p>
-            <p><strong>Legitimate Educational Interest:</strong> We access student education 
-            records only to fulfill our specific responsibilities in providing the Slonig learning 
-            platform and supporting student learning outcomes.</p>
+            <p><strong>Our Role:</strong> Slonig performs institutional services and functions
+              that the school would otherwise perform itself, specifically providing educational
+              technology services and learning analytics.</p>
+            <p><strong>Legitimate Educational Interest:</strong> We access student education
+              records only to fulfill our specific responsibilities in providing the Slonig learning
+              platform and supporting student learning outcomes.</p>
 
-            <p><strong>Direct Control:</strong> Schools and districts maintain direct control 
-            over our use of student education records. We use student information only as directed 
-            by the school and in accordance with our service agreement.</p>
+            <p><strong>Direct Control:</strong> Schools and districts maintain direct control
+              over our use of student education records. We use student information only as directed
+              by the school and in accordance with our service agreement.</p>
 
-            <p><strong>FERPA Compliance:</strong> We comply with FERPA's requirements applicable 
-            to school officials, including:</p>
+            <p><strong>FERPA Compliance:</strong> We comply with FERPA's requirements applicable
+              to school officials, including:</p>
             <ul>
               <li>Using student information only for authorized educational purposes</li>
               <li>Not re-disclosing student information without proper authorization</li>
@@ -347,7 +333,7 @@ export default async function App() {
               same privacy protections remain in place.
             </p>
 
-           
+
             <h3>14. Changes to This Policy</h3>
             <p>
               We may update this Student Privacy Policy from time to time. When we make
@@ -366,7 +352,7 @@ export default async function App() {
               to address the breach and protect student information.
             </p>
 
-            
+
 
             <h3>17. Questions and Contact Information</h3>
             <p>If you have questions about how we handle student information, please contact us:</p>
