@@ -152,6 +152,117 @@ export default async function App() {
               <li>Send service announcements and important updates</li>
             </ul>
 
+            <h4>5.1 Legal Bases and Retention</h4>
+            <p>
+              If you are in the EU/EEA or the UK, we rely on the following legal bases under
+              GDPR/UK GDPR to process Personal Information. We keep data only as long as
+              necessary for the purposes described below, unless a longer period is required
+              by law (e.g., record-keeping obligations) or needed to establish, exercise, or
+              defend legal claims.
+            </p>
+
+            <div className="not-prose mt-4 overflow-x-auto rounded-xl border border-slate-200">
+              <table className="w-full min-w-[820px] text-left text-sm">
+                <thead className="bg-slate-50">
+                  <tr className="text-slate-900">
+                    <th className="px-4 py-3 font-semibold">Purpose</th>
+                    <th className="px-4 py-3 font-semibold">Data</th>
+                    <th className="px-4 py-3 font-semibold">Legal basis</th>
+                    <th className="px-4 py-3 font-semibold">Typical retention</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-200 bg-white">
+                  <tr>
+                    <td className="px-4 py-3 align-top">
+                      Provide requested services and respond to inquiries
+                    </td>
+                    <td className="px-4 py-3 align-top">
+                      Name, email, school/district, role; messages you send us
+                    </td>
+                    <td className="px-4 py-3 align-top">
+                      Contract / steps prior to entering a contract; Legitimate interests
+                      (customer support)
+                    </td>
+                    <td className="px-4 py-3 align-top">
+                      While we are actively working with you, then typically up to{" "}
+                      <strong>24 months</strong> after last interaction (or earlier upon request),
+                      unless required longer for legal reasons
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td className="px-4 py-3 align-top">
+                      Operate, secure, troubleshoot, and prevent abuse
+                    </td>
+                    <td className="px-4 py-3 align-top">
+                      Masked/anonymized IP, device/browser info, timestamps, pages/features used,
+                      security events
+                    </td>
+                    <td className="px-4 py-3 align-top">
+                      Legitimate interests (security, fraud prevention, service reliability)
+                    </td>
+                    <td className="px-4 py-3 align-top">
+                      Security logs typically{" "}
+                      <strong>30–180 days</strong> (longer only if needed to investigate an
+                      incident or comply with law)
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td className="px-4 py-3 align-top">Website analytics (where enabled)</td>
+                    <td className="px-4 py-3 align-top">
+                      Usage events, masked/anonymized IP, approximate location derived from IP,
+                      device/browser info
+                    </td>
+                    <td className="px-4 py-3 align-top">
+                      Legitimate interests (improving the site) or Consent (where required)
+                    </td>
+                    <td className="px-4 py-3 align-top">
+                      Typically up to <strong>13 months</strong> for analytics logs/events, then
+                      aggregated statistics may be kept longer
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td className="px-4 py-3 align-top">
+                      Send invitations/referrals initiated by an Educator
+                    </td>
+                    <td className="px-4 py-3 align-top">Colleague email (and optional name)</td>
+                    <td className="px-4 py-3 align-top">
+                      Legitimate interests (sending a requested invitation) / Consent (where required)
+                    </td>
+                    <td className="px-4 py-3 align-top">
+                      Invitation records typically <strong>30–90 days</strong>, then deleted or
+                      de-identified
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td className="px-4 py-3 align-top">
+                      Marketing to Educators/Parents (not to children)
+                    </td>
+                    <td className="px-4 py-3 align-top">
+                      Name, email, school/district, role, preferences (e.g., unsubscribe status)
+                    </td>
+                    <td className="px-4 py-3 align-top">
+                      Legitimate interests (B2B outreach) or Consent (where required)
+                    </td>
+                    <td className="px-4 py-3 align-top">
+                      Until you unsubscribe, then we keep a minimal suppression record to honor
+                      your opt-out (typically <strong>as long as needed</strong> to prevent
+                      re-contact)
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <p className="mt-4">
+              <strong>Note:</strong> Retention can vary based on contracts with schools/districts,
+              legal obligations, and operational needs. Where feasible, we delete or anonymize data
+              when it is no longer needed.
+            </p>
+
             <h3>6. How We Protect Personal Information</h3>
             <p>
               We may use administrative, technical, and organizational safeguards designed to protect Personal Information
