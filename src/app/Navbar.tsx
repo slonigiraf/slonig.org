@@ -13,15 +13,15 @@ type Props = {
   indexPage?: boolean;
 };
 
-const NAVBAR_H = 64; // h-16
 const PENDING_HASH_KEY = "slonig_pending_nav_hash";
 
 export const Navbar: React.FC<Props> = ({ indexPage }) => {
-  const pathname = usePathname(); // ✅ updates on route change in App Router
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const pathname = usePathname();
+  const effectiveIndexPage = indexPage ?? pathname === "/";
 
-  // Effective index-page detection that updates on route change
-  const effectiveIndexPage = indexPage ?? (pathname === "/");
+  const navRef = useRef<HTMLElement | null>(null);
+
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   // Portal root set only on client (prevents hydration issues)
   const [portalRoot, setPortalRoot] = useState<HTMLElement | null>(null);
@@ -30,8 +30,35 @@ export const Navbar: React.FC<Props> = ({ indexPage }) => {
   const panelRef = useRef<HTMLDivElement | null>(null);
   const [panelH, setPanelH] = useState(0);
 
+  // Keep navbar height updated (real height, not a guess)
+  const navbarHRef = useRef(64);
+
+  // Cancel/override previous scroll attempts when user clicks again
+  const scrollTokenRef = useRef(0);
+
   useEffect(() => {
     setPortalRoot(document.body);
+  }, []);
+
+  useEffect(() => {
+    const el = navRef.current;
+    if (!el) return;
+
+    const update = () => {
+      const h = Math.round(el.getBoundingClientRect().height || 64);
+      navbarHRef.current = h;
+    };
+
+    update();
+
+    const ro = new ResizeObserver(update);
+    ro.observe(el);
+
+    window.addEventListener("resize", update);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener("resize", update);
+    };
   }, []);
 
   const closeMobile = useCallback(() => setMobileOpen(false), []);
@@ -41,43 +68,97 @@ export const Navbar: React.FC<Props> = ({ indexPage }) => {
     setMobileOpen(true);
   }, []);
 
-  const scrollToWithOffset = useCallback((el: HTMLElement) => {
-    const rect = el.getBoundingClientRect();
-    const y = rect.top + window.scrollY - NAVBAR_H;
+  const stopAnyOngoingSmoothScroll = () => {
+    // A common trick: an "auto" scroll to current Y interrupts smooth scrolling in many browsers.
+    window.scrollTo({ top: window.scrollY, behavior: "auto" });
+  };
 
-    window.scrollTo({
-      top: Math.max(0, y),
-      behavior: "smooth",
-    });
-  }, []);
+  /**
+   * Robust offset scrolling:
+   * - waits until the computed target Y is stable for a few frames (layout shifts done)
+   * - cancels any previous attempt via token
+   * - does a small correction shortly after if something shifted
+   */
+  const scrollToHashWithOffsetStable = useCallback((hash: string) => {
+    const token = ++scrollTokenRef.current;
 
-  const performScroll = useCallback(
-    (hash: string) => {
-      if (hash === "#top" || hash === "" || hash === "#") {
-        window.scrollTo({ top: 0, behavior: "smooth" });
+    const goTop = () => {
+      stopAnyOngoingSmoothScroll();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    };
+
+    if (!hash || hash === "#top" || hash === "#") {
+      goTop();
+      return;
+    }
+
+    const id = hash.startsWith("#") ? hash.slice(1) : hash;
+
+    stopAnyOngoingSmoothScroll();
+
+    let tries = 0;
+    const maxTries = 180; // ~3s @60fps (covers route+hydration+font/video shifts)
+    let stableCount = 0;
+    let lastY: number | null = null;
+
+    const computeY = (el: HTMLElement) => {
+      const navbarH = navbarHRef.current || 64;
+      const rect = el.getBoundingClientRect();
+      return Math.max(0, rect.top + window.scrollY - navbarH);
+    };
+
+    const tick = () => {
+      // aborted by a newer scroll request
+      if (token !== scrollTokenRef.current) return;
+
+      const el = document.getElementById(id);
+      if (!el) {
+        tries += 1;
+        if (tries < maxTries) requestAnimationFrame(tick);
         return;
       }
 
-      const id = hash.startsWith("#") ? hash.slice(1) : hash;
+      const y = computeY(el);
 
-      // Sections might not exist immediately; retry a few frames.
-      let tries = 0;
-      const maxTries = 90; // ~1.5s at 60fps
+      // Stability check: target Y stops changing (layout settled)
+      if (lastY !== null && Math.abs(y - lastY) < 1) {
+        stableCount += 1;
+      } else {
+        stableCount = 0;
+      }
+      lastY = y;
 
-      const tick = () => {
-        const el = document.getElementById(id);
-        if (el) {
-          scrollToWithOffset(el);
-          return;
-        }
-        tries += 1;
-        if (tries < maxTries) requestAnimationFrame(tick);
-      };
+      if (stableCount >= 3) {
+        // Final smooth scroll to stable target
+        stopAnyOngoingSmoothScroll();
+        window.scrollTo({ top: y, behavior: "smooth" });
 
-      requestAnimationFrame(tick);
-    },
-    [scrollToWithOffset]
-  );
+        // Optional correction after a short delay (if something still shifted)
+        // Keep it gentle: only correct if we're clearly off.
+        window.setTimeout(() => {
+          if (token !== scrollTokenRef.current) return;
+          const el2 = document.getElementById(id);
+          if (!el2) return;
+
+          const y2 = computeY(el2);
+          const offBy = Math.abs(window.scrollY - y2);
+
+          if (offBy > 4) {
+            // Use auto to "snap" exactly without a second animation
+            window.scrollTo({ top: y2, behavior: "auto" });
+          }
+        }, 450);
+
+        return;
+      }
+
+      tries += 1;
+      if (tries < maxTries) requestAnimationFrame(tick);
+    };
+
+    // double rAF helps after route changes: lets browser apply scroll restoration / initial layout
+    requestAnimationFrame(() => requestAnimationFrame(tick));
+  }, []);
 
   const navTo = useCallback(
     (hash: string) => (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -88,39 +169,33 @@ export const Navbar: React.FC<Props> = ({ indexPage }) => {
       if (!effectiveIndexPage) {
         try {
           sessionStorage.setItem(PENDING_HASH_KEY, hash);
-        } catch {
-          // ignore
-        }
-        window.location.assign(`/${hash}`); // "/#roi"
+        } catch {}
+        window.location.assign(`/${hash}`); // full navigation
         return;
       }
 
-      // On index page -> smooth scroll now
-      performScroll(hash);
+      // On index page -> robust offset scroll now
+      scrollToHashWithOffsetStable(hash);
     },
-    [closeMobile, effectiveIndexPage, performScroll]
+    [closeMobile, effectiveIndexPage, scrollToHashWithOffsetStable]
   );
 
-  // ✅ Key fix for layout.tsx:
-  // Run when route changes; when we land on "/", consume pending hash and scroll.
+  // ✅ layout.tsx: Navbar persists; react to route changes when we land on "/"
   useEffect(() => {
     if (typeof window === "undefined") return;
     if (pathname !== "/") return;
 
     let pending: string | null = null;
-
     try {
       pending = sessionStorage.getItem(PENDING_HASH_KEY);
       if (pending) sessionStorage.removeItem(PENDING_HASH_KEY);
-    } catch {
-      // ignore
-    }
+    } catch {}
 
     const target = pending || window.location.hash;
     if (!target) return;
 
-    performScroll(target);
-  }, [pathname, performScroll]);
+    scrollToHashWithOffsetStable(target);
+  }, [pathname, scrollToHashWithOffsetStable]);
 
   // Lock background scroll when mobile menu is open
   useEffect(() => {
@@ -172,7 +247,10 @@ export const Navbar: React.FC<Props> = ({ indexPage }) => {
   }, [mobileOpen]);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 w-full bg-white backdrop-blur-md border-b border-slate-200">
+    <nav
+      ref={navRef as any}
+      className="fixed top-0 left-0 right-0 z-50 w-full bg-white backdrop-blur-md border-b border-slate-200"
+    >
       {/* Navbar row */}
       <div className="flex h-16 items-center justify-between px-6 py-2">
         {/* Brand */}
@@ -207,11 +285,19 @@ export const Navbar: React.FC<Props> = ({ indexPage }) => {
           >
             Curriculum
           </a>
-          <a href="/#roi" className="hover:text-blue-900" onClick={navTo("#roi")}>
+          <a
+            href="/#roi"
+            className="hover:text-blue-900"
+            onClick={navTo("#roi")}
+          >
             ROI
           </a>
 
-          <RequestDemo expanded={false} id={"navbar-button"} caption={"Request a Demo"} />
+          <RequestDemo
+            expanded={false}
+            id={"navbar-button"}
+            caption={"Request a Demo"}
+          />
         </div>
 
         {/* Mobile toggle */}
@@ -251,11 +337,26 @@ export const Navbar: React.FC<Props> = ({ indexPage }) => {
                     >
                       Efficacy
                     </a>
-                    <a href="/#roi" className="hover:text-blue-900" onClick={navTo("#roi")}>
+                    <a
+                      href="/#curriculum"
+                      className="hover:text-blue-900"
+                      onClick={navTo("#curriculum")}
+                    >
+                      Curriculum
+                    </a>
+                    <a
+                      href="/#roi"
+                      className="hover:text-blue-900"
+                      onClick={navTo("#roi")}
+                    >
                       ROI
                     </a>
 
-                    <RequestDemo expanded={false} id={"navbar-button"} caption={"Request a Demo"} />
+                    <RequestDemo
+                      expanded={false}
+                      id={"navbar-button"}
+                      caption={"Request a Demo"}
+                    />
                   </div>
                 </div>
               </div>
