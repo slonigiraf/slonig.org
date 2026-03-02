@@ -1,9 +1,8 @@
 import Navbar from "../Navbar";
-import Footer from "../Footer";
 
 export default async function App() {
   return (
-    <main className="min-h-screen font-sans selection:bg-blue-100 selection:text-blue-900">
+    <>
       <Navbar />
       {/* Policy content */}
       <section className="mx-auto w-full max-w-4xl pt-24 px-6 text-slate-900 pb-10">
@@ -241,8 +240,6 @@ export default async function App() {
           </div>
         </div>
       </section>
-
-      <Footer />
-    </main>
+    </>
   );
 }
