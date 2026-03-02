@@ -6,81 +6,81 @@ type Props = { onReady?: () => void };
 
 export default function WorkInPairVideo({ onReady }: Props) {
   const firedRef = useRef(false);
+
   const videoRef = useRef<HTMLVideoElement | null>(null);
+  const posterRef = useRef<HTMLImageElement | null>(null);
 
-  // "ready" = we can let parent gate continue
-  const [ready, setReady] = useState(false);
-
-  // "isPlaying" = we have high confidence the video is actually rendering frames
   const [isPlaying, setIsPlaying] = useState(false);
 
   const markReady = () => {
     if (firedRef.current) return;
     firedRef.current = true;
-    setReady(true);
     onReady?.();
   };
 
+  // ✅ READY is driven by /work-in-pair.jpg being already loaded OR loading after mount
+  useEffect(() => {
+    const img = posterRef.current;
+    if (!img) return;
+
+    const checkNow = () => {
+      // naturalWidth>0 distinguishes "loaded" vs "broken"
+      if (img.complete) {
+        markReady(); // either loaded or failed; don't hang
+      }
+    };
+
+    checkNow();
+
+    // In case the browser fires load after mount
+    const onLoad = () => markReady();
+    const onError = () => markReady();
+
+    img.addEventListener("load", onLoad, { passive: true });
+    img.addEventListener("error", onError);
+
+    return () => {
+      img.removeEventListener("load", onLoad);
+      img.removeEventListener("error", onError);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // Video: only controls fade placeholder -> video
   useEffect(() => {
     const v = videoRef.current;
     if (!v) return;
 
-    let t: number | undefined;
     let rafId: number | undefined;
 
-    const markRendering = () => {
-      setIsPlaying(true);
-      markReady();
-    };
+    const markRendering = () => setIsPlaying(true);
 
     const tryRVFC = () => {
-      // Prefer "first rendered frame" signal when available
       const anyV = v as any;
       if (typeof anyV.requestVideoFrameCallback === "function") {
-        anyV.requestVideoFrameCallback(() => {
-          markRendering();
-        });
+        anyV.requestVideoFrameCallback(() => markRendering());
         return true;
       }
       return false;
     };
 
-    const onPlaying = () => {
-      // If RVFC exists we still keep this as a backup; if not, it’s our signal.
-      if (!isPlaying) markRendering();
-    };
+    const onPlaying = () => markRendering();
+    const onError = () => setIsPlaying(false);
 
-    const onError = () => {
-      // If the video fails, don't hang: reveal placeholder and let parent continue.
-      setIsPlaying(true);
-      markReady();
-    };
-
-    // Start listening early
     v.addEventListener("playing", onPlaying, { passive: true });
     v.addEventListener("error", onError);
 
-    // If autoplay already kicked in before hydration, catch it
     if (!tryRVFC()) {
       if (!v.paused && !v.ended) {
-        // Give the browser one paint to avoid toggling during layout
         rafId = window.requestAnimationFrame(() => markRendering());
       }
     }
 
-    // Safety fallback
-    t = window.setTimeout(() => {
-      setIsPlaying(true);
-      markReady();
-    }, 8000);
-
     return () => {
-      if (t) window.clearTimeout(t);
       if (rafId) window.cancelAnimationFrame(rafId);
       v.removeEventListener("playing", onPlaying);
       v.removeEventListener("error", onError);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -96,8 +96,8 @@ export default function WorkInPairVideo({ onReady }: Props) {
       <div className="px-10 sm:px-0 md:px-10">
         <div className="relative w-full max-w-4xl mx-auto aspect-video isolate">
           <div className="absolute inset-0 overflow-hidden rounded-2xl bg-black">
-            {/* Placeholder stays visible until we know frames are rendering */}
             <img
+              ref={posterRef}
               src="/work-in-pair.jpg"
               alt=""
               aria-hidden="true"
@@ -106,6 +106,10 @@ export default function WorkInPairVideo({ onReady }: Props) {
                 "transition-opacity duration-300",
                 isPlaying ? "opacity-0" : "opacity-100",
               ].join(" ")}
+              // keep these too (they'll fire in non-cached cases)
+              onLoad={markReady}
+              onError={markReady}
+              decoding="async"
             />
 
             <video
@@ -122,11 +126,7 @@ export default function WorkInPairVideo({ onReady }: Props) {
               playsInline
               preload="auto"
               aria-label="Students work in pairs using Slonig"
-              // do NOT use onLoadedData/onCanPlay to flip; those can cause the blink
-              onError={() => {
-                setIsPlaying(true);
-                markReady();
-              }}
+              onError={() => setIsPlaying(false)}
             />
           </div>
 
