@@ -319,7 +319,16 @@ export default async function App() {
               most relevant to the services provided. Some school/district agreements may include additional terms.
             </p>
 
-            <h3>15. Contact Us</h3>
+            <h3>15. International Data Transfers</h3>
+            <p>
+              <strong>We do not intentionally transfer EU/UK personal data to the U.S.</strong>{" "}
+              If access or processing outside the EU/UK occurs (for example, support access), we apply appropriate safeguards required by law.{" "}
+            </p>
+            <p>
+              Data may be processed in the EU and, where necessary for support and operations, in other countries depending on where our staff and service providers are located.
+            </p>
+
+            <h3>16. Contact Us</h3>
             <p>If you have questions or requests about this Privacy Policy, contact us:</p>
             <p>
               <strong>Email:</strong> info@slonig.org
