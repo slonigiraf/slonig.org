@@ -94,7 +94,7 @@ export default async function App() {
 
             <p>
               Slonig, Inc. is committed to protecting student privacy and complying with
-              all applicable laws, including the Children's Online Privacy Protection
+              all applicable laws, including the Children’s Online Privacy Protection
               Act (COPPA) and the Family Educational Rights and Privacy Act (FERPA).
             </p>
 
@@ -213,18 +213,18 @@ export default async function App() {
             <p>
               Slonig provides a private, focused learning environment. Students cannot
               message, chat with, or communicate with other students through Slonig.
-              Students cannot see other students' profiles, progress, or
+              Students cannot see other students’ profiles, progress, or
               personal information.
             </p>
 
             <h3>8. Student Rights and Parent/Guardian Rights</h3>
             <p>
               Parents or guardians have the
-              right to review their child's information and progress data, request
-              corrections to inaccurate information, request deletion of their child's
-              account and information, receive a copy of their child's information, and
-              refuse further collection or use of their child's information. Parents
-              should contact their child's school or district to exercise these rights,
+              right to review their child’s information and progress data, request
+              corrections to inaccurate information, request deletion of their child’s
+              account and information, receive a copy of their child’s information, and
+              refuse further collection or use of their child’s information. Parents
+              should contact their child’s school or district to exercise these rights,
               or they may contact Slonig directly. Teachers and administrators can also
               help students and parents access and manage student information within
               their authorized scope.
@@ -247,7 +247,7 @@ export default async function App() {
               over our use of student education records. We use student information only as directed
               by the school and in accordance with our service agreement.</p>
 
-            <p><strong>FERPA Compliance:</strong> We comply with FERPA's requirements applicable
+            <p><strong>FERPA Compliance:</strong> We comply with FERPA’s requirements applicable
               to school officials, including:</p>
             <ul>
               <li>Using student information only for authorized educational purposes</li>
