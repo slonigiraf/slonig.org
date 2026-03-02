@@ -254,7 +254,7 @@ export const Navbar: React.FC<Props> = ({ indexPage }) => {
         </a>
 
         <div className="hidden lg:flex gap-12 items-center text-lg font-bold text-[var(--secondary-color)]">
-          <a href="/#how_it_works" className="hover:text-blue-900" onClick={navTo("#how_it_works")}>
+          <a href="/#how-it-works" className="hover:text-blue-900" onClick={navTo("#how-it-works")}>
             How It Works
           </a>
           <a href="/#efficacy" className="hover:text-blue-900" onClick={navTo("#efficacy")}>
@@ -290,7 +290,7 @@ export const Navbar: React.FC<Props> = ({ indexPage }) => {
               >
                 <div className="mx-auto max-w-7xl px-6 py-4">
                   <div className="mt-4 flex flex-col gap-4 text-base font-semibold text-[var(--secondary-color)]">
-                    <a href="/#how_it_works" className="hover:text-blue-900" onClick={navTo("#how_it_works")}>
+                    <a href="/#how-it-works" className="hover:text-blue-900" onClick={navTo("#how-it-works")}>
                       How It Works
                     </a>
                     <a href="/#efficacy" className="hover:text-blue-900" onClick={navTo("#efficacy")}>
