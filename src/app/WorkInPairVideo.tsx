@@ -1,19 +1,6 @@
 type Props = {};
 
 export default function WorkInPairVideo({}: Props) {
-  const videoId = "z0oQM6yRUmY";
-
-  const src =
-    `https://www.youtube-nocookie.com/embed/${videoId}` +
-    `?autoplay=1` +
-    `&mute=1` +
-    `&loop=1` +
-    `&playlist=${videoId}` +
-    `&controls=0` +
-    `&modestbranding=1` +
-    `&rel=0` +
-    `&playsinline=1`;
-
   return (
     <div className="relative w-full">
       <div
@@ -28,12 +15,15 @@ export default function WorkInPairVideo({}: Props) {
       <div className="px-10 sm:px-0 md:px-10">
         <div className="relative w-full max-w-4xl mx-auto aspect-video isolate">
           <div className="absolute inset-0 overflow-hidden rounded-2xl">
-            <iframe
-              className="absolute inset-0 h-full w-full"
-              src={src}
-              title="Students work in pairs using Slonig"
-              allow="autoplay; encrypted-media; picture-in-picture"
-              allowFullScreen
+            <video
+              className="absolute inset-0 h-full w-full object-cover"
+              src="/work_in_pair.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              aria-label="Students work in pairs using Slonig"
             />
           </div>
 
