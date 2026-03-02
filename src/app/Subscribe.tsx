@@ -1,15 +1,15 @@
 "use client";
 
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { Loader2, AlertCircle } from "lucide-react";
-import "altcha";
 
 type Props = {
   id: string;
   caption: string;
 };
 
-type AltchaState = "unverified" | "verifying" | "verified" | "error";
+// ALTCHA can also emit "expired"
+type AltchaState = "unverified" | "verifying" | "verified" | "error" | "expired";
 
 export default function Subscribe({ id, caption }: Props) {
   const [form, setForm] = useState({ name: "", email: "" });
@@ -20,37 +20,146 @@ export default function Subscribe({ id, caption }: Props) {
 
   // ALTCHA
   const altchaId = useMemo(() => `${id}-altcha`, [id]);
+  const altchaRef = useRef<HTMLElement | null>(null);
+
+  const [altchaLoaded, setAltchaLoaded] = useState(false);
   const [altchaState, setAltchaState] = useState<AltchaState>("unverified");
   const [altchaPayload, setAltchaPayload] = useState<string>("");
 
   useEffect(() => {
-    if (typeof window !== "undefined") setPage(window.location.pathname);
+    setPage(window.location.pathname);
   }, []);
 
-  // Listen to widget state changes and grab payload when verified.
+  // ✅ Load ALTCHA only in browser (prevents "customElements is not defined")
   useEffect(() => {
-    const el = document.getElementById(altchaId) as any | null;
-    if (!el) return;
+    let cancelled = false;
+
+    (async () => {
+      try {
+        await import("altcha");
+        if (cancelled) return;
+        console.log("[ALTCHA] module imported");
+        setAltchaLoaded(true);
+      } catch (e) {
+        console.error("[ALTCHA] failed to import", e);
+        if (cancelled) return;
+        setAltchaLoaded(false);
+        setAltchaState("error");
+        setAltchaPayload("");
+      }
+    })();
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  // ✅ Attach ALTCHA listeners via ref (most reliable) + verbose logs
+  useEffect(() => {
+    if (!altchaLoaded) return;
+
+    const el = altchaRef.current;
+    if (!el) {
+      console.warn("[ALTCHA] ref is null (widget not mounted yet)");
+      return;
+    }
+
+    const readHiddenInput = () => {
+      // ALTCHA typically injects <input name="altcha" ...> inside/near the widget
+      const input =
+        (el.querySelector('input[name="altcha"]') as HTMLInputElement | null) ||
+        (document.querySelector(
+          `#${CSS.escape(altchaId)} input[name="altcha"]`
+        ) as HTMLInputElement | null) ||
+        (document.querySelector(
+          `form#${CSS.escape(id)} input[name="altcha"]`
+        ) as HTMLInputElement | null);
+
+      return input?.value || "";
+    };
+
+    const log = (name: string, ev?: any) => {
+      console.log(`[ALTCHA] ${name}`, ev?.detail ?? "");
+    };
+
+    const onLoad = (ev: any) => {
+      log("load", ev);
+      const existing = readHiddenInput();
+      if (existing) {
+        setAltchaState("verified");
+        setAltchaPayload(existing);
+      }
+    };
 
     const onStateChange = (ev: any) => {
+      log("statechange", ev);
+
       const state = ev?.detail?.state as AltchaState | undefined;
       const payload = ev?.detail?.payload as string | undefined;
 
       if (state) setAltchaState(state);
 
-      if (state === "verified" && typeof payload === "string" && payload.length > 0) {
-        setAltchaPayload(payload);
-      }
-
-      // If it becomes unverified/error again, clear payload
-      if (state !== "verified") {
+      if (state === "verified") {
+        const p =
+          (typeof payload === "string" && payload.length > 0 && payload) ||
+          readHiddenInput();
+        setAltchaPayload(p || "");
+      } else {
         setAltchaPayload("");
       }
     };
 
-    el.addEventListener("statechange", onStateChange);
-    return () => el.removeEventListener("statechange", onStateChange);
-  }, [altchaId]);
+    const onVerified = (ev: any) => {
+      log("verified", ev);
+      setAltchaState("verified");
+
+      const p =
+        ev?.detail?.payload ||
+        ev?.detail?.solution ||
+        ev?.detail?.token ||
+        "";
+
+      const payload =
+        (typeof p === "string" && p.length > 0 ? p : readHiddenInput()) || "";
+
+      setAltchaPayload(payload);
+    };
+
+    const onError = (ev: any) => {
+      log("error", ev);
+      setAltchaState("error");
+      setAltchaPayload("");
+    };
+
+    const onExpired = (ev: any) => {
+      log("expired", ev);
+      setAltchaState("expired");
+      setAltchaPayload("");
+    };
+
+    el.addEventListener("load", onLoad as any);
+    el.addEventListener("statechange", onStateChange as any);
+    el.addEventListener("verified", onVerified as any);
+    el.addEventListener("error", onError as any);
+    el.addEventListener("expired", onExpired as any);
+
+    console.log("[ALTCHA] listeners attached", el);
+
+    // If it verified before listeners attached (rare), still pick it up:
+    const existing = readHiddenInput();
+    if (existing) {
+      setAltchaState("verified");
+      setAltchaPayload(existing);
+    }
+
+    return () => {
+      el.removeEventListener("load", onLoad as any);
+      el.removeEventListener("statechange", onStateChange as any);
+      el.removeEventListener("verified", onVerified as any);
+      el.removeEventListener("error", onError as any);
+      el.removeEventListener("expired", onExpired as any);
+    };
+  }, [altchaLoaded, altchaId, id]);
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -75,7 +184,6 @@ export default function Subscribe({ id, caption }: Props) {
         return;
       }
 
-      // Require ALTCHA verification
       if (altchaState !== "verified" || !altchaPayload) {
         setErrorText("Please complete the verification.");
         return;
@@ -86,19 +194,26 @@ export default function Subscribe({ id, caption }: Props) {
         email: form.email,
         form_id: id,
         page,
-        altcha: altchaPayload, // ✅ submit base64 payload
+        altcha: altchaPayload,
       };
 
       const res = await fetch("/api/add-lid", {
         method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
         body: JSON.stringify(payload),
       });
 
       const result = await res.json();
 
       if (!result?.success) {
-        setErrorText(result?.error ? `Please fix the errors: ${result.error}` : "Please fix the errors!");
+        setErrorText(
+          result?.error
+            ? `Please fix the errors: ${result.error}`
+            : "Please fix the errors!"
+        );
         return;
       }
 
@@ -117,7 +232,12 @@ export default function Subscribe({ id, caption }: Props) {
     "h-[54px] w-full rounded-full bg-[#f3a312] px-8 text-[18px] font-extrabold text-white shadow-[0_10px_22px_rgba(0,0,0,0.18)] transition hover:brightness-95 active:translate-y-[1px] disabled:cursor-not-allowed disabled:opacity-75";
 
   const altchaBusy = altchaState === "verifying";
-  const altchaOk = altchaState === "verified";
+  const canSubmit =
+    !submitting &&
+    !altchaBusy &&
+    altchaLoaded &&
+    altchaState === "verified" &&
+    !!altchaPayload;
 
   return (
     <section className="relative mt-10 w-full text-slate-900">
@@ -153,41 +273,59 @@ export default function Subscribe({ id, caption }: Props) {
                   <button
                     className={buttonClass}
                     type="submit"
-                    disabled={submitting || altchaBusy || !altchaOk}
-                    title={!altchaOk ? "Complete verification first" : undefined}
+                    disabled={!canSubmit}
+                    title={
+                      altchaLoaded
+                        ? altchaState !== "verified"
+                          ? "Complete verification first"
+                          : undefined
+                        : "Loading verification…"
+                    }
                   >
                     {submitting ? (
                       <span className="inline-flex items-center justify-center gap-3">
-                        <Loader2 className="h-5 w-5 animate-spin" aria-hidden="true" />
+                        <Loader2 className="h-5 w-5 animate-spin" aria-hidden />
                         Sending…
                       </span>
                     ) : altchaBusy ? (
                       <span className="inline-flex items-center justify-center gap-3">
-                        <Loader2 className="h-5 w-5 animate-spin" aria-hidden="true" />
+                        <Loader2 className="h-5 w-5 animate-spin" aria-hidden />
                         Verifying…
+                      </span>
+                    ) : !altchaLoaded ? (
+                      <span className="inline-flex items-center justify-center gap-3">
+                        <Loader2 className="h-5 w-5 animate-spin" aria-hidden />
+                        Loading…
                       </span>
                     ) : (
                       caption
                     )}
                   </button>
 
-                  {/* ✅ ALTCHA widget (full row) */}
+                  {/* ALTCHA widget (full row) */}
                   <div className="lg:col-span-3 flex justify-center">
                     <div className="rounded-xl bg-white/95 px-4 py-3 shadow-[0_10px_22px_rgba(0,0,0,0.12)]">
-                      {/* The widget will create a hidden input named "altcha" by default,
-                          but since you post JSON, we capture payload via event too. */}
-                      <altcha-widget
-                        id={altchaId}
-                        challengeurl="/api/altcha-challenge"
-                        name="altcha"
-                      ></altcha-widget>
+                      {altchaLoaded ? (
+                        <altcha-widget
+                          ref={(node) => {
+                            altchaRef.current = node as any;
+                          }}
+                          id={altchaId}
+                          challengeurl="/api/altcha-challenge"
+                          name="altcha"
+                        ></altcha-widget>
+                      ) : (
+                        <div className="text-sm text-slate-700">
+                          Loading verification…
+                        </div>
+                      )}
                     </div>
                   </div>
 
                   {errorText && (
                     <div className="lg:col-span-3">
                       <span className="inline-flex w-full items-center gap-2 rounded-xl bg-white/95 px-4 py-3 text-slate-900 shadow-[0_10px_22px_rgba(0,0,0,0.12)]">
-                        <AlertCircle className="h-[18px] w-[18px]" aria-hidden="true" />
+                        <AlertCircle className="h-[18px] w-[18px]" aria-hidden />
                         {errorText}
                       </span>
                     </div>
@@ -196,7 +334,10 @@ export default function Subscribe({ id, caption }: Props) {
                   <div className="lg:col-span-3 text-center">
                     <div className="mt-1 text-sm text-slate-900/85">
                       *By submitting, I agree to the{" "}
-                      <a className="underline underline-offset-4" href="https://slonig.org/privacy-policy">
+                      <a
+                        className="underline underline-offset-4"
+                        href="https://slonig.org/privacy-policy"
+                      >
                         privacy policy
                       </a>
                     </div>
