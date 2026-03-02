@@ -3,32 +3,25 @@
 import React, { useEffect, useCallback, useState, useRef } from "react";
 import { createPortal } from "react-dom";
 import { Menu, X } from "lucide-react";
+import { usePathname } from "next/navigation";
 import RequestDemo from "./RequestDemo";
 
 type Props = {
   /**
-   * If false (default): clicking a nav item navigates to "/#section"
-   * If true: smooth-scrolls on the current page
-   *
-   * If not provided, it auto-detects: indexPage=true when pathname === "/"
+   * Optional override. If omitted, it auto-detects by pathname === "/".
    */
   indexPage?: boolean;
 };
 
+const NAVBAR_H = 64; // h-16
+const PENDING_HASH_KEY = "slonig_pending_nav_hash";
+
 export const Navbar: React.FC<Props> = ({ indexPage }) => {
+  const pathname = usePathname(); // ✅ updates on route change in App Router
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  // Auto-detect index page if prop wasn't provided
-  const [isIndexPage, setIsIndexPage] = useState(false);
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-
-    // handles "/" and also "/?x=y"
-    const path = window.location.pathname.replace(/\/+$/, "") || "/";
-    setIsIndexPage(path === "/");
-  }, []);
-
-  const effectiveIndexPage = indexPage ?? isIndexPage;
+  // Effective index-page detection that updates on route change
+  const effectiveIndexPage = indexPage ?? (pathname === "/");
 
   // Portal root set only on client (prevents hydration issues)
   const [portalRoot, setPortalRoot] = useState<HTMLElement | null>(null);
@@ -48,8 +41,7 @@ export const Navbar: React.FC<Props> = ({ indexPage }) => {
     setMobileOpen(true);
   }, []);
 
-  const NAVBAR_H = 64; // h-16
-  const scrollToWithOffset = (el: HTMLElement) => {
+  const scrollToWithOffset = useCallback((el: HTMLElement) => {
     const rect = el.getBoundingClientRect();
     const y = rect.top + window.scrollY - NAVBAR_H;
 
@@ -57,31 +49,78 @@ export const Navbar: React.FC<Props> = ({ indexPage }) => {
       top: Math.max(0, y),
       behavior: "smooth",
     });
-  };
+  }, []);
+
+  const performScroll = useCallback(
+    (hash: string) => {
+      if (hash === "#top" || hash === "" || hash === "#") {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        return;
+      }
+
+      const id = hash.startsWith("#") ? hash.slice(1) : hash;
+
+      // Sections might not exist immediately; retry a few frames.
+      let tries = 0;
+      const maxTries = 90; // ~1.5s at 60fps
+
+      const tick = () => {
+        const el = document.getElementById(id);
+        if (el) {
+          scrollToWithOffset(el);
+          return;
+        }
+        tries += 1;
+        if (tries < maxTries) requestAnimationFrame(tick);
+      };
+
+      requestAnimationFrame(tick);
+    },
+    [scrollToWithOffset]
+  );
 
   const navTo = useCallback(
     (hash: string) => (e: React.MouseEvent<HTMLAnchorElement>) => {
       e.preventDefault();
       closeMobile();
 
-      // If we're NOT on the index page, navigate there with the hash
+      // Not on index page -> store target, go to "/#hash"
       if (!effectiveIndexPage) {
-        window.location.assign(`/${hash}`);
+        try {
+          sessionStorage.setItem(PENDING_HASH_KEY, hash);
+        } catch {
+          // ignore
+        }
+        window.location.assign(`/${hash}`); // "/#roi"
         return;
       }
 
-      // We are on the index page -> smooth scroll
-      if (hash === "#top") {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-        return;
-      }
-
-      const id = hash.slice(1);
-      const el = document.getElementById(id);
-      if (el) scrollToWithOffset(el);
+      // On index page -> smooth scroll now
+      performScroll(hash);
     },
-    [closeMobile, effectiveIndexPage]
+    [closeMobile, effectiveIndexPage, performScroll]
   );
+
+  // ✅ Key fix for layout.tsx:
+  // Run when route changes; when we land on "/", consume pending hash and scroll.
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    if (pathname !== "/") return;
+
+    let pending: string | null = null;
+
+    try {
+      pending = sessionStorage.getItem(PENDING_HASH_KEY);
+      if (pending) sessionStorage.removeItem(PENDING_HASH_KEY);
+    } catch {
+      // ignore
+    }
+
+    const target = pending || window.location.hash;
+    if (!target) return;
+
+    performScroll(target);
+  }, [pathname, performScroll]);
 
   // Lock background scroll when mobile menu is open
   useEffect(() => {
@@ -137,7 +176,7 @@ export const Navbar: React.FC<Props> = ({ indexPage }) => {
       {/* Navbar row */}
       <div className="flex h-16 items-center justify-between px-6 py-2">
         {/* Brand */}
-        <a href="#top" className="flex items-center" onClick={navTo("#top")}>
+        <a href="/#top" className="flex items-center" onClick={navTo("#top")}>
           <img
             src="/named-logo.svg"
             alt="Slonig"
@@ -145,40 +184,37 @@ export const Navbar: React.FC<Props> = ({ indexPage }) => {
           />
         </a>
 
-        {/* Desktop menu (now shows from lg and up, so iPad mini uses this) */}
+        {/* Desktop menu */}
         <div className="hidden lg:flex gap-12 items-center text-lg font-bold text-[var(--secondary-color)]">
           <a
-            href="#how_it_works"
+            href="/#how_it_works"
             className="hover:text-blue-900"
             onClick={navTo("#how_it_works")}
           >
             How It Works
           </a>
           <a
-            href="#efficacy"
+            href="/#efficacy"
             className="hover:text-blue-900"
             onClick={navTo("#efficacy")}
           >
             Efficacy
           </a>
           <a
-            href="#curriculum"
+            href="/#curriculum"
             className="hover:text-blue-900"
             onClick={navTo("#curriculum")}
           >
             Curriculum
           </a>
-          <a href="#roi" className="hover:text-blue-900" onClick={navTo("#roi")}>
+          <a href="/#roi" className="hover:text-blue-900" onClick={navTo("#roi")}>
             ROI
           </a>
-          <RequestDemo
-            expanded={false}
-            id={"navbar-button"}
-            caption={"Request a Demo"}
-          />
+
+          <RequestDemo expanded={false} id={"navbar-button"} caption={"Request a Demo"} />
         </div>
 
-        {/* Mobile toggle (now only below lg) */}
+        {/* Mobile toggle */}
         <button
           type="button"
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
@@ -189,7 +225,7 @@ export const Navbar: React.FC<Props> = ({ indexPage }) => {
         </button>
       </div>
 
-      {/* Mobile menu via portal (now only below lg) */}
+      {/* Mobile menu via portal */}
       {portalRoot && mobileOpen
         ? createPortal(
             <div className="lg:hidden fixed left-0 right-0 bottom-0 top-16 z-[9999]">
@@ -202,28 +238,24 @@ export const Navbar: React.FC<Props> = ({ indexPage }) => {
                 <div className="mx-auto max-w-7xl px-6 py-4">
                   <div className="mt-4 flex flex-col gap-4 text-base font-semibold text-[var(--secondary-color)]">
                     <a
-                      href="#how_it_works"
+                      href="/#how_it_works"
                       className="hover:text-blue-900"
                       onClick={navTo("#how_it_works")}
                     >
                       How It Works
                     </a>
                     <a
-                      href="#efficacy"
+                      href="/#efficacy"
                       className="hover:text-blue-900"
                       onClick={navTo("#efficacy")}
                     >
                       Efficacy
                     </a>
-                    <a href="#roi" className="hover:text-blue-900" onClick={navTo("#roi")}>
+                    <a href="/#roi" className="hover:text-blue-900" onClick={navTo("#roi")}>
                       ROI
                     </a>
 
-                    <RequestDemo
-                      expanded={false}
-                      id={"navbar-button"}
-                      caption={"Request a Demo"}
-                    />
+                    <RequestDemo expanded={false} id={"navbar-button"} caption={"Request a Demo"} />
                   </div>
                 </div>
               </div>
