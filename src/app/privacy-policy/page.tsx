@@ -280,8 +280,60 @@ export default async function App() {
 
             <h3>8. Your Rights</h3>
             <p>
-              Depending on your location you may have rights to access, correct, delete, or obtain a copy of Personal Information, and to object
-              to or restrict certain processing. We may need to verify identity before fulfilling requests.
+              Depending on your location, you may have rights regarding your Personal Information.
+              We may need to verify your identity (and your authority to act on behalf of an Educator,
+              school/district, or child) before fulfilling requests.
+            </p>
+
+            <h4>8.1 EU/EEA and UK (GDPR / UK GDPR)</h4>
+            <p>If you are in the EU/EEA or the UK, you may have the right to:</p>
+            <ul className="list-disc pl-5">
+              <li><strong>Access</strong> your Personal Information and receive a copy of it.</li>
+              <li><strong>Rectify</strong> inaccurate or incomplete Personal Information.</li>
+              <li><strong>Delete</strong> your Personal Information (in certain circumstances).</li>
+              <li><strong>Restrict</strong> our processing (in certain circumstances).</li>
+              <li><strong>Object</strong> to processing based on legitimate interests (including direct marketing).</li>
+              <li>
+                <strong>Data portability</strong> (receive certain data in a structured, commonly used, machine-readable format),
+                where applicable.
+              </li>
+              <li>
+                <strong>Withdraw consent</strong> at any time <strong>where we rely on consent</strong> (this does not affect the
+                lawfulness of processing before withdrawal).
+              </li>
+            </ul>
+
+            <p className="mt-3">
+              <strong>Right to lodge a complaint:</strong> You also have the right to lodge a complaint with your local
+              supervisory authority in the EU/EEA, or with the UK Information Commissioner’s Office (ICO), if you believe our
+              processing violates applicable law.
+            </p>
+
+            <h4>8.2 How to exercise your rights</h4>
+            <p>
+              To submit a request, email us at <strong>info@slonig.org</strong> with the subject line{" "}
+              <strong>“Privacy Rights Request”</strong>. Please include:
+            </p>
+            <ul className="list-disc pl-5">
+              <li>your name and contact email,</li>
+              <li>the role you have (Educator, Parent/Guardian, or other),</li>
+              <li>the specific right you want to exercise and the details needed to process your request.</li>
+            </ul>
+            <p className="mt-3">
+              If you are an Educator acting for a school/district, or a Parent/Guardian acting for a child,
+              we may ask for reasonable documentation to confirm your authority.
+            </p>
+
+            <h4>8.3 Response timelines</h4>
+            <p>
+              We aim to respond to verified requests within <strong>30 days</strong>. Where permitted by law, this period may be
+              extended (for example, if the request is complex or numerous). If we need more time, we will notify you and explain
+              why.
+            </p>
+
+            <p className="mt-3">
+              <strong>Note:</strong> Certain information may be retained as required by law, to maintain security, prevent fraud,
+              or to establish, exercise, or defend legal claims.
             </p>
 
             <h3>9. Marketing and Advertising</h3>
