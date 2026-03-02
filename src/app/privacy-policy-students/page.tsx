@@ -359,34 +359,44 @@ export default async function App() {
 
             <h3>11. Slonig as a School Official Under FERPA</h3>
             <p>
-              When schools and districts use Slonig, we may act as a "school official"
-              under the Family Educational Rights and Privacy Act (FERPA). This means:
+              When a school or district uses Slonig, Slonig, Inc. may be treated as a “school official”
+              under the Family Educational Rights and Privacy Act (FERPA) to the extent permitted by law
+              and our written agreement with the school or district.
             </p>
 
-            <p><strong>Our Role:</strong> Slonig performs institutional services and functions
-              that the school would otherwise perform itself, specifically providing educational
-              technology services and learning analytics.</p>
-            <p><strong>Legitimate Educational Interest:</strong> We access student education
-              records only to fulfill our specific responsibilities in providing the Slonig learning
-              platform and supporting student learning outcomes.</p>
-
-            <p><strong>Direct Control:</strong> Schools and districts maintain direct control
-              over our use of student education records. We use student information only as directed
-              by the school and in accordance with our service agreement.</p>
-
-            <p><strong>FERPA Compliance:</strong> We comply with FERPA’s requirements applicable
-              to school officials, including:</p>
-            <ul>
-              <li>Using student information only for authorized educational purposes</li>
-              <li>Not re-disclosing student information without proper authorization</li>
-              <li>Maintaining appropriate security safeguards for education records</li>
-              <li>Allowing schools to audit our use of student information</li>
+            <p><strong>What this means.</strong> In these situations:</p>
+            <ul className="list-disc pl-5">
+              <li>
+                <strong>We perform services for the school.</strong> Slonig provides educational technology
+                services that the school or district would otherwise use its own employees to perform,
+                such as delivering learning activities and generating learning insights.
+              </li>
+              <li>
+                <strong>Legitimate educational interest.</strong> We access or process student education
+                records only as needed to provide the service for school purposes.
+              </li>
+              <li>
+                <strong>Direct control through the agreement.</strong> The school or district maintains
+                direct control over our use of student information through our service agreement and
+                applicable policies. Our agreement is intended to include appropriate limits and controls,
+                such as:
+                <ul className="list-disc pl-5 mt-2">
+                  <li>Use of student information only for authorized educational (school) purposes</li>
+                  <li>Restrictions on re-disclosure (we do not re-disclose except as permitted by FERPA and our agreement)</li>
+                  <li>Requirements to protect student information with appropriate administrative, technical, and physical safeguards</li>
+                  <li>Requirements for returning, deleting, or de-identifying student information at the end of the service term
+                    or upon the school’s request, consistent with the agreement and applicable law</li>
+                </ul>
+              </li>
+              <li>
+                <strong>FERPA-aligned handling.</strong> We handle student education records in a manner
+                consistent with FERPA requirements applicable to service providers acting as school officials.
+              </li>
             </ul>
 
             <p>
-              This school official relationship is established through our service
-              agreements with schools and districts, which specify how we may access and
-              use student education records in accordance with FERPA regulations.
+              If your school or district has questions about these controls, please contact us at{" "}
+              <a href="mailto:info@slonig.org">info@slonig.org</a>.
             </p>
 
             <h3>12. How Long We Keep Student Information</h3>
