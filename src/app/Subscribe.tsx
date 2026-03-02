@@ -1,14 +1,15 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import { Loader2, AlertCircle, CheckCircle2 } from "lucide-react";
-
-const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
+import React, { useEffect, useMemo, useState } from "react";
+import { Loader2, AlertCircle } from "lucide-react";
+import "altcha";
 
 type Props = {
   id: string;
   caption: string;
 };
+
+type AltchaState = "unverified" | "verifying" | "verified" | "error";
 
 export default function Subscribe({ id, caption }: Props) {
   const [form, setForm] = useState({ name: "", email: "" });
@@ -17,9 +18,39 @@ export default function Subscribe({ id, caption }: Props) {
   const [errorText, setErrorText] = useState("");
   const [success, setSuccess] = useState(false);
 
+  // ALTCHA
+  const altchaId = useMemo(() => `${id}-altcha`, [id]);
+  const [altchaState, setAltchaState] = useState<AltchaState>("unverified");
+  const [altchaPayload, setAltchaPayload] = useState<string>("");
+
   useEffect(() => {
     if (typeof window !== "undefined") setPage(window.location.pathname);
   }, []);
+
+  // Listen to widget state changes and grab payload when verified.
+  useEffect(() => {
+    const el = document.getElementById(altchaId) as any | null;
+    if (!el) return;
+
+    const onStateChange = (ev: any) => {
+      const state = ev?.detail?.state as AltchaState | undefined;
+      const payload = ev?.detail?.payload as string | undefined;
+
+      if (state) setAltchaState(state);
+
+      if (state === "verified" && typeof payload === "string" && payload.length > 0) {
+        setAltchaPayload(payload);
+      }
+
+      // If it becomes unverified/error again, clear payload
+      if (state !== "verified") {
+        setAltchaPayload("");
+      }
+    };
+
+    el.addEventListener("statechange", onStateChange);
+    return () => el.removeEventListener("statechange", onStateChange);
+  }, [altchaId]);
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -44,36 +75,19 @@ export default function Subscribe({ id, caption }: Props) {
         return;
       }
 
-      if (typeof window === "undefined" || !(window as any).grecaptcha) {
-        setErrorText("reCAPTCHA not ready. Please refresh the page.");
+      // Require ALTCHA verification
+      if (altchaState !== "verified" || !altchaPayload) {
+        setErrorText("Please complete the verification.");
         return;
       }
-
-      if (!RECAPTCHA_SITE_KEY) {
-        setErrorText("Missing reCAPTCHA site key.");
-        return;
-      }
-
-      const grecaptcha = (window as any).grecaptcha;
-
-      const token: string = await new Promise((resolve, reject) => {
-        grecaptcha.ready(() => {
-          grecaptcha
-            .execute(RECAPTCHA_SITE_KEY, { action: id })
-            .then(resolve)
-            .catch(reject);
-        });
-      });
 
       const payload = {
         name: form.name,
         email: form.email,
         form_id: id,
         page,
-        token,
+        altcha: altchaPayload, // ✅ submit base64 payload
       };
-
-      console.log('payload: ', payload)
 
       const res = await fetch("/api/add-lid", {
         method: "POST",
@@ -102,11 +116,12 @@ export default function Subscribe({ id, caption }: Props) {
   const buttonClass =
     "h-[54px] w-full rounded-full bg-[#f3a312] px-8 text-[18px] font-extrabold text-white shadow-[0_10px_22px_rgba(0,0,0,0.18)] transition hover:brightness-95 active:translate-y-[1px] disabled:cursor-not-allowed disabled:opacity-75";
 
+  const altchaBusy = altchaState === "verifying";
+  const altchaOk = altchaState === "verified";
+
   return (
     <section className="relative mt-10 w-full text-slate-900">
-      {/* ✅ full-width background band */}
       <div className="w-full">
-        {/* ✅ still keeps nice inner padding + readable max width */}
         <div className="mx-auto w-full max-w-none">
           <div className="relative w-full overflow-visible bg-gradient-to-r from-[#0b63ff] via-[#00a9d6] to-[#19d46a] px-6 py-10 text-center shadow-[0_18px_50px_rgba(0,0,0,0.18)] md:px-12">
             <p className="mb-[15px] text-center text-[clamp(28px,3.2vw,44px)] font-extrabold leading-[1.05] !text-white">
@@ -115,7 +130,6 @@ export default function Subscribe({ id, caption }: Props) {
 
             {!success ? (
               <form id={id} onSubmit={onSubmit} onKeyDown={preventEnterSubmit}>
-                {/* ✅ narrower on desktop */}
                 <div className="mx-auto grid w-full max-w-none grid-cols-1 gap-4 lg:max-w-4xl lg:grid-cols-3 lg:gap-[18px]">
                   <input
                     className={inputClass}
@@ -136,16 +150,39 @@ export default function Subscribe({ id, caption }: Props) {
                     required
                   />
 
-                  <button className={buttonClass} type="submit" disabled={submitting}>
+                  <button
+                    className={buttonClass}
+                    type="submit"
+                    disabled={submitting || altchaBusy || !altchaOk}
+                    title={!altchaOk ? "Complete verification first" : undefined}
+                  >
                     {submitting ? (
                       <span className="inline-flex items-center justify-center gap-3">
                         <Loader2 className="h-5 w-5 animate-spin" aria-hidden="true" />
                         Sending…
                       </span>
+                    ) : altchaBusy ? (
+                      <span className="inline-flex items-center justify-center gap-3">
+                        <Loader2 className="h-5 w-5 animate-spin" aria-hidden="true" />
+                        Verifying…
+                      </span>
                     ) : (
                       caption
                     )}
                   </button>
+
+                  {/* ✅ ALTCHA widget (full row) */}
+                  <div className="lg:col-span-3 flex justify-center">
+                    <div className="rounded-xl bg-white/95 px-4 py-3 shadow-[0_10px_22px_rgba(0,0,0,0.12)]">
+                      {/* The widget will create a hidden input named "altcha" by default,
+                          but since you post JSON, we capture payload via event too. */}
+                      <altcha-widget
+                        id={altchaId}
+                        challengeurl="/api/altcha-challenge"
+                        name="altcha"
+                      ></altcha-widget>
+                    </div>
+                  </div>
 
                   {errorText && (
                     <div className="lg:col-span-3">
@@ -162,11 +199,6 @@ export default function Subscribe({ id, caption }: Props) {
                       <a className="underline underline-offset-4" href="https://slonig.org/privacy-policy">
                         privacy policy
                       </a>
-                    </div>
-                    <div className="mt-1 text-sm text-slate-900/85">
-                      This site is protected by reCAPTCHA and the Google
-                      <a href="https://policies.google.com/privacy">Privacy Policy</a> and&nbsp;
-                      <a href="https://policies.google.com/terms">Terms of Service</a> apply.
                     </div>
                   </div>
                 </div>
