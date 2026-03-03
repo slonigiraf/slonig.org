@@ -189,7 +189,7 @@ export default async function App() {
               including loss of profits, revenue, data, or business opportunities; service interruptions
               or data loss due to circumstances beyond our reasonable control; or unauthorized access
               to or alteration of your data resulting from your failure to maintain security of your
-              account credentials.
+              devices.
             </p>
 
             <h3>6. Modifications to Services</h3>
@@ -201,9 +201,10 @@ export default async function App() {
               outdated at any time, and we are under no obligation to update it.
             </p>
             <p>
-              Slonig may add, delete, or modify some or all of the Services. Where we determine changes
-              are material, we may notify you by email and provide options to continue or terminate
-              your account, where applicable.
+              Slonig may add, delete, or modify some or all of the Services. If we determine that a change is 
+              material, we may provide notice (for example, by posting a notice in the Services or on our 
+              website, or by email if you have provided an email address for Service-related communications). 
+              Where applicable, we may provide options to continue using the Services or to stop using the affected Services.
             </p>
 
             <h3>7. Intellectual Property</h3>
@@ -361,10 +362,9 @@ export default async function App() {
             <p>
               We may suspend or terminate your access to the Services at our sole discretion in case of
               breach of these Terms. Suspected illegal, fraudulent, or abusive activity may be grounds
-              for terminating your account and may be referred to the appropriate law enforcement
+              for terminating your access to Services and may be referred to the appropriate law enforcement
               authorities. Your right to use the Services will immediately cease upon suspension or
-              termination. We reserve the right to remove or delete information associated with your
-              account in accordance with our Privacy Policy.
+              termination. We reserve the right to remove or delete information in accordance with our Privacy Policy.
             </p>
 
             <h3>16. Governing Law and Jurisdiction</h3>
