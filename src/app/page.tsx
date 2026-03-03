@@ -20,11 +20,12 @@ import JoinProfessionals from "./JoinProfessionals";
 import OtherSubjects from "./OtherSubjects";
 import Subscribe from "./Subscribe";
 import LoadingInfo from "./LoadingInfo";
+import { DEFAULT_PAGE_DESCRIPTION, DEFAULT_PAGE_TITLE } from "./layout";
 
 
 export const metadata = {
-  title: "Online Math Programs for Students | Slonig",
-  description: "Discover Engaging Online Math Programs For Students With Slonig. Foster Academic Growth &amp; Success With Our Platform Today!",
+  title: DEFAULT_PAGE_TITLE,
+  description: DEFAULT_PAGE_DESCRIPTION,
 };
 
 export default async function App() {

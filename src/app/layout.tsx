@@ -19,8 +19,8 @@ const geistMono = Geist_Mono({
 const siteUrl = "https://slonig.org";
 const siteName = "Slonig";
 const defaultTitle = "Math Intervention Program for Students";
-const title = `${defaultTitle} | ${siteName}`;
-const description =
+export const DEFAULT_PAGE_TITLE = `${defaultTitle} | ${siteName}`;
+export const DEFAULT_PAGE_DESCRIPTION =
   "Discover Math Intervention Program For Students. Reach 70%+ Math Proficiency Schoolwide!";
 
 export const metadata: Metadata = {
@@ -28,10 +28,10 @@ export const metadata: Metadata = {
 
   // SEO
   title: {
-    default: title,
+    default: DEFAULT_PAGE_TITLE,
     template: "%s | Slonig",
   },
-  description,
+  description: DEFAULT_PAGE_DESCRIPTION,
 
   alternates: {
     canonical: "/", // becomes https://slonig.org/
@@ -56,8 +56,8 @@ export const metadata: Metadata = {
     type: "website",
     url: siteUrl,
     siteName,
-    title,
-    description,
+    title: DEFAULT_PAGE_TITLE,
+    description: DEFAULT_PAGE_DESCRIPTION,
     locale: "en_US",
     images: [
       {
@@ -72,8 +72,8 @@ export const metadata: Metadata = {
   // Twitter/X
   twitter: {
     card: "summary_large_image",
-    title,
-    description,
+    title: DEFAULT_PAGE_TITLE,
+    description: DEFAULT_PAGE_DESCRIPTION,
     images: ["/socials.png"],
     site: "@denslon_eng",
   },
