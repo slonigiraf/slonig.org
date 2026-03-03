@@ -32,16 +32,18 @@ function SocialButton({
   children: React.ReactNode;
 }) {
   if (!href) return null;
+
   return (
-    <a
+    <MatomoAnchor
       href={href}
+      trackName={`footer_${label}`}
       aria-label={label}
       target="_blank"
       rel="noreferrer"
       className="grid h-11 w-11 place-items-center rounded-full border border-white/25 bg-white/10 shadow-sm transition hover:-translate-y-[1px] hover:bg-white/15 hover:shadow md:h-12 md:w-12"
     >
       {children}
-    </a>
+    </MatomoAnchor>
   );
 }
 
