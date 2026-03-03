@@ -124,3 +124,13 @@ h3 {
 .grecaptcha-badge {
   visibility: hidden !important;
 }
+
+a:not(footer a):not(.no-global-link a) {
+  color: var(--secondary-color);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+a:not(footer a):not(.no-global-link a):hover {
+  opacity: 0.8;
+}

@@ -167,7 +167,7 @@ export const Navbar: React.FC<Props> = ({ indexPage }) => {
       if (!effectiveIndexPage) {
         try {
           sessionStorage.setItem(PENDING_HASH_KEY, hash);
-        } catch {}
+        } catch { }
         window.location.assign(`/${hash}`);
         return;
       }
@@ -186,7 +186,7 @@ export const Navbar: React.FC<Props> = ({ indexPage }) => {
     try {
       pending = sessionStorage.getItem(PENDING_HASH_KEY);
       if (pending) sessionStorage.removeItem(PENDING_HASH_KEY);
-    } catch {}
+    } catch { }
 
     const target = pending || window.location.hash;
     if (!target) return;
@@ -253,17 +253,17 @@ export const Navbar: React.FC<Props> = ({ indexPage }) => {
           <img src="/named-logo.svg" alt="Slonig" className="h-10 w-auto lg:h-10" />
         </a>
 
-        <div className="hidden lg:flex gap-12 items-center text-lg font-bold text-[var(--secondary-color)]">
-          <a href="/#how-it-works" className="hover:text-blue-900" onClick={navTo("#how-it-works")}>
+        <div className="no-global-link hidden lg:flex gap-12 items-center text-lg font-bold text-[var(--secondary-color)] [&>a]:hover:text-blue-900">
+          <a href="/#how-it-works" onClick={navTo("#how-it-works")}>
             How It Works
           </a>
-          <a href="/#efficacy" className="hover:text-blue-900" onClick={navTo("#efficacy")}>
+          <a href="/#efficacy" onClick={navTo("#efficacy")}>
             Efficacy
           </a>
-          <a href="/#curriculum" className="hover:text-blue-900" onClick={navTo("#curriculum")}>
+          <a href="/#curriculum" onClick={navTo("#curriculum")}>
             Curriculum
           </a>
-          <a href="/#roi" className="hover:text-blue-900" onClick={navTo("#roi")}>
+          <a href="/#roi" onClick={navTo("#roi")}>
             ROI
           </a>
 
@@ -282,42 +282,42 @@ export const Navbar: React.FC<Props> = ({ indexPage }) => {
 
       {portalRoot && mobileOpen
         ? createPortal(
-            <div className="lg:hidden fixed left-0 right-0 bottom-0 top-16 z-[9999]">
-              <div
-                ref={panelRef}
-                className="absolute left-0 right-0 top-0 border-t border-slate-200 bg-white shadow-lg"
-                onClick={(e) => e.stopPropagation()}
-              >
-                <div className="mx-auto max-w-7xl px-6 py-4">
-                  <div className="mt-4 flex flex-col gap-4 text-base font-semibold text-[var(--secondary-color)]">
-                    <a href="/#how-it-works" className="hover:text-blue-900" onClick={navTo("#how-it-works")}>
-                      How It Works
-                    </a>
-                    <a href="/#efficacy" className="hover:text-blue-900" onClick={navTo("#efficacy")}>
-                      Efficacy
-                    </a>
-                    <a href="/#curriculum" className="hover:text-blue-900" onClick={navTo("#curriculum")}>
-                      Curriculum
-                    </a>
-                    <a href="/#roi" className="hover:text-blue-900" onClick={navTo("#roi")}>
-                      ROI
-                    </a>
+          <div className="lg:hidden fixed left-0 right-0 bottom-0 top-16 z-[9999]">
+            <div
+              ref={panelRef}
+              className="absolute left-0 right-0 top-0 border-t border-slate-200 bg-white shadow-lg"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="mx-auto max-w-7xl px-6 py-4">
+                <div className="mt-4 flex flex-col gap-4 text-base font-semibold text-[var(--secondary-color)]">
+                  <a href="/#how-it-works" className="hover:text-blue-900" onClick={navTo("#how-it-works")}>
+                    How It Works
+                  </a>
+                  <a href="/#efficacy" className="hover:text-blue-900" onClick={navTo("#efficacy")}>
+                    Efficacy
+                  </a>
+                  <a href="/#curriculum" className="hover:text-blue-900" onClick={navTo("#curriculum")}>
+                    Curriculum
+                  </a>
+                  <a href="/#roi" className="hover:text-blue-900" onClick={navTo("#roi")}>
+                    ROI
+                  </a>
 
-                    <RequestDemo expanded={false} id={"navbar-button"} caption={"Request a Demo"} />
-                  </div>
+                  <RequestDemo expanded={false} id={"navbar-button"} caption={"Request a Demo"} />
                 </div>
               </div>
+            </div>
 
-              <div
-                className="absolute left-0 right-0 bottom-0 bg-black/20"
-                style={{ top: panelH }}
-                onClick={closeMobile}
-                role="button"
-                aria-label="Close menu overlay"
-              />
-            </div>,
-            portalRoot
-          )
+            <div
+              className="absolute left-0 right-0 bottom-0 bg-black/20"
+              style={{ top: panelH }}
+              onClick={closeMobile}
+              role="button"
+              aria-label="Close menu overlay"
+            />
+          </div>,
+          portalRoot
+        )
         : null}
     </nav>
   );

@@ -598,14 +598,39 @@ export default async function App() {
               <h3>Additional Resources</h3>
               <p>For more detailed information about our privacy practices, please see:</p>
               <ul>
-                <li>Our complete Privacy Policy</li>
+                <li>Our complete Privacy Policy at
+                  <a
+                    href="/privacy-policy"
+                    className="text-[var(--secondary-color)] underline underline-offset-4 hover:opacity-80"
+                  >
+                    https://slonig.org/privacy-policy
+                  </a>
+                </li>
                 <li>Our Terms of Service</li>
               </ul>
 
               <p>For information about student privacy laws:</p>
               <ul>
-                <li>COPPA: Federal Trade Commission website (ftc.gov)</li>
-                <li>FERPA: U.S. Department of Education website (www.ed.gov)</li>
+                <li>COPPA: Federal Trade Commission website
+                  <a
+                    href="https://www.ftc.gov/"
+                    className="text-[var(--secondary-color)] underline underline-offset-4 hover:opacity-80"
+                  >
+                    (ftc.gov)
+                  </a>
+
+                </li>
+                <li>FERPA: U.S. Department of Education website
+
+
+                  <a
+                    href="https://www.ed.gov/"
+                    className="text-[var(--secondary-color)] underline underline-offset-4 hover:opacity-80"
+                  >
+                    (www.ed.gov)
+                  </a>
+
+                </li>
               </ul>
 
               <p>
