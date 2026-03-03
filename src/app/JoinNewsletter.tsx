@@ -3,6 +3,7 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { Loader2, AlertCircle } from "lucide-react";
 import ImpressionTracker from "./ImpressionTracker";
+import { trackMatomoEvent } from "@/lib/matomo";
 
 type Props = {
 };
@@ -11,8 +12,8 @@ type Props = {
 type AltchaState = "unverified" | "verifying" | "verified" | "error" | "expired";
 
 export default function JoinNewsletter({ }: Props) {
-  const id= "newsletter";
-  const caption= "Join Newsletter";
+  const id = "newsletter";
+  const caption = "Join Newsletter";
   const [form, setForm] = useState({ name: "", email: "" });
   const [page, setPage] = useState("");
   const [submitting, setSubmitting] = useState(false);
@@ -156,8 +157,7 @@ export default function JoinNewsletter({ }: Props) {
     if (submitting) return;
 
     try {
-      setSubmitting(true);
-
+      // ✅ track "attempt" only if user has filled fields and captcha verified
       if (!form.name || !form.email) {
         setErrorText("Please fill in all fields.");
         return;
@@ -167,6 +167,14 @@ export default function JoinNewsletter({ }: Props) {
         setErrorText("Verification is still running—please try again in a moment.");
         return;
       }
+
+      trackMatomoEvent({
+        category: "CTA",
+        action: "CLICK_JOIN_NEWSLETTER",
+        name: page || window.location.pathname,
+      });
+
+      setSubmitting(true);
 
       const payload = {
         name: form.name,
@@ -188,6 +196,13 @@ export default function JoinNewsletter({ }: Props) {
       const result = await res.json();
 
       if (!result?.success) {
+        trackMatomoEvent({
+          category: "FORM",
+          action: "NEWSLETTER_SUBMIT_ERROR",
+          name: result?.error ? String(result.error) : "unknown",
+          value: 1,
+        });
+
         setErrorText(
           result?.error
             ? `Please fix the errors: ${result.error}`
@@ -196,8 +211,22 @@ export default function JoinNewsletter({ }: Props) {
         return;
       }
 
+      trackMatomoEvent({
+        category: "FORM",
+        action: "NEWSLETTER_SUBMIT_SUCCESS",
+        name: page || window.location.pathname,
+        value: 1,
+      });
+
       setSuccess(true);
-    } catch {
+    } catch (e) {
+      trackMatomoEvent({
+        category: "FORM",
+        action: "NEWSLETTER_SUBMIT_EXCEPTION",
+        name: e instanceof Error ? e.message : "unknown",
+        value: 1,
+      });
+
       setErrorText("Please fix the errors!");
     } finally {
       setSubmitting(false);
