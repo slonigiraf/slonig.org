@@ -30,8 +30,6 @@ export default async function App() {
             ].join(" ")}
           >
             <h3>Slonig’s Privacy Commitment</h3>
-            <p>Protecting student privacy is foundational to everything we do.</p>
-
             <p>
               Protecting student privacy is foundational to everything we do. Slonig is built to align
               with FERPA, COPPA, and California Student Privacy expectations, and we follow SOC 2 Type
@@ -50,10 +48,10 @@ export default async function App() {
               <strong>We use data solely for educational purposes.</strong>
             </p>
             <p>
-              Student information supports learning. It is not used for marketing, advertising, or
-              other commercial purposes. We do not show third-party ads in student-facing experiences,
-              and we do not track students across websites or services for advertising (“cross-context
-              behavioral advertising”). We may collect <strong>in-product usage data</strong> (for
+              Student information is used to provide and improve the service and to support learning.
+              We do not use student personal information for targeted advertising or marketing.
+              We may use de-identified and aggregated results (including study results) to evaluate
+              effectiveness and to communicate outcomes publicly. We may collect <strong>in-product usage data</strong> (for
               example, which activities are completed and how the platform performs) to operate,
               secure, and improve Slonig.
             </p>
@@ -156,8 +154,8 @@ export default async function App() {
               As students use Slonig, we may collect limited{" "}
               <strong>technical and usage analytics</strong> needed to operate, secure, and improve the
               platform. This may include aggregated or de-identified performance metrics, security logs
-              (which may include an IP address or a truncated/anonymized form of it, depending on
-              configuration), browser and device information, and in-product usage events (for example,
+              (which may include an anonymized form of an IP address), browser and device information,
+              and in-product usage events (for example,
               which activities are completed and basic interaction patterns). We do not use this data
               to advertise to students or to track them across other companies’ websites or apps.
             </p>
@@ -275,9 +273,14 @@ export default async function App() {
               specific safeguards to protect students while they learn.
             </p>
             <p>
-              Slonig provides a private, focused learning environment. Students cannot message, chat
-              with, or communicate with other students through Slonig. Students cannot see other
-              students’ profiles, progress, or personal information.
+              Beyond technical security measures, we have designed our website and platform with specific
+              safeguards to protect students while they learn.
+              Slonig provides a private, focused learning environment. Students cannot create an account on
+              Slonig. We emulate account-like functionality to provide a familiar user experience and
+              to allow progress to be saved, but this functionality is stored solely on the student’s device,
+              and all data disappears when the browser cache is cleared.
+              Students cannot message, chat with, or communicate with other students through Slonig.
+              Students cannot see other students’ profiles, progress, or personal information.
             </p>
 
             <h3>9. Student Rights and Parent/Guardian Rights</h3>
@@ -353,10 +356,10 @@ export default async function App() {
             </p>
 
             <p>
-              <strong>Operator disclosures.</strong> Slonig, Inc. is the operator of the Slonig
-              service. We collect only the personal information described in this Student Privacy
-              Policy (and only in the limited situations described above), we use it solely for
-              educational purposes, and we do not sell student personal information.
+              <strong>Operator disclosures.</strong> Slonig, Inc. operates the Slonig service.
+              We collect student personal information only as described in this Student Privacy Policy
+              (and only in the limited situations described above). We use it solely for educational
+              purposes, and we do not sell student personal information.
             </p>
 
             <h3>11. Slonig as a School Official Under FERPA</h3>
@@ -442,8 +445,8 @@ export default async function App() {
             </ul>
 
             <p>
-              <strong>Getting Your Data:</strong> Schools, districts, or parents can request a copy of
-              student information to transfer to another service before we delete it.
+              <strong>Getting Your Data:</strong> Schools, districts, or parents can copy student 
+              information from their devices to transfer it to another device before deleting it.
             </p>
 
             {/* ✅ NEW: more specific third-party categories + typical data */}
@@ -464,10 +467,6 @@ export default async function App() {
               <li>
                 <strong>Customer support and communications</strong> (to respond to school/parent
                 requests) — may process contact details and the content of communications.
-              </li>
-              <li>
-                <strong>Analytics</strong> (to understand performance and improve the platform) — may
-                process in-product usage events and aggregated/de-identified metrics.
               </li>
             </ul>
 
@@ -506,8 +505,7 @@ export default async function App() {
             <h3>15. Changes to This Policy</h3>
             <p>
               We may update this Student Privacy Policy from time to time. When we make changes, we
-              will update the "Last updated" date at the top of this policy and post an announcement
-              on our website for at least two weeks. If we make significant changes that affect how we
+              will update the "Last updated" date at the top of this policy. If we make significant changes that affect how we
               collect, use, or share student information, we will notify schools and parents in
               advance.
             </p>
