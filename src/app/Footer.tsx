@@ -5,6 +5,7 @@ import { Linkedin, Instagram } from "lucide-react";
 import { APPOINTMENT_URL } from "./RequestDemo";
 import ImpressionTracker from "./ImpressionTracker";
 import MatomoLink from "./MatomoLink";
+import MatomoAnchor from "./MatomoAnchor";
 
 type Props = {
   className?: string;
@@ -128,15 +129,28 @@ export default function Footer({
             <div className="mt-5 space-y-2 leading-snug text-white">
               <div>
                 Email:{" "}
-                <a className="hover:underline" href={`mailto:${email}`}>
+                <MatomoAnchor
+                  className="hover:underline"
+                  href={`mailto:${email}`}
+                  trackName="footer_email"
+                  matomoCategory="CONTACT"
+                  matomoAction="CONTACT_EMAIL"
+                >
                   {email}
-                </a>
+                </MatomoAnchor>
+
               </div>
               <div>
                 Phone:{" "}
-                <a className="hover:underline" href={`tel:${phone.replace(/\s+/g, "")}`}>
+                <MatomoAnchor
+                  className="hover:underline"
+                  href={`tel:${phone.replace(/\s+/g, "")}`}
+                  trackName="footer_phone"
+                  matomoCategory="CONTACT"
+                  matomoAction="CONTACT_PHONE"
+                >
                   {phone}
-                </a>
+                </MatomoAnchor>
               </div>
             </div>
 
@@ -177,8 +191,8 @@ export default function Footer({
           <Link className="text-white underline-offset-2 hover:underline" href="/terms">
             Terms of Service
           </Link>
-          . 
-          <br/>
+          .
+          <br />
           <span className="text-white">Slonig</span> complies with the Children&apos;s Online
           Privacy Protection Act (COPPA), the Family Educational Rights and Privacy Act (FERPA), and
           the California Education Code including the Student Online Personal Information Protection

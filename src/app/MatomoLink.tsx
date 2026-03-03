@@ -59,7 +59,6 @@ export default function MatomoLink({
     trackName,
     matomoCategory = "NAVIGATION",
     matomoAction = "NAVIGATE",
-    matomoValue = 1,
     includeHrefInName = false,
     onClick,
     href,
@@ -75,7 +74,6 @@ export default function MatomoLink({
             category: matomoCategory,
             action: matomoAction,
             name: `${pathname}: ${finalName}`,
-            value: matomoValue,
         };
         trackMatomoEvent(event);
 
