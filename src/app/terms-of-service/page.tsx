@@ -518,15 +518,6 @@ export default async function App() {
               and you are responsible for clearly identifying any material that is not licensed under CC BY 4.0.
             </p>
 
-            <h5>License to Slonig</h5>
-            <p>
-              You grant Slonig a worldwide, non-exclusive, royalty-free, sublicensable (solely to service providers
-              acting on our behalf), and transferable license to host, store, reproduce, process, adapt (for formatting
-              and technical compatibility), publish, display, distribute, and otherwise use your User Content only as
-              necessary to operate, provide, maintain, secure, improve, and support the Services, including reviewing,
-              evaluating, and incorporating educator-proposed curriculum changes.
-            </p>
-
             <h5>Curriculum Contributions and Review</h5>
             <p>
               If you submit proposed edits to curriculum materials, you acknowledge and agree that: (i) your proposed
