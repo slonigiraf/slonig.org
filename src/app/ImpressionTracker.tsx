@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useMemo, useRef } from "react";
+import { usePathname } from "next/navigation";
 
 type ImpressionTrackerProps = {
   /** Your internal ID for what was seen (e.g. "hero", "pricing_card_2") */
@@ -35,16 +36,34 @@ function isLocalhost() {
   return h === "localhost" || h === "127.0.0.1" || h === "::1";
 }
 
+/** "/" -> "index", "/legal/privacy-policy" -> "legal/privacy-policy" */
+function pageIdFromPathname(pathname: string | null | undefined) {
+  if (!pathname || pathname === "/") return "index";
+
+  // (pathname from usePathname() normally has no ?/#, but keep it robust)
+  const clean = pathname.split("?")[0]?.split("#")[0] ?? "/";
+  const parts = clean.split("/").filter(Boolean);
+
+  return parts.length ? parts.join("/") : "index";
+}
+
 export default function ImpressionTracker({
   id,
   category = "IMPRESSION",
-  action = "VIEW",
+  action,
   threshold = 0.5,
   rootMargin = "0px",
   sec = 2,
   children,
 }: ImpressionTrackerProps) {
   const ref = useRef<HTMLDivElement | null>(null);
+
+  const pathname = usePathname();
+
+  // Default action = current page id (unless action prop provided)
+  const actionResolved = useMemo(() => {
+    return action ?? pageIdFromPathname(pathname);
+  }, [action, pathname]);
 
   // Are we currently qualified in-view (>= threshold)?
   const inViewRef = useRef(false);
@@ -66,7 +85,7 @@ export default function ImpressionTracker({
       // eslint-disable-next-line no-console
       console.log("[ImpressionTracker exit]", {
         category,
-        action,
+        action: actionResolved,
         id,
         totalMs,
       });
@@ -76,7 +95,7 @@ export default function ImpressionTracker({
     if (typeof window !== "undefined" && Array.isArray(window._paq)) {
       // Matomo: trackEvent(category, action, name, value)
       // value should be an integer; we send milliseconds.
-      window._paq.push(["trackEvent", category, action, id, totalMs]);
+      window._paq.push(["trackEvent", category, actionResolved, id, totalMs]);
     }
   };
 
@@ -129,7 +148,7 @@ export default function ImpressionTracker({
       if (inViewRef.current) closeSession();
       io.disconnect();
     };
-  }, [id, category, action, threshold, rootMargin, sec]);
+  }, [id, category, actionResolved, threshold, rootMargin, sec]);
 
   return <div ref={ref}>{children}</div>;
 }
