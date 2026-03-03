@@ -115,33 +115,33 @@ export default async function App() {
               direct control of parents and the school, as applicable.
             </p>
 
-            <h4>4A. Educational Data Privacy and FERPA Compliance</h4>
+            <h4>4A. Educational Data Privacy</h4>
             <p>
-              Slonig is committed to protecting student privacy and complying with applicable
-              educational privacy laws, including FERPA and California’s Student Online Personal
-              Information Protection Act (SOPIPA), when used in educational settings.
+              Slonig is committed to protecting student privacy and supporting compliance with applicable
+              student privacy laws when the Services are used in educational settings, including the
+              Family Educational Rights and Privacy Act (FERPA) and, where applicable, California’s Student
+              Online Personal Information Protection Act (SOPIPA).
             </p>
             <p>
-              We do not engage in targeted advertising to students, nor do we use student data for any
-              commercial purposes unrelated to education. Student information is used solely for
-              legitimate educational purposes such as delivering learning experiences, generating
-              educational reports for educators, and improving educational content and platform
-              functionality.
+              We do not use student personal information to deliver targeted advertising to students, and
+              we do not use student personal information for marketing or other commercial purposes
+              unrelated to providing and improving the Services for educational use.
             </p>
             <p>
-              In compliance with SOPIPA requirements, we do not knowingly sell student personal
-              information to third parties, engage in targeted advertising based on student data,
-              create personal profiles of students for non-educational commercial purposes, or disclose
-              student information except as permitted by applicable educational privacy laws and with
-              appropriate authorization from educational institutions.
+              Where SOPIPA applies, we operate consistent with its requirements. In particular, we do not
+              knowingly: (a) sell student personal information; (b) use student personal information for
+              targeted advertising; (c) create profiles of students for non-educational commercial
+              purposes; or (d) disclose student personal information except as permitted by law and by
+              authorized educational institutions or parents/guardians, as applicable.
             </p>
             <p>
-              School districts, teachers, and educational institutions using the Services represent and
-              warrant that they have obtained all necessary authorizations and permissions to use the
-              Services with student data in accordance with FERPA, state educational privacy laws, and
-              their own institutional policies. Educational institutions remain the owners of all
-              student data and maintain primary responsibility for ensuring compliance with applicable
-              privacy regulations.
+              Schools, districts, teachers, and other educational institutions using the Services represent
+              and warrant that they have obtained all necessary authorizations and permissions to use the
+              Services with student data in accordance with applicable laws (including FERPA and any
+              applicable state student privacy laws) and their own institutional policies. As between the
+              parties, educational institutions remain responsible for their compliance obligations and for
+              providing required notices and obtaining required consents from parents/guardians where
+              applicable.
             </p>
 
             <h4>4B. Children Under 13 and Parental Consent</h4>
@@ -201,9 +201,9 @@ export default async function App() {
               outdated at any time, and we are under no obligation to update it.
             </p>
             <p>
-              Slonig may add, delete, or modify some or all of the Services. If we determine that a change is 
-              material, we may provide notice (for example, by posting a notice in the Services or on our 
-              website, or by email if you have provided an email address for Service-related communications). 
+              Slonig may add, delete, or modify some or all of the Services. If we determine that a change is
+              material, we may provide notice (for example, by posting a notice in the Services or on our
+              website, or by email if you have provided an email address for Service-related communications).
               Where applicable, we may provide options to continue using the Services or to stop using the affected Services.
             </p>
 
