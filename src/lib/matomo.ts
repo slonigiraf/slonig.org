@@ -12,15 +12,14 @@ export type MatomoEvent = {
   value?: number; // Matomo expects integer if provided
 };
 
-export function isLocalhost() {
-  if (typeof window === "undefined") return false;
-  const h = window.location.hostname;
-  return h === "localhost" || h === "127.0.0.1" || h === "::1";
-}
+// ✅ Client-side env var (must start with NEXT_PUBLIC_ in Next.js)
+const MATOMO_LOG_ONLY =
+  process.env.NEXT_PUBLIC_MATOMO_LOG_ONLY === "1" ||
+  process.env.NEXT_PUBLIC_MATOMO_LOG_ONLY === "true";
 
 /**
  * Push a Matomo event if _paq is available.
- * - If localhost: logs to console instead (so you can debug without polluting analytics)
+ * - If MATOMO_LOG_ONLY: logs to console instead (debug without polluting analytics)
  * - If value is provided: it will be rounded to an integer (Matomo prefers integers)
  */
 export function trackMatomoEvent({ category, action, name, value }: MatomoEvent) {
@@ -33,15 +32,16 @@ export function trackMatomoEvent({ category, action, name, value }: MatomoEvent)
   const roundedValue = value != null ? Math.round(value) : undefined;
   if (roundedValue != null) payload.push(roundedValue);
 
-  // if (isLocalhost()) {
-  //   // eslint-disable-next-line no-console
-  //   const log: Record<string, unknown> = { category, action };
-  //   if (name != null) log.name = name;
-  //   if (roundedValue != null) log.value = roundedValue;
+  // ✅ replace isLocalhost() with env flag
+  if (MATOMO_LOG_ONLY) {
+    // eslint-disable-next-line no-console
+    const log: Record<string, unknown> = { category, action };
+    if (name != null) log.name = name;
+    if (roundedValue != null) log.value = roundedValue;
 
-  //   console.log("[Matomo trackEvent]", log);
-  //   return;
-  // }
+    console.log("[Matomo trackEvent]", log);
+    return;
+  }
 
   if (Array.isArray(window._paq)) {
     window._paq.push(payload);
