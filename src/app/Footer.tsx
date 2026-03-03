@@ -180,17 +180,17 @@ export default function Footer({
         {/* Bottom legal line */}
         <div className="mt-16 text-center leading-relaxed text-white/80 text-sm">
           Use of this website constitutes acceptance of the{" "}
-          <Link className="text-white underline-offset-2 hover:underline" href="/privacy">
-            Privacy Policy
-          </Link>
+          <MatomoLink trackName="footer_privacy_policy" className="hover:underline" href="/privacy-policy">
+            Privacy policy
+          </MatomoLink>
           ,{" "}
-          <Link className="text-white underline-offset-2 hover:underline" href="/privacy-students">
-            Privacy Policy for Students
-          </Link>
+          <MatomoLink trackName="footer_privacy_policy_for_students" className="hover:underline" href="/privacy-policy-students">
+            Privacy policy for students
+          </MatomoLink>
           , and{" "}
-          <Link className="text-white underline-offset-2 hover:underline" href="/terms">
-            Terms of Service
-          </Link>
+          <MatomoLink trackName="footer_terms_of_service" className="hover:underline" href="/terms-of-service">
+            Terms of service
+          </MatomoLink>
           .
           <br />
           <span className="text-white">Slonig</span> complies with the Children&apos;s Online
