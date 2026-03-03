@@ -210,94 +210,95 @@ export default async function App() {
               </li>
             </ul>
 
-            <h4>3B. Purchase Terms (Paid Services and Slon Tokens)</h4>
+            <h4>3B. Payments, Renewals, Cancellations, and Refunds</h4>
 
             <p>
               This Section applies to purchases of paid Services (such as support, training, consulting, or custom
-              development) and, if offered, Slon Tokens. Additional terms may apply at checkout and/or in an order
-              form, statement of work, invoice, or other written agreement. If there is a conflict, the checkout
-              terms or written agreement will control for that purchase.
+              development) and, if offered, Slon Tokens. Additional terms may be presented at checkout and/or in an
+              order form, statement of work, or invoice. If there is a conflict, the checkout terms or written agreement
+              will control for that purchase.
             </p>
 
+            <h5>3B-1. Business and School Purchases (B2B)</h5>
             <ul className="list-disc pl-5">
               <li>
-                <strong>Merchant of record.</strong> The merchant of record will be identified at checkout or on
-                the invoice (which may be Slonig and/or our authorized payment processor or reseller). You
-                authorize the merchant of record to charge the payment method you provide for the amount shown,
-                including any applicable taxes and fees.
+                <strong>Order documents.</strong> Paid Services for schools, districts, and other organizations may be provided
+                under a written order form, statement of work, purchase order acceptance, or invoice describing scope, fees,
+                and delivery.
               </li>
-
               <li>
-                <strong>Pricing and currency.</strong> Prices and the applicable currency will be shown at the time
-                of purchase. Unless otherwise stated, prices do not include taxes, levies, or duties that may apply.
+                <strong>Invoices; payment terms.</strong> Unless otherwise stated on the invoice, invoices are due{" "}
+                <strong>net thirty (30) days</strong> from the invoice date. You are responsible for all taxes and similar charges
+                unless a valid exemption is provided before invoicing.
               </li>
-
               <li>
-                <strong>Taxes.</strong> You are responsible for any applicable taxes, and we may collect taxes where
-                required. If you are entitled to a tax exemption, you must provide valid documentation before
-                completing the purchase. If you are purchasing on behalf of a school or institution, you represent
-                you are authorized to make the purchase and to provide any exemption documentation.
+                <strong>Dispute window.</strong> You must notify us in writing of any good-faith invoice dispute within{" "}
+                <strong>thirty (30) days</strong> of the invoice date, describing the basis for the dispute. Undisputed amounts
+                remain payable on time.
               </li>
-
               <li>
-                <strong>Payment processing.</strong> Payments may be processed by third-party payment processors and
-                are subject to their terms and privacy practices. Slonig does not control and is not responsible for
-                payment processor acts or omissions, except as required by law.
-              </li>
-
-              <li>
-                <strong>Authorization; failed payments.</strong> By providing a payment method, you represent that
-                you are authorized to use it. If a payment fails or is reversed, we may suspend or cancel the
-                purchased paid Services and/or revoke or reduce Slon Tokens associated with the transaction, to the
-                extent permitted by law.
-              </li>
-
-              <li>
-                <strong>Chargebacks and disputes.</strong> If you initiate a chargeback or payment dispute, we may
-                suspend access to paid features and/or Slon Tokens pending resolution. We may also require you to
-                contact us first at <strong>info@slonig.org</strong> to attempt to resolve billing issues before
-                initiating a chargeback, but nothing in these Terms limits any rights you may have under applicable law.
-              </li>
-
-              <li>
-                <strong>Subscriptions (if offered).</strong> If we offer subscriptions, the subscription terms
-                (billing frequency, renewal, and cancellation) will be disclosed at checkout. Unless otherwise stated,
-                subscriptions renew automatically until cancelled. You may cancel future renewals as described at
-                checkout or by contacting <strong>info@slonig.org</strong>. Cancellation takes effect at the end of
-                the current billing period unless applicable law requires otherwise.
-              </li>
-
-              <li>
-                <strong>Refunds.</strong> Refund eligibility (if any) will be stated at checkout, in Refund Terms,
-                or in a written agreement governing the purchase. Except where required by applicable law or
-                expressly stated at the time of purchase, all purchases are <strong>final and non-refundable</strong>.
-                Where a refund is required by law or approved by Slonig, it will be issued to the original payment
-                method (or another lawful method if the original method is unavailable).
-              </li>
-
-              <li>
-                <strong>EU/UK consumer rights; digital content/services.</strong> If you are a consumer located in
-                the EEA, United Kingdom, or Switzerland, you may have statutory rights, including a right to withdraw
-                from certain distance contracts within 14 days. However, this right may be lost for{" "}
-                <strong>digital content</strong> not supplied on a tangible medium once performance has begun with
-                your prior express consent and acknowledgment, or for <strong>digital services</strong> once the
-                service has been fully performed, as applicable. Where required, we will obtain any necessary consents
-                at checkout.
-              </li>
-
-              <li>
-                <strong>Promotions and credits.</strong> We may offer discounts, coupons, promotional pricing, or
-                credits. Promotions may be time-limited and subject to eligibility requirements, limits, and other
-                conditions described at the time of offer. Promotional credits have no cash value and are not
-                redeemable for cash.
-              </li>
-
-              <li>
-                <strong>Changes.</strong> We may change pricing and availability of paid Services and/or Slon Tokens
-                prospectively. Any price changes for subscriptions (if offered) will apply for the next renewal
-                period after notice to the extent required by law.
+                <strong>Late payments.</strong> To the extent permitted by law, late amounts may accrue interest at{" "}
+                <strong>1.5% per month</strong> (or the maximum permitted by law, if lower), plus reasonable costs of collection.
               </li>
             </ul>
+
+            <h5>3B-2. Consumer Purchases (Parents/Guardians)</h5>
+            <ul className="list-disc pl-5">
+              <li>
+                <strong>Checkout disclosures.</strong> Prices, currency, taxes, and key purchase terms will be shown at checkout
+                before you complete a purchase.
+              </li>
+              <li>
+                <strong>How to cancel.</strong> If a purchase includes a recurring subscription (if offered), you can cancel future
+                renewals through the in-product account/billing controls (if available) or by emailing{" "}
+                <strong>info@slonig.org</strong>. Cancellation stops future charges. Unless required by law, cancellation does not
+                retroactively refund the current billing period.
+              </li>
+            </ul>
+
+            <h5>3B-3. Renewals (If Subscriptions Are Offered)</h5>
+            <ul className="list-disc pl-5">
+              <li>
+                <strong>Auto-renewal.</strong> If a subscription is offered, it will renew automatically at the frequency disclosed
+                at checkout until cancelled. We will provide any renewal notices required by applicable law.
+              </li>
+              <li>
+                <strong>Price changes.</strong> We may change subscription pricing prospectively. Any price change will apply on the
+                next renewal after notice to the extent required by law.
+              </li>
+            </ul>
+
+            <h5>3B-4. Refunds and Credits</h5>
+            <ul className="list-disc pl-5">
+              <li>
+                <strong>Paid Services.</strong> Refund eligibility (if any) for paid Services will be specified in the applicable
+                written agreement or checkout terms. If not specified, fees for performed Services are non-refundable to the maximum
+                extent permitted by law.
+              </li>
+              <li>
+                <strong>Slon Tokens.</strong> Except where required by applicable law, or where we explicitly approve a refund in
+                writing, Slon Token purchases are <strong>final and non-refundable</strong>. We may, however, correct errors and
+                issue refunds or credits in cases of duplicate charges, processing errors, or suspected fraud, in our discretion and
+                as permitted by law.
+              </li>
+              <li>
+                <strong>Refund method.</strong> Approved refunds are issued to the original payment method when possible (or another
+                lawful method if not possible). Timing depends on the payment processor and financial institution.
+              </li>
+              <li>
+                <strong>Chargebacks.</strong> If you initiate a chargeback or payment dispute, we may suspend access to paid features
+                and/or Slon Token functionality while the dispute is pending, to the extent permitted by law.
+              </li>
+            </ul>
+
+            <h5>3B-5. EEA/UK/Switzerland Consumer Notice (Digital Content and Services)</h5>
+            <p>
+              If you are a consumer located in the EEA, United Kingdom, or Switzerland, you may have a statutory right to withdraw
+              from certain distance contracts within 14 days. However, this right may be lost for <strong>digital content</strong>{" "}
+              not supplied on a tangible medium once performance has begun with your prior express consent and acknowledgment, and
+              for <strong>digital services</strong> once the service has been fully performed, as applicable. Where required, we will
+              present required information and obtain any necessary consents at checkout.
+            </p>
 
             <h3>4. Supervising Children</h3>
             <p>
@@ -678,12 +679,9 @@ export default async function App() {
               provide email notice to users for whom we do not have a current email address.
             </p>
             <p>
-              Changes will apply from the effective date shown in the updated Terms. By continuing to access or
-              use the Services after the changes become effective, you agree to the updated Terms. If you do not
-              agree to a material change, you must stop using the Services. If you have purchased paid Services
-              and the change materially affects those paid Services, you may cancel the affected paid Services
-              within 45 days of the notice, and we will provide any refund (if applicable) in accordance with the
-              Refund Terms or any separate written agreement governing your purchase.
+              If you have purchased paid Services and the change materially affects those paid Services, you may cancel the affected
+              paid Services within 45 days of the notice. Any refund eligibility will be handled in accordance with Section 3B-4 and
+              any separate written agreement governing your purchase, and as required by applicable law.
             </p>
 
             <h3>14. Entire Agreement</h3>
