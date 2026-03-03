@@ -91,31 +91,7 @@ export default async function App() {
           </p>
 
 
-          <ol
-            className={[
-              "mt-8 space-y-6 list-none pl-0 !text-black",
-
-              // CSS counter setup
-              "[counter-reset:policysec]",
-              "[&>li]:[counter-increment:policysec]",
-
-              // title line (number + title)
-              "[&>li>h3]:!mt-0",
-              "[&>li>h3]:!text-black",
-              "[&>li>h3]:flex [&>li>h3]:items-baseline [&>li>h3]:gap-3",
-
-              // render "1." before each title
-              "[&>li>h3::before]:content-[counter(policysec)'.']",
-              "[&>li>h3::before]:shrink-0",
-              "[&>li>h3::before]:w-8",
-              "[&>li>h3::before]:text-right",
-              "[&>li>h3::before]:font-extrabold",
-              "[&>li>h3::before]:text-black",
-
-              // optional: tighter spacing inside each section
-              "[&>li>p:first-of-type]:mt-2",
-            ].join(" ")}
-          >
+          <ol className="policy-ol">
             <li><h3>Who This Policy Applies To</h3>
               <p>This policy applies to students who use Slonig through:</p>
               <ul className="list-disc pl-5">

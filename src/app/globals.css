@@ -134,3 +134,29 @@ a:not(footer a):not(.no-global-link a) {
 a:not(footer a):not(.no-global-link a):hover {
   opacity: 0.8;
 }
+
+.policy-ol{
+  margin-top:2rem;
+  padding-left:0;
+  list-style:none;
+  color:#000 !important;
+  counter-reset:policysec;
+}
+.policy-ol>li{counter-increment:policysec;}
+.policy-ol>li+li{margin-top:1.5rem;}
+.policy-ol>li>h3{
+  margin-top:0 !important;
+  color:#000 !important;
+  display:flex;
+  align-items:baseline;
+  gap:.75rem;
+}
+.policy-ol>li>h3::before{
+  content:counter(policysec) ".";
+  flex-shrink:0;
+  width:2rem;
+  text-align:right;
+  font-weight:800;
+  color:#000;
+}
+.policy-ol>li>p:first-of-type{margin-top:.5rem;}
