@@ -425,14 +425,20 @@ export default async function App() {
 
             <h3>5. Indemnification</h3>
             <p>
-              You agree to indemnify and hold Slonig, its subsidiaries, affiliates, licensors, licensees,
-              officers, agents, partners, employees, and contractors harmless from any liabilities, losses,
-              damages, claims, penalties, fines, costs, and expenses (including reasonable legal fees) arising
-              out of or related to: (i) your access to or use of the Services; (ii) any User Content you submit,
-              transmit, or otherwise make available through the Services; (iii) your or your
-              children’s violation of these Terms or applicable law; or (iv) any claim by a third party that
-              your use of the Services infringes or misappropriates that third party’s intellectual property,
-              proprietary, or privacy rights, or has otherwise caused harm to a third party.
+              To the maximum extent permitted by applicable law, you agree to indemnify and hold Slonig, its subsidiaries,
+              affiliates, licensors, licensees, officers, agents, partners, employees, and contractors harmless from any
+              liabilities, losses, damages, claims, penalties, fines, costs, and expenses (including reasonable legal fees)
+              arising out of or related to: (i) your access to or use of the Services; (ii) any User Content you submit,
+              transmit, or otherwise make available through the Services; (iii) your or your children’s violation of these
+              Terms or applicable law; or (iv) any claim by a third party that your use of the Services infringes or
+              misappropriates that third party’s intellectual property, proprietary, or privacy rights, or has otherwise
+              caused harm to a third party.
+            </p>
+            <p>
+              <strong>Institutional agreements may differ.</strong> If you are a school, district, or other organization
+              and you have entered into a separate written agreement with Slonig (for example, an order form, MSA, DPA,
+              or similar), the indemnification terms in that written agreement will control for the covered Services in
+              the event of a conflict.
             </p>
 
             <h3>6. Modifications to Services</h3>
