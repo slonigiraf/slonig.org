@@ -1,9 +1,11 @@
+// CurriculumAlignment.tsx
 "use client";
 
 import React, { useEffect, useMemo, useState } from "react";
 import { CheckCircle2, ChevronDown } from "lucide-react";
 import RequestDemo from "./RequestDemo";
 import ImpressionTracker from "./ImpressionTracker";
+import { trackMatomoEvent } from "@/lib/matomo";
 
 type Props = {};
 
@@ -140,6 +142,7 @@ const FEATURED_ALIGNMENT: Record<GradeKey, string[]> = {
     "Area of triangles and parallelograms",
     "Statistical variability (dot plots, histograms, box plots)",
     "Negative numbers on the number line",
+    "Negative numbers on the number line",
   ],
   7: [
     "Proportional relationships",
@@ -262,11 +265,40 @@ export default function CurriculumAlignment({}: Props) {
   const [selectedState, setSelectedState] = useState("Select state");
   const [isLoading, setIsLoading] = useState(false);
 
+  // ---- Matomo: ONE event per user action ------------------------------
+
+  const trackState = (state: string) => {
+    if (!state || state === "Select state") return;
+    trackMatomoEvent({
+      category: "CURRICULUM_ALIGNMENT",
+      action: "SELECT_STATE",
+      name: state,
+    });
+  };
+
+  const trackGrade = (grade: GradeKey) => {
+    trackMatomoEvent({
+      category: "CURRICULUM_ALIGNMENT",
+      action: "SELECT_GRADE",
+      name: `${grade}`,
+    });
+  };
+
+  const handleStateChange: React.ChangeEventHandler<HTMLSelectElement> = (e) => {
+    const next = e.target.value;
+    setSelectedState(next);
+    trackState(next); // ✅ exactly 1 event
+  };
+
+  const handleGradeChange = (next: GradeKey) => {
+    setSelectedGrade(next);
+    trackGrade(next); // ✅ exactly 1 event
+  };
+
+  // ---- Loader behavior (unchanged) -----------------------------------
+
   // Show loader for 1s after state OR grade changes
   useEffect(() => {
-    // Don’t show loader for the initial "Select state" if you prefer:
-    // if (selectedState === "Select state") return;
-
     setIsLoading(true);
     const t = window.setTimeout(() => setIsLoading(false), 1000);
     return () => window.clearTimeout(t);
@@ -276,9 +308,10 @@ export default function CurriculumAlignment({}: Props) {
     <section id="curriculum" className="w-full bg-white text-slate-900">
       <ImpressionTracker id={"CurriculumAlignment"} />
       <h2>Matching Your Math Standards</h2>
+
       <div className="mx-auto max-w-6xl px-6">
         <div className="rounded-[28px] bg-emerald-50/70 p-8 md:p-10">
-          <div className="text-sm font-extrabold uppercase tracking-widest text-slate-700/70 text-center">
+          <div className="text-center text-sm font-extrabold uppercase tracking-widest text-slate-700/70">
             Curriculum Alignment Available in Spanish and English
           </div>
 
@@ -291,7 +324,7 @@ export default function CurriculumAlignment({}: Props) {
                 <div className="relative w-full max-w-xl">
                   <select
                     value={selectedState}
-                    onChange={(e) => setSelectedState(e.target.value)}
+                    onChange={handleStateChange}
                     className="h-16 w-full appearance-none rounded-2xl bg-gradient-to-b from-blue-500 to-blue-600 px-6 text-center text-xl font-semibold text-white shadow-md outline-none ring-1 ring-blue-300/40"
                   >
                     <option value="Select state" disabled>
@@ -313,7 +346,7 @@ export default function CurriculumAlignment({}: Props) {
                   <select
                     value={selectedGrade}
                     onChange={(e) =>
-                      setSelectedGrade(Number(e.target.value) as GradeKey)
+                      handleGradeChange(Number(e.target.value) as GradeKey)
                     }
                     className="h-16 w-full appearance-none rounded-2xl bg-gradient-to-b from-blue-500 to-blue-600 px-6 text-center text-xl font-semibold text-white shadow-md outline-none ring-1 ring-blue-300/40"
                     aria-label="Select grade"
@@ -335,7 +368,7 @@ export default function CurriculumAlignment({}: Props) {
                     key={g}
                     grade={g}
                     selected={g === selectedGrade}
-                    onSelect={setSelectedGrade}
+                    onSelect={handleGradeChange}
                   />
                 ))}
               </div>
