@@ -95,14 +95,88 @@ export default async function App() {
             <p>
               Separately, Slonig may offer paid Services, including (without limitation) technical support,
               teacher training, development of new materials, consulting, and maintaining the integrity and
-              reliability of the Platform. Certain Services may be funded or incentivized through the
-              distribution and use of Slon tokens.
+              reliability of the Platform. Slonig may also offer optional in-Service points (“Slon Tokens”)
+              that may be used within the Services as described in Section 3A.
             </p>
 
             <p>
               For information about available Services and pricing, please contact us at{" "}
               <strong>info@slonig.org</strong>.
             </p>
+
+            <h4>3A. Slon Tokens (In-Service Digital Points)</h4>
+
+            <ul className="list-disc pl-5">
+              <li>
+                <strong>No monetary value / no cash redemption.</strong> Slon Tokens are in-Service digital
+                points with <strong>no cash value</strong>. They are <strong>not money</strong>, not legal
+                tender, not a bank account, and not a payment instrument. Slon Tokens are{" "}
+                <strong>not redeemable for cash</strong> and cannot be exchanged for fiat currency by Slonig.
+              </li>
+
+              <li>
+                <strong>Limited purpose.</strong> Slon Tokens may only be used <strong>within the Services</strong>{" "}
+                for the limited purposes we describe in-product (for example, enabling certain learning activities,
+                unlocking features, or accessing content). Slon Tokens do not represent any ownership interest in Slonig
+                or any right to profits, dividends, or governance.
+              </li>
+
+              <li>
+                <strong>Not an investment.</strong> Slon Tokens are <strong>not offered or sold as an investment</strong>{" "}
+                and are not intended to create any expectation of profit. You should not purchase or acquire Slon Tokens
+                with an expectation that their value will increase.
+              </li>
+
+              <li>
+                <strong>Who may purchase.</strong> Slon Tokens may be purchased by parents/legal guardians and by schools,
+                districts, and other educational institutions (each, a <strong>“Purchaser”</strong>) for use in connection
+                with educational activities in the Services.
+              </li>
+
+              <li>
+                <strong>Transfers inside the Services only.</strong> Users may be able to transfer Slon Tokens to other users{" "}
+                <strong>through the Services’ built-in functionality</strong>. Transfers are intended to support educational
+                use in the Services and are subject to any limits, controls, or eligibility rules we may apply (for example,
+                caps, classroom or organization scope, age restrictions, fraud prevention, or other safety measures).
+              </li>
+
+              <li>
+                <strong>No resale / no external market.</strong> You may not buy, sell, barter, broker, or transfer Slon Tokens{" "}
+                outside the Services, or use them in connection with any external marketplace or exchange. We do not recognize
+                or support any attempt to create an external market for Slon Tokens, and any purported “sale” or “exchange”
+                outside the Services is void.
+              </li>
+
+              <li>
+                <strong>Pricing and taxes.</strong> Prices (if any) for Slon Tokens will be shown at the time of purchase.
+                Taxes and fees may apply where required by law.
+              </li>
+
+              <li>
+                <strong>Final sale; refunds.</strong> Except where required by applicable law or expressly stated at the time
+                of purchase, purchases of Slon Tokens are <strong>final and non-refundable</strong>. If we provide refunds in
+                a particular case, we may do so by returning funds to the original payment method or by issuing replacement
+                tokens, at our discretion and as permitted by law.
+              </li>
+
+              <li>
+                <strong>Loss and errors.</strong> Once credited, Slon Tokens may be spent, transferred, or consumed through the
+                Services. You are responsible for confirming recipient details before transferring. We may correct errors (for
+                example, duplicate credits, miscalculations, or technical issues) and may reverse or adjust token balances where
+                we reasonably determine an error, fraud, abuse, or violation of these Terms.
+              </li>
+
+              <li>
+                <strong>Program changes.</strong> We may modify, suspend, or discontinue Slon Tokens at any time (including
+                changing earning rules, usage rules, caps, or expiration), to the extent permitted by law, and we may update
+                these Terms and/or provide notice in the Services.
+              </li>
+
+              <li>
+                <strong>Abuse.</strong> We may suspend, reverse, or remove Slon Tokens and/or restrict access to Slon Tokens
+                features if we reasonably believe there is fraud, manipulation, abuse, or violation of these Terms.
+              </li>
+            </ul>
 
             <h3>4. Supervising Children</h3>
             <p>
