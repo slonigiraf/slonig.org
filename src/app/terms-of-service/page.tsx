@@ -198,9 +198,10 @@ export default async function App() {
             </p>
             <p>
               Slonig may add, delete, or modify some or all of the Services. If we determine that a change is
-              material, we may provide notice (for example, by posting a notice in the Services or on our
-              website, or by email if you have provided an email address for Service-related communications).
-              Where applicable, we may provide options to continue using the Services or to stop using the affected Services.
+              material, we may provide notice by posting a notice in the Services and/or on our website. If you
+              have provided an email address for Service-related communications (for example, in connection with
+              paid Services, support, or training), we may also provide notice by email. Where applicable, we may
+              provide options to continue using the Services or to stop using the affected Services.
             </p>
 
             <h3>7. Intellectual Property</h3>
@@ -351,19 +352,21 @@ export default async function App() {
             <h3>13. Changes to Terms</h3>
             <p>
               We may update these Terms from time to time. If we make material changes, we will provide notice at
-              least 14 days before the changes take effect, for example by posting a notice in the Services, on
-              our website, or by emailing an address you have provided for Service-related communications (if
-              applicable).
+              least 14 days before the changes take effect by posting a notice in the Services and/or on our
+              website.
+            </p>
+            <p>
+              If you have provided an email address for Service-related communications (for example, in connection
+              with paid Services, support, or training), we may also provide notice by email. We are not able to
+              provide email notice to users for whom we do not have a current email address.
             </p>
             <p>
               Changes will apply from the effective date shown in the updated Terms. By continuing to access or
-              use the Services after the changes become effective, you agree to the updated Terms.
-            </p>
-            <p>
-              If you do not agree to a material change, you must stop using the Services. If you have purchased
-              paid Services and the change materially affects those paid Services, you may cancel the affected
-              paid Services within 45 days of the notice, and we will provide any refund (if applicable) in
-              accordance with the Refund Terms or any separate written agreement governing your purchase.
+              use the Services after the changes become effective, you agree to the updated Terms. If you do not
+              agree to a material change, you must stop using the Services. If you have purchased paid Services
+              and the change materially affects those paid Services, you may cancel the affected paid Services
+              within 45 days of the notice, and we will provide any refund (if applicable) in accordance with the
+              Refund Terms or any separate written agreement governing your purchase.
             </p>
 
             <h3>14. Entire Agreement</h3>
