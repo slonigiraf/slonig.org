@@ -1,4 +1,5 @@
 import React from "react";
+import ImpressionTracker from "./ImpressionTracker";
 
 export type ExpandableListRow = {
   Icon?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
@@ -121,6 +122,7 @@ export default function ExpandableList({
                       />
 
                       <div>
+                        <ImpressionTracker id={label} />
                         {text ? <div className={expandedTextClassName}>{text}</div> : null}
                         {node ? <div className={expandedNodeClassName}>{node}</div> : null}
                       </div>
