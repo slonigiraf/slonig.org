@@ -5,14 +5,9 @@ export default async function App() {
   return (
     <>
       <Navbar />
-
-      {/* Terms content */}
       <section className="mx-auto w-full max-w-4xl pt-24 px-6 text-slate-900 pb-10">
         <h1 className="!text-black">Terms of Service</h1>
-
-        {/* ✅ force left alignment for ALL content, including headings */}
         <div className="text-left [&_*]:!text-left">
-          {/* ✅ Tailwind-only typography overrides */}
           <LegalDiv>
             <p className="mt-8 text-[clamp(14px,1.1vw,16px)]">
               Date of issue of these Terms: 03/01/2026
@@ -327,7 +322,6 @@ export default async function App() {
               present required information and obtain any necessary consents at checkout.
             </p>
 
-            {/* ✅ add under Section 3 (Pricing), ideally right before 3B-1 */}
             <h4>3C. Purchases; Authority; Payment Processing; Receipts</h4>
 
             <p>
@@ -685,8 +679,6 @@ export default async function App() {
               Services or your downloading of any materials posted on it or on any website linked to it.
             </p>
 
-            {/* ✅ Add these sections after Section 8 (Prohibited Activities) */}
-
             <h4>8A. Accessibility</h4>
             <p>
               Slonig is committed to making the Services accessible to all users, including individuals with disabilities.
@@ -771,7 +763,6 @@ export default async function App() {
               COURSE OF DEALING OR USAGE OF TRADE.
             </p>
 
-            {/* ✅ add this */}
             <p>
               <strong>Non-waivable rights.</strong> Some jurisdictions do not allow the exclusion of certain warranties
               or limitations of liability. Nothing in these Terms limits or excludes any rights you may have that cannot
@@ -806,7 +797,6 @@ export default async function App() {
               RISE TO THE CLAIM.
             </p>
 
-            {/* ✅ add this */}
             <p>
               <strong>Required carve-outs.</strong> The limitations in this Section do not apply to the extent prohibited
               by applicable law, including liability that cannot be limited or excluded under law (for example, certain
@@ -814,7 +804,6 @@ export default async function App() {
               negligence, where applicable).
             </p>
 
-            {/* ✅ optional but useful for schools */}
             <p>
               <strong>Enterprise terms control where applicable.</strong> If you have a separate written agreement with
               Slonig (for example, an order form, MSA, or data processing addendum), that agreement may include different
@@ -1100,7 +1089,6 @@ export default async function App() {
               courts.
             </p>
 
-            {/* ✅ add this consumer carve-out */}
             <p>
               <strong>Consumer rights and mandatory local rules.</strong> If you are a consumer (not acting on behalf
               of a school, district, or other organization), and the laws of your country of residence provide you
