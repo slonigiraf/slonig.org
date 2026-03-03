@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { trackMatomoEvent } from "@/lib/matomo";
 import ImpressionTracker from "./ImpressionTracker";
 
@@ -31,13 +31,18 @@ export default function RequestDemo({
     matomoAction = "CLICK_REQUEST_DEMO",
 }: Props) {
     const [form, setForm] = useState({ name: "", email: "" });
+    const [page, setPage] = useState("");
+
+    useEffect(() => {
+        setPage(window.location.pathname);
+    }, []);
 
     const openCalendar = (source?: string) => {
         // Track BEFORE opening the new tab (some browsers may throttle JS after window.open)
         trackMatomoEvent({
             category: matomoCategory,
             action: matomoAction,
-            name: id,
+            name: (page || window.location.pathname) + ": " + id,
         });
 
         window.open(APPOINTMENT_URL, "_blank", "noopener,noreferrer");

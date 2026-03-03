@@ -15,14 +15,6 @@ type ImpressionTrackerProps = {
   children?: React.ReactNode;
 };
 
-/** "/" -> "index", "/legal/privacy-policy" -> "legal/privacy-policy" */
-function pageIdFromPathname(pathname: string | null | undefined) {
-  if (!pathname || pathname === "/") return "index";
-  const clean = pathname.split("?")[0]?.split("#")[0] ?? "/";
-  const parts = clean.split("/").filter(Boolean);
-  return parts.length ? parts.join("/") : "index";
-}
-
 export default function ImpressionTracker({
   id,
   category = "IMPRESSION",
@@ -36,7 +28,7 @@ export default function ImpressionTracker({
   const pathname = usePathname();
 
   const actionResolved = useMemo(() => {
-    return action ?? pageIdFromPathname(pathname);
+    return action ?? pathname;
   }, [action, pathname]);
 
   const inViewRef = useRef(false);
@@ -51,7 +43,7 @@ export default function ImpressionTracker({
 
     trackMatomoEvent({
       category,
-      action: actionResolved,
+      action: "VIEW_AT_" + pathname,
       name: id,
       value: totalMs, // helper rounds to int
     });
