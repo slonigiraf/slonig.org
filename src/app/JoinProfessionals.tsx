@@ -141,7 +141,6 @@ export default function JoinProfessionals({}: Props) {
                 outerClassName="mx-auto max-w-3xl px-0"
                 innerClassName="mx-auto max-w-3xl"
                 tableClassName="overflow-hidden rounded-2xl border border-slate-200 bg-white"
-                rowGridClassName="grid grid-cols-[2.75rem_3rem_1fr] items-start px-4 py-4"
                 cellLabelClassName="text-slate-900 font-semibold"
                 expandedTextClassName="mt-2 text-slate-700 leading-relaxed text-sm"
                 expandedNodeClassName="mt-4"
