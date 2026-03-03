@@ -85,6 +85,33 @@ export default async function App() {
               device-stored data or keys if they are lost or deleted.
             </p>
 
+            <h4>2A. Enforcement Without Accounts</h4>
+            <p>
+              Because the Services do not use traditional accounts or logins, Slonig’s ability to enforce these Terms
+              (including addressing repeat infringement or abuse) is based on the context in which the Services are used.
+              Depending on how you access the Services, “access” may include:
+            </p>
+            <ul className="list-disc pl-5">
+              <li>
+                access through a school, district, classroom, or other organization workspace or license (if applicable);
+              </li>
+              <li>
+                access associated with an email address you provide for support, paid Services, training, or other communications;
+              </li>
+              <li>
+                access associated with a purchase, invoice, subscription, or other customer record (if applicable); and/or
+              </li>
+              <li>
+                access to specific pages, links, or in-product contribution features where User Content is submitted.
+              </li>
+            </ul>
+            <p>
+              We do not promise that we can identify every user or prevent all re-access in every circumstance. Where we
+              take enforcement action, we may do so by restricting access in the applicable context (for example, disabling
+              a contribution feature, restricting access within an organization workspace, rejecting submissions, or limiting
+              support and paid Services), and by removing or disabling access to specific content.
+            </p>
+
             <h3>3. Pricing</h3>
             <p>
               Slonig may offer the Platform under an open-source license, with educational content made
@@ -505,6 +532,10 @@ export default async function App() {
               or preserve User Content, and we may suspend or terminate access to the Services, as described in Section 15,
               including to address suspected infringement, unlawful activity, or policy violations.
             </p>
+            <p>
+              Because the Services do not use traditional accounts, moderation and enforcement may be applied to specific
+              content, links, features, or organization contexts rather than to a persistent user identity.
+            </p>
 
             <h3>8. Prohibited Activities</h3>
             <p>
@@ -658,13 +689,14 @@ export default async function App() {
 
             <h4>12C. Repeat Infringer Policy</h4>
             <p>
-              In appropriate circumstances and at our discretion, Slonig may disable or terminate access for users who are repeat infringers.
-              We may also remove or restrict access to allegedly infringing material as required by applicable law.
+              In appropriate circumstances and at our discretion, Slonig may disable or restrict access to contribution
+              features and/or terminate access to the Services (as described in Section 15) for users or contexts that are
+              the subject of repeated notices of alleged infringement. Where feasible, we may apply this policy in the
+              applicable context (for example, within a school or organization workspace, or for submissions associated with
+              a Service-related email address or customer record).
             </p>
-
             <p>
-              <strong>Important:</strong> Submitting false or misleading notices or counter-notices may result in liability. You should consider
-              consulting an attorney before submitting a notice or counter-notice.
+              We may also remove or restrict access to allegedly infringing material as required by applicable law.
             </p>
 
             <h3>13. Changes to Terms</h3>
@@ -695,11 +727,20 @@ export default async function App() {
 
             <h3>15. Termination</h3>
             <p>
-              We may suspend or terminate your access to the Services at our sole discretion in case of
-              breach of these Terms. Suspected illegal, fraudulent, or abusive activity may be grounds
-              for terminating your access to Services and may be referred to the appropriate law enforcement
-              authorities. Your right to use the Services will immediately cease upon suspension or
-              termination. We reserve the right to remove or delete information in accordance with our Privacy Policy.
+              We may suspend or terminate access to all or part of the Services, or restrict specific features, if we
+              reasonably believe you have violated these Terms, infringed others’ rights, or engaged in unlawful,
+              fraudulent, or abusive activity. Enforcement actions may include removing or disabling access to User Content,
+              limiting or disabling contribution features, restricting access within an organization workspace (if applicable),
+              and/or refusing further support or paid Services associated with a customer record or email address used for
+              Service-related communications.
+            </p>
+            <p>
+              Because the Services do not rely on traditional accounts, we may not be able to associate all activity with a
+              single individual across devices or sessions. We do not guarantee that a suspension will prevent all future
+              access in every case. We may refer suspected illegal activity to law enforcement where required or appropriate.
+            </p>
+            <p>
+              We reserve the right to remove or delete information in accordance with our Privacy Policy.
             </p>
 
             <h3>16. Governing Law and Jurisdiction</h3>
