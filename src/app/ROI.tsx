@@ -11,10 +11,10 @@ const ROWS: ListWithIconsRow[] = [
   { Icon: ShieldCheck, label: "Money-back guarantee:", text: "Full refund if targets aren’t met" },
 ];
 
-export default function ValueStack({}: Props) {
+export default function ROI({}: Props) {
   return (
     <section id="roi" className="relative w-full text-slate-900">
-      <ImpressionTracker id={"ValueStack"} />
+      <ImpressionTracker id={"ROI"} />
       <h2>400%–887% ROI&nbsp;First&nbsp;Year</h2>
       <div className="mt-6 flex justify-center">
         <div className="w-full max-w-3xl">

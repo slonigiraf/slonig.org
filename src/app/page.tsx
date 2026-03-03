@@ -8,7 +8,7 @@ import StableQuality from "./StableQuality";
 import RequestDemo from "./RequestDemo";
 import LessonIntegration from "./LessonIntegration";
 import HowSlonigWorks from "./HowSlonigWorks";
-import ValueStack from "./ValueStack";
+import ROI from "./ROI";
 import TeacherWork from "./TeacherWork";
 import SlonigFeatures from "./SlonigFeatures";
 import Assessments from "./Assessments";
@@ -18,7 +18,7 @@ import CurriculumAlignment from "./CurriculumAlignment";
 import Badges from "./Badges";
 import JoinProfessionals from "./JoinProfessionals";
 import OtherSubjects from "./OtherSubjects";
-import Subscribe from "./Subscribe";
+import JoinNewsletter from "./JoinNewsletter";
 import LoadingScreen from "./LoadingScreen";
 import { DEFAULT_PAGE_DESCRIPTION, DEFAULT_PAGE_TITLE } from "./layout";
 
@@ -31,7 +31,7 @@ export const metadata = {
 export default async function App() {
   return (
     <>
-    
+
       <LoadingScreen />
 
       <Hero />
@@ -128,7 +128,7 @@ export default async function App() {
         ]}
       />
 
-      <ValueStack />
+      <ROI />
 
       <RequestDemo id="after_roi" caption="Request a Demo" />
 
@@ -140,7 +140,7 @@ export default async function App() {
 
       <OtherSubjects />
 
-      <Subscribe id={"newsletter"} caption={"Join Newsletter"} />
+      <JoinNewsletter id={"newsletter"} caption={"Join Newsletter"} />
 
     </>
   );
