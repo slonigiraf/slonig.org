@@ -178,26 +178,14 @@ export default async function App() {
 
             <h3>5. Indemnification</h3>
             <p>
-              You agree to indemnify and hold Slonig, its subsidiaries, affiliates, licensors,
-              licensees, officers, agents, partners, employees, and contractors harmless from any
-              liabilities, losses, damages, claims, penalties, fines, costs, and expenses, including
-              reasonable legal fees, that may arise in connection with (i) your use of and access to
-              the Services and any content you submit or use through the Services; (ii) your or your
-              children’s failure to comply with these Terms; or (iii) any claim by a third party that
-              your use of the Services infringes any intellectual property or other proprietary or
-              privacy rights of such third party, or has otherwise caused damage to a third party.
-            </p>
-            <p>
-              Slonig’s total liability for any claims arising from or related to these Terms or the
-              Services shall not exceed the amount paid by you (or on your behalf) for the Services
-              during the 12 months preceding the claim.
-            </p>
-            <p>
-              We are not liable for indirect, incidental, special, consequential, or punitive damages,
-              including loss of profits, revenue, data, or business opportunities; service interruptions
-              or data loss due to circumstances beyond our reasonable control; or unauthorized access
-              to or alteration of your data resulting from your failure to maintain security of your
-              devices.
+              You agree to indemnify and hold Slonig, its subsidiaries, affiliates, licensors, licensees,
+              officers, agents, partners, employees, and contractors harmless from any liabilities, losses,
+              damages, claims, penalties, fines, costs, and expenses (including reasonable legal fees) arising
+              out of or related to: (i) your access to or use of the Services; (ii) any content or information
+              you submit, transmit, or otherwise make available through the Services; (iii) your or your
+              children’s violation of these Terms or applicable law; or (iv) any claim by a third party that
+              your use of the Services infringes or misappropriates that third party’s intellectual property,
+              proprietary, or privacy rights, or has otherwise caused harm to a third party.
             </p>
 
             <h3>6. Modifications to Services</h3>
@@ -287,30 +275,51 @@ export default async function App() {
             </p>
 
             <h3>9. Disclaimers and Limitation of Liability</h3>
+
             <p className="uppercase">
               THE SERVICES ARE PROVIDED “AS IS” AND “AS AVAILABLE” WITHOUT WARRANTIES OF ANY KIND.
               SLONIG DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING MERCHANTABILITY, FITNESS
               FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT, TITLE, AND ANY WARRANTIES ARISING FROM
               COURSE OF DEALING OR USAGE OF TRADE.
             </p>
+
             <p className="uppercase">
-              SLONIG SHALL NOT BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL,
-              OR EXEMPLARY DAMAGES RESULTING FROM YOUR USE OR INABILITY TO USE THE SERVICES. THIS
-              LIMITATION APPLIES REGARDLESS OF THE LEGAL THEORY AND EVEN IF SLONIG HAS BEEN ADVISED OF
-              THE POSSIBILITY OF SUCH DAMAGES.
+              TO THE MAXIMUM EXTENT PERMITTED BY LAW, SLONIG SHALL NOT BE LIABLE FOR ANY INDIRECT,
+              INCIDENTAL, SPECIAL, CONSEQUENTIAL, EXEMPLARY, OR PUNITIVE DAMAGES, OR FOR ANY LOSS OF
+              PROFITS, REVENUE, DATA, OR BUSINESS OPPORTUNITIES, ARISING OUT OF OR RELATED TO YOUR USE
+              OF (OR INABILITY TO USE) THE SERVICES, EVEN IF SLONIG HAS BEEN ADVISED OF THE POSSIBILITY
+              OF SUCH DAMAGES.
             </p>
+
+            <p>
+              You acknowledge that the Services may store certain settings, customization, progress, or keys locally
+              on your device (for example, in browser storage). Slonig does not control your device or browser and is
+              not responsible for loss of locally stored data resulting from actions such as clearing browser storage,
+              reinstalling the app, changing devices, device loss, device damage, or similar events.
+            </p>
+
+            <p>
+              You are responsible for maintaining the security of your devices and any device-based credentials or keys.
+              Slonig is not responsible for unauthorized access to or alteration of your locally stored data resulting
+              from your failure to maintain device security.
+            </p>
+
             <p className="uppercase">
-              IN NO EVENT SHALL SLONIG’S TOTAL LIABILITY EXCEED THE AMOUNT YOU PAID TO SLONIG IN THE
-              TWELVE (12) MONTHS PRECEDING THE EVENT GIVING RISE TO LIABILITY.
+              IN NO EVENT SHALL SLONIG’S TOTAL LIABILITY FOR ANY CLAIM ARISING OUT OF OR RELATING TO
+              THE SERVICES OR THESE TERMS EXCEED THE AMOUNT YOU PAID TO SLONIG (OR THAT WAS PAID ON
+              YOUR BEHALF) FOR THE SERVICES DURING THE TWELVE (12) MONTHS PRECEDING THE EVENT GIVING
+              RISE TO THE CLAIM.
             </p>
+
             <p>
-              Slonig is not responsible for third-party content, links, or services accessed through
-              the Services. Any reliance on such content is at your own risk.
+              Slonig is not responsible for third-party content, links, or services accessed through the Services.
+              Any reliance on such content is at your own risk.
             </p>
+
             <p>
-              Some jurisdictions do not allow the exclusion of certain warranties or limitation of
-              liability for incidental or consequential damages. In such jurisdictions, our liability
-              shall be limited to the maximum extent permitted by law.
+              Some jurisdictions do not allow the exclusion of certain warranties or limitation of liability for
+              incidental or consequential damages. In such jurisdictions, our liability shall be limited to the
+              maximum extent permitted by law.
             </p>
 
             <h3>10. Privacy</h3>
