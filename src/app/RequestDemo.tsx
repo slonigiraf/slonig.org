@@ -1,12 +1,21 @@
 "use client";
 
 import React, { useState } from "react";
+import { trackMatomoEvent } from "@/lib/matomo";
 
 type Props = {
+    /** Unique placement identifier, e.g. "hero_request_demo", "pricing_footer_demo" */
     id: string;
+
     caption: string;
     expanded?: boolean;
     outlined?: boolean;
+
+    /** Optional overrides */
+    matomoCategory?: string; // default "CTA"
+    matomoAction?: string;   // default "CLICK_REQUEST_DEMO"
+    matomoName?: string;     // if not provided, uses id
+    matomoValue?: number;    // default 1
 };
 
 export const APPOINTMENT_URL =
@@ -17,20 +26,29 @@ export default function RequestDemo({
     caption,
     expanded = true,
     outlined = false,
+    matomoCategory = "CTA",
+    matomoAction = "CLICK_REQUEST_DEMO",
 }: Props) {
     const [form, setForm] = useState({ name: "", email: "" });
 
-    const openCalendar = () => {
-        // ✅ Same behavior everywhere: open Google Appointments directly
+    const openCalendar = (source?: string) => {
+        // Track BEFORE opening the new tab (some browsers may throttle JS after window.open)
+        trackMatomoEvent({
+            category: matomoCategory,
+            action: matomoAction,
+            name: id,
+        });
+
         window.open(APPOINTMENT_URL, "_blank", "noopener,noreferrer");
     };
 
     const hijackToCalendar = (
-        e: React.SyntheticEvent<HTMLElement> | React.MouseEvent<HTMLElement>
+        e: React.SyntheticEvent<HTMLElement> | React.MouseEvent<HTMLElement>,
+        source?: string
     ) => {
         e.preventDefault();
         e.stopPropagation();
-        openCalendar();
+        openCalendar(source);
     };
 
     const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -45,10 +63,6 @@ export default function RequestDemo({
 
     const inputClass =
         "h-[54px] w-full rounded-xl bg-white px-6 text-[18px] text-slate-900 placeholder:text-slate-500/70 shadow-[0_10px_22px_rgba(0,0,0,0.18)] outline-none ring-0 focus:shadow-[0_12px_28px_rgba(0,0,0,0.22)]";
-
-
-
-
 
     const buttonClass = [
         "inline-flex items-center justify-center select-none font-extrabold",
@@ -80,7 +94,7 @@ export default function RequestDemo({
         return (
             <button
                 type="button"
-                onClick={openCalendar}
+                onClick={() => openCalendar(outlined ? "COLLAPSED_OUTLINED" : "COLLAPSED")}
                 className={
                     outlined
                         ? collapsedOutlinedBtn
@@ -89,6 +103,7 @@ export default function RequestDemo({
                             "!py-2 !px-4 text-sm inline-flex items-center gap-2",
                         ].join(" ")
                 }
+                data-matomo-id={id}
             >
                 {caption}
             </button>
@@ -96,12 +111,10 @@ export default function RequestDemo({
     }
 
     return (
-        <section className="relative mt-16 w-full text-slate-900">
+        <section className="relative mt-16 w-full text-slate-900" data-matomo-id={id}>
             <div className="mx-auto w-full max-w-6xl px-6">
                 <div className="relative w-full overflow-visible rounded-3xl bg-gradient-to-r from-[#0b63ff] via-[#00a9d6] to-[#19d46a] px-6 py-10 shadow-[0_18px_50px_rgba(0,0,0,0.18)] md:px-12 md:py-12 text-center">
-                    <div className="request-demo-title !text-white !mb-3 !py-0">
-                        {caption}
-                    </div>
+                    <div className="request-demo-title !text-white !mb-3 !py-0">{caption}</div>
 
                     <form
                         id={id}
@@ -116,8 +129,8 @@ export default function RequestDemo({
                                 placeholder="Name"
                                 value={form.name}
                                 onChange={onChange}
-                                onMouseDown={hijackToCalendar}
-                                onTouchStart={hijackToCalendar}
+                                onMouseDown={(e) => hijackToCalendar(e, "INPUT_NAME")}
+                                onTouchStart={(e) => hijackToCalendar(e, "INPUT_NAME")}
                             />
 
                             <input
@@ -127,15 +140,15 @@ export default function RequestDemo({
                                 placeholder="Email"
                                 value={form.email}
                                 onChange={onChange}
-                                onMouseDown={hijackToCalendar}
-                                onTouchStart={hijackToCalendar}
+                                onMouseDown={(e) => hijackToCalendar(e, "INPUT_EMAIL")}
+                                onTouchStart={(e) => hijackToCalendar(e, "INPUT_EMAIL")}
                             />
 
                             <button
                                 className={"h-[54px] " + buttonClass}
                                 type="button"
-                                onMouseDown={hijackToCalendar}
-                                onTouchStart={hijackToCalendar}
+                                onMouseDown={(e) => hijackToCalendar(e, "BUTTON")}
+                                onTouchStart={(e) => hijackToCalendar(e, "BUTTON")}
                             >
                                 {caption}
                             </button>

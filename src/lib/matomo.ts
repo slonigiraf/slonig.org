@@ -29,11 +29,19 @@ export function trackMatomoEvent({ category, action, name, value }: MatomoEvent)
   const payload: any[] = ["trackEvent", category, action];
 
   if (name != null) payload.push(name);
-  if (value != null) payload.push(Math.round(value));
+
+  const roundedValue = value != null ? Math.round(value) : undefined;
+  if (roundedValue != null) payload.push(roundedValue);
 
   if (isLocalhost()) {
     // eslint-disable-next-line no-console
-    console.log("[Matomo trackEvent]", { category, action, name, value });
+    console.log("[Matomo trackEvent]", {
+      category,
+      action,
+      name,
+      value: roundedValue, // ✅ log exactly what would be sent to Matomo
+      payload,             // ✅ optional: see the real payload too
+    });
     return;
   }
 
