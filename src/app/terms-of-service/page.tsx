@@ -712,12 +712,7 @@ export default async function App() {
             <p>
               Our Privacy Policy explains how we collect, process, use, and disclose personal
               information. You can access it at{" "}
-              <a
-                href="/privacy-policy"
-                className="text-[var(--secondary-color)] underline underline-offset-4 hover:opacity-80"
-              >
-                /privacy-policy
-              </a>
+              <a href="/privacy-policy">https://slonig.org/privacy-policy</a>
               .
             </p>
 
@@ -771,12 +766,10 @@ export default async function App() {
               </li>
             </ul>
 
-            <p>
-              Send DMCA notices to: <strong>info@slonig.org</strong> with the subject line <strong>“DMCA Notice”</strong>.
-            </p>
+           
 
             <p>
-              <strong>Designated DMCA agent.</strong> Slonig has not designated a DMCA agent with the U.S. Copyright Office at this time.
+              Slonig has not designated a DMCA agent with the U.S. Copyright Office at this time.
               Please send notices to <strong>info@slonig.org</strong> with the subject line <strong>“DMCA Notice”</strong>. If we designate
               an agent in the future, we will update these Terms and/or the Services with the agent’s contact information.
             </p>
@@ -820,9 +813,8 @@ export default async function App() {
 
             <h3>13. Changes to Terms</h3>
             <p>
-              We may update these Terms from time to time. If we make material changes, we will provide notice at
-              least 14 days before the changes take effect by posting a notice in the Services and/or on our
-              website.
+              We may update these Terms from time to time. Changes are effective when we post the updated Terms. 
+              If we make material changes, we will post a notice in the Services and/or on our website.
             </p>
             <p>
               If you have provided an email address for Service-related communications (for example, in connection
