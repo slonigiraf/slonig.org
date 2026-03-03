@@ -458,7 +458,44 @@ export default async function App() {
             </p>
 
             <h3>7. Intellectual Property</h3>
+            <h4>Definitions</h4>
+            <p>
+              For purposes of these Terms:
+            </p>
+            <ul className="list-disc pl-5">
+              <li>
+                <strong>“Platform”</strong> means the Slonig software code that we make available under an
+                open-source license (as identified in the applicable repository or notice).
+              </li>
+              <li>
+                <strong>“Educational Content”</strong> means curriculum materials and related educational resources
+                that we make available under a Creative Commons license (as identified on the content page, notice,
+                or repository).
+              </li>
+              <li>
+                <strong>“Hosted Services”</strong> means the hosted website(s), web application(s), and related
+                infrastructure operated by Slonig (including any hosted features, hosting environment, availability,
+                security controls, and service operations).
+              </li>
+              <li>
+                <strong>“Marks”</strong> means Slonig’s trademarks, logos, service marks, trade dress, and the
+                “Slonig” name.
+              </li>
+              <li>
+                <strong>“Non-Open Materials”</strong> means any part of the Services that is <em>not</em> provided
+                under an open-source license or Creative Commons license, including (without limitation) the Hosted
+                Services, site/app UI/UX and design elements, non-open documentation, proprietary templates, and any
+                other materials identified as proprietary or not licensed for reuse.
+              </li>
+            </ul>
 
+            <h4>Open-Source and Creative Commons License Priority</h4>
+            <p>
+              The Platform and Educational Content may be provided under separate open-source and Creative Commons
+              licenses. <strong>If there is any conflict</strong> between these Terms and an applicable open-source
+              or Creative Commons license, <strong>the open-source or Creative Commons license controls</strong>{" "}
+              for that specific Platform code or Educational Content.
+            </p>
             <p>
               The Platform software is made available as open source, and certain educational materials are
               provided under a Creative Commons license, each as identified in the applicable repository,
