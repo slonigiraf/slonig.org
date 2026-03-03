@@ -100,12 +100,6 @@ export default async function App() {
             </p>
 
             <p>
-              Slonig, Inc. is committed to protecting student privacy and complying with all applicable
-              laws, including the Children’s Online Privacy Protection Act (COPPA) and the Family
-              Educational Rights and Privacy Act (FERPA).
-            </p>
-
-            <p>
               <strong>Company Information:</strong> Slonig, Inc., 1111B S Governors Ave STE 48458 Dover,
               DE 19904, USA
             </p>
