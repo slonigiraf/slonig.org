@@ -1,6 +1,7 @@
 import React from "react";
 import ExpandableList, { type ExpandableListRow } from "./ExpandableList";
 import RequestDemo from "./RequestDemo";
+import ImpressionTracker from "./ImpressionTracker";
 
 // --- Data -------------------------------------------------------------
 
@@ -115,6 +116,7 @@ type Props = {};
 export default function JoinProfessionals({}: Props) {
   return (
     <section className="w-full bg-white text-slate-900">
+      <ImpressionTracker id={"JoinProfessionals"} />
       <div className="mx-auto max-w-6xl px-6">
         <div className="mx-auto max-w-5xl">
           <h2>Works with 31 organizations across 16 countries</h2>

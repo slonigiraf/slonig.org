@@ -2,6 +2,7 @@ import React from "react";
 import { Users, Award, Settings, Coffee } from "lucide-react";
 
 import ListWithIcons, { type ListWithIconsRow } from "./ListWithIcons";
+import ImpressionTracker from "./ImpressionTracker";
 
 type Props = {};
 
@@ -31,6 +32,7 @@ const ROWS: ListWithIconsRow[] = [
 export default function ThinkPairShareComparison({}: Props) {
   return (
     <section className="relative w-full text-slate-900">
+      <ImpressionTracker id={"ThinkPairShareComparison"} />
       <h2>How Slonig differs from other peer-learning approaches</h2>
       <ListWithIcons rows={ROWS} />
     </section>

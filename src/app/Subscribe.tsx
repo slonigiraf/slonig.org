@@ -2,6 +2,7 @@
 
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { Loader2, AlertCircle } from "lucide-react";
+import ImpressionTracker from "./ImpressionTracker";
 
 type Props = {
   id: string;
@@ -224,6 +225,7 @@ export default function Subscribe({ id, caption }: Props) {
 
   return (
     <section className="relative mt-10 w-full text-slate-900">
+      <ImpressionTracker id={"Subscribe"} />
       <div className="w-full">
         <div className="mx-auto w-full max-w-none">
           <div className="relative w-full overflow-visible bg-gradient-to-r from-[#0b63ff] via-[#00a9d6] to-[#19d46a] px-6 py-10 text-center shadow-[0_18px_50px_rgba(0,0,0,0.18)] md:px-12">

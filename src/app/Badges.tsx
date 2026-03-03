@@ -1,5 +1,6 @@
 import React from "react";
 import { Headset, Languages, MonitorSmartphone, ShieldCheck } from "lucide-react";
+import ImpressionTracker from "./ImpressionTracker";
 
 type Props = {
   className?: string;
@@ -27,6 +28,7 @@ const BADGES = [
 export default function Badges({ className = "" }: Props) {
   return (
     <section className={`w-full bg-white ${className}`}>
+      <ImpressionTracker id={"Badges"} />
       <div className="mx-auto max-w-6xl px-6 py-10 md:py-14">
         <div className="grid grid-cols-2 gap-x-10 gap-y-12 md:grid-cols-4 md:gap-x-14">
           {BADGES.map(({ Icon, text }) => (

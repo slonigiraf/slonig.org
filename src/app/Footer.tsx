@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Linkedin, Instagram } from "lucide-react";
 import { APPOINTMENT_URL } from "./RequestDemo";
+import ImpressionTracker from "./ImpressionTracker";
 
 type Props = {
   className?: string;
@@ -60,6 +61,7 @@ export default function Footer({
       className={`w-full ${className}`}
       style={{ background: "var(--primary-color, #f19135)" }}
     >
+      <ImpressionTracker id={"Footer"} />
       <div className="mx-auto max-w-6xl px-6 pb-10 pt-12">
         <div className="grid gap-10 md:grid-cols-3 md:gap-12">
           {/* Left */}

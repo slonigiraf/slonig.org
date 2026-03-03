@@ -1,8 +1,11 @@
+import ImpressionTracker from "./ImpressionTracker";
+
 type Props = {};
 
 export default function StableQuality({ }: Props) {
   return (
     <section id="how-it-works" className="w-full bg-white text-slate-900">
+      <ImpressionTracker id={"StableQuality"} />
       <div className="mx-auto flex max-w-6xl items-center justify-center px-6">
         <div className="mx-auto max-w-5xl">
           <h2>Works Without “Rockstar” Teachers</h2>

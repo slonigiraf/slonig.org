@@ -1,3 +1,5 @@
+import ImpressionTracker from "./ImpressionTracker";
+
 type Props = {};
 
 type Slide = {
@@ -56,6 +58,7 @@ function ArrowDown({ className = "" }: { className?: string }) {
 export default function HowSlonigWorks({}: Props) {
   return (
     <section className="w-full bg-white text-slate-900">
+      <ImpressionTracker id={"HowSlonigWorks"} />
       <div className="mx-auto max-w-6xl px-6">
         <div className="mx-auto max-w-5xl">
           <h2 className="text-3xl font-extrabold tracking-tight md:text-4xl">

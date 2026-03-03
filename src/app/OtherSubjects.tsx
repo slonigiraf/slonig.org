@@ -10,6 +10,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import RequestDemo from "./RequestDemo";
+import ImpressionTracker from "./ImpressionTracker";
 
 type Props = {
   className?: string;
@@ -29,6 +30,7 @@ const BADGES = [
 export default function OtherSubjects({ className = "" }: Props) {
   return (
     <section className={`w-full bg-white ${className}`}>
+      <ImpressionTracker id={"OtherSubjects"} />
       <h2>Other Subjects Available on Slonig</h2>
 
       <div className="mx-auto max-w-6xl px-6 py-10 md:py-14">

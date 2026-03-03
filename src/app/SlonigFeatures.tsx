@@ -15,6 +15,7 @@ import {
   Sparkles,
   BookOpenCheck,
 } from "lucide-react";
+import ImpressionTracker from "./ImpressionTracker";
 
 type Props = {};
 
@@ -178,6 +179,7 @@ const ROWS: ExpandableListRow[] = [
 export default function SlonigFeatures({ }: Props) {
   return (
     <section className="relative w-full text-slate-900">
+      <ImpressionTracker id={"SlonigFeatures"} />
       <h2>Slonig Features</h2>
       <ExpandableList rows={ROWS} />
     </section>

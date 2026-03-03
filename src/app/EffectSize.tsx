@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import ImpressionTracker from "./ImpressionTracker";
 
 type Props = {};
 
@@ -30,6 +31,7 @@ export default function EffectSize({}: Props) {
 
   return (
     <section id="efficacy" className="w-full bg-white text-slate-900">
+      <ImpressionTracker id={"EffectSize"} />
       <div className="mx-auto max-w-6xl px-6">
         <div className="mx-auto max-w-3xl">
           <h2 className="text-center tracking-tight text-[color:var(--secondary-color)]">

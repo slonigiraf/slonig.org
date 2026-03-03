@@ -6,6 +6,7 @@ import {
   FileX2,
 } from "lucide-react";
 import ListWithIcons, { type ListWithIconsRow } from "./ListWithIcons";
+import ImpressionTracker from "./ImpressionTracker";
 
 type Props = {};
 
@@ -35,6 +36,7 @@ const ROWS: ListWithIconsRow[] = [
 export default function LessonIntegration({}: Props) {
   return (
     <section className="relative w-full text-slate-900">
+      <ImpressionTracker id={"LessonIntegration"} />
       <h2>Safe Ways to Integrate Slonig Into Your Lesson</h2>
       <ListWithIcons rows={ROWS} />
     </section>

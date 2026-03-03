@@ -1,11 +1,13 @@
 import React from "react";
 import RequestDemo from "./RequestDemo";
+import ImpressionTracker from "./ImpressionTracker";
 
 type Props = {};
 
 export default function Hero({ }: Props) {
   return (
     <section className="relative w-full !text-white" style={{ backgroundColor: "var(--primary-color)" }}>
+      <ImpressionTracker id={"Hero"} />
       <div className="mx-auto max-w-6xl px-6 pt-24 pb-5">
         <div className="mx-auto flex flex-col items-center text-center">
           <h1 className="font-semibold leading-tight tracking-tight !text-white">

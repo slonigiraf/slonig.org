@@ -1,8 +1,11 @@
+import ImpressionTracker from "./ImpressionTracker";
+
 type Props = {};
 
 export default function Diagnostics({ }: Props) {
   return (
     <section className="w-full bg-white text-slate-900">
+      <ImpressionTracker id={"Diagnostics"} />
       <div className="mx-auto max-w-6xl px-6">
         <div className="mx-auto max-w-5xl">
           <h2>Diagnostics in Real&nbsp;Time</h2>

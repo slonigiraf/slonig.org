@@ -1,6 +1,7 @@
 import React from "react";
 import { TimerOff, UsersRound } from "lucide-react";
 import ListWithIcons, { type ListWithIconsRow } from "./ListWithIcons";
+import ImpressionTracker from "./ImpressionTracker";
 
 type Props = {};
 
@@ -20,6 +21,7 @@ const ROWS: ListWithIconsRow[] = [
 export default function BeforeAfter({}: Props) {
   return (
     <section className="relative w-full text-slate-900 pt-15">
+      <ImpressionTracker id={"BeforeAfter"} />
       <ListWithIcons rows={ROWS} />
     </section>
   );

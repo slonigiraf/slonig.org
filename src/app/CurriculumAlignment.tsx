@@ -3,6 +3,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { CheckCircle2, ChevronDown } from "lucide-react";
 import RequestDemo from "./RequestDemo";
+import ImpressionTracker from "./ImpressionTracker";
 
 type Props = {};
 
@@ -273,6 +274,7 @@ export default function CurriculumAlignment({}: Props) {
 
   return (
     <section id="curriculum" className="w-full bg-white text-slate-900">
+      <ImpressionTracker id={"CurriculumAlignment"} />
       <h2>Matching Your Math Standards</h2>
       <div className="mx-auto max-w-6xl px-6">
         <div className="rounded-[28px] bg-emerald-50/70 p-8 md:p-10">

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
+import ImpressionTracker from "./ImpressionTracker";
 
 function Spinner() {
   return (
@@ -74,6 +75,7 @@ export default function WorkInPairVideo() {
 
   return (
     <div className="relative w-full">
+      <ImpressionTracker id={"WorkInPairVideo"} />
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0"

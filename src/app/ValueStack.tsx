@@ -1,5 +1,6 @@
 import { BadgeDollarSign, PiggyBank, CalendarCheck, ShieldCheck } from "lucide-react";
 import ListWithIcons, { type ListWithIconsRow } from "./ListWithIcons";
+import ImpressionTracker from "./ImpressionTracker";
 
 type Props = {};
 
@@ -13,6 +14,7 @@ const ROWS: ListWithIconsRow[] = [
 export default function ValueStack({}: Props) {
   return (
     <section id="roi" className="relative w-full text-slate-900">
+      <ImpressionTracker id={"ValueStack"} />
       <h2>400%–887% ROI&nbsp;First&nbsp;Year</h2>
       <div className="mt-6 flex justify-center">
         <div className="w-full max-w-3xl">
