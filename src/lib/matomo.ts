@@ -35,13 +35,11 @@ export function trackMatomoEvent({ category, action, name, value }: MatomoEvent)
 
   if (isLocalhost()) {
     // eslint-disable-next-line no-console
-    console.log("[Matomo trackEvent]", {
-      category,
-      action,
-      name,
-      value: roundedValue, // ✅ log exactly what would be sent to Matomo
-      payload,             // ✅ optional: see the real payload too
-    });
+    const log: Record<string, unknown> = { category, action };
+    if (name != null) log.name = name;
+    if (roundedValue != null) log.value = roundedValue;
+
+    console.log("[Matomo trackEvent]", log);
     return;
   }
 
