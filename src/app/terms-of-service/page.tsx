@@ -340,62 +340,86 @@ export default async function App() {
 
             <h4>4A. Educational Data Privacy</h4>
             <p>
-              Slonig is committed to protecting student privacy and supporting compliance with applicable
-              student privacy laws when the Services are used in educational settings, including the
-              Family Educational Rights and Privacy Act (FERPA) and, where applicable, California’s Student
-              Online Personal Information Protection Act (SOPIPA).
+              Slonig is committed to protecting student privacy and supporting compliance with applicable student
+              privacy laws when the Services are used in educational settings, including the Family Educational
+              Rights and Privacy Act (FERPA) and, where applicable, California’s Student Online Personal
+              Information Protection Act (SOPIPA).
             </p>
+
             <p>
-              We do not use student personal information to deliver targeted advertising to students, and
-              we do not use student personal information for marketing or other commercial purposes
-              unrelated to providing and improving the Services for educational use.
+              Our practices regarding student personal information are described in our{" "}
+              <a
+                href="/privacy-policy-students"
+                className="text-[var(--secondary-color)] underline underline-offset-4 hover:opacity-80"
+              >
+                Privacy Policy for Students
+              </a>{" "}
+              (“Student Privacy Policy”), which is incorporated by reference into these Terms.
             </p>
+
             <p>
-              Where SOPIPA applies, we operate consistent with its requirements. In particular, we do not
-              knowingly: (a) sell student personal information; (b) use student personal information for
-              targeted advertising; (c) create profiles of students for non-educational commercial
-              purposes; or (d) disclose student personal information except as permitted by law and by
-              authorized educational institutions or parents/guardians, as applicable.
+              The Services are designed for educational use and are intended to minimize the collection of student
+              personal information. As described in the Student Privacy Policy, we do not intend to use student
+              personal information to deliver targeted advertising to students, and we do not intend to use student
+              personal information for marketing or other commercial purposes unrelated to providing and improving
+              the Services for educational use.
             </p>
+
             <p>
-              Schools, districts, teachers, and other educational institutions using the Services represent
-              and warrant that they have obtained all necessary authorizations and permissions to use the
-              Services with student data in accordance with applicable laws (including FERPA and any
-              applicable state student privacy laws) and their own institutional policies. As between the
-              parties, educational institutions remain responsible for their compliance obligations and for
-              providing required notices and obtaining required consents from parents/guardians where
-              applicable.
+              Where SOPIPA applies to a particular deployment of the Services, we intend to operate the Services
+              in a manner consistent with SOPIPA’s requirements as described in the Student Privacy Policy. However,
+              the specific data collected and processed may vary depending on how the Services are configured and used
+              (including by a school, district, or other organization), and by which optional features are enabled.
+            </p>
+
+            <p>
+              Schools, districts, teachers, and other educational institutions using the Services represent and
+              warrant that they have obtained all necessary authorizations and permissions to use the Services with
+              student data in accordance with applicable laws (including FERPA and any applicable state student
+              privacy laws) and their own institutional policies. As between the parties, educational institutions
+              remain responsible for their compliance obligations, including providing required notices and obtaining
+              required consents from parents/guardians where applicable.
+            </p>
+
+            <p>
+              For schools and districts, Slonig may make available additional privacy, security, and contractual
+              commitments (for example, a data processing addendum or similar agreement) upon request, and may provide
+              configuration controls or documentation to support compliant use in educational settings.
             </p>
 
             <h4>4B. Children Under 13 and Parental Consent</h4>
             <p>
-              Slonig takes the protection of children’s privacy seriously and is designed to minimize the
-              collection of personal information from students, including children under 13. The Services do
-              not require students to create an account, and progress and settings are typically stored locally
-              on the user’s device (for example, in browser storage).
+              Slonig takes the protection of children’s privacy seriously. The Services do not require students to
+              create an account, and progress and settings are typically stored locally on the user’s device (for
+              example, in browser storage).
             </p>
+
             <p>
               To the extent we collect or process personal information that is subject to the Children’s Online
-              Privacy Protection Act (COPPA) (for example, if a parent, educator, or school provides information
-              to us through support communications or other Service-related interactions), we do not knowingly
-              collect, use, or disclose personal information from children under 13 without verifiable parental
-              consent, except where permitted by COPPA and other applicable laws.
+              Privacy Protection Act (COPPA) (for example, if a parent, educator, or school provides information to us
+              through support communications or other Service-related interactions), we handle such information as
+              described in the Student Privacy Policy and applicable law.
             </p>
+
             <p>
-              In educational contexts where the Services are used under COPPA’s school authorization (the “school
-              official”/school consent framework, as applicable), we rely on schools and educational institutions
-              to provide appropriate notice to parents and to obtain any required consents or authorizations.
+              In educational contexts, some schools may choose to provide consent on behalf of parents/guardians under
+              COPPA where permitted (sometimes referred to as the “school authorization” framework). Whether this is
+              available depends on the specific facts and the school’s obligations, including that the information is
+              collected and used solely for educational purposes and subject to appropriate controls. Schools and
+              educational institutions are responsible for determining whether they may provide such consent and for
+              providing required notices to parents/guardians.
             </p>
+
             <p>
-              If we become aware that we maintain personal information from a child under 13 in our systems
-              without proper authorization or parental consent, we will take steps to delete or de-identify it,
-              as appropriate.
+              If we become aware that we maintain personal information from a child under 13 in our systems without
+              appropriate authorization or consent, we will take steps to delete or de-identify it, as appropriate.
             </p>
+
             <p>
               Parents and legal guardians may request access to, correction of, or deletion of a child’s personal
-              information that we maintain in our systems (if any). These requests may be made by contacting us
-              directly, or (where the Services are provided through a school) through the child’s school or
-              educational institution, at <strong>info@slonig.org</strong>.
+              information that we maintain in our systems (if any), as described in the Student Privacy Policy. These
+              requests may be made by contacting us directly, or (where the Services are provided through a school)
+              through the child’s school or educational institution, at <strong>info@slonig.org</strong>.
             </p>
 
 
