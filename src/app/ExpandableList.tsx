@@ -51,7 +51,7 @@ export default function ExpandableList({
   cellLabelClassName = "text-[var(--secondary-color)] font-semibold",
 
   summaryClassName =
-    "cursor-pointer list-none select-none outline-none focus-visible:ring-2 focus-visible:ring-[var(--secondary-color)]/40",
+  "cursor-pointer list-none select-none outline-none focus-visible:ring-2 focus-visible:ring-[var(--secondary-color)]/40",
 
   expandedCellClassName = "px-4 pb-5",
   expandedTextClassName = "mt-2 text-slate-700 leading-relaxed",
@@ -62,23 +62,17 @@ export default function ExpandableList({
       <div className={innerClassName}>
         <div className={tableClassName} role="table" aria-label="Expandable list">
           {rows.map(({ Icon, label, text, node }, idx) => {
-            const hasIcon = Boolean(Icon);
+            const IconCmp = Icon;               // <- local alias
+            const hasIcon = !!IconCmp;
 
-            // ✅ if no icon, keep a tiny gutter (5px) instead of full icon column
             const gridCols = hasIcon
               ? "grid-cols-[2.75rem_3rem_1fr]"
               : "grid-cols-[2.75rem_5px_1fr]";
 
             return (
-              <details
-                key={label}
-                className={rowDetailsClassName}
-                open={idx === 0 && !collapsed}
-              >
-                {/* Summary row */}
+              <details key={label} className={rowDetailsClassName} open={idx === 0 && !collapsed}>
                 <summary className={summaryClassName}>
                   <div className={`grid ${gridCols} items-start px-4 py-4`} role="row">
-                    {/* Chevron */}
                     <div className={cellChevronClassName} role="cell">
                       <span
                         aria-hidden="true"
@@ -89,37 +83,27 @@ export default function ExpandableList({
                       </span>
                     </div>
 
-                    {/* Icon (or 5px gutter) */}
                     <div
-                      className={`${cellIconClassName} ${
-                        hasIcon ? "" : "w-[5px] overflow-hidden p-0"
-                      }`}
+                      className={`${cellIconClassName} ${hasIcon ? "" : "w-[5px] overflow-hidden p-0"}`}
                       role="cell"
                       aria-hidden={!hasIcon}
                     >
                       {hasIcon ? (
-                        <Icon className="h-6 w-6 sm:h-7 sm:w-7" aria-hidden="true" />
+                        <IconCmp className="h-6 w-6 sm:h-7 sm:w-7" aria-hidden="true" />
                       ) : null}
                     </div>
 
-                    {/* Label */}
                     <div role="cell" className="flex items-center min-w-0">
                       <span className={cellLabelClassName}>{label}</span>
                     </div>
                   </div>
                 </summary>
 
-                {/* Expanded content */}
                 {(text || node) && (
                   <div className={expandedCellClassName}>
                     <div className={`grid ${gridCols}`}>
-                      <div aria-hidden="true" /> {/* chevron spacer */}
-
-                      {/* ✅ ALWAYS keep icon-column spacer so content stays in the 1fr column */}
-                      <div
-                        aria-hidden="true"
-                        className={hasIcon ? "" : "w-[5px]"}
-                      />
+                      <div aria-hidden="true" />
+                      <div aria-hidden="true" className={hasIcon ? "" : "w-[5px]"} />
 
                       <div>
                         <ImpressionTracker id={label} />
