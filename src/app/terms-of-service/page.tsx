@@ -327,6 +327,67 @@ export default async function App() {
               present required information and obtain any necessary consents at checkout.
             </p>
 
+            {/* ✅ add under Section 3 (Pricing), ideally right before 3B-1 */}
+            <h4>3C. Purchases; Authority; Payment Processing; Receipts</h4>
+
+            <p>
+              If you make a purchase through the Services (including paid Services and, if offered, Slon Tokens),
+              you agree to the purchase terms presented at checkout, in addition to these Terms. Checkout terms may
+              include pricing, currency, taxes/fees, renewal (if applicable), refund eligibility, and other required
+              disclosures. If there is a conflict between these Terms and the checkout terms for a specific transaction,
+              the checkout terms will control for that transaction.
+            </p>
+
+            <h5>3C-1. Authority to Purchase and to Bind an Organization</h5>
+            <ul className="list-disc pl-5">
+              <li>
+                <strong>Adults only.</strong> Purchases may be made only by adults who are legally capable of entering
+                into contracts.
+              </li>
+              <li>
+                <strong>Parents/guardians.</strong> If you are a parent or legal guardian, you represent that you are
+                authorized to make purchases for educational use by the applicable student(s) and to accept these Terms
+                on your own behalf.
+              </li>
+              <li>
+                <strong>Schools and organizations.</strong> If you purchase on behalf of a school, district, or other
+                organization, you represent and warrant that you have authority to bind that organization, and “you”
+                in these Terms includes that organization.
+              </li>
+            </ul>
+
+            <h5>3C-2. Payment Processor Terms; Billing Descriptor</h5>
+            <p>
+              Payments may be processed by one or more third-party payment processors (for example, a card processor or
+              digital wallet provider). Your payment is subject to the processor’s terms and privacy practices in
+              addition to these Terms. The <strong>merchant of record</strong> and any <strong>billing descriptor</strong>{" "}
+              (the name that appears on your statement) will be displayed at checkout or on your receipt.
+            </p>
+
+            <h5>3C-3. Currency, Taxes, and Payment Method</h5>
+            <p>
+              The price, applicable currency, and any taxes, fees, or required charges will be displayed at checkout as
+              required by law. You authorize us (and our payment processor) to charge your selected payment method for
+              the amounts shown, including applicable taxes and fees. You are responsible for keeping your payment
+              information current.
+            </p>
+
+            <h5>3C-4. Receipts; Invoices</h5>
+            <p>
+              We may provide a receipt and/or confirmation of your purchase in-product, by email (if you provide an email
+              address), and/or through the payment processor’s confirmation page. For organizational purchases, invoices
+              and tax documentation (if applicable) may be provided under the applicable order form, statement of work,
+              or invoice process described in Section 3B-1.
+            </p>
+
+            <h5>3C-5. Chargebacks; Fraud; Reversals</h5>
+            <p>
+              If you initiate a chargeback, reversal, or payment dispute, we may suspend or limit access to paid features
+              and/or Slon Token functionality associated with the disputed transaction while the dispute is pending, to
+              the extent permitted by law. We may also revoke or adjust Slon Tokens (or access to paid features) that were
+              granted in connection with a transaction that is reversed or determined to be unauthorized or fraudulent.
+            </p>
+
             <h3>4. Supervising Children</h3>
             <p>
               Slonig is concerned about the safety and privacy of all its users, particularly
