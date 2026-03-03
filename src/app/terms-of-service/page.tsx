@@ -131,7 +131,7 @@ export default async function App() {
               <strong>info@slonig.org</strong>.
             </p>
 
-            <h4>3B. Payments, Renewals, Cancellations, and Refunds</h4>
+            <h4>3A. Payments, Renewals, Cancellations, and Refunds</h4>
 
             <p>
               This Section applies to purchases of paid Services (such as support, training, consulting, or custom
@@ -140,7 +140,7 @@ export default async function App() {
               will control for that purchase.
             </p>
 
-            <h5>3B-1. Business and School Purchases (B2B)</h5>
+            <h5>3A-1. Business and School Purchases (B2B)</h5>
             <ul className="list-disc pl-5">
               <li>
                 <strong>Order documents.</strong> Paid Services for schools, districts, and other organizations may be provided
@@ -163,7 +163,7 @@ export default async function App() {
               </li>
             </ul>
 
-            <h5>3B-2. Consumer Purchases (Parents/Guardians)</h5>
+            <h5>3A-2. Consumer Purchases (Parents/Guardians)</h5>
             <ul className="list-disc pl-5">
               <li>
                 <strong>Checkout disclosures.</strong> Prices, currency, taxes, and key purchase terms will be shown at checkout
@@ -177,7 +177,7 @@ export default async function App() {
               </li>
             </ul>
 
-            <h5>3B-3. Renewals (If Subscriptions Are Offered)</h5>
+            <h5>3A-3. Renewals (If Subscriptions Are Offered)</h5>
             <ul className="list-disc pl-5">
               <li>
                 <strong>Auto-renewal.</strong> If a subscription is offered, it will renew automatically at the frequency disclosed
@@ -189,7 +189,7 @@ export default async function App() {
               </li>
             </ul>
 
-            <h5>3B-4. Refunds and Credits</h5>
+            <h5>3A-4. Refunds and Credits</h5>
             <ul className="list-disc pl-5">
               <li>
                 <strong>Paid Services.</strong> Refund eligibility (if any) for paid Services will be specified in the applicable
@@ -206,7 +206,7 @@ export default async function App() {
               </li>
             </ul>
 
-            <h5>3B-5. EEA/UK/Switzerland Consumer Notice (Digital Content and Services)</h5>
+            <h5>3A-5. EEA/UK/Switzerland Consumer Notice (Digital Content and Services)</h5>
             <p>
               If you are a consumer located in the EEA, United Kingdom, or Switzerland, you may have a statutory right to withdraw
               from certain distance contracts within 14 days. However, this right may be lost for <strong>digital content</strong>{" "}
@@ -215,7 +215,7 @@ export default async function App() {
               present required information and obtain any necessary consents at checkout.
             </p>
 
-            <h4>3C. Purchases; Authority; Payment Processing; Receipts</h4>
+            <h4>3B. Purchases; Authority; Payment Processing; Receipts</h4>
 
             <p>
               If you make a purchase through the Services (including paid Services),
@@ -225,7 +225,7 @@ export default async function App() {
               the checkout terms will control for that transaction.
             </p>
 
-            <h5>3C-1. Authority to Purchase and to Bind an Organization</h5>
+            <h5>3B-1. Authority to Purchase and to Bind an Organization</h5>
             <ul className="list-disc pl-5">
               <li>
                 <strong>Adults only.</strong> Purchases may be made only by adults who are legally capable of entering
@@ -243,7 +243,7 @@ export default async function App() {
               </li>
             </ul>
 
-            <h5>3C-2. Payment Processor Terms; Billing Descriptor</h5>
+            <h5>3B-2. Payment Processor Terms; Billing Descriptor</h5>
             <p>
               Payments may be processed by one or more third-party payment processors (for example, a card processor or
               digital wallet provider). Your payment is subject to the processor’s terms and privacy practices in
@@ -251,7 +251,7 @@ export default async function App() {
               (the name that appears on your statement) will be displayed at checkout or on your receipt.
             </p>
 
-            <h5>3C-3. Currency, Taxes, and Payment Method</h5>
+            <h5>3B-3. Currency, Taxes, and Payment Method</h5>
             <p>
               The price, applicable currency, and any taxes, fees, or required charges will be displayed at checkout as
               required by law. You authorize us (and our payment processor) to charge your selected payment method for
@@ -259,15 +259,15 @@ export default async function App() {
               information current.
             </p>
 
-            <h5>3C-4. Receipts; Invoices</h5>
+            <h5>3B-4. Receipts; Invoices</h5>
             <p>
               We may provide a receipt and/or confirmation of your purchase in-product, by email (if you provide an email
               address), and/or through the payment processor’s confirmation page. For organizational purchases, invoices
               and tax documentation (if applicable) may be provided under the applicable order form, statement of work,
-              or invoice process described in Section 3B-1.
+              or invoice process described in Section <strong>3A-1</strong>.
             </p>
 
-            <h5>3C-5. Chargebacks; Fraud; Reversals</h5>
+            <h5>3B-5. Chargebacks; Fraud; Reversals</h5>
             <p>
               If you initiate a chargeback, reversal, or payment dispute, we may suspend or limit access to paid features
               associated with the disputed transaction while the dispute is pending, to the extent permitted by law.
@@ -828,7 +828,7 @@ export default async function App() {
             </p>
             <p>
               If you have purchased paid Services and the change materially affects those paid Services, you may cancel the affected
-              paid Services within 45 days of the notice. Any refund eligibility will be handled in accordance with Section 3B-4 and
+              paid Services within 45 days of the notice. Any refund eligibility will be handled in accordance with Section 3A-4 and
               any separate written agreement governing your purchase, and as required by applicable law.
             </p>
 
