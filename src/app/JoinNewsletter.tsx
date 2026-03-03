@@ -5,14 +5,14 @@ import { Loader2, AlertCircle } from "lucide-react";
 import ImpressionTracker from "./ImpressionTracker";
 
 type Props = {
-  id: string;
-  caption: string;
 };
 
 // ALTCHA can also emit "expired"
 type AltchaState = "unverified" | "verifying" | "verified" | "error" | "expired";
 
-export default function JoinNewsletter({ id, caption }: Props) {
+export default function JoinNewsletter({ }: Props) {
+  const id= "newsletter";
+  const caption= "Join Newsletter";
   const [form, setForm] = useState({ name: "", email: "" });
   const [page, setPage] = useState("");
   const [submitting, setSubmitting] = useState(false);

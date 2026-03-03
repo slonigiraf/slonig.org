@@ -18,9 +18,9 @@ import CurriculumAlignment from "./CurriculumAlignment";
 import Badges from "./Badges";
 import JoinProfessionals from "./JoinProfessionals";
 import OtherSubjects from "./OtherSubjects";
-import JoinNewsletter from "./JoinNewsletter";
 import LoadingScreen from "./LoadingScreen";
 import { DEFAULT_PAGE_DESCRIPTION, DEFAULT_PAGE_TITLE } from "./layout";
+import JoinNewsletter from "./JoinNewsletter";
 
 
 export const metadata = {
@@ -140,7 +140,7 @@ export default async function App() {
 
       <OtherSubjects />
 
-      <JoinNewsletter id={"newsletter"} caption={"Join Newsletter"} />
+      <JoinNewsletter />
 
     </>
   );
