@@ -293,7 +293,7 @@ export default async function App() {
                 <strong>Server-held data (limited cases):</strong> If a school, district, or
                 parent/guardian provided student information to Slonig, Inc. (for example, for a pilot
                 or RCT), you may request access, correction, export, or deletion by contacting us at{" "}
-                <a href="mailto:info@slonig.org">info@slonig.org</a> (or by contacting the
+                <strong>info@slonig.org</strong> (or by contacting the
                 school/district, if the student uses Slonig through a school).
               </p>
 
@@ -335,7 +335,7 @@ export default async function App() {
 
               <p>
                 <strong>How to exercise rights.</strong> Contact us at{" "}
-                <a href="mailto:info@slonig.org">info@slonig.org</a>. If the student uses Slonig
+                <strong>info@slonig.org</strong>. If the student uses Slonig
                 through a school, the school or district may also submit requests on the
                 student’s behalf.
               </p>
@@ -384,7 +384,7 @@ export default async function App() {
               <p>
                 <strong>Parents can revoke consent.</strong> A parent/guardian may withdraw consent and
                 request deletion of the child’s personal information at any time by contacting us at{" "}
-                <a href="mailto:info@slonig.org">info@slonig.org</a>. If the student uses Slonig through
+                <strong>info@slonig.org</strong>. If the student uses Slonig through
                 a school, parents/guardians may also contact the school to submit a request through the
                 school.
               </p>
@@ -448,7 +448,7 @@ export default async function App() {
 
               <p>
                 If your school or district has questions about these controls, please contact us at{" "}
-                <a href="mailto:info@slonig.org">info@slonig.org</a>.
+                <strong>info@slonig.org</strong>.
               </p>
 
             </li><li>
@@ -574,7 +574,7 @@ export default async function App() {
                 Dover, DE 19904, USA
               </p>
               <p>
-                <strong>Email:</strong> <a href="mailto:info@slonig.org">info@slonig.org</a>
+                <strong>Email: info@slonig.org</strong>
               </p>
 
             </li><li>
