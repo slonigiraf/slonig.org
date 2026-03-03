@@ -590,6 +590,13 @@ export default async function App() {
               COURSE OF DEALING OR USAGE OF TRADE.
             </p>
 
+            {/* ✅ add this */}
+            <p>
+              <strong>Non-waivable rights.</strong> Some jurisdictions do not allow the exclusion of certain warranties
+              or limitations of liability. Nothing in these Terms limits or excludes any rights you may have that cannot
+              be lawfully limited or excluded under applicable law.
+            </p>
+
             <p className="uppercase">
               TO THE MAXIMUM EXTENT PERMITTED BY LAW, SLONIG SHALL NOT BE LIABLE FOR ANY INDIRECT,
               INCIDENTAL, SPECIAL, CONSEQUENTIAL, EXEMPLARY, OR PUNITIVE DAMAGES, OR FOR ANY LOSS OF
@@ -618,15 +625,24 @@ export default async function App() {
               RISE TO THE CLAIM.
             </p>
 
+            {/* ✅ add this */}
             <p>
-              Slonig is not responsible for third-party content, links, or services accessed through the Services.
-              Any reliance on such content is at your own risk.
+              <strong>Required carve-outs.</strong> The limitations in this Section do not apply to the extent prohibited
+              by applicable law, including liability that cannot be limited or excluded under law (for example, certain
+              liability for intentional misconduct, fraud, or gross negligence, or for death or personal injury caused by
+              negligence, where applicable).
+            </p>
+
+            {/* ✅ optional but useful for schools */}
+            <p>
+              <strong>Enterprise terms control where applicable.</strong> If you have a separate written agreement with
+              Slonig (for example, an order form, MSA, or data processing addendum), that agreement may include different
+              warranties, liability caps, or carve-outs and will control in the event of a conflict for the covered Services.
             </p>
 
             <p>
-              Some jurisdictions do not allow the exclusion of certain warranties or limitation of liability for
-              incidental or consequential damages. In such jurisdictions, our liability shall be limited to the
-              maximum extent permitted by law.
+              Slonig is not responsible for third-party content, links, or services accessed through the Services.
+              Any reliance on such content is at your own risk.
             </p>
 
             <h3>10. Privacy</h3>
