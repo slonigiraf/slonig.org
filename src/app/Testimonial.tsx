@@ -147,7 +147,7 @@ export default function Testimonial({
 
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute -bottom-[30px] right-10 translate-x-1/4 translate-y-1/4 text-white opacity-95"
+            className="pointer-events-none absolute -bottom-[33px] right-10 translate-x-1/4 translate-y-1/4 text-white opacity-95"
             style={{ fontSize: 100, lineHeight: 0.9, fontWeight: 900 }}
           >
             ”
