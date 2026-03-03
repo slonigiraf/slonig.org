@@ -1,5 +1,10 @@
 import LegalDiv from "../LegalDiv";
 
+export const metadata = {
+  title: "Privacy Policy | Slonig",
+  description: "Privacy Policy | Slonig",
+};
+
 export default async function App() {
   return (
     <>

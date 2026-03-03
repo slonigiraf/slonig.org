@@ -23,6 +23,11 @@ import Subscribe from "./Subscribe";
 import LoadingInfo from "./LoadingInfo";
 
 
+export const metadata = {
+  title: "Online Math Programs for Students | Slonig",
+  description: "Discover Engaging Online Math Programs For Students With Slonig. Foster Academic Growth &amp; Success With Our Platform Today!",
+};
+
 export default async function App() {
   return (
     <>

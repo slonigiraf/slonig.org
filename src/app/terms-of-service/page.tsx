@@ -1,6 +1,11 @@
 import LegalDiv from "../LegalDiv";
 import Navbar from "../Navbar";
 
+export const metadata = {
+  title: "Terms of Service | Slonig",
+  description: "Terms of Service | Slonig",
+};
+
 export default async function App() {
   return (
     <>

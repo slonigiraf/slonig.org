@@ -1,5 +1,10 @@
 import LegalList from "../LegalList";
 
+export const metadata = {
+  title: "Privacy Policy for Students | Slonig",
+  description: "Privacy Policy for Students | Slonig",
+};
+
 export default async function App() {
   return (
     <>

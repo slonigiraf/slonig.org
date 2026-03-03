@@ -15,40 +15,92 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+// Change to your real domain:
+const siteUrl = "https://slonig.org";
+const siteName = "Slonig";
+const defaultTitle = "Online Math Programs for Students";
+const title = `${defaultTitle} | ${siteName}`;
+const description =
+  "Discover Engaging Online Math Programs For Students With Slonig. Foster Academic Growth &amp; Success With Our Platform Today!";
+
 export const metadata: Metadata = {
-  title: "Slonig | Peer Tutoring App for Classrooms",
-  description: "Slonig | Peer Tutoring App for Classrooms",
+  metadataBase: new URL(siteUrl),
+
+  // SEO
+  title: {
+    default: title,
+    template: "%s | Slonig",
+  },
+  description,
+
+  alternates: {
+    canonical: "/", // becomes https://slonig.org/
+  },
+
+  // Robots (allow indexing)
+  robots: {
+    index: true,
+    follow: true,
+    // Optional: match your example's preview settings
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+
+  // Open Graph (Facebook/LinkedIn/iMessage, etc.)
+  openGraph: {
+    type: "website",
+    url: siteUrl,
+    siteName,
+    title,
+    description,
+    locale: "en_US",
+    images: [
+      {
+        url: "/effect-size-full.svg",
+        width: 625,
+        height: 315,
+        alt: "Reach 70% + Math Proficiency Schoolwide with Slonig!",
+      },
+    ],
+  },
+
+  // Twitter/X
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: ["/effect-size-full.svg"],
+    site: "@denslon_eng",
+  },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
       {/* Matomo Tracking */}
       <Script id="matomo" strategy="afterInteractive">
         {`
-            var _paq = window._paq = window._paq || [];
-            /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-            _paq.push(['trackPageView']);
-            _paq.push(['enableLinkTracking']);
-            (function() {
-              var u="//matomo.slonig.org/";
-              _paq.push(['setTrackerUrl', u+'matomo.php']);
-              _paq.push(['setSiteId', '2']);
-              var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-              g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-            })();
+          var _paq = window._paq = window._paq || [];
+          _paq.push(['trackPageView']);
+          _paq.push(['enableLinkTracking']);
+          (function() {
+            var u="//matomo.slonig.org/";
+            _paq.push(['setTrackerUrl', u+'matomo.php']);
+            _paq.push(['setSiteId', '2']);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+          })();
         `}
       </Script>
 
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <Navbar />
         {children}
         <Footer />
