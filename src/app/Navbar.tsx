@@ -289,7 +289,7 @@ export const Navbar: React.FC<Props> = ({ indexPage }) => {
               onClick={(e) => e.stopPropagation()}
             >
               <div className="mx-auto max-w-7xl px-6 py-4">
-                <div className="mt-4 flex flex-col gap-4 text-base font-semibold text-[var(--secondary-color)]">
+                <div className="mt-4 flex flex-col gap-4 text-base font-semibold text-[var(--secondary-color)] no-global-link [&>a]:hover:text-blue-900">
                   <a href="/#how-it-works" className="hover:text-blue-900" onClick={navTo("#how-it-works")}>
                     How It Works
                   </a>
