@@ -255,8 +255,8 @@ export default async function App() {
               You agree to indemnify and hold Slonig, its subsidiaries, affiliates, licensors, licensees,
               officers, agents, partners, employees, and contractors harmless from any liabilities, losses,
               damages, claims, penalties, fines, costs, and expenses (including reasonable legal fees) arising
-              out of or related to: (i) your access to or use of the Services; (ii) any content or information
-              you submit, transmit, or otherwise make available through the Services; (iii) your or your
+              out of or related to: (i) your access to or use of the Services; (ii) any User Content you submit, 
+              transmit, or otherwise make available through the Services; (iii) your or your
               children’s violation of these Terms or applicable law; or (iv) any claim by a third party that
               your use of the Services infringes or misappropriates that third party’s intellectual property,
               proprietary, or privacy rights, or has otherwise caused harm to a third party.
@@ -327,6 +327,61 @@ export default async function App() {
               third parties; (c) remove or modify any proprietary notices, trademarks, labels, or marks on the
               Services; or (d) use the Services for any unlawful purpose or in any manner inconsistent with these
               Terms.
+            </p>
+
+            <h4>7A. User Content and Curriculum Contributions</h4>
+
+            <p>
+              The Services may allow educators, schools, districts, parents/guardians, or other authorized users
+              to submit, upload, transmit, or otherwise make available content, materials, suggestions, feedback,
+              or proposed edits (collectively, <strong>“User Content”</strong>). User Content includes, for example,
+              educator-proposed edits or additions to curriculum materials submitted through wiki-style or similar
+              contribution features.
+            </p>
+
+            <h5>Ownership</h5>
+            <p>
+              As between you and Slonig, you retain ownership of your User Content. Slonig does not claim ownership
+              of User Content you submit.
+            </p>
+
+            <h5>License to Slonig</h5>
+            <p>
+              You grant Slonig a worldwide, non-exclusive, royalty-free, sublicensable (solely to service providers
+              acting on our behalf), and transferable license to host, store, reproduce, process, adapt (for formatting
+              and technical compatibility), publish, display, distribute, and otherwise use your User Content only as
+              necessary to operate, provide, maintain, secure, improve, and support the Services, including reviewing,
+              evaluating, and incorporating educator-proposed curriculum changes.
+            </p>
+
+            <h5>Curriculum Contributions and Review</h5>
+            <p>
+              If you submit proposed edits to curriculum materials, you acknowledge and agree that: (i) your proposed
+              edits may be reviewed, accepted, rejected, modified, or reverted by Slonig or its reviewers; (ii) Slonig
+              is not obligated to publish or implement any proposed edit; and (iii) once accepted, changes may become
+              part of the curriculum materials distributed through the Services under the license(s) identified for
+              those materials (for example, a Creative Commons license), as described in Section 7.
+            </p>
+
+            <h5>Your Responsibilities</h5>
+            <p>
+              You represent and warrant that you have all rights necessary to submit the User Content and to grant the
+              license above, and that your User Content (a) does not infringe, misappropriate, or violate any third-party
+              rights (including intellectual property or privacy rights), and (b) complies with applicable laws and these Terms.
+            </p>
+
+            <h5>Prohibited User Content</h5>
+            <p>
+              You may not submit User Content that is unlawful, harmful, abusive, defamatory, obscene, or otherwise objectionable,
+              or that contains malicious code, or that violates the rights of others. We may remove or restrict access to User Content
+              to the extent we reasonably determine it violates these Terms or applicable law.
+            </p>
+
+            <h5>Moderation and Enforcement</h5>
+            <p>
+              Slonig may (but is not required to) review, monitor, or moderate User Content. We may remove, disable access to,
+              or preserve User Content, and we may suspend or terminate access to the Services, as described in Section 15,
+              including to address suspected infringement, unlawful activity, or policy violations.
             </p>
 
             <h3>8. Prohibited Activities</h3>
@@ -416,11 +471,78 @@ export default async function App() {
               may also display notices of changes to these Terms or other matters.
             </p>
 
-            <h3>12. Copyright Infringement</h3>
+            <h3>12. Copyright and DMCA Policy</h3>
+
             <p>
-              If you believe your intellectual property rights have been infringed on the Services,
-              please contact us with detailed information about the alleged infringement at{" "}
-              <strong>info@slonig.org</strong>.
+              Slonig respects intellectual property rights and expects users to do the same. If you believe that content
+              available through the Services infringes a copyright you own or control, you may submit a notice as described below.
+            </p>
+
+            <h4>12A. DMCA Notice of Claimed Infringement (U.S.)</h4>
+            <p>
+              If you are a copyright owner (or authorized to act on behalf of one) and believe that content in the Services
+              infringes your copyright, you may submit a written notice that includes the following information:
+            </p>
+            <ul className="list-disc pl-5">
+              <li>A physical or electronic signature of the copyright owner (or authorized agent).</li>
+              <li>Identification of the copyrighted work claimed to have been infringed.</li>
+              <li>
+                Identification of the material claimed to be infringing and information reasonably sufficient to allow us to
+                locate it (for example, a URL, screenshot, or specific in-product location).
+              </li>
+              <li>Your name, address, telephone number, and email address.</li>
+              <li>
+                A statement that you have a good faith belief that the use is not authorized by the copyright owner, its agent,
+                or the law.
+              </li>
+              <li>
+                A statement, under penalty of perjury, that the information in the notice is accurate and that you are the copyright
+                owner or authorized to act on the owner’s behalf.
+              </li>
+            </ul>
+
+            <p>
+              Send DMCA notices to: <strong>info@slonig.org</strong> with the subject line <strong>“DMCA Notice”</strong>.
+            </p>
+
+            <p>
+              <strong>Designated Agent (if registered):</strong> If Slonig has designated a DMCA agent with the U.S. Copyright Office,
+              we will provide the agent’s name and contact details here and/or in the Services. Until then, notices may be sent to
+              the email address above.
+            </p>
+
+            <h4>12B. Counter-Notification</h4>
+            <p>
+              If you believe that material you posted was removed or disabled by mistake or misidentification, you may submit a counter-notice.
+              A counter-notice must include:
+            </p>
+            <ul className="list-disc pl-5">
+              <li>Your physical or electronic signature.</li>
+              <li>Identification of the material removed or disabled and where it appeared before removal.</li>
+              <li>
+                A statement under penalty of perjury that you have a good faith belief the material was removed or disabled as a result
+                of mistake or misidentification.
+              </li>
+              <li>
+                Your name, address, and telephone number, and a statement that you consent to the jurisdiction of the federal district court
+                for the district in which your address is located (or, if outside the U.S., the District of Delaware), and that you will accept
+                service of process from the person who provided the original notice (or that person’s agent).
+              </li>
+            </ul>
+
+            <p>
+              Send counter-notices to: <strong>info@slonig.org</strong> with the subject line <strong>“DMCA Counter-Notice”</strong>.
+            </p>
+
+            <h4>12C. Repeat Infringer Policy</h4>
+            <p>
+              In appropriate circumstances and at our discretion, Slonig may disable or terminate access for users who are repeat infringers.
+              We may also remove or restrict access to allegedly infringing material as required by applicable law.
+            </p>
+
+            <p>
+              <strong>Important:</strong> Submitting false or misleading notices or counter-notices may result in liability. You should consider
+              consulting an attorney before submitting a notice or counter-notice.
             </p>
 
             <h3>13. Changes to Terms</h3>
