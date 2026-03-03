@@ -14,6 +14,9 @@ type ImpressionTrackerProps = {
   threshold?: number;
   rootMargin?: string;
 
+  /** How many seconds it must remain >= threshold before reporting */
+  sec?: number;
+
   children?: React.ReactNode;
 };
 
@@ -35,21 +38,38 @@ export default function ImpressionTracker({
   action = "VIEW",
   threshold = 0.5,
   rootMargin = "0px",
+  sec = 2,
   children,
 }: ImpressionTrackerProps) {
   const ref = useRef<HTMLDivElement | null>(null);
 
-  // Tracks whether we are currently "in view" (above threshold)
+  // Are we currently "qualified in-view" (>= threshold)?
   const inViewRef = useRef(false);
+
+  // Did we already send for the current in-view session?
+  const sentRef = useRef(false);
+
+  // Pending timer id
+  const timerRef = useRef<number | null>(null);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
 
+    const clearTimer = () => {
+      if (timerRef.current !== null) {
+        window.clearTimeout(timerRef.current);
+        timerRef.current = null;
+      }
+    };
+
     const send = () => {
+      if (sentRef.current) return;
+      sentRef.current = true;
+
       if (isLocalhost()) {
         // eslint-disable-next-line no-console
-        console.log("[ImpressionTracker]", { category, action, id });
+        console.log("[ImpressionTracker]", { category, action, id, sec });
         return;
       }
 
@@ -58,31 +78,52 @@ export default function ImpressionTracker({
       }
     };
 
+    const startTimerIfNeeded = () => {
+      clearTimer();
+
+      // Fire immediately if sec is 0 or negative
+      if (sec <= 0) {
+        send();
+        return;
+      }
+
+      timerRef.current = window.setTimeout(() => {
+        // Only send if we are still qualified in-view at timer completion
+        if (inViewRef.current) send();
+      }, Math.round(sec * 1000));
+    };
+
     const io = new IntersectionObserver(
       (entries) => {
         const entry = entries[0];
         if (!entry) return;
 
-        const nowInView = entry.isIntersecting && entry.intersectionRatio >= threshold;
+        const qualified =
+          entry.isIntersecting && entry.intersectionRatio >= threshold;
 
-        // Fire when we transition from out-of-view -> in-view
-        if (!inViewRef.current && nowInView) {
+        // Transition: out -> in (qualified)
+        if (!inViewRef.current && qualified) {
           inViewRef.current = true;
-          send();
+          sentRef.current = false; // new session
+          startTimerIfNeeded();
           return;
         }
 
-        // Reset when it leaves view (so next re-enter fires again)
-        if (inViewRef.current && !nowInView) {
+        // Transition: in (qualified) -> out (not qualified)
+        if (inViewRef.current && !qualified) {
           inViewRef.current = false;
+          clearTimer(); // didn’t stay long enough (or session ended)
         }
       },
       { threshold, rootMargin }
     );
 
     io.observe(el);
-    return () => io.disconnect();
-  }, [id, category, action, threshold, rootMargin]);
+    return () => {
+      clearTimer();
+      io.disconnect();
+    };
+  }, [id, category, action, threshold, rootMargin, sec]);
 
   return <div ref={ref}>{children}</div>;
 }
