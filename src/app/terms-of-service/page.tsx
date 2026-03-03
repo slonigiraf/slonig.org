@@ -635,7 +635,7 @@ export default async function App() {
               export control or sanctions laws.
             </p>
 
-            <h4>8D. Service Availability; No SLA (Unless in a Written Agreement)</h4>
+            <h4>8D. Service Availability; No Service Level Agreement (“SLA”) Unless in a Written Agreement</h4>
             <p>
               The Services may be unavailable from time to time due to maintenance, updates, outages, network issues,
               third-party dependencies, or events outside our reasonable control. We do not guarantee any minimum uptime,
