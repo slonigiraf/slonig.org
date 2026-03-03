@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Linkedin, Instagram } from "lucide-react";
 import { APPOINTMENT_URL } from "./RequestDemo";
 import ImpressionTracker from "./ImpressionTracker";
+import MatomoLink from "./MatomoLink";
 
 type Props = {
   className?: string;
@@ -67,7 +68,7 @@ export default function Footer({
           {/* Left */}
           <div>
             {/* named-logo.svg (forced to white) */}
-            <Link href="/" className="inline-flex items-center">
+            <MatomoLink trackName="/" href="/" className="inline-flex items-center">
               <Image
                 src="/named-logo.svg"
                 alt="Slonig"
@@ -80,7 +81,7 @@ export default function Footer({
                   filter: "brightness(0) invert(1)",
                 }}
               />
-            </Link>
+            </MatomoLink>
 
             <div className="mt-10 space-y-3 leading-snug text-white md:mt-12">
               <div className="font-medium">© {year} Slonig. All rights reserved</div>
@@ -97,24 +98,24 @@ export default function Footer({
             <nav className="mt-5">
               <ul className="space-y-3 leading-snug text-white">
                 <li>
-                  <Link className="hover:underline" href={APPOINTMENT_URL} target="_blank" rel="noreferrer">
+                  <MatomoLink trackName="request_demo" className="hover:underline" href={APPOINTMENT_URL} target="_blank" rel="noreferrer">
                     Request a demo
-                  </Link>
+                  </MatomoLink>
                 </li>
                 <li>
-                  <Link className="hover:underline" href="/privacy-policy">
+                  <MatomoLink trackName="privacy_policy" className="hover:underline" href="/privacy-policy">
                     Privacy policy
-                  </Link>
+                  </MatomoLink>
                 </li>
                 <li>
-                  <Link className="hover:underline" href="/privacy-policy-students">
+                  <MatomoLink trackName="privacy_policy_for_students" className="hover:underline" href="/privacy-policy-students">
                     Privacy policy for students
-                  </Link>
+                  </MatomoLink>
                 </li>
                 <li>
-                  <Link className="hover:underline" href="/terms-of-service">
+                  <MatomoLink trackName="terms_of_service" className="hover:underline" href="/terms-of-service">
                     Terms of service
-                  </Link>
+                  </MatomoLink>
                 </li>
               </ul>
             </nav>
