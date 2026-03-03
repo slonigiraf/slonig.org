@@ -767,7 +767,84 @@ export default async function App() {
               We reserve the right to remove or delete information in accordance with our Privacy Policy.
             </p>
 
-            <h3>16. Governing Law and Jurisdiction</h3>
+            <h3>16. Dispute Resolution; Arbitration; Class Action Waiver</h3>
+
+            <h4>16A. Informal Resolution First</h4>
+            <p>
+              Before starting a formal legal proceeding (including arbitration), you agree to contact us at{" "}
+              <strong>info@slonig.org</strong> and provide a brief description of the dispute and your contact
+              information. We will attempt to resolve the dispute informally. If the dispute is not resolved
+              within <strong>thirty (30) days</strong> after we receive your notice, either party may begin a
+              formal proceeding as described below.
+            </p>
+
+            <h4>16B. Arbitration (Applies to Consumers Unless Prohibited by Law)</h4>
+            <p>
+              If you are an individual consumer (for example, a parent/guardian purchasing for personal use),
+              and to the maximum extent permitted by applicable law, you and Slonig agree that any dispute,
+              claim, or controversy arising out of or relating to the Services or these Terms (a{" "}
+              <strong>“Dispute”</strong>) will be resolved by <strong>binding, individual arbitration</strong>,
+              rather than in court, except as stated in Section 16D (Exceptions).
+            </p>
+            <p>
+              The arbitration will be administered by a reputable arbitration provider and conducted under its
+              applicable rules for consumer disputes, except where those rules conflict with these Terms. The
+              arbitrator may award the same relief that a court could award on an individual basis. Judgment on
+              the award may be entered in any court with jurisdiction.
+            </p>
+            <p>
+              <strong>If the arbitration agreement in this Section 16B is found unenforceable as to you under
+                applicable law</strong>, then Section 17 (Governing Law and Jurisdiction) will apply instead.
+            </p>
+
+            <h4>16C. Class Action Waiver (Individual Proceedings Only)</h4>
+            <p>
+              To the maximum extent permitted by applicable law, you and Slonig agree that each party may bring
+              claims against the other <strong>only in an individual capacity</strong> and not as a plaintiff or
+              class member in any purported class, collective, coordinated, consolidated, or representative
+              proceeding. The arbitrator may not consolidate more than one person’s claims and may not otherwise
+              preside over any form of representative or class proceeding.
+            </p>
+
+            <h4>16D. Exceptions</h4>
+            <ul className="list-disc pl-5">
+              <li>
+                <strong>Small claims.</strong> Either party may bring an individual claim in small claims court
+                if it qualifies and remains an individual claim.
+              </li>
+              <li>
+                <strong>Injunctive relief / IP.</strong> Either party may seek injunctive or equitable relief in
+                court to prevent actual or threatened infringement, misappropriation, or violation of intellectual
+                property rights or confidentiality obligations.
+              </li>
+            </ul>
+
+            <h4>16E. Location and Fees (Consumer)</h4>
+            <p>
+              For consumers, arbitration will take place by video, phone, or in the county (or equivalent) of
+              your primary residence, unless you and Slonig agree otherwise. We will pay required arbitration
+              filing and administrative fees for consumer arbitration to the extent required by the arbitration
+              provider’s rules or applicable law, and the arbitrator may award fees and costs as permitted by law.
+            </p>
+
+            <h4>16F. Time Limit to Bring Claims</h4>
+            <p>
+              To the extent permitted by applicable law, any claim or cause of action arising out of or relating
+              to the Services or these Terms must be filed within <strong>one (1) year</strong> after the claim
+              arose; otherwise, the claim is permanently barred. This does not apply where prohibited by law.
+            </p>
+
+            <h4>16G. B2B Disputes (Schools, Districts, Organizations)</h4>
+            <p>
+              If you are a school, district, or other organization (or you purchase paid Services under an order
+              form, statement of work, purchase order acceptance, or invoice), then (unless your written agreement
+              with Slonig states otherwise) the arbitration and class waiver provisions in Sections 16B–16E do not
+              apply, and disputes will be handled under Section 17 (Governing Law and Jurisdiction). To the extent
+              permitted by law, the prevailing party in any such dispute may recover reasonable attorneys’ fees and
+              costs.
+            </p>
+
+            <h3>17. Governing Law and Jurisdiction</h3>
             <p>
               These Terms and all matters arising out of or relating to these Terms shall be governed by the
               substantive laws of the State of Delaware, USA, without regard to its principles of conflicts of
@@ -776,7 +853,7 @@ export default async function App() {
               courts.
             </p>
 
-            <h3>17. Contact Us</h3>
+            <h3>18. Contact Us</h3>
             <p>
               For questions or suggestions about these Terms or your personal information, please
               contact us at:
