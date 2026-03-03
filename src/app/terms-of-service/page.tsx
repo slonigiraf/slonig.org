@@ -500,10 +500,22 @@ export default async function App() {
               contribution features.
             </p>
 
-            <h5>Ownership</h5>
+            <h5>Ownership and Creative Commons License</h5>
             <p>
-              As between you and Slonig, you retain ownership of your User Content. Slonig does not claim ownership
-              of User Content you submit.
+              By submitting User Content, you retain any copyright or other rights you may have in that User Content.
+              However, you agree that any User Content you submit to the Services is contributed under the
+              <strong> Creative Commons Attribution 4.0 International License (CC BY 4.0)</strong> (or any later version
+              of that license, if available), unless we expressly state in writing that a different Creative Commons license
+              applies to a specific contribution feature.
+            </p>
+            <p>
+              This means you grant Slonig and all other users a worldwide, non-exclusive, royalty-free, irrevocable
+              (to the fullest extent permitted by law) license to use, reproduce, share, adapt, and build upon your
+              User Content, including for commercial purposes, provided that appropriate attribution is given.
+            </p>
+            <p>
+              If your User Content includes third-party material, you must have the right to submit it under CC BY 4.0,
+              and you are responsible for clearly identifying any material that is not licensed under CC BY 4.0.
             </p>
 
             <h5>License to Slonig</h5>
