@@ -1,4 +1,6 @@
 import LegalList from "../LegalList";
+import MatomoAnchor from "../MatomoAnchor";
+import MatomoLink from "../MatomoLink";
 
 export const metadata = {
   title: "Privacy Policy for Students | Slonig",
@@ -581,13 +583,35 @@ export default async function App() {
               <h3>Additional Resources</h3>
               <p>For more detailed information about our privacy practices, please see:</p>
               <ul className="list-disc pl-5">
-                <li>Our complete Privacy Policy at <a href="/privacy-policy">https://slonig.org/privacy-policy</a></li>
+                <li>Our complete Privacy Policy at
+                  <MatomoLink trackName="pps_privacy_policy" className="hover:underline" href="/privacy-policy">
+                    https://slonig.org/privacy-policy
+                  </MatomoLink>
+                </li>
                 <li>Our Terms of Service</li>
               </ul>
               <p>For information about student privacy laws:</p>
               <ul className="list-disc pl-5">
-                <li>COPPA: Federal Trade Commission website <a href="https://www.ftc.gov/">(ftc.gov)</a></li>
-                <li>FERPA: U.S. Department of Education website <a href="https://www.ed.gov/">(www.ed.gov)</a></li>
+                <li>COPPA: Federal Trade Commission website
+                  <MatomoAnchor
+                    className="hover:underline"
+                    href="https://www.ftc.gov/"
+                    trackName="ftc.gov"
+                  >
+                    (ftc.gov)
+                  </MatomoAnchor>
+
+                </li>
+                <li>FERPA: U.S. Department of Education website
+                  <MatomoAnchor
+                    className="hover:underline"
+                    href="https://www.ed.gov/"
+                    trackName="ed.gov"
+                  >
+                    (www.ed.gov)
+                  </MatomoAnchor>
+
+                </li>
               </ul>
               <p>
                 This Student Privacy Policy should be read in conjunction with our main Privacy Policy.

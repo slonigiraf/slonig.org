@@ -1,4 +1,5 @@
 import LegalDiv from "../LegalDiv";
+import MatomoLink from "../MatomoLink";
 import Navbar from "../Navbar";
 
 export const metadata = {
@@ -717,7 +718,9 @@ export default async function App() {
             <p>
               Our Privacy Policy explains how we collect, process, use, and disclose personal
               information. You can access it at{" "}
-              <a href="/privacy-policy">https://slonig.org/privacy-policy</a>
+              <MatomoLink trackName="tos_privacy_policy" className="hover:underline" href="/privacy-policy">
+                https://slonig.org/privacy-policy
+              </MatomoLink>
               .
             </p>
 
@@ -771,7 +774,7 @@ export default async function App() {
               </li>
             </ul>
 
-           
+
 
             <p>
               Slonig has not designated a DMCA agent with the U.S. Copyright Office at this time.
@@ -818,7 +821,7 @@ export default async function App() {
 
             <h3>13. Changes to Terms</h3>
             <p>
-              We may update these Terms from time to time. Changes are effective when we post the updated Terms. 
+              We may update these Terms from time to time. Changes are effective when we post the updated Terms.
               If we make material changes, we will post a notice in the Services and/or on our website.
             </p>
             <p>
