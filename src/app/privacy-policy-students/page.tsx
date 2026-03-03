@@ -597,42 +597,15 @@ export default async function App() {
             </li><li>
               <h3>Additional Resources</h3>
               <p>For more detailed information about our privacy practices, please see:</p>
-              <ul>
-                <li>Our complete Privacy Policy at
-                  <a
-                    href="/privacy-policy"
-                    className="text-[var(--secondary-color)] underline underline-offset-4 hover:opacity-80"
-                  >
-                    https://slonig.org/privacy-policy
-                  </a>
-                </li>
+              <ul className="list-disc pl-5">
+                <li>Our complete Privacy Policy at <a href="/privacy-policy">https://slonig.org/privacy-policy</a></li>
                 <li>Our Terms of Service</li>
               </ul>
-
               <p>For information about student privacy laws:</p>
-              <ul>
-                <li>COPPA: Federal Trade Commission website
-                  <a
-                    href="https://www.ftc.gov/"
-                    className="text-[var(--secondary-color)] underline underline-offset-4 hover:opacity-80"
-                  >
-                    (ftc.gov)
-                  </a>
-
-                </li>
-                <li>FERPA: U.S. Department of Education website
-
-
-                  <a
-                    href="https://www.ed.gov/"
-                    className="text-[var(--secondary-color)] underline underline-offset-4 hover:opacity-80"
-                  >
-                    (www.ed.gov)
-                  </a>
-
-                </li>
+              <ul className="list-disc pl-5">
+                <li>COPPA: Federal Trade Commission website <a href="https://www.ftc.gov/">(ftc.gov)</a></li>
+                <li>FERPA: U.S. Department of Education website <a href="https://www.ed.gov/">(www.ed.gov)</a></li>
               </ul>
-
               <p>
                 This Student Privacy Policy should be read in conjunction with our main Privacy Policy.
                 In case of any conflict between this Student Privacy Policy and the main Privacy Policy,
