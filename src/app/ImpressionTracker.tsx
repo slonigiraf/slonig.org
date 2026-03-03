@@ -14,7 +14,10 @@ type ImpressionTrackerProps = {
   threshold?: number;
   rootMargin?: string;
 
-  /** How many seconds it must remain >= threshold before reporting */
+  /**
+   * Minimum qualified time (in seconds) required before we report on exit.
+   * If total qualified time < sec, we won't send.
+   */
   sec?: number;
 
   children?: React.ReactNode;
@@ -43,55 +46,58 @@ export default function ImpressionTracker({
 }: ImpressionTrackerProps) {
   const ref = useRef<HTMLDivElement | null>(null);
 
-  // Are we currently "qualified in-view" (>= threshold)?
+  // Are we currently qualified in-view (>= threshold)?
   const inViewRef = useRef(false);
 
-  // Did we already send for the current in-view session?
-  const sentRef = useRef(false);
+  // Timestamp when we entered qualified view (ms)
+  const startMsRef = useRef<number | null>(null);
 
-  // Pending timer id
-  const timerRef = useRef<number | null>(null);
+  // Accumulated qualified time (ms) for the current session
+  const totalMsRef = useRef(0);
+
+  const sendOnExit = () => {
+    const totalMs = totalMsRef.current;
+    const totalSec = totalMs / 1000;
+
+    // Apply minimum dwell-time filter
+    if (totalSec < sec) return;
+
+    if (isLocalhost()) {
+      // eslint-disable-next-line no-console
+      console.log("[ImpressionTracker exit]", {
+        category,
+        action,
+        id,
+        totalMs,
+      });
+      return;
+    }
+
+    if (typeof window !== "undefined" && Array.isArray(window._paq)) {
+      // Matomo: trackEvent(category, action, name, value)
+      // value should be an integer; we send milliseconds.
+      window._paq.push(["trackEvent", category, action, id, totalMs]);
+    }
+  };
+
+  const closeSession = () => {
+    // If we were in-view, add the last segment
+    if (inViewRef.current && startMsRef.current !== null) {
+      totalMsRef.current += Date.now() - startMsRef.current;
+    }
+
+    // Send on exit (if >= sec)
+    sendOnExit();
+
+    // Reset for next session
+    inViewRef.current = false;
+    startMsRef.current = null;
+    totalMsRef.current = 0;
+  };
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-
-    const clearTimer = () => {
-      if (timerRef.current !== null) {
-        window.clearTimeout(timerRef.current);
-        timerRef.current = null;
-      }
-    };
-
-    const send = () => {
-      if (sentRef.current) return;
-      sentRef.current = true;
-
-      if (isLocalhost()) {
-        // eslint-disable-next-line no-console
-        console.log("[ImpressionTracker]", { category, action, id, sec });
-        return;
-      }
-
-      if (typeof window !== "undefined" && Array.isArray(window._paq)) {
-        window._paq.push(["trackEvent", category, action, id]);
-      }
-    };
-
-    const startTimerIfNeeded = () => {
-      clearTimer();
-
-      // Fire immediately if sec is 0 or negative
-      if (sec <= 0) {
-        send();
-        return;
-      }
-
-      timerRef.current = window.setTimeout(() => {
-        // Only send if we are still qualified in-view at timer completion
-        if (inViewRef.current) send();
-      }, Math.round(sec * 1000));
-    };
 
     const io = new IntersectionObserver(
       (entries) => {
@@ -101,26 +107,26 @@ export default function ImpressionTracker({
         const qualified =
           entry.isIntersecting && entry.intersectionRatio >= threshold;
 
-        // Transition: out -> in (qualified)
+        // Enter qualified view
         if (!inViewRef.current && qualified) {
           inViewRef.current = true;
-          sentRef.current = false; // new session
-          startTimerIfNeeded();
+          startMsRef.current = Date.now();
           return;
         }
 
-        // Transition: in (qualified) -> out (not qualified)
+        // Leave qualified view (exit)
         if (inViewRef.current && !qualified) {
-          inViewRef.current = false;
-          clearTimer(); // didn’t stay long enough (or session ended)
+          closeSession();
         }
       },
       { threshold, rootMargin }
     );
 
     io.observe(el);
+
     return () => {
-      clearTimer();
+      // If component unmounts while still in view, treat it as an exit
+      if (inViewRef.current) closeSession();
       io.disconnect();
     };
   }, [id, category, action, threshold, rootMargin, sec]);
