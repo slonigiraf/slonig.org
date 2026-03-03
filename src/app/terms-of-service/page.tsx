@@ -750,6 +750,7 @@ export default async function App() {
             </p>
 
             <h3>15. Termination</h3>
+
             <p>
               We may suspend or terminate access to all or part of the Services, or restrict specific features, if we
               reasonably believe you have violated these Terms, infringed others’ rights, or engaged in unlawful,
@@ -758,13 +759,46 @@ export default async function App() {
               and/or refusing further support or paid Services associated with a customer record or email address used for
               Service-related communications.
             </p>
+
+            <h4>15A. Notice and Cure for Paid Institutional Customers</h4>
+            <p>
+              If you are a school, district, or other organization that has purchased paid Services under an order form,
+              statement of work, purchase order acceptance, or invoice, then (except as described in Section 15B) we will
+              provide written notice of a material breach and a reasonable opportunity to cure before suspending or terminating
+              the affected paid Services. The cure period will be <strong>thirty (30) days</strong> unless we specify a shorter
+              period that is reasonable based on the nature of the breach.
+            </p>
+
+            <h4>15B. Immediate Suspension or Termination</h4>
+            <p>
+              We may immediately suspend or terminate access (without a cure period) if we reasonably determine that:
+              (i) the breach involves security risks, attempted unauthorized access, malware, or denial-of-service activity;
+              (ii) the conduct is illegal or poses a risk of harm to users (including children) or to Slonig;
+              (iii) continued access would create material risk to the Services, other users, or third parties; or
+              (iv) required by law or a valid legal request.
+            </p>
+
+            <h4>15C. Effect of Termination; Refunds for Paid Services</h4>
+            <p>
+              If we terminate or suspend paid Services for an organization <strong>without cause</strong> (i.e., not due to your
+              uncured breach), we will provide a <strong>pro rata refund or credit</strong> for prepaid, unused fees for the
+              terminated portion of the paid Services, to the extent permitted by law and unless your written agreement states
+              otherwise. If we terminate for an <strong>uncured breach</strong>, fees paid are non-refundable except as required
+              by applicable law or expressly stated in a written agreement.
+            </p>
+
+            <h4>15D. Access Without Accounts</h4>
             <p>
               Because the Services do not rely on traditional accounts, we may not be able to associate all activity with a
               single individual across devices or sessions. We do not guarantee that a suspension will prevent all future
-              access in every case. We may refer suspected illegal activity to law enforcement where required or appropriate.
+              access in every case. Where feasible, enforcement may be applied to specific content, links, features, organization
+              contexts, or Service-related customer records (for example, disabling a contribution feature or restricting access
+              within a school workspace).
             </p>
+
             <p>
               We reserve the right to remove or delete information in accordance with our Privacy Policy.
+              We may refer suspected illegal activity to law enforcement where required or appropriate.
             </p>
 
             <h3>16. Dispute Resolution; Arbitration; Class Action Waiver</h3>
