@@ -1,7 +1,9 @@
+// ImpressionTracker.tsx
 "use client";
 
 import { useEffect, useMemo, useRef } from "react";
 import { usePathname } from "next/navigation";
+import { trackMatomoEvent } from "@/lib/matomo";
 
 type ImpressionTrackerProps = {
   id: string;
@@ -10,19 +12,8 @@ type ImpressionTrackerProps = {
   threshold?: number;
   rootMargin?: string;
   sec?: number;
+  children?: React.ReactNode;
 };
-
-declare global {
-  interface Window {
-    _paq?: any[];
-  }
-}
-
-function isLocalhost() {
-  if (typeof window === "undefined") return false;
-  const h = window.location.hostname;
-  return h === "localhost" || h === "127.0.0.1" || h === "::1";
-}
 
 /** "/" -> "index", "/legal/privacy-policy" -> "legal/privacy-policy" */
 function pageIdFromPathname(pathname: string | null | undefined) {
@@ -39,11 +30,11 @@ export default function ImpressionTracker({
   threshold = 0.5,
   rootMargin = "0px",
   sec = 2,
+  children,
 }: ImpressionTrackerProps) {
-  // Marker inside the parent you want to track
-  const markerRef = useRef<HTMLSpanElement | null>(null);
-
+  const ref = useRef<HTMLDivElement | null>(null);
   const pathname = usePathname();
+
   const actionResolved = useMemo(() => {
     return action ?? pageIdFromPathname(pathname);
   }, [action, pathname]);
@@ -55,22 +46,15 @@ export default function ImpressionTracker({
   const sendOnExit = () => {
     const totalMs = totalMsRef.current;
     const totalSec = totalMs / 1000;
+
     if (totalSec < sec) return;
 
-    if (isLocalhost()) {
-      // eslint-disable-next-line no-console
-      console.log("[ImpressionTracker exit]", {
-        category,
-        action: actionResolved,
-        id,
-        totalMs,
-      });
-      return;
-    }
-
-    if (typeof window !== "undefined" && Array.isArray(window._paq)) {
-      window._paq.push(["trackEvent", category, actionResolved, id, totalMs]);
-    }
+    trackMatomoEvent({
+      category,
+      action: actionResolved,
+      name: id,
+      value: totalMs, // helper rounds to int
+    });
   };
 
   const closeSession = () => {
@@ -86,11 +70,8 @@ export default function ImpressionTracker({
   };
 
   useEffect(() => {
-    const marker = markerRef.current;
-    const parent = marker?.parentElement;
-
-    // Nothing to observe (rare, but guard)
-    if (!parent) return;
+    const el = ref.current;
+    if (!el) return;
 
     const io = new IntersectionObserver(
       (entries) => {
@@ -113,7 +94,7 @@ export default function ImpressionTracker({
       { threshold, rootMargin }
     );
 
-    io.observe(parent);
+    io.observe(el);
 
     return () => {
       if (inViewRef.current) closeSession();
@@ -121,6 +102,5 @@ export default function ImpressionTracker({
     };
   }, [id, category, actionResolved, threshold, rootMargin, sec]);
 
-  // Invisible marker; still exists in DOM so we can find parentElement.
-  return <span ref={markerRef} style={{ display: "none" }} aria-hidden="true" />;
+  return <div ref={ref}>{children}</div>;
 }
