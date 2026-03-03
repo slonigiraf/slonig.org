@@ -77,6 +77,15 @@ export const metadata: Metadata = {
     images: ["/effect-size-full.svg"],
     site: "@denslon_eng",
   },
+  icons: {
+    icon: [
+      { url: "/icon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/icon-192x192.png", sizes: "192x192", type: "image/png" },
+    ],
+    apple: [
+      { url: "/icon-180x180.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
 };
 
 export default function RootLayout({
@@ -84,6 +93,9 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
+      <head>
+        <meta name="msapplication-TileImage" content="/icon-270x270.png" />
+      </head>
       {/* Matomo Tracking */}
       <Script id="matomo" strategy="afterInteractive">
         {`
