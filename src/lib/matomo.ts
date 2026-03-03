@@ -33,15 +33,15 @@ export function trackMatomoEvent({ category, action, name, value }: MatomoEvent)
   const roundedValue = value != null ? Math.round(value) : undefined;
   if (roundedValue != null) payload.push(roundedValue);
 
-  if (isLocalhost()) {
-    // eslint-disable-next-line no-console
-    const log: Record<string, unknown> = { category, action };
-    if (name != null) log.name = name;
-    if (roundedValue != null) log.value = roundedValue;
+  // if (isLocalhost()) {
+  //   // eslint-disable-next-line no-console
+  //   const log: Record<string, unknown> = { category, action };
+  //   if (name != null) log.name = name;
+  //   if (roundedValue != null) log.value = roundedValue;
 
-    console.log("[Matomo trackEvent]", log);
-    return;
-  }
+  //   console.log("[Matomo trackEvent]", log);
+  //   return;
+  // }
 
   if (Array.isArray(window._paq)) {
     window._paq.push(payload);
