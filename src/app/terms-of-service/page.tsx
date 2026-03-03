@@ -782,7 +782,7 @@ export default async function App() {
               in the manner specified there (for example, to designated administrative contacts).
             </p>
 
-            <h3>12. Copyright and DMCA Policy</h3>
+            <h3>12. Copyright Complaints</h3>
 
             <p>
               Slonig respects intellectual property rights and expects users to do the same. If you believe that content
@@ -817,9 +817,9 @@ export default async function App() {
             </p>
 
             <p>
-              <strong>Designated Agent (if registered):</strong> If Slonig has designated a DMCA agent with the U.S. Copyright Office,
-              we will provide the agent’s name and contact details here and/or in the Services. Until then, notices may be sent to
-              the email address above.
+              <strong>Designated DMCA agent.</strong> Slonig has not designated a DMCA agent with the U.S. Copyright Office at this time.
+              Please send notices to <strong>info@slonig.org</strong> with the subject line <strong>“DMCA Notice”</strong>. If we designate
+              an agent in the future, we will update these Terms and/or the Services with the agent’s contact information.
             </p>
 
             <h4>12B. Counter-Notification</h4>
@@ -848,13 +848,15 @@ export default async function App() {
             <h4>12C. Repeat Infringer Policy</h4>
             <p>
               In appropriate circumstances and at our discretion, Slonig may disable or restrict access to contribution
-              features and/or terminate access to the Services (as described in Section 15) for users or contexts that are
-              the subject of repeated notices of alleged infringement. Where feasible, we may apply this policy in the
-              applicable context (for example, within a school or organization workspace, or for submissions associated with
-              a Service-related email address or customer record).
+              features and/or terminate or limit access to the Services (as described in Section 15) for repeat infringers.
             </p>
             <p>
-              We may also remove or restrict access to allegedly infringing material as required by applicable law.
+              Because the Services do not use traditional accounts, enforcement may be applied at the content, feature,
+              device-session, link, organization/workspace, purchase/customer record, or Service-related email context level,
+              where feasible. We do not guarantee that we can identify every user or prevent all re-access in every circumstance.
+            </p>
+            <p>
+              We may remove or restrict access to allegedly infringing material as required by applicable law.
             </p>
 
             <h3>13. Changes to Terms</h3>
