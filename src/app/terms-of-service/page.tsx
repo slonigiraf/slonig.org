@@ -685,6 +685,83 @@ export default async function App() {
               Services or your downloading of any materials posted on it or on any website linked to it.
             </p>
 
+            {/* ✅ Add these sections after Section 8 (Prohibited Activities) */}
+
+            <h4>8A. Accessibility</h4>
+            <p>
+              Slonig is committed to making the Services accessible to all users, including individuals with disabilities.
+              We strive to design and improve the Services in accordance with generally recognized accessibility standards,
+              such as the Web Content Accessibility Guidelines (WCAG), where reasonably practicable.
+            </p>
+            <p>
+              <strong>No guarantee.</strong> Because accessibility depends on many factors (including user devices, browsers,
+              assistive technologies, third-party content, and optional configurations), we do not warrant that the Services
+              will be accessible in all circumstances or meet every specific accessibility requirement.
+            </p>
+            <p>
+              If you encounter an accessibility barrier, please contact us at <strong>info@slonig.org</strong> and include
+              (if possible) the page or feature, the issue encountered, and your device/browser/assistive technology details.
+              We will make reasonable efforts to review and address reported issues.
+            </p>
+
+            <h4>8B. Acceptable Use for Schools and Educational Organizations</h4>
+            <p>
+              If you are a school, district, educator, or other educational organization, you agree to use the Services
+              only for lawful educational purposes and in compliance with your policies, applicable law, and these Terms.
+            </p>
+            <ul className="list-disc pl-5">
+              <li>
+                <strong>Student safety.</strong> You will take reasonable steps to supervise student use of the Services,
+                consistent with your policies and applicable law.
+              </li>
+              <li>
+                <strong>No prohibited content.</strong> You will not use the Services to create, submit, or distribute content
+                that is unlawful, harmful, harassing, discriminatory, sexually explicit, or that exploits or endangers minors.
+              </li>
+              <li>
+                <strong>No cheating/academic misconduct tools.</strong> You will not use the Services to facilitate academic
+                dishonesty (for example, distributing answer keys in ways that defeat assessment integrity) except where a
+                teacher intentionally uses content as part of instruction.
+              </li>
+              <li>
+                <strong>Compliance with school rules.</strong> You are responsible for ensuring that use aligns with school
+                or district policies (including acceptable use policies, device policies, and content policies).
+              </li>
+            </ul>
+            <p>
+              We may restrict or disable specific features or content (including contribution features) if we reasonably
+              determine they are being used in a way that violates these Terms or poses risk to students, educators, or the Services.
+            </p>
+
+            <h4>8C. Export Controls and Sanctions</h4>
+            <p>
+              The Services may be subject to United States export control and economic sanctions laws and regulations.
+              You agree that you will not access, use, export, re-export, transfer, or provide the Services (or any related
+              technical data) in violation of applicable export controls or sanctions laws.
+            </p>
+            <p>
+              Without limiting the foregoing, you represent that you are not (i) located in, ordinarily resident in, or
+              organized under the laws of any country or region subject to comprehensive U.S. sanctions (as may change from time to time),
+              or (ii) listed on any U.S. government restricted-party list (such as the U.S. Treasury Department’s SDN List),
+              and you will not permit any such person or entity to access or use the Services.
+            </p>
+            <p>
+              We may suspend or terminate access to the Services where we reasonably determine it is required to comply with
+              export control or sanctions laws.
+            </p>
+
+            <h4>8D. Service Availability; No SLA (Unless in a Written Agreement)</h4>
+            <p>
+              The Services may be unavailable from time to time due to maintenance, updates, outages, network issues,
+              third-party dependencies, or events outside our reasonable control. We do not guarantee any minimum uptime,
+              availability, performance, or response times unless expressly stated in a separate written agreement signed
+              by Slonig (for example, an order form or service level agreement).
+            </p>
+            <p>
+              To the extent permitted by law, Slonig is not liable for unavailability, delays, or performance issues of the Services,
+              including those caused by third-party services, hosting providers, internet service providers, or user devices.
+            </p>
+
             <h3>9. Disclaimers and Limitation of Liability</h3>
 
             <p className="uppercase">
