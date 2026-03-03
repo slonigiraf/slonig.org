@@ -307,6 +307,49 @@ export default async function App() {
               school/district, if the student uses Slonig through a school).
             </p>
 
+            {/* ✅ NEW: GDPR Notice (EEA/UK Users) */}
+            <h3>10. GDPR Notice (EEA/UK Users)</h3>
+
+            <p>
+              This section applies only where the EU/EEA or UK General Data Protection
+              Regulation (“GDPR”) applies.
+            </p>
+
+            <p>
+              <strong>Controller / processor roles.</strong> When a school or district in the
+              EU/EEA or UK uses Slonig, the school or district typically acts as the{" "}
+              <strong>data controller</strong> and Slonig, Inc. acts as a{" "}
+              <strong>data processor</strong>, processing student information only on the
+              school’s instructions and for educational purposes. When Slonig is used
+              directly by a parent/guardian outside a school relationship, Slonig, Inc. may
+              act as the <strong>data controller</strong> for the personal data it processes
+              in that context.
+            </p>
+
+            <p>
+              <strong>Legal bases.</strong> Where GDPR applies, we process personal data as
+              necessary to provide the service (performance of a contract) and to operate,
+              secure, and improve the service (legitimate interests, such as maintaining
+              reliability, preventing fraud/abuse, and improving platform performance). If we
+              rely on consent for any optional features, you may withdraw consent at any time.
+            </p>
+
+            <p>
+              <strong>Your rights (EEA/UK).</strong> Subject to applicable law, you may have
+              the right to request access to, correction of, deletion of, restriction of, or
+              objection to processing of personal data, and the right to data portability.
+              Where processing is based on consent, you may withdraw consent at any time. You
+              also have the right to lodge a complaint with your local data protection
+              authority.
+            </p>
+
+            <p>
+              <strong>How to exercise rights.</strong> Contact us at{" "}
+              <a href="mailto:info@slonig.org">info@slonig.org</a>. If the student uses Slonig
+              through a school, the school or district may also submit requests on the
+              student’s behalf.
+            </p>
+
             <h3>10. COPPA Notice and Consent (Children Under 13)</h3>
             <p>
               The Children’s Online Privacy Protection Act (COPPA) requires specific disclosures and
