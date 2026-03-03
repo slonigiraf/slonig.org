@@ -18,7 +18,7 @@ type ImpressionTrackerProps = {
 export default function ImpressionTracker({
   id,
   category = "IMPRESSION",
-  action,
+  action = "VIEW",
   threshold = 0.5,
   rootMargin = "0px",
   sec = 2,
@@ -43,9 +43,9 @@ export default function ImpressionTracker({
 
     trackMatomoEvent({
       category,
-      action: "VIEW_AT_" + pathname,
-      name: id,
-      value: totalMs, // helper rounds to int
+      action,
+      name: `${pathname}: ${id}`,
+      value: totalMs,
     });
   };
 
