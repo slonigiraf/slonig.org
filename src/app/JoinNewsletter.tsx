@@ -5,13 +5,35 @@ import { Loader2, AlertCircle } from "lucide-react";
 import ImpressionTracker from "./ImpressionTracker";
 import { trackMatomoEvent } from "@/lib/matomo";
 
-type Props = {
+/**
+ * ALTCHA's JSX typing for <altcha-widget> is too strict (it doesn't accept className/aria-*),
+ * so we render it via React.createElement and cast once here.
+ */
+type AltchaWidgetProps = Omit<
+  React.HTMLAttributes<HTMLElement>,
+  "children" | "ref"
+> & {
+  id: string;
+  challengeurl: string;
+  name?: string;
+  auto?: string;
+  innerRef?: React.RefObject<HTMLElement | null>;
 };
+
+function AltchaWidget({ innerRef, className, ...rest }: AltchaWidgetProps) {
+  return React.createElement("altcha-widget", {
+    ref: innerRef as any,
+    className,
+    ...rest,
+  } as any);
+}
+
+type Props = {};
 
 // ALTCHA can also emit "expired"
 type AltchaState = "unverified" | "verifying" | "verified" | "error" | "expired";
 
-export default function JoinNewsletter({ }: Props) {
+export default function JoinNewsletter({}: Props) {
   const id = "newsletter";
   const caption = "Join Newsletter";
   const [form, setForm] = useState({ name: "", email: "" });
@@ -82,9 +104,10 @@ export default function JoinNewsletter({ }: Props) {
       }
     };
 
-    const onStateChange = (ev: any) => {
-      const state = ev?.detail?.state as AltchaState | undefined;
-      const payload = ev?.detail?.payload as string | undefined;
+    const onStateChange = (ev: Event) => {
+      const detail = (ev as CustomEvent<any>)?.detail;
+      const state = detail?.state as AltchaState | undefined;
+      const payload = detail?.payload as string | undefined;
 
       if (state) setAltchaState(state);
 
@@ -98,10 +121,11 @@ export default function JoinNewsletter({ }: Props) {
       }
     };
 
-    const onVerified = (ev: any) => {
+    const onVerified = (ev: Event) => {
       setAltchaState("verified");
 
-      const p = ev?.detail?.payload || ev?.detail?.solution || ev?.detail?.token || "";
+      const detail = (ev as CustomEvent<any>)?.detail;
+      const p = detail?.payload || detail?.solution || detail?.token || "";
 
       const payload =
         (typeof p === "string" && p.length > 0 ? p : readHiddenInput()) || "";
@@ -119,11 +143,11 @@ export default function JoinNewsletter({ }: Props) {
       setAltchaPayload("");
     };
 
-    el.addEventListener("load", onLoad as any);
-    el.addEventListener("statechange", onStateChange as any);
-    el.addEventListener("verified", onVerified as any);
-    el.addEventListener("error", onError as any);
-    el.addEventListener("expired", onExpired as any);
+    el.addEventListener("load", onLoad as EventListener);
+    el.addEventListener("statechange", onStateChange as EventListener);
+    el.addEventListener("verified", onVerified as EventListener);
+    el.addEventListener("error", onError as EventListener);
+    el.addEventListener("expired", onExpired as EventListener);
 
     // If it verified before listeners attached (rare), still pick it up:
     const existing = readHiddenInput();
@@ -133,11 +157,11 @@ export default function JoinNewsletter({ }: Props) {
     }
 
     return () => {
-      el.removeEventListener("load", onLoad as any);
-      el.removeEventListener("statechange", onStateChange as any);
-      el.removeEventListener("verified", onVerified as any);
-      el.removeEventListener("error", onError as any);
-      el.removeEventListener("expired", onExpired as any);
+      el.removeEventListener("load", onLoad as EventListener);
+      el.removeEventListener("statechange", onStateChange as EventListener);
+      el.removeEventListener("verified", onVerified as EventListener);
+      el.removeEventListener("error", onError as EventListener);
+      el.removeEventListener("expired", onExpired as EventListener);
     };
   }, [altchaLoaded, altchaId, id]);
 
@@ -157,7 +181,6 @@ export default function JoinNewsletter({ }: Props) {
     if (submitting) return;
 
     try {
-      // ✅ track "attempt" only if user has filled fields and captcha verified
       if (!form.name || !form.email) {
         setErrorText("Please fill in all fields.");
         return;
@@ -180,7 +203,7 @@ export default function JoinNewsletter({ }: Props) {
         name: form.name,
         email: form.email,
         form_id: id,
-        page,
+        page: page || window.location.pathname,
         altcha: altchaPayload,
       };
 
@@ -241,7 +264,7 @@ export default function JoinNewsletter({ }: Props) {
 
   const altchaBusy = altchaState === "verifying";
 
-  // ✅ NEW: "Verifying Data…" only when user typed something AND not yet verified
+  // "Verifying Data…" only when user typed something AND not yet verified
   const hasAnyInput = form.name.trim().length > 0 || form.email.trim().length > 0;
   const showVerifyingData = hasAnyInput && altchaState !== "verified";
 
@@ -266,10 +289,8 @@ export default function JoinNewsletter({ }: Props) {
               <form id={id} onSubmit={onSubmit} onKeyDown={preventEnterSubmit}>
                 {/* ✅ Invisible ALTCHA: verifies automatically in background */}
                 {altchaLoaded && (
-                  <altcha-widget
-                    ref={(node) => {
-                      altchaRef.current = node as any;
-                    }}
+                  <AltchaWidget
+                    innerRef={altchaRef}
                     id={altchaId}
                     challengeurl="/api/altcha-challenge"
                     name="altcha"
