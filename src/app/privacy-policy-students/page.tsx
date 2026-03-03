@@ -6,6 +6,13 @@ export default async function App() {
       {/* Policy content */}
       <section className="mx-auto w-full max-w-4xl pt-24 px-6 text-slate-900 pb-10">
         <h1 className="!text-black">Privacy Policy for Students</h1>
+        <p className="mt-8 text-[clamp(14px,1.1vw,16px)]">
+          Date of issue of this Privacy Policy for Students: 03/01/2026
+        </p>
+        <p className="mt-2 text-[clamp(14px,1.1vw,16px)]">
+          Last updated: 03/01/2026
+        </p>
+
 
         {/* ✅ force left alignment for ALL content, including headings */}
         <div className="text-left [&_*]:!text-left [&_h3]:!text-black [&_h3]:mt-10">
@@ -84,12 +91,6 @@ export default async function App() {
             DE 19904, USA
           </p>
 
-          <p>
-            <strong>Date of issue:</strong> 8/1/2026
-          </p>
-          <p>
-            <strong>Last updated:</strong> 8/1/2026
-          </p>
 
 
           <LegalList>
