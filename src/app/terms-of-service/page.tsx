@@ -1100,6 +1100,15 @@ export default async function App() {
               courts.
             </p>
 
+            {/* ✅ add this consumer carve-out */}
+            <p>
+              <strong>Consumer rights and mandatory local rules.</strong> If you are a consumer (not acting on behalf
+              of a school, district, or other organization), and the laws of your country of residence provide you
+              with mandatory consumer protections or do not allow an exclusive choice of Delaware law or Delaware
+              courts for certain disputes, then those mandatory protections (and the courts of your residence, where
+              applicable) will apply to the extent required by law.
+            </p>
+
             <h3>18. Contact Us</h3>
             <p>
               For questions or suggestions about these Terms or your personal information, please
