@@ -146,25 +146,33 @@ export default async function App() {
 
             <h4>4B. Children Under 13 and Parental Consent</h4>
             <p>
-              Slonig takes the protection of children’s privacy seriously and complies with the
-              Children’s Online Privacy Protection Act (COPPA). We do not knowingly collect, use, or
-              disclose personal information from children under the age of 13 without obtaining
-              verifiable parental consent, except where permitted by COPPA and other applicable laws.
+              Slonig takes the protection of children’s privacy seriously and is designed to minimize the
+              collection of personal information from students, including children under 13. The Services do
+              not require students to create an account, and progress and settings are typically stored locally
+              on the user’s device (for example, in browser storage).
             </p>
             <p>
-              In educational contexts where the Services are used under the school official exception
-              to COPPA, we rely on schools to obtain any necessary parental consents and to provide
-              appropriate notice to parents about the educational services being used. When we become
-              aware that we have collected personal information from a child under 13 without proper
-              authorization or parental consent, we take steps to delete such information from our
-              systems.
+              To the extent we collect or process personal information that is subject to the Children’s Online
+              Privacy Protection Act (COPPA) (for example, if a parent, educator, or school provides information
+              to us through support communications or other Service-related interactions), we do not knowingly
+              collect, use, or disclose personal information from children under 13 without verifiable parental
+              consent, except where permitted by COPPA and other applicable laws.
             </p>
             <p>
-              Parents and legal guardians may review personal information we have collected about their
-              child, request deletion of their child’s personal information, and refuse to permit
-              further collection or use of their child’s information, as applicable. Parents may
-              exercise these rights by contacting us directly or through their child’s school or
-              educational institution at <strong>info@slonig.org</strong>.
+              In educational contexts where the Services are used under COPPA’s school authorization (the “school
+              official”/school consent framework, as applicable), we rely on schools and educational institutions
+              to provide appropriate notice to parents and to obtain any required consents or authorizations.
+            </p>
+            <p>
+              If we become aware that we maintain personal information from a child under 13 in our systems
+              without proper authorization or parental consent, we will take steps to delete or de-identify it,
+              as appropriate.
+            </p>
+            <p>
+              Parents and legal guardians may request access to, correction of, or deletion of a child’s personal
+              information that we maintain in our systems (if any). These requests may be made by contacting us
+              directly, or (where the Services are provided through a school) through the child’s school or
+              educational institution, at <strong>info@slonig.org</strong>.
             </p>
 
 
