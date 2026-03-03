@@ -19,7 +19,7 @@ import Badges from "./Badges";
 import JoinProfessionals from "./JoinProfessionals";
 import OtherSubjects from "./OtherSubjects";
 import Subscribe from "./Subscribe";
-import LoadingInfo from "./LoadingInfo";
+import LoadingScreen from "./LoadingScreen";
 import { DEFAULT_PAGE_DESCRIPTION, DEFAULT_PAGE_TITLE } from "./layout";
 
 
@@ -31,7 +31,7 @@ export const metadata = {
 export default async function App() {
   return (
     <>
-      <LoadingInfo />
+      <LoadingScreen />
       <Hero />
       <WorkInPairVideo />
       <BeforeAfter />

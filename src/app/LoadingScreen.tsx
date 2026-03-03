@@ -1,7 +1,7 @@
-// LoadingInfo.tsx (Server Component)
+// LoadingScreen.tsx (Server Component)
 type Props = {};
 
-export default function LoadingInfo({}: Props) {
+export default function LoadingScreen({}: Props) {
   return (
     <>
       <div className="loading-overlay" aria-label="Loading" role="status">
