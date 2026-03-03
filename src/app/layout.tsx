@@ -18,10 +18,10 @@ const geistMono = Geist_Mono({
 // Change to your real domain:
 const siteUrl = "https://slonig.org";
 const siteName = "Slonig";
-const defaultTitle = "Online Math Programs for Students";
+const defaultTitle = "Math Intervention Program for Students";
 const title = `${defaultTitle} | ${siteName}`;
 const description =
-  "Discover Engaging Online Math Programs For Students With Slonig. Foster Academic Growth &amp; Success With Our Platform Today!";
+  "Discover Math Intervention Program For Students. Reach 70%+ Math Proficiency Schoolwide!";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -61,9 +61,9 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: "/effect-size-full.svg",
-        width: 625,
-        height: 315,
+        url: "/socials.png",
+        width: 1200,
+        height: 628,
         alt: "Reach 70% + Math Proficiency Schoolwide with Slonig!",
       },
     ],
@@ -74,7 +74,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title,
     description,
-    images: ["/effect-size-full.svg"],
+    images: ["/socials.png"],
     site: "@denslon_eng",
   },
   icons: {
