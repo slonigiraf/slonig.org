@@ -66,7 +66,7 @@ export default async function App() {
               including intellectual property rights, or that incites or facilitates such violations.
             </p>
 
-            <h3>2. Customer Accounts</h3>
+            <h3>2. Access Without an Account</h3>
             <p>
               You do not need to create an account to use the Services.
               Slonig does not provide traditional registration or login.
