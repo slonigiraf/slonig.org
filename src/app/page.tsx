@@ -13,7 +13,7 @@ import TeacherWork from "./TeacherWork";
 import SlonigFeatures from "./SlonigFeatures";
 import Assessments from "./Assessments";
 import Diagnostics from "./Diagnostics";
-import ThinkPairShareComparison from "./ThinkPairShareComparison";
+import PeerLearningComparison from "./PeerLearningComparison";
 import CurriculumAlignment from "./CurriculumAlignment";
 import Badges from "./Badges";
 import JoinProfessionals from "./JoinProfessionals";
@@ -31,11 +31,17 @@ export const metadata = {
 export default async function App() {
   return (
     <>
+    
       <LoadingScreen />
+
       <Hero />
+
       <WorkInPairVideo />
+
       <BeforeAfter />
+
       <Collaboration />
+
       <QuoteCarousel
         title="Students Say"
         quotes={[
@@ -44,8 +50,11 @@ export default async function App() {
           { text: "I like that I can learn with friends.", byline: "Student, 9th grade" },
         ]}
       />
+
       <EffectSize />
+
       <StableQuality />
+
       <QuoteCarousel
         title="Educators Say"
         quotes={[
@@ -56,9 +65,13 @@ export default async function App() {
           { text: "As a computer science professor and education researcher focused on peer instruction and technology-enhanced pedagogy, I appreciate Slonig’s commitment to strengthening human-to-human learning rather than replacing it with AI.", byline: "Steve Geinitz, Associate Professor, Metropolitan State University of Denver" },
         ]}
       />
+
       <RequestDemo id="after_efficiency" caption="Request a Demo" />
+
       <LessonIntegration />
+
       <HowSlonigWorks />
+      
       <TeacherWork />
 
       <QuoteCarousel
@@ -86,7 +99,8 @@ export default async function App() {
           },
         ]}
       />
-      <ThinkPairShareComparison />
+
+      <PeerLearningComparison />
 
       <QuoteCarousel
         title="Researchers Say"
@@ -100,21 +114,32 @@ export default async function App() {
       />
 
       <RequestDemo id="after_researchers_testimonials" caption="Request a Demo" />
+
       <SlonigFeatures />
+
       <Assessments />
+
       <Diagnostics />
+
       <QuoteCarousel
         title="Principals Say"
         quotes={[
           { text: "I’ve never seen anything similar to Slonig. Data looks fabulous!", byline: "Brenton DeFlitch, Principal, Wonderful College Prep Academy, CA" },
         ]}
       />
+
       <ValueStack />
+
       <RequestDemo id="after_roi" caption="Request a Demo" />
+
       <CurriculumAlignment />
+
       <Badges />
+
       <JoinProfessionals />
+
       <OtherSubjects />
+
       <Subscribe id={"newsletter"} caption={"Join Newsletter"} />
 
     </>

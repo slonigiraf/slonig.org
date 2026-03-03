@@ -29,10 +29,10 @@ const ROWS: ListWithIconsRow[] = [
   },
 ];
 
-export default function ThinkPairShareComparison({}: Props) {
+export default function PeerLearningComparison({}: Props) {
   return (
     <section className="relative w-full text-slate-900">
-      <ImpressionTracker id={"ThinkPairShareComparison"} />
+      <ImpressionTracker id={"PeerLearningComparison"} />
       <h2>How Slonig differs from other peer-learning approaches</h2>
       <ListWithIcons rows={ROWS} />
     </section>
