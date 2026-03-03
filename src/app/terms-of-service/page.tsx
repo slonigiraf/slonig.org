@@ -764,8 +764,22 @@ export default async function App() {
 
             <h3>11. Notices</h3>
             <p>
-              We may provide notices to you via email, posting, or website announcements. The Services
-              may also display notices of changes to these Terms or other matters.
+              <strong>Primary notice method.</strong> Because the Services do not require accounts and we may not have
+              your email address, we primarily provide notices by posting them in the Services (including in-product
+              messages, banners, or notices on relevant pages) and/or on our website.{" "}
+              <strong>Notice is effective when posted</strong> in the Services or on the website, unless a later effective
+              date is stated.
+            </p>
+            <p>
+              <strong>Email is supplemental.</strong> If you have provided an email address for Service-related
+              communications (for example, in connection with paid Services, support, or training), we may also send
+              notices by email as a courtesy. We are not able to provide email notice to users for whom we do not have
+              a current email address, and you are responsible for keeping any provided contact information up to date.
+            </p>
+            <p>
+              <strong>Institutional customers.</strong> If you are a school, district, or other organization with a paid
+              order form, statement of work, or similar written agreement, notices under that agreement may be delivered
+              in the manner specified there (for example, to designated administrative contacts).
             </p>
 
             <h3>12. Copyright and DMCA Policy</h3>
