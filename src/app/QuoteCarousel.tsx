@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useCallback, useMemo, useRef, useState } from "react";
+import ImpressionTracker from "./ImpressionTracker";
 
 type Quote = {
   text: string;
@@ -117,6 +118,7 @@ export default function QuoteCarousel({
 
   return (
     <section className="relative w-full text-slate-900">
+      <ImpressionTracker id={title} />
       <h2>{title}</h2>
       <div className="mx-auto w-full max-w-6xl px-6">
         <div

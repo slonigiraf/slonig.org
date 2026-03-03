@@ -1,4 +1,3 @@
-import Navbar from "./Navbar";
 import Hero from "./Hero";
 import WorkInPairVideo from "./WorkInPairVideo";
 import BeforeAfter from "./BeforeAfter";
@@ -21,7 +20,6 @@ import JoinProfessionals from "./JoinProfessionals";
 import OtherSubjects from "./OtherSubjects";
 import Subscribe from "./Subscribe";
 import LoadingInfo from "./LoadingInfo";
-import ImpressionTracker from "./ImpressionTracker";
 
 
 export const metadata = {
@@ -37,7 +35,6 @@ export default async function App() {
       <WorkInPairVideo />
       <BeforeAfter />
       <Collaboration />
-      <ImpressionTracker id={"students_say"} />
       <QuoteCarousel
         title="Students Say"
         quotes={[

@@ -31,8 +31,8 @@ function isLocalhost() {
 
 export default function ImpressionTracker({
   id,
-  category = "Impression",
-  action = "view",
+  category = "IMPRESSION",
+  action = "VIEW",
   threshold = 0.5,
   rootMargin = "0px",
   children,
