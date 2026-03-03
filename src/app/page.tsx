@@ -2,7 +2,7 @@ import Hero from "./Hero";
 import WorkInPairVideo from "./WorkInPairVideo";
 import BeforeAfter from "./BeforeAfter";
 import Collaboration from "./Collaboration";
-import QuoteCarousel from "./QuoteCarousel";
+import Testimonial from "./Testimonial";
 import EffectSize from "./EffectSize";
 import StableQuality from "./StableQuality";
 import RequestDemo from "./RequestDemo";
@@ -19,9 +19,8 @@ import Badges from "./Badges";
 import JoinProfessionals from "./JoinProfessionals";
 import OtherSubjects from "./OtherSubjects";
 import LoadingScreen from "./LoadingScreen";
-import { DEFAULT_PAGE_DESCRIPTION, DEFAULT_PAGE_TITLE } from "./layout";
 import JoinNewsletter from "./JoinNewsletter";
-
+import { DEFAULT_PAGE_DESCRIPTION, DEFAULT_PAGE_TITLE } from "./layout";
 
 export const metadata = {
   title: DEFAULT_PAGE_TITLE,
@@ -42,7 +41,7 @@ export default async function App() {
 
       <Collaboration />
 
-      <QuoteCarousel
+      <Testimonial
         title="Students Say"
         quotes={[
           { text: "I could talk with my favorite classmates, everything somehow sticks in memory more easily.", byline: "Student, 10th grade", },
@@ -55,7 +54,7 @@ export default async function App() {
 
       <StableQuality />
 
-      <QuoteCarousel
+      <Testimonial
         title="Educators Say"
         quotes={[
           { text: "As opposed to many apps which foster interaction and engagement with the technology itself, Slonig fosters interaction and engagement between the learners themselves. As such, this app can help create learner-centered classrooms where learners learn from each other as they take turns adopting the roles of tutor and learner.", byline: "Lee Mackenzie, Senior Lecturer in Education, Liverpool Hope University" },
@@ -74,7 +73,7 @@ export default async function App() {
       
       <TeacherWork />
 
-      <QuoteCarousel
+      <Testimonial
         title="Teachers Say"
         quotes={[
           {
@@ -102,7 +101,7 @@ export default async function App() {
 
       <PeerLearningComparison />
 
-      <QuoteCarousel
+      <Testimonial
         title="Researchers Say"
         quotes={[
           {
@@ -121,7 +120,7 @@ export default async function App() {
 
       <Diagnostics />
 
-      <QuoteCarousel
+      <Testimonial
         title="Principals Say"
         quotes={[
           { text: "I’ve never seen anything similar to Slonig. Data looks fabulous!", byline: "Brenton DeFlitch, Principal, Wonderful College Prep Academy, CA" },

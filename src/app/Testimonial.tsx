@@ -20,7 +20,7 @@ type Props = {
   heightClassName?: string;
 };
 
-export default function QuoteCarousel({
+export default function Testimonial({
   title,
   quotes,
   initialIndex = 0,
@@ -118,7 +118,7 @@ export default function QuoteCarousel({
 
   return (
     <section className="relative w-full text-slate-900">
-      <ImpressionTracker id={title} />
+      <ImpressionTracker id={`Testimonial: ${title}`} />
       <h2>{title}</h2>
       <div className="mx-auto w-full max-w-6xl px-6">
         <div
