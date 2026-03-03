@@ -4,24 +4,12 @@ import { useEffect, useMemo, useRef } from "react";
 import { usePathname } from "next/navigation";
 
 type ImpressionTrackerProps = {
-  /** Your internal ID for what was seen (e.g. "hero", "pricing_card_2") */
   id: string;
-
-  /** Matomo event category/action */
   category?: string;
   action?: string;
-
-  /** How much must be visible to count (0.5 = 50%) */
   threshold?: number;
   rootMargin?: string;
-
-  /**
-   * Minimum qualified time (in seconds) required before we report on exit.
-   * If total qualified time < sec, we won't send.
-   */
   sec?: number;
-
-  children?: React.ReactNode;
 };
 
 declare global {
@@ -39,11 +27,8 @@ function isLocalhost() {
 /** "/" -> "index", "/legal/privacy-policy" -> "legal/privacy-policy" */
 function pageIdFromPathname(pathname: string | null | undefined) {
   if (!pathname || pathname === "/") return "index";
-
-  // (pathname from usePathname() normally has no ?/#, but keep it robust)
   const clean = pathname.split("?")[0]?.split("#")[0] ?? "/";
   const parts = clean.split("/").filter(Boolean);
-
   return parts.length ? parts.join("/") : "index";
 }
 
@@ -54,31 +39,22 @@ export default function ImpressionTracker({
   threshold = 0.5,
   rootMargin = "0px",
   sec = 2,
-  children,
 }: ImpressionTrackerProps) {
-  const ref = useRef<HTMLDivElement | null>(null);
+  // Marker inside the parent you want to track
+  const markerRef = useRef<HTMLSpanElement | null>(null);
 
   const pathname = usePathname();
-
-  // Default action = current page id (unless action prop provided)
   const actionResolved = useMemo(() => {
     return action ?? pageIdFromPathname(pathname);
   }, [action, pathname]);
 
-  // Are we currently qualified in-view (>= threshold)?
   const inViewRef = useRef(false);
-
-  // Timestamp when we entered qualified view (ms)
   const startMsRef = useRef<number | null>(null);
-
-  // Accumulated qualified time (ms) for the current session
   const totalMsRef = useRef(0);
 
   const sendOnExit = () => {
     const totalMs = totalMsRef.current;
     const totalSec = totalMs / 1000;
-
-    // Apply minimum dwell-time filter
     if (totalSec < sec) return;
 
     if (isLocalhost()) {
@@ -93,30 +69,28 @@ export default function ImpressionTracker({
     }
 
     if (typeof window !== "undefined" && Array.isArray(window._paq)) {
-      // Matomo: trackEvent(category, action, name, value)
-      // value should be an integer; we send milliseconds.
       window._paq.push(["trackEvent", category, actionResolved, id, totalMs]);
     }
   };
 
   const closeSession = () => {
-    // If we were in-view, add the last segment
     if (inViewRef.current && startMsRef.current !== null) {
       totalMsRef.current += Date.now() - startMsRef.current;
     }
 
-    // Send on exit (if >= sec)
     sendOnExit();
 
-    // Reset for next session
     inViewRef.current = false;
     startMsRef.current = null;
     totalMsRef.current = 0;
   };
 
   useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
+    const marker = markerRef.current;
+    const parent = marker?.parentElement;
+
+    // Nothing to observe (rare, but guard)
+    if (!parent) return;
 
     const io = new IntersectionObserver(
       (entries) => {
@@ -126,14 +100,12 @@ export default function ImpressionTracker({
         const qualified =
           entry.isIntersecting && entry.intersectionRatio >= threshold;
 
-        // Enter qualified view
         if (!inViewRef.current && qualified) {
           inViewRef.current = true;
           startMsRef.current = Date.now();
           return;
         }
 
-        // Leave qualified view (exit)
         if (inViewRef.current && !qualified) {
           closeSession();
         }
@@ -141,14 +113,14 @@ export default function ImpressionTracker({
       { threshold, rootMargin }
     );
 
-    io.observe(el);
+    io.observe(parent);
 
     return () => {
-      // If component unmounts while still in view, treat it as an exit
       if (inViewRef.current) closeSession();
       io.disconnect();
     };
   }, [id, category, actionResolved, threshold, rootMargin, sec]);
 
-  return <div ref={ref}>{children}</div>;
+  // Invisible marker; still exists in DOM so we can find parentElement.
+  return <span ref={markerRef} style={{ display: "none" }} aria-hidden="true" />;
 }
