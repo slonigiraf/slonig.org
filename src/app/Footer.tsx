@@ -110,7 +110,7 @@ export default function Footer({
                   </Link>
                 </li>
                 <li>
-                  <Link className="hover:underline" href="/terms">
+                  <Link className="hover:underline" href="/terms-of-service">
                     Terms of service
                   </Link>
                 </li>

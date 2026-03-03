@@ -20,11 +20,13 @@ import Badges from "./Badges";
 import JoinProfessionals from "./JoinProfessionals";
 import OtherSubjects from "./OtherSubjects";
 import Subscribe from "./Subscribe";
+import LoadingInfo from "./LoadingInfo";
 
 
 export default async function App() {
   return (
     <>
+      <LoadingInfo />
       <Hero />
       <WorkInPairVideo />
       <BeforeAfter />
@@ -109,7 +111,7 @@ export default async function App() {
       <JoinProfessionals />
       <OtherSubjects />
       <Subscribe id={"newsletter"} caption={"Join Newsletter"} />
-      
+
     </>
   );
 }

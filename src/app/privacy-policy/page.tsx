@@ -1,5 +1,4 @@
-import { Link } from "lucide-react";
-import Navbar from "../Navbar";
+import LegalDiv from "../LegalDiv";
 
 export default async function App() {
   return (
@@ -12,27 +11,7 @@ export default async function App() {
         {/* ✅ force left alignment for ALL content, including headings */}
         <div className="text-left [&_*]:!text-left">
           {/* ✅ Tailwind-only policy typography overrides */}
-          <div
-            className={[
-              "prose prose-slate mt-10 max-w-none text-left",
-
-              // force all headings black + consistent weight/letter-spacing
-              "[&_:is(h1,h2,h3,h4,h5,h6)]:!text-black",
-              "[&_:is(h1,h2,h3,h4,h5,h6)]:!tracking-tight",
-              "[&_:is(h1,h2,h3)]:!font-extrabold",
-              "[&_:is(h4,h5,h6)]:!font-bold",
-
-              // sizes + line heights
-              "[&h2]:text-[clamp(24px,2.4vw,34px)] [&h2]:leading-[1.15]",
-              "[&h3]:text-[clamp(18px,1.6vw,22px)] [&h3]:leading-[1.2]",
-              "[&h4]:text-[16px] [&h4]:leading-[1.25]",
-
-              // spacing rules
-              "[&_:is(h2,h3,h4)]:!mb-2",
-              "[&_:is(h2,h3,h4)]:!mt-5",
-
-            ].join(" ")}
-          >
+          <LegalDiv>
 
             <p className="mt-8 text-[clamp(14px,1.1vw,16px)]">
               Date of issue of this Privacy Policy: 03/01/2026
@@ -394,7 +373,7 @@ export default async function App() {
               <strong>Address:</strong> Slonig, Inc., 1111B S Governors Ave STE 48458,
               Dover, DE 19904, USA
             </p>
-          </div>
+          </LegalDiv>
         </div>
       </section>
     </>

@@ -1,3 +1,4 @@
+import LegalList from "../LegalList";
 
 export default async function App() {
   return (
@@ -91,7 +92,7 @@ export default async function App() {
           </p>
 
 
-          <ol className="policy-ol">
+          <LegalList>
             <li><h3>Who This Policy Applies To</h3>
               <p>This policy applies to students who use Slonig through:</p>
               <ul className="list-disc pl-5">
@@ -588,7 +589,7 @@ export default async function App() {
                 the terms that provide greater protection for student privacy will apply.
               </p>
             </li>
-          </ol>
+          </LegalList>
         </div>
       </section>
     </>
