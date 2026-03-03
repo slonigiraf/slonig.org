@@ -68,7 +68,7 @@ export default function Footer({
           {/* Left */}
           <div>
             {/* named-logo.svg (forced to white) */}
-            <MatomoLink trackName="/" href="/" className="inline-flex items-center">
+            <MatomoLink trackName="footer_index" href="/" className="inline-flex items-center">
               <Image
                 src="/named-logo.svg"
                 alt="Slonig"
@@ -98,22 +98,22 @@ export default function Footer({
             <nav className="mt-5">
               <ul className="space-y-3 leading-snug text-white">
                 <li>
-                  <MatomoLink trackName="request_demo" className="hover:underline" href={APPOINTMENT_URL} target="_blank" rel="noreferrer">
+                  <MatomoLink trackName="footer_request_demo" className="hover:underline" href={APPOINTMENT_URL} target="_blank" rel="noreferrer">
                     Request a demo
                   </MatomoLink>
                 </li>
                 <li>
-                  <MatomoLink trackName="privacy_policy" className="hover:underline" href="/privacy-policy">
+                  <MatomoLink trackName="footer_privacy_policy" className="hover:underline" href="/privacy-policy">
                     Privacy policy
                   </MatomoLink>
                 </li>
                 <li>
-                  <MatomoLink trackName="privacy_policy_for_students" className="hover:underline" href="/privacy-policy-students">
+                  <MatomoLink trackName="footer_privacy_policy_for_students" className="hover:underline" href="/privacy-policy-students">
                     Privacy policy for students
                   </MatomoLink>
                 </li>
                 <li>
-                  <MatomoLink trackName="terms_of_service" className="hover:underline" href="/terms-of-service">
+                  <MatomoLink trackName="footer_terms_of_service" className="hover:underline" href="/terms-of-service">
                     Terms of service
                   </MatomoLink>
                 </li>
