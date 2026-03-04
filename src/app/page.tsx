@@ -21,6 +21,7 @@ import OtherSubjects from "./OtherSubjects";
 import LoadingScreen from "./LoadingScreen";
 import JoinNewsletter from "./JoinNewsletter";
 import { DEFAULT_PAGE_DESCRIPTION, DEFAULT_PAGE_TITLE } from "./layout";
+import ForEnglishLearners from "./ForEnglishLearners";
 
 export const metadata = {
   title: DEFAULT_PAGE_TITLE,
@@ -40,6 +41,8 @@ export default async function App() {
       <BeforeAfter />
 
       <Collaboration />
+
+      <ForEnglishLearners />
 
       <Testimonial
         title="Students Say"
@@ -70,7 +73,7 @@ export default async function App() {
       <LessonIntegration />
 
       <HowSlonigWorks />
-      
+
       <TeacherWork />
 
       <Testimonial
