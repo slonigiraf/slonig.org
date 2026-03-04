@@ -23,7 +23,9 @@ const MATOMO_LOG_ONLY =
  * - If value is provided: it will be rounded to an integer (Matomo prefers integers)
  */
 export function trackMatomoEvent({ category, action, name, value }: MatomoEvent) {
+  
   if (typeof window === "undefined") return;
+  window._paq = window._paq || [];
 
   const payload: any[] = ["trackEvent", category, action];
 
@@ -43,7 +45,5 @@ export function trackMatomoEvent({ category, action, name, value }: MatomoEvent)
     return;
   }
 
-  if (Array.isArray(window._paq)) {
-    window._paq.push(payload);
-  }
+  window._paq.push(payload);
 }
