@@ -141,7 +141,7 @@ const FEATURED_ALIGNMENT: Record<GradeKey, string[]> = {
     "Expressions and equations (one-variable)",
     "Area of triangles and parallelograms",
     "Statistical variability (dot plots, histograms, box plots)",
-    "Negative numbers on the number line",
+    "Percents",
     "Negative numbers on the number line",
   ],
   7: [
