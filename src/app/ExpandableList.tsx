@@ -101,7 +101,7 @@ export default function ExpandableList({
 
                 {(text || node) && (
                   <div className={expandedCellClassName}>
-                    <div className={`grid ${gridCols}`}>
+                    <div>
                       <div aria-hidden="true" />
                       <div aria-hidden="true" className={hasIcon ? "" : "w-[5px]"} />
 
