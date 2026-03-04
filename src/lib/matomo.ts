@@ -23,7 +23,7 @@ const MATOMO_LOG_ONLY =
  * - If value is provided: it will be rounded to an integer (Matomo prefers integers)
  */
 export function trackMatomoEvent({ category, action, name, value }: MatomoEvent) {
-  
+
   if (typeof window === "undefined") return;
   window._paq = window._paq || [];
 
@@ -36,12 +36,8 @@ export function trackMatomoEvent({ category, action, name, value }: MatomoEvent)
 
   // ✅ replace isLocalhost() with env flag
   if (MATOMO_LOG_ONLY) {
-    // eslint-disable-next-line no-console
-    const log: Record<string, unknown> = { category, action };
-    if (name != null) log.name = name;
-    if (roundedValue != null) log.value = roundedValue;
-
-    console.log("[Matomo trackEvent]", log);
+    const isValueDefined = roundedValue !== null && roundedValue !== undefined;
+    console.log(`EVENT: ${category} - ${action}${name ? ' - ' + name : ''}${isValueDefined ? ' - ' + roundedValue : ''}`);
     return;
   }
 
