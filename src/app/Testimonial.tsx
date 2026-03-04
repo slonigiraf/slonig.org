@@ -1,7 +1,9 @@
 "use client";
 
-import React, { useCallback, useMemo, useRef, useState } from "react";
+import React, { useCallback, useMemo, useRef, useState, useEffect } from "react";
 import ImpressionTracker from "./ImpressionTracker";
+import { trackMatomoEvent } from "@/lib/matomo";
+import { usePathname } from "next/navigation";
 
 type Quote = {
   text: string;
@@ -9,7 +11,7 @@ type Quote = {
 };
 
 type Props = {
-  title: string,
+  title: string;
   quotes: Quote[];
   initialIndex?: number;
   className?: string;
@@ -18,6 +20,9 @@ type Props = {
   bgClassName?: string;
   textClassName?: string;
   heightClassName?: string;
+
+  // Tracking options
+  trackInitial?: boolean; // default false
 };
 
 export default function Testimonial({
@@ -28,7 +33,9 @@ export default function Testimonial({
   bgClassName = "bg-[var(--primary-color)]",
   textClassName = "text-white",
   heightClassName = "",
+  trackInitial = false,
 }: Props) {
+  const pathname = usePathname();
   const safeQuotes = quotes?.length ? quotes : [{ text: "Add a quote here…" }];
 
   const [active, setActive] = useState(() => {
@@ -45,6 +52,34 @@ export default function Testimonial({
   const prev = useCallback(() => goTo(active - 1), [active, goTo]);
 
   const q = safeQuotes[active];
+
+  // --- Track quote changes (covers dots + swipe + buttons) ---
+  const didMountRef = useRef(false);
+
+  useEffect(() => {
+    // Skip initial render unless explicitly enabled
+    if (!didMountRef.current) {
+      didMountRef.current = true;
+      if (!trackInitial) return;
+    }
+
+    const byline = q.byline
+      ? q.byline
+        .trim()
+        .split(/\s+/)
+        .slice(0, 2)
+        .join(" ")
+        .replace(/[.,]+$/, "") // remove trailing commas/dots
+      : "";
+
+    trackMatomoEvent({
+      category: "TESTIMONIAL",
+      action: "CHANGE_QUOTE",
+      name: `${pathname}: ${title} | ${byline}`,
+      value: active + 1,
+    });
+  }, [active, q.byline, safeQuotes.length, title, trackInitial]);
+  // --- end tracking ---
 
   const dots = useMemo(() => {
     return safeQuotes.map((_, i) => (
@@ -66,20 +101,14 @@ export default function Testimonial({
     startX: number;
     startY: number;
     active: boolean;
-    locked: boolean; // locks to horizontal once we detect intent
+    locked: boolean;
   }>({ startX: 0, startY: 0, active: false, locked: false });
 
-  const SWIPE_PX = 40; // threshold
+  const SWIPE_PX = 40;
 
   const onPointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
-    // only primary pointer
     if (e.pointerType === "mouse") return;
-    swipe.current = {
-      startX: e.clientX,
-      startY: e.clientY,
-      active: true,
-      locked: false,
-    };
+    swipe.current = { startX: e.clientX, startY: e.clientY, active: true, locked: false };
   };
 
   const onPointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
@@ -88,16 +117,13 @@ export default function Testimonial({
     const dx = e.clientX - swipe.current.startX;
     const dy = e.clientY - swipe.current.startY;
 
-    // Decide if gesture is horizontal; then prevent vertical page scroll while swiping.
     if (!swipe.current.locked) {
       if (Math.abs(dx) > 10 || Math.abs(dy) > 10) {
         swipe.current.locked = Math.abs(dx) > Math.abs(dy);
       }
     }
 
-    if (swipe.current.locked) {
-      e.preventDefault(); // requires touchAction: "pan-y" below
-    }
+    if (swipe.current.locked) e.preventDefault();
   };
 
   const onPointerUp = (e: React.PointerEvent<HTMLDivElement>) => {
@@ -108,7 +134,6 @@ export default function Testimonial({
 
     swipe.current.active = false;
 
-    // Only trigger if it was mostly horizontal
     if (Math.abs(dx) < Math.abs(dy)) return;
 
     if (dx <= -SWIPE_PX) next();
@@ -120,6 +145,7 @@ export default function Testimonial({
     <section className="relative w-full text-slate-900">
       <ImpressionTracker id={`Testimonial: ${title}`} />
       <h2>{title}</h2>
+
       <div className="mx-auto w-full max-w-6xl px-6">
         <div
           className={[
@@ -129,14 +155,12 @@ export default function Testimonial({
             bgClassName,
             className,
           ].join(" ")}
-          // Allow horizontal swipe gestures without killing vertical scroll
           style={{ touchAction: "pan-y" }}
           onPointerDown={onPointerDown}
           onPointerMove={onPointerMove}
           onPointerUp={onPointerUp}
           onPointerCancel={() => (swipe.current.active = false)}
         >
-          {/* Big quote marks */}
           <div
             aria-hidden="true"
             className="pointer-events-none absolute left-10 top-3 -translate-x-1/4 -translate-y-1/4 text-white opacity-95"
@@ -153,14 +177,8 @@ export default function Testimonial({
             ”
           </div>
 
-          {/* Content */}
           <div className="relative z-10 flex h-full flex-col items-center justify-center text-center">
-            <p
-              className={[
-                "max-w-4xl font-semibold tracking-tight",
-                textClassName,
-              ].join(" ")}
-            >
+            <p className={["max-w-4xl font-semibold tracking-tight", textClassName].join(" ")}>
               “{q.text}”
             </p>
 
@@ -170,10 +188,10 @@ export default function Testimonial({
               </p>
             ) : null}
 
-            {/* Dots */}
-            {dots.length > 1 && <div className="mt-8 flex items-center justify-center gap-2">{dots}</div>}
+            {dots.length > 1 && (
+              <div className="mt-8 flex items-center justify-center gap-2">{dots}</div>
+            )}
 
-            {/* Optional prev/next (hidden but accessible) */}
             <div className="sr-only">
               <button type="button" onClick={prev}>
                 Previous
