@@ -74,7 +74,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: DEFAULT_PAGE_TITLE,
     description: DEFAULT_PAGE_DESCRIPTION,
-    images: ["/socials.png"],
+    images: ["https://slonig.org/socials.png"],
     site: "@denslon_eng",
   },
   icons: {
