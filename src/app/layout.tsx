@@ -69,8 +69,8 @@ export const metadata: Metadata = {
     ],
   },
 
-  other: {
-    "fb:app_id": "916009531387575",
+  facebook: {
+    appId: "916009531387575",
   },
 
   // Twitter/X
