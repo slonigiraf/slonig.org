@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: "/socials.png",
+        url: "https://slonig.org/socials.png",
         width: 1200,
         height: 628,
         alt: "Reach 70% + Math Proficiency Schoolwide with Slonig!",
