@@ -99,9 +99,6 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <meta name="msapplication-TileImage" content="/icon-270x270.png" />
-        <link rel="preload" as="image" href="/named-logo.svg" />
-        <link rel="preload" as="image" href="/work-in-pair.jpg" />
-        <link rel="preload" as="image" href="/evidence.png" />
       </head>
       {/* Matomo Tracking */}
       <Script id="matomo" strategy="afterInteractive">
