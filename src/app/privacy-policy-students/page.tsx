@@ -3,8 +3,8 @@ import MatomoAnchor from "../MatomoAnchor";
 import MatomoLink from "../MatomoLink";
 
 export const metadata = {
-  title: "Privacy Policy for Students | Slonig",
-  description: "Privacy Policy for Students | Slonig",
+  title: "Privacy Policy for Students",
+  description: "Privacy Policy for Students",
 };
 
 export default async function App() {

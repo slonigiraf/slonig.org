@@ -3,8 +3,8 @@ import MatomoLink from "../MatomoLink";
 import Navbar from "../Navbar";
 
 export const metadata = {
-  title: "Terms of Service | Slonig",
-  description: "Terms of Service | Slonig",
+  title: "Terms of Service",
+  description: "Terms of Service",
 };
 
 export default async function App() {
