@@ -39,14 +39,21 @@ export default function ImpressionTracker({
     const totalMs = totalMsRef.current;
     const totalSec = totalMs / 1000;
 
-    if (totalSec < sec) return;
-
-    trackMatomoEvent({
-      category,
-      action,
-      name: `${pathname}: ${id}`,
-      value: totalMs,
-    });
+    if (totalSec >= sec) {
+      trackMatomoEvent({
+        category,
+        action,
+        name: `${pathname}: ${id}`,
+        value: totalMs,
+      });
+    } else {
+      trackMatomoEvent({
+        category,
+        action: "SCROLL",
+        name: `${pathname}: ${id}`,
+        value: totalMs,
+      });
+    }
   };
 
   const closeSession = () => {
